@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>民間企業様向けサービス | kintone導入・活用支援 | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="中小企業の業務改善を支援するkintone導入・活用サービス。Excel管理の限界、情報の分散、非効率な業務フロー──課題解決をご支援します。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/common.css">
+
+    <style>
+        /* ==================== ページ固有の上書き ==================== */
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--mid-blue);
+        }
+
+        .dropdown-menu a.active {
+            background: var(--pale-yellow);
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* ==================== ファーストビュー ==================== */
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+
+        .hero-content h2 {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--mid-blue);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .visual-before,
+        .visual-after {
+            position: absolute;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .visual-before {
+            background: linear-gradient(135deg, #666 0%, #444 100%);
+            color: var(--white);
+            width: 280px;
+            height: 240px;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .visual-after {
+            background: linear-gradient(135deg, var(--mid-blue) 0%, #0088CC 100%);
+            color: var(--white);
+            width: 280px;
+            height: 240px;
+            bottom: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .visual-label {
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        .visual-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .visual-items {
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .visual-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            color: var(--kintone-yellow);
+            z-index: 3;
+        }
+
+        /* ==================== 共感ゾーン ==================== */
+        .pain-section {
+            background: var(--light-gray);
+        }
+
+        .pain-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .pain-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .pain-card i {
+            font-size: 48px;
+            color: var(--mid-blue);
+            margin-bottom: 20px;
+        }
+
+        .pain-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .pain-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .pain-closing {
+            text-align: center;
+            padding: 50px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .pain-closing p {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* ==================== サービス内容 ==================== */
+        .service-section {
+            background: var(--white);
+        }
+
+        /* タイムラインステップ */
+        .step-timeline {
+            position: relative;
+            padding: 60px 0;
+            margin-bottom: 80px;
+        }
+
+        .step-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--kintone-yellow) 0%, var(--mid-blue) 100%);
+        }
+
+        .step-items {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .step-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 5px solid var(--kintone-yellow);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(255, 203, 5, 0.3);
+        }
+
+        .step-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: center;
+        }
+
+        .service-block {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 60px 50px;
+            margin-bottom: 50px;
+        }
+
+        .service-block h3 {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-cards-four {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 35px 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .service-price {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--mid-blue);
+            margin-bottom: 20px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-card li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .service-card li::before {
+            content: '\2022\00a0';
+            color: var(--mid-blue);
+            font-weight: 700;
+            margin-right: 5px;
+        }
+
+        .service-target {
+            background: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .service-target strong {
+            display: block;
+            font-size: 12px;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .service-target p {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .step0-highlight {
+            background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF9E6 100%);
+            border: 2px solid var(--kintone-yellow);
+            padding: 50px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+
+        .step0-highlight h3 {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .step0-highlight p {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .step0-price {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--navy);
+            margin: 20px 0;
+        }
+
+        /* ==================== 導入事例 ==================== */
+        .cases-section {
+            background: var(--light-gray);
+        }
+
+        .case-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .case-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-header {
+            background: var(--mid-blue);
+            color: var(--white);
+            padding: 25px;
+            text-align: center;
+        }
+
+        .case-header i {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .case-industry {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .case-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .case-body {
+            padding: 30px;
+        }
+
+        .case-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--mid-blue);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .case-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .case-body p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .case-results {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .case-result-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--pale-yellow);
+            border-radius: 6px;
+        }
+
+        .case-result-item i {
+            color: var(--kintone-yellow);
+            font-size: 18px;
+        }
+
+        .case-result-item span {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .case-comment {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .case-comment p {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .case-comment cite {
+            font-size: 12px;
+            color: var(--text-gray);
+            font-style: normal;
+        }
+
+        /* ==================== クロージング ==================== */
+        .closing-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #004080 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .closing-section .section-title {
+            color: var(--white);
+            font-size: 36px;
+        }
+
+        .closing-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        .closing-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* ==================== レスポンシブ ==================== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .service-cards,
+            .service-cards-four {
+                grid-template-columns: 1fr;
+            }
+
+            .case-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content h2 {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .pain-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .step-timeline::before {
+                display: none;
+            }
+
+            .step-items {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .closing-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
+                    <img src="../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                </a>
+                <span class="logo-badge">kintoneパートナー</span>
+            </div>
+            
+            <nav class="nav" aria-label="メインナビゲーション">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link active">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html" class="active">民間企業様向け</a></li>
+                            <li><a href="../public/index.html">自治体様向け</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../cases/index.html" class="nav-link">導入事例</a></li>
+                    <li><a href="../column/index.html" class="nav-link">コラム</a></li>
+                    <li><a href="../company/index.html" class="nav-link">会社概要</a></li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <a href="../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                </div>
+            </nav>
+            
+            <div class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ==================== ファーストビュー ==================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>「ITは苦手」という現場ほど、kintoneで劇的に変わります。</h1>
+                    <h2>丸投げではなく、一緒に育てる導入サポート</h2>
+                    <p>
+                        kintoneは、パソコンが得意でないスタッフさんでも主役になれるシステムです。<br>
+                        業務の整理からスタートし、「これなら私でも使える！」と笑顔になるまで、私たちがしっかりサポートします。<br>
+                        「ITのことはよくわからない」という会社様こそ、私たちが最もお力になれるお客様です。
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="../contact/index.html" class="btn btn-primary btn-large">お問い合わせ</a>
+                        <a href="../index.html#download" class="btn btn-secondary btn-large">サービス資料請求</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="visual-before">
+                        <div class="visual-label">BEFORE</div>
+                        <div class="visual-title">😓 現状</div>
+                        <div class="visual-items">
+                            📁 情報がバラバラ<br>
+                            ✍️ アナログ・手作業<br>
+                            👤 属人化している<br>
+                            ⏱️ 時間のロス大
+                        </div>
+                    </div>
+                    <div class="visual-after">
+                        <div class="visual-label">AFTER</div>
+                        <div class="visual-title">✨ 導入後</div>
+                        <div class="visual-items">
+                            🔗 情報がつながる<br>
+                            💻 デジタル・自動化<br>
+                            👥 チームで動ける<br>
+                            ⚡ スピーディー
+                        </div>
+                    </div>
+                    <div class="visual-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== 共感ゾーン ==================== -->
+    <section class="section pain-section visible" id="pain">
+        <div class="container">
+            <h2 class="section-title">このような課題はございませんか？</h2>
+            
+            <div class="pain-cards">
+                <article class="pain-card">
+                    <i class="fas fa-handshake" aria-hidden="true"></i>
+                    <h3>顧客・営業管理</h3>
+                    <p>「あの案件、今どうなってる？」と聞かないとわからない。担当者が休むと途端に業務が止まる。</p>
+                </article>
+
+                <article class="pain-card">
+                    <i class="fas fa-file-excel" aria-hidden="true"></i>
+                    <h3>業務データの一元化</h3>
+                    <p>「○○_最終版_ver3_修正済み.xlsx」が乱立。集計のたびにコピペ作業が発生し、ミスも絶えない。</p>
+                </article>
+
+                <article class="pain-card">
+                    <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                    <h3>申請・承認のデジタル化</h3>
+                    <p>稟議書を印刷して押印→スキャン→メール添付。決裁に1週間かかることも。スピードで競合に負ける。</p>
+                </article>
+
+                <article class="pain-card">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    <h3>人材・採用管理</h3>
+                    <p>応募者管理はメール、スキルマップはExcel、評価シートは紙。人事担当者の作業負担が限界に近い。</p>
+                </article>
+
+                <article class="pain-card">
+                    <i class="fas fa-tasks" aria-hidden="true"></i>
+                    <h3>案件・進捗管理</h3>
+                    <p>週次の進捗会議が1時間以上かかる。資料準備に追われ、実際の問題解決に使う時間がない。</p>
+                </article>
+
+                <article class="pain-card">
+                    <i class="fas fa-robot" aria-hidden="true"></i>
+                    <h3>データ活用・AI連携</h3>
+                    <p>ChatGPTなど試してみたが、社内データがバラバラで業務に活かせない。まずデータの整備から必要だとわかった。</p>
+                </article>
+            </div>
+            
+            <div class="pain-closing">
+                <p>これらの課題に対して、kintoneを活用した業務改善の支援を行っています。</p>
+                <a href="#service" class="btn btn-primary btn-large">サービス内容を見る</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== サービス内容 ==================== -->
+    <section class="section service-section visible" id="service">
+        <div class="container">
+            <h2 class="section-title">サービス内容と価格</h2>
+            <p class="section-subtitle">貴社の状況に合わせて3つのプランからお選びいただけます</p>
+
+            <!-- プラン診断フロー -->
+            <div style="background: var(--pale-yellow); border-radius: 16px; padding: 40px; margin-bottom: 60px;">
+                <h3 style="font-size: 20px; font-weight: 700; color: var(--navy); text-align: center; margin-bottom: 30px;">
+                    <i class="fas fa-compass" aria-hidden="true" style="color: var(--accent-orange); margin-right: 8px;"></i>
+                    3つの質問で、ぴったりのプランがわかります
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div style="background: white; border-radius: 12px; padding: 24px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 900; color: var(--accent-orange); margin-bottom: 8px;">Q1</div>
+                        <p style="font-size: 14px; color: var(--text-dark); margin-bottom: 12px;">社内にIT担当者・<br>kintoneを触れる人がいますか？</p>
+                        <p style="font-size: 13px; color: #999;">いない → <strong style="color: var(--accent-orange);">プラン1</strong></p>
+                        <p style="font-size: 13px; color: #999;">いる → Q2へ</p>
+                    </div>
+                    <div style="background: white; border-radius: 12px; padding: 24px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 900; color: var(--accent-orange); margin-bottom: 8px;">Q2</div>
+                        <p style="font-size: 14px; color: var(--text-dark); margin-bottom: 12px;">デジタル化したい業務の<br>イメージはありますか？</p>
+                        <p style="font-size: 13px; color: #999;">ある → <strong style="color: var(--accent-orange);">プラン2</strong></p>
+                        <p style="font-size: 13px; color: #999;">まだ漠然 → Q3へ</p>
+                    </div>
+                    <div style="background: white; border-radius: 12px; padding: 24px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 900; color: var(--accent-orange); margin-bottom: 8px;">Q3</div>
+                        <p style="font-size: 14px; color: var(--text-dark); margin-bottom: 12px;">まず課題の整理から<br>始めたいですか？</p>
+                        <p style="font-size: 13px; color: #999;">はい → <strong style="color: var(--accent-orange);">プラン3</strong></p>
+                        <p style="font-size: 13px; color: #999;">迷う → <strong style="color: var(--accent-orange);">無料相談</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ステップロードマップ -->
+            <div class="step-timeline">
+                <div class="step-items">
+                    <div class="step-item">
+                        <div class="step-icon" aria-label="ステップ0">STEP 0</div>
+                        <div class="step-label">無料相談</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon" aria-label="プラン1">プラン 1</div>
+                        <div class="step-label">アプリ開発委託</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon" aria-label="プラン2">プラン 2</div>
+                        <div class="step-label">伴走開発支援</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon" aria-label="プラン3">プラン 3</div>
+                        <div class="step-label">コンサルティング</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 0 -->
+            <article class="step0-highlight">
+                <h3>STEP 0：無料相談</h3>
+                <p class="step0-price">¥0 / 60分 / オンライン</p>
+                <p>
+                    「kintoneが自社に合うかわからない」「何から始めればいいか迷っている」——そんな段階でも構いません。<br>
+                    業務の現状をヒアリングし、課題の整理から最適なプランをご提案します。成約のプレッシャーは一切なし。
+                </p>
+                <a href="../contact/index.html" class="btn btn-primary btn-large">無料相談を申し込む</a>
+            </article>
+
+            <!-- プラン1 -->
+            <article class="service-block">
+                <h3>プラン 1：アプリ開発委託</h3>
+                <p style="text-align: center; color: var(--text-gray); margin-bottom: 30px; font-size: 16px;">「ITのことは分からない。でも、業務の非効率は限界です。」</p>
+                <div class="service-cards" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto 40px;">
+                    <div class="service-card" style="grid-column: 1 / -1;">
+                        <h4>アプリ開発委託</h4>
+                        <div class="service-price">¥280,000<small>/アプリ〜</small></div>
+                        <ul>
+                            <li>ヒアリング・要件整理</li>
+                            <li>アプリ開発（設計〜納品・動作確認）</li>
+                            <li>担当者向け操作レクチャー（2h）</li>
+                            <li>追加アプリ：¥100,000〜/本</li>
+                        </ul>
+                        <div class="service-target">
+                            <strong>対象</strong>
+                            <p>IT担当者が不在で、業務改善をそのままお任せしたい企業様向け</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 14px; color: var(--mid-blue); font-weight: 700; margin-bottom: 20px;">
+                    <i class="fas fa-arrow-down" aria-hidden="true"></i>　納品後は月額保守サポートへ移行できます
+                </p>
+                <div class="service-cards" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto;">
+                    <div class="service-card">
+                        <h4>保守オプション<br>（ライト）</h4>
+                        <div class="service-price">¥29,800<small>/月</small></div>
+                        <p style="font-size: 12px; color: #999; margin-bottom: 15px;">最低契約期間：6ヶ月</p>
+                        <ul>
+                            <li>軽微な修正対応（2h/月）</li>
+                            <li>メール対応（3営業日以内）</li>
+                            <li>月次改善提案リスト</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h4>保守オプション<br>（スタンダード）</h4>
+                        <div class="service-price">¥49,800<small>/月</small></div>
+                        <p style="font-size: 12px; color: #999; margin-bottom: 15px;">最低契約期間：6ヶ月</p>
+                        <ul>
+                            <li>修正・小改善対応（5h/月）</li>
+                            <li>電話＋メール（翌営業日）</li>
+                            <li>月次改善提案リスト</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- プラン2 -->
+            <article class="service-block">
+                <h3>プラン 2：伴走開発支援</h3>
+                <p style="text-align: center; color: var(--text-gray); margin-bottom: 30px; font-size: 16px;">「毎回外注するより、自分たちで改善できる会社になりたい。」</p>
+                <div class="service-cards" style="grid-template-columns: 1fr; max-width: 700px; margin: 0 auto 40px;">
+                    <div class="service-card">
+                        <h4>伴走開発支援パック</h4>
+                        <div class="service-price">¥390,000<small>（固定・アプリ数不問）</small></div>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 16px 0;">
+                            <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; font-size: 13px;">
+                                <strong>Session 1</strong><br>キックオフ・業務整理（2h）
+                            </div>
+                            <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; font-size: 13px;">
+                                <strong>Session 2</strong><br>共同開発①（2h）
+                            </div>
+                            <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; font-size: 13px;">
+                                <strong>Session 3</strong><br>共同開発②（2h）
+                            </div>
+                            <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; font-size: 13px;">
+                                <strong>Session 4</strong><br>引き渡し・定着支援（2h）
+                            </div>
+                        </div>
+                        <ul>
+                            <li>セッション間の質問はチャットで対応</li>
+                            <li>納品後30日：軽微な修正1回無料</li>
+                        </ul>
+                        <div class="service-target">
+                            <strong>対象</strong>
+                            <p>IT担当者がいて、一緒に作りながら内製化を目指したい企業様向け</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 14px; color: var(--mid-blue); font-weight: 700; margin-bottom: 20px;">
+                    <i class="fas fa-arrow-down" aria-hidden="true"></i>　パッケージ終了後は月額コンサルへ移行できます
+                </p>
+                <div class="service-cards" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto;">
+                    <div class="service-card">
+                        <h4>月額コンサル<br>（アドバイザリー）</h4>
+                        <div class="service-price">¥35,000<small>/月</small></div>
+                        <ul>
+                            <li>月2h・方針相談（オンライン）</li>
+                            <li>内製化スコアカード更新</li>
+                            <li>Q&A対応</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h4>月額コンサル<br>（推進支援）</h4>
+                        <div class="service-price">¥60,000<small>/月</small></div>
+                        <ul>
+                            <li>月4h・社内推進サポート</li>
+                            <li>月次レポート・スコアカード</li>
+                            <li>Q&A対応</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- プラン3 -->
+            <article class="service-block">
+                <h3>プラン 3：コンサルティング</h3>
+                <p style="text-align: center; color: var(--text-gray); margin-bottom: 40px; font-size: 16px;">「何から手をつけていいか分からない。その状態から一緒に考えます。」</p>
+
+                <!-- 定額プラン（メイン） -->
+                <h4 style="font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 20px; padding-left: 12px; border-left: 4px solid var(--kintone-yellow);">定額プラン</h4>
+                <div class="service-cards" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto 50px;">
+                    <div class="service-card">
+                        <h4>アドバイザリー</h4>
+                        <div class="service-price">¥35,000<small>/月</small></div>
+                        <ul>
+                            <li>オンラインMTG（月2時間）</li>
+                            <li>チャットでの随時Q&A対応</li>
+                        </ul>
+                        <div class="service-target">
+                            <strong>サポート内容</strong>
+                            <p>アプリ構築時の「壁打ち」相手 / データ設計相談 / 技術的・運用的アドバイス</p>
+                        </div>
+                        <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; margin-top: 12px;">
+                            <p style="font-size: 13px; color: var(--text-gray); margin: 0;"><strong style="color: var(--navy);">こんな企業様へ：</strong>kintoneを自分たちで作っているが、プロにすぐ相談できる安心のパートナーが欲しい</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <h4>伴走・推進支援</h4>
+                        <div class="service-price">¥60,000<small>/月</small></div>
+                        <ul>
+                            <li>オンラインMTG（月4時間）</li>
+                            <li>チャットでの随時Q&A対応</li>
+                            <li>月次レポート（進捗の可視化）</li>
+                        </ul>
+                        <div class="service-target">
+                            <strong>サポート内容</strong>
+                            <p>社内への定着化・ルール策定 / DX推進の進行管理と次の一手提案 / アプリ改善アドバイス</p>
+                        </div>
+                        <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; margin-top: 12px;">
+                            <p style="font-size: 13px; color: var(--text-gray); margin: 0;"><strong style="color: var(--navy);">こんな企業様へ：</strong>導入するだけでなく、現場に定着して成果が出るまで伴走してほしい</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 単発スポット相談 -->
+                <h4 style="font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 20px; padding-left: 12px; border-left: 4px solid var(--kintone-yellow);">単発スポット相談</h4>
+                <div class="service-cards" style="grid-template-columns: 1fr; max-width: 480px; margin: 0 auto;">
+                    <div class="service-card">
+                        <h4>スポット相談</h4>
+                        <div class="service-price">¥50,000<small>/回</small></div>
+                        <ul>
+                            <li>オンラインMTG（2時間）</li>
+                        </ul>
+                        <div class="service-target">
+                            <strong>サポート内容</strong>
+                            <p>業務課題のヒアリングと整理 / kintone導入・活用に向けた診断 / DX推進・ツール選定のアドバイス</p>
+                        </div>
+                        <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; margin-top: 12px;">
+                            <p style="font-size: 13px; color: var(--text-gray); margin: 0;"><strong style="color: var(--navy);">こんな企業様へ：</strong>まずはプロの意見を聞きたい、何から始めるべきか明確にしたい</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 共通注記 -->
+            <div style="background: var(--light-gray); border-radius: 12px; padding: 24px; margin-top: 40px; margin-bottom: 40px;">
+                <p style="font-size: 14px; color: var(--text-gray); text-align: center; margin: 0;">
+                    <i class="fas fa-info-circle" aria-hidden="true" style="color: var(--mid-blue); margin-right: 6px;"></i>
+                    kintoneライセンス料（¥1,800/ユーザー/月）は別途。各サービスはIT導入補助金の対象です。
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="font-size: 18px; color: var(--navy); margin-bottom: 30px;">
+                    まずはお気軽にご相談ください。貴社の状況に応じて最適なプランをご提案いたします。
+                </p>
+                <a href="../contact/index.html" class="btn btn-primary btn-large">お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== 導入事例 ==================== -->
+    <section class="section cases-section visible" id="cases">
+        <div class="container">
+            <h2 class="section-title">導入事例</h2>
+            
+            <div class="case-cards">
+                <!-- 事例1：建設業 -->
+                <article class="case-card">
+                    <div class="case-header">
+                        <i class="fas fa-hard-hat" aria-hidden="true"></i>
+                        <div class="case-industry">建設業 / 従業員25名</div>
+                        <div class="case-title">現場日報のデジタル化により<br>業務効率が大幅に向上</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>紙ベースの現場日報管理により、集計作業に毎日1時間以上を要していた。写真の共有もメールで行っており、進捗のリアルタイム把握が困難だった。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで現場日報アプリを構築。スマートフォンから写真付きで日報を登録できる仕組みを整備。本社側ではリアルタイムで進捗確認が可能に。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>日報集計時間：1h/日 → 5分/日</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>残業時間：月20時間削減</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>情報共有の迅速化を実現</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>現場に訪問して要件をヒアリングいただいたことで、現場の実態に即したアプリを構築できました。</p>
+                            <cite>総務部長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 事例2：小売業 -->
+                <article class="case-card">
+                    <div class="case-header">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <div class="case-industry">小売業 / 従業員40名</div>
+                        <div class="case-title">在庫管理の一元化により<br>在庫ロスを削減</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>各店舗でExcelによる個別管理を行っており、全体の在庫状況の把握が困難。発注ミスや過剰在庫が頻発していた。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで全店舗の在庫を一元管理するシステムを構築。在庫アラート機能により、適切なタイミングでの発注を実現。店舗間の在庫移動もリアルタイムで反映。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>在庫ロス：30%削減</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>発注ミス：大幅に減少</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>棚卸時間：3日 → 半日に短縮</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>現場スタッフでも直感的に操作できるUIで、スムーズに運用を開始できました。</p>
+                            <cite>店長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 事例3：サービス業 -->
+                <article class="case-card">
+                    <div class="case-header">
+                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                        <div class="case-industry">サービス業 / 従業員15名</div>
+                        <div class="case-title">顧客・案件管理の統合により<br>対応品質が向上</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>顧客情報や案件進捗が個人のメモやExcelに分散しており、情報共有が不十分。対応漏れや重複対応が発生していた。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで顧客管理と案件管理を統合したシステムを構築。担当者やステータスを一元管理し、期限前の自動通知機能を実装。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>対応漏れ：ゼロを実現</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>顧客満足度が向上</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>案件成約率が改善</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>チーム全体で情報を共有できるようになり、組織としての対応力が向上しました。</p>
+                            <cite>営業部長</cite>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="/cases/" class="btn btn-secondary btn-large">導入事例一覧を見る</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== クロージング ==================== -->
+    <section class="section closing-section visible" id="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <p class="section-subtitle">まずはお気軽にご相談ください</p>
+            
+            <div class="closing-buttons">
+                <a href="../contact/index.html" class="btn btn-primary btn-large">お問い合わせフォーム</a>
+                <a href="../index.html#download" class="btn btn-secondary btn-large">サービス資料請求</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== フッター ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">株式会社興栄コンサルタント</div>
+                    <p class="footer-desc">
+                        kintone導入・活用支援を通じて、<br>
+                        中小企業の業務改善を支援しています。
+                    </p>
+                </div>
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
+                    <a href="../news/index.html">News</a>
+                    <div style="display: inline; margin: 0 10px; color: #999;">サービス内容：</div>
+                    <a href="index.html">民間企業様向け</a>
+                    <a href="../public/index.html">自治体様向け</a>
+                    <a href="../cases/index.html">導入事例</a>
+                    <a href="../column/index.html">コラム</a>
+                    <a href="../company/index.html">会社概要</a>
+                    <a href="../contact/index.html">お問い合わせ</a>
+                    <a href="../index.html#download">資料ダウンロード</a>
+                </nav>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        // スクロール時のフェードインアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+        
+        hamburger?.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

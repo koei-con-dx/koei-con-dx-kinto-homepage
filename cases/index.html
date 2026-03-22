@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>導入事例 | kintone導入・活用支援 | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="kintone導入・活用支援の導入事例をご紹介。建設業、小売業、サービス業、自治体など、様々な業種での活用事例を掲載しています。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/common.css">
+
+    <style>
+        /* ==================== タブフィルター ==================== */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-tab {
+            padding: 12px 30px;
+            border-radius: 30px;
+            background: var(--white);
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-tab:hover {
+            background: var(--light-gray);
+        }
+        
+        .filter-tab.active {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        /* ==================== 導入事例カード ==================== */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .case-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: none;
+        }
+        
+        .case-card.show {
+            display: block;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .case-header {
+            background: var(--mid-blue);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .case-header.public {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+        }
+        
+        .case-header i {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .case-industry {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .case-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        
+        .case-body {
+            padding: 40px;
+        }
+        
+        .case-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--mid-blue);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: 25px;
+        }
+        
+        .case-section-title:first-child {
+            margin-top: 0;
+        }
+        
+        .case-body p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+        
+        .case-results {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .case-result-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: var(--pale-yellow);
+            border-radius: 6px;
+        }
+        
+        .case-result-item i {
+            color: var(--kintone-yellow);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .case-result-item span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--navy);
+        }
+        
+        .case-comment {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-style: italic;
+            border-left: 4px solid var(--mid-blue);
+        }
+        
+        .case-comment p {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .case-comment cite {
+            font-size: 13px;
+            color: var(--text-gray);
+            font-style: normal;
+            font-weight: 700;
+        }
+        
+        /* ==================== レスポンシブ ==================== */
+        @media (max-width: 1024px) {
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .filter-tabs {
+                gap: 10px;
+            }
+
+            .filter-tab {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .case-header {
+                padding: 25px;
+            }
+
+            .case-body {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
+                    <img src="../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                </a>
+                <span class="logo-badge">kintoneパートナー</span>
+            </div>
+            
+            <nav class="nav" aria-label="メインナビゲーション">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../private/index.html">民間企業様向け</a></li>
+                            <li><a href="../public/index.html">自治体様向け</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html" class="nav-link active">導入事例</a></li>
+                    <li><a href="../column/index.html" class="nav-link">コラム</a></li>
+                    <li><a href="../company/index.html" class="nav-link">会社概要</a></li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <a href="../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                </div>
+            </nav>
+            
+            <div class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ==================== 導入事例一覧 ==================== -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align:center; padding: 80px 20px;">
+                <div style="font-size: 64px; margin-bottom: 24px;">📋</div>
+                <h2 style="font-size: 28px; font-weight: 900; color: var(--navy); margin-bottom: 16px;">導入事例を準備中です</h2>
+                <p style="font-size: 16px; color: var(--text-gray); line-height: 1.8; max-width: 520px; margin: 0 auto 32px;">
+                    建設業・製造業・不動産業など、様々な業種の<br>
+                    導入事例を順次掲載予定です。<br>
+                    まずはお気軽にご相談ください。
+                </p>
+                <a href="../contact/index.html" class="btn btn-primary" style="display:inline-block; padding:14px 36px; background:var(--accent-orange); color:#fff; text-decoration:none; border-radius:8px; font-weight:700; font-size:16px;">
+                    無料相談で詳しく聞く
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- ==================== （旧導入事例一覧：非表示）==================== -->
+    <section class="section" style="display:none;">
+        <div class="container">
+            <!-- タブフィルター -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">すべて</button>
+                <button class="filter-tab" data-filter="private">民間企業</button>
+                <button class="filter-tab" data-filter="public">自治体</button>
+            </div>
+            
+            <!-- 事例カード -->
+            <div class="cases-grid">
+                <!-- 民間企業事例1：建設業 -->
+                <article class="case-card show" data-category="private">
+                    <div class="case-header">
+                        <i class="fas fa-hard-hat" aria-hidden="true"></i>
+                        <div class="case-industry">建設業 / 従業員25名</div>
+                        <div class="case-title">現場日報のデジタル化により<br>業務効率が大幅に向上</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>紙ベースの現場日報管理により、集計作業に毎日1時間以上を要していた。写真の共有もメールで行っており、進捗のリアルタイム把握が困難だった。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで現場日報アプリを構築。スマートフォンから写真付きで日報を登録できる仕組みを整備。本社側ではリアルタイムで進捗確認が可能に。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>日報集計時間：1h/日 → 5分/日</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>残業時間：月20時間削減</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>情報共有の迅速化を実現</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>「現場に訪問して要件をヒアリングいただいたことで、現場の実態に即したアプリを構築できました。」</p>
+                            <cite>総務部長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 民間企業事例2：小売業 -->
+                <article class="case-card show" data-category="private">
+                    <div class="case-header">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <div class="case-industry">小売業 / 従業員40名</div>
+                        <div class="case-title">在庫管理の一元化により<br>在庫ロスを削減</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>各店舗でExcelによる個別管理を行っており、全体の在庫状況の把握が困難。発注ミスや過剰在庫が頻発していた。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで全店舗の在庫を一元管理するシステムを構築。在庫アラート機能により、適切なタイミングでの発注を実現。店舗間の在庫移動もリアルタイムで反映。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>在庫ロス：30%削減</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>発注ミス：大幅に減少</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>棚卸時間：3日 → 半日に短縮</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>「現場スタッフでも直感的に操作できるUIで、スムーズに運用を開始できました。」</p>
+                            <cite>店長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 民間企業事例3：サービス業 -->
+                <article class="case-card show" data-category="private">
+                    <div class="case-header">
+                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                        <div class="case-industry">サービス業 / 従業員15名</div>
+                        <div class="case-title">顧客・案件管理の統合により<br>対応品質が向上</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>顧客情報や案件進捗が個人のメモやExcelに分散しており、情報共有が不十分。対応漏れや重複対応が発生していた。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで顧客管理と案件管理を統合したシステムを構築。担当者やステータスを一元管理し、期限前の自動通知機能を実装。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>対応漏れ：ゼロを実現</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>顧客満足度が向上</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>案件成約率が改善</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>「チーム全体で情報を共有できるようになり、組織としての対応力が向上しました。」</p>
+                            <cite>営業部長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 民間企業事例4：製造業 -->
+                <article class="case-card show" data-category="private">
+                    <div class="case-header">
+                        <i class="fas fa-industry" aria-hidden="true"></i>
+                        <div class="case-industry">製造業 / 従業員50名</div>
+                        <div class="case-title">品質管理のデジタル化により<br>不良品率を大幅に削減</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>品質検査結果を紙の帳票で管理しており、過去のデータ検索や傾向分析が困難。不良品発生時の原因特定に時間がかかっていた。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで品質検査記録アプリを構築。検査項目ごとのデータを蓄積し、グラフ化して傾向を可視化。不良発生時の即座なアラート機能を実装。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>不良品率：2.5% → 0.8%に削減</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>原因特定時間：2日 → 2時間に短縮</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>データに基づく品質改善を実現</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>「過去データの検索が瞬時にでき、品質改善のPDCAサイクルが格段に速くなりました。」</p>
+                            <cite>品質管理部長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 自治体事例1：A市役所 建設課 -->
+                <article class="case-card show" data-category="public">
+                    <div class="case-header public">
+                        <i class="fas fa-landmark" aria-hidden="true"></i>
+                        <div class="case-industry">A市役所 建設課 / 職員15名</div>
+                        <div class="case-title">工事進捗管理のデジタル化により<br>月次報告作成時間を80%削減</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>複数の工事案件の進捗管理をExcelで行っており、月次報告書の作成に毎月3日を要していた。現場写真の整理も手作業で非効率だった。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで工事進捗管理アプリを構築。現場職員がスマートフォンから写真付きで報告を登録。月次報告書は自動集計で出力できるよう設計。LGWAN環境に対応。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>月次報告作成：3日 → 半日に短縮</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>現場と本庁の情報共有がリアルタイム化</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>職員の時間外勤務が月15時間削減</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>「公共事業の実態を理解されているため、自治体特有の要件にも柔軟に対応いただけました。」</p>
+                            <cite>建設課長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 自治体事例2：B市役所 福祉課 -->
+                <article class="case-card show" data-category="public">
+                    <div class="case-header public">
+                        <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                        <div class="case-industry">B市役所 福祉課 / 職員20名</div>
+                        <div class="case-title">申請受付から支給決定までの<br>処理期間を2週間短縮</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>福祉サービスの申請受付から支給決定まで、紙の書類を複数の職員が手渡しで回覧。進捗状況の把握が困難で、住民からの問い合わせ対応にも時間がかかっていた。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで申請管理・審査ワークフローアプリを構築。申請から支給決定までの各プロセスをステータス管理し、担当者への自動通知機能を実装。住民への進捗説明も容易に。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>処理期間：平均6週間 → 4週間に短縮</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>進捗問い合わせ対応が即座に可能</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>書類の紛失・遅延ゼロを実現</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>「住民サービスの質が向上し、職員の負担も軽減されました。導入して本当に良かったです。」</p>
+                            <cite>福祉課長</cite>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 自治体事例3：C町役場 総務課 -->
+                <article class="case-card show" data-category="public">
+                    <div class="case-header public">
+                        <i class="fas fa-file-invoice" aria-hidden="true"></i>
+                        <div class="case-industry">C町役場 総務課 / 職員8名</div>
+                        <div class="case-title">庁内稟議のペーパーレス化により<br>年間1,200枚の紙を削減</div>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-section-title">導入前の課題</h4>
+                        <p>庁内の稟議・起案は全て紙ベースで、決裁に1週間以上かかることも。過去の稟議を探すのにも時間がかかり、保管スペースも圧迫していた。</p>
+                        
+                        <h4 class="case-section-title">実施内容</h4>
+                        <p>kintoneで稟議・起案ワークフローアプリを構築。スマートフォンからでも承認・差戻しが可能に。過去の稟議もキーワード検索で瞬時に参照可能。</p>
+                        
+                        <h4 class="case-section-title">導入効果</h4>
+                        <div class="case-results">
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>決裁期間：平均1週間 → 2日に短縮</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>年間1,200枚の紙を削減</span>
+                            </div>
+                            <div class="case-result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>テレワーク環境でも決裁が可能に</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-comment">
+                            <p>「少額随意契約でスタートできたため、予算確保のハードルが低く、導入を決断できました。」</p>
+                            <cite>総務課長</cite>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== CTA セクション ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>貴社の業務課題も解決できます</h2>
+            <p>まずはお気軽にご相談ください</p>
+            <div class="cta-buttons">
+                <a href="../contact/index.html" class="btn btn-primary" style="background: var(--kintone-yellow); color: var(--navy);">お問い合わせ</a>
+                <a href="../index.html#download" class="btn btn-secondary">サービス資料請求</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== フッター ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">株式会社興栄コンサルタント</div>
+                    <p class="footer-desc">
+                        kintone導入・活用支援を通じて、<br>
+                        民間企業・自治体の業務改善を支援しています。
+                    </p>
+                </div>
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
+                    <a href="../news/index.html">News</a>
+                    <div style="display: inline; margin: 0 10px; color: #999;">サービス内容：</div>
+                    <a href="../private/index.html">民間企業様向け</a>
+                    <a href="../public/index.html">自治体様向け</a>
+                    <a href="index.html">導入事例</a>
+                    <a href="../column/index.html">コラム</a>
+                    <a href="../company/index.html">会社概要</a>
+                    <a href="../contact/index.html">お問い合わせ</a>
+                    <a href="../index.html#download">資料ダウンロード</a>
+                </nav>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        // タブフィルター機能
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const caseCards = document.querySelectorAll('.case-card');
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // アクティブタブの切り替え
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filter = tab.dataset.filter;
+                
+                // カードの表示/非表示
+                caseCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.add('show');
+                    } else {
+                        card.classList.remove('show');
+                    }
+                });
+            });
+        });
+        
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+        
+        hamburger?.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自治体様向けkintone導入・活用支援サービス | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="60年以上の公共事業実績を持つ興栄コンサルタントが、自治体のDX推進を支援。住民サービス向上、働き方改革、ペーパーレス化、LGWAN対応まで、現場で本当に使われる仕組みづくりをサポートします。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/common.css">
+
+    <style>
+        /* ============================================
+           ページ固有カラー変数
+        ============================================ */
+        :root {
+            --light-blue: #E8F4F8;        /* 背景ライトブルー（ページ固有） */
+        }
+
+        /* ============================================
+           ページ固有レイアウト
+        ============================================ */
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ボタン（ページ固有） */
+        .btn-success {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+        }
+
+        /* ドロップダウン active 状態（ページ固有） */
+        .dropdown-menu a.active {
+            background: var(--light-blue);
+            color: var(--mid-blue);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           ファーストビュー
+        ============================================ */
+        .hero {
+            background: linear-gradient(135deg, var(--mid-blue) 0%, var(--navy) 100%);
+            color: var(--white);
+            padding: 160px 0 100px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="80" fill="rgba(255,203,5,0.1)"/><circle cx="1000" cy="400" r="120" fill="rgba(255,203,5,0.08)"/><circle cx="600" cy="50" r="60" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat center;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero-lead {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+           強みセクション
+        ============================================ */
+        .strengths {
+            background: var(--light-blue);
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .strength-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 90, 156, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .strength-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 90, 156, 0.2);
+        }
+
+        .strength-icon {
+            font-size: 3rem;
+            color: var(--mid-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .strength-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .strength-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           課題セクション
+        ============================================ */
+        .problems {
+            background: var(--white);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--mid-blue);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 90, 156, 0.15);
+        }
+
+        .problem-icon {
+            font-size: 2.5rem;
+            color: var(--mid-blue);
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--navy);
+        }
+
+        .problem-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           サービス内容セクション
+        ============================================ */
+        .services {
+            background: var(--light-gray);
+        }
+
+        .service-item {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--mid-blue);
+        }
+
+        .service-number {
+            background: var(--mid-blue);
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-title-group h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-badge {
+            display: inline-block;
+            background: var(--success);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .service-period {
+            display: inline-block;
+            background: var(--kintone-yellow);
+            color: var(--navy);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .service-content {
+            margin-top: 2rem;
+        }
+
+        .service-content h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-content h4 i {
+            color: var(--mid-blue);
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-list li {
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            background: var(--light-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .service-list li i {
+            color: var(--mid-blue);
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-feature-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--mid-blue);
+        }
+
+        .service-feature-card h5 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-feature-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .service-price {
+            background: linear-gradient(135deg, var(--mid-blue), var(--navy));
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .service-price .price-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-price .price-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .service-price .price-note {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================
+           活用シーンセクション
+        ============================================ */
+        .use-cases {
+            background: var(--white);
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .use-case-card {
+            background: var(--light-blue);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 90, 156, 0.15);
+        }
+
+        .use-case-icon {
+            font-size: 3rem;
+            color: var(--mid-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .use-case-list {
+            list-style: none;
+        }
+
+        .use-case-list li {
+            padding: 0.6rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .use-case-list li i {
+            color: var(--mid-blue);
+            margin-top: 4px;
+        }
+
+        /* ============================================
+           導入事例セクション
+        ============================================ */
+        .case-studies {
+            background: var(--light-gray);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .case-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 90, 156, 0.2);
+        }
+
+        .case-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .case-tag {
+            display: inline-block;
+            background: var(--mid-blue);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .case-header h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .case-info {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .case-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .case-content h4 i {
+            color: var(--mid-blue);
+        }
+
+        .case-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .case-results {
+            background: var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .case-results ul {
+            list-style: none;
+        }
+
+        .case-results li {
+            padding: 0.6rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .case-results li i {
+            color: var(--success);
+            margin-top: 4px;
+        }
+
+        /* ============================================
+           クロージングCTA
+        ============================================ */
+        .cta-closing {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--mid-blue) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-closing h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-closing p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           フッター（ページ固有）
+        ============================================ */
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--kintone-yellow);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--mid-blue);
+        }
+
+        /* ============================================
+           レスポンシブ対応（ページ固有）
+        ============================================ */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero-lead {
+                font-size: 1rem;
+            }
+
+            .strengths-grid,
+            .problems-grid,
+            .use-cases-grid,
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .service-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
+                    <img src="../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                </a>
+                <span class="logo-badge">kintoneパートナー</span>
+            </div>
+            
+            <nav class="nav" aria-label="メインナビゲーション">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link active">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../private/index.html">民間企業様向け</a></li>
+                            <li><a href="index.html" class="active">自治体様向け</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../cases/index.html" class="nav-link">導入事例</a></li>
+                    <li><a href="../column/index.html" class="nav-link">コラム</a></li>
+                    <li><a href="../company/index.html" class="nav-link">会社概要</a></li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <a href="../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                </div>
+            </nav>
+            
+            <div class="hamburger" aria-label="メニューを開く" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ファーストビュー -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>アナログな「紙」仕事から、<br>住民のための「価値」仕事へ。</h1>
+                <h2>図面では描けない、地域の課題に、技術と知見で向き合う。</h2>
+                <p class="hero-lead">
+                    60年以上の公共事業実績を持つ興栄コンサルタントが、<br>
+                    自治体のDX推進を全力でサポートします。
+                </p>
+                <div class="hero-cta">
+                    <a href="#dx-box" class="btn btn-success">期間限定キャンペーン</a>
+                    <a href="#services" class="btn btn-secondary">サービス内容を見る</a>
+                    <a href="../contact/index.html" class="btn btn-secondary">無料相談予約</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活用シーン -->
+    <section class="use-cases fade-in">
+        <div class="container">
+            <h2 class="section-title">kintoneはこのような業務改善・効率化に役立ちます</h2>
+            <p class="section-subtitle">自治体特有の業務課題を解決します</p>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fas fa-comments"></i></div>
+                    <h3>住民対応・窓口業務</h3>
+                    <ul class="use-case-list">
+                        <li><i class="fas fa-check"></i> 住民からの問い合わせ・要望受付管理</li>
+                        <li><i class="fas fa-check"></i> 窓口予約管理</li>
+                        <li><i class="fas fa-check"></i> 意見・陳情等の管理・共有</li>
+                    </ul>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>申請・手続き業務</h3>
+                    <ul class="use-case-list">
+                        <li><i class="fas fa-check"></i> 各種申請書類の受付・進捗管理（補助金、認可など）</li>
+                        <li><i class="fas fa-check"></i> イベント・講座申込の受付管理</li>
+                        <li><i class="fas fa-check"></i> 電子申請管理</li>
+                    </ul>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fas fa-building"></i></div>
+                    <h3>庁内業務・<br>バックオフィスの効率化</h3>
+                    <ul class="use-case-list">
+                        <li><i class="fas fa-check"></i> 庁内業務・決裁のデジタル化</li>
+                        <li><i class="fas fa-check"></i> プロジェクト進捗管理</li>
+                        <li><i class="fas fa-check"></i> 契約・発注管理</li>
+                        <li><i class="fas fa-check"></i> 職員の勤怠・シフト管理</li>
+                    </ul>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fas fa-yen-sign"></i></div>
+                    <h3>財務・予算管理</h3>
+                    <ul class="use-case-list">
+                        <li><i class="fas fa-check"></i> 補助金交付事務の管理</li>
+                        <li><i class="fas fa-check"></i> 予算執行状況の管理</li>
+                        <li><i class="fas fa-check"></i> 寄附金・ふるさと納税管理</li>
+                    </ul>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fas fa-users"></i></div>
+                    <h3>人事・職員管理</h3>
+                    <ul class="use-case-list">
+                        <li><i class="fas fa-check"></i> 職員の人材育成・研修管理</li>
+                        <li><i class="fas fa-check"></i> 異動履歴・スキル情報のデータベース化</li>
+                    </ul>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>防災・危機管理</h3>
+                    <ul class="use-case-list">
+                        <li><i class="fas fa-check"></i> 災害対策本部での情報集約・進捗共有</li>
+                        <li><i class="fas fa-check"></i> 被災者からの支援申請受付・進捗管理</li>
+                        <li><i class="fas fa-check"></i> 避難所運営情報の共有</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービス内容 -->
+    <section class="services fade-in" id="services">
+        <div class="container">
+            <h2 class="section-title">サービス内容</h2>
+            <p class="section-subtitle">自治体様の状況に合わせた、段階的な支援プログラム</p>
+
+            <!-- サービス1: 自治体まるごとDXボックス -->
+            <div class="service-item" id="dx-box">
+                <div class="service-header">
+                    <div class="service-number">01</div>
+                    <div class="service-title-group">
+                        <h3>自治体まるごとDXボックス</h3>
+                        <span class="service-badge">期間限定キャンペーン</span>
+                        <span class="service-period">2026年4月〜2027年4月末</span>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem;">
+                        期間限定で、kintone環境と伴走支援を<strong style="color: var(--success);">無償提供</strong>いたします。<br>
+                        まずは実際に使ってみて、DXの効果を実感していただけます。
+                    </p>
+                    
+                    <h4><i class="fas fa-gift"></i> 無償提供内容</h4>
+                    <ul class="service-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>全職員が利用可能なkintone環境（2027年4月末まで）</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">ライセンス数の制限なく、全職員がご利用いただけます。</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>30種類以上の自治体向け業務改善アプリテンプレート</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">議事録、庁内通知、公用車管理、備品管理など、すぐに使えるテンプレートをご提供いたします。</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>オンライン勉強会および予算要求用資料の提供</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">次年度予算確保のための資料作成もサポートいたします。</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>便利な連携サービス・プラグインの無償提供</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">フォーム入力、帳票出力、地図表記などの連携サービス・プラグインを無償提供いただけます。</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h4><i class="fas fa-hands-helping"></i> 興栄コンサルタント独自の伴走支援</h4>
+                    <div class="service-features">
+                        <div class="service-feature-card">
+                            <h5>DXチームスタートアップ研修</h5>
+                            <p>チームビルディングやkintoneの基本機能研修を実施。DX推進の土台を作ります。</p>
+                        </div>
+                        <div class="service-feature-card">
+                            <h5>アプリ作成研修</h5>
+                            <p>職員自身がアプリを作れるようになるための対面研修。自走できる体制を構築します。</p>
+                        </div>
+                        <div class="service-feature-card">
+                            <h5>DX重点化支援</h5>
+                            <p>業務の優先順位決定からアプリ作成、運用までをアドバイス。効果的なDX推進をサポートします。</p>
+                        </div>
+                        <div class="service-feature-card">
+                            <h5>ヘルプデスク</h5>
+                            <p>操作に関する質問に直接回答し、主管課の負担を軽減。安心して運用できる環境を提供します。</p>
+                        </div>
+                    </div>
+
+                    <div class="service-price">
+                        <div class="price-label">キャンペーン価格</div>
+                        <div class="price-amount">無償提供</div>
+                        <div class="price-note">2026年4月〜2027年4月末までの期間限定</div>
+                        <div style="background: var(--white); padding: 1.5rem; border-radius: 10px; margin-top: 1.5rem; border: 2px solid var(--accent-orange); box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                            <p style="margin: 0 0 1rem 0; color: var(--accent-orange); font-weight: 700; font-size: 1.05rem;">
+                                <i class="fas fa-tag" style="color: var(--accent-orange);"></i> 
+                                本格導入で50%以上割引キャンペーン実施中！
+                            </p>
+                            <p style="margin: 0 0 0.8rem 0; color: var(--navy); font-size: 0.95rem; line-height: 1.7;">
+                                プログラム終了後、全職員(※)で本格導入される場合は、<strong style="color: var(--accent-orange);">通常価格よりも50%以上割安な価格</strong>でご提供するキャンペーンを実施中です。
+                            </p>
+                            <p style="margin: 0 0 0.8rem 0; color: #666666; font-size: 0.9rem; line-height: 1.7;">
+                                <small>
+                                    ※ 総務省が公表する「地方公共団体定員管理調査結果」に示されている、「一般行政計(一般管理+福祉関係)」の人数以上のユーザー数で導入することが適用条件となります。
+                                </small>
+                            </p>
+                            <p style="margin: 0; color: var(--navy); font-size: 0.9rem;">
+                                <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i> 
+                                適用条件や価格等の詳細は下記HPをご確認ください<br>
+                                <a href="https://kintone.cybozu.co.jp/jp/government/campaign/" target="_blank" rel="noopener noreferrer" style="color: var(--mid-blue); text-decoration: underline;">https://kintone.cybozu.co.jp/jp/government/campaign/</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- サービス2: カイゼンThanksパック -->
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-number">02</div>
+                    <div class="service-title-group">
+                        <h3>カイゼンThanksパック</h3>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem;">
+                        「アプリを作れるか不安」という自治体様向けの、実践的な開発支援パッケージです。<br>
+                        専門コンサルタントが訪問し、一緒にアプリを作成します。
+                    </p>
+                    
+                    <h4><i class="fas fa-box-open"></i> パッケージ内容</h4>
+                    <ul class="service-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>コンサルティング（1.5時間×1回）</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">現状の業務フローをヒアリングし、最適な改善策をご提案します。</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>訪問開発（2時間×3回）</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">時間内であればアプリ作成数に制限はありません。複数の業務改善を一気に進められます。</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div style="background: var(--light-blue); padding: 1.5rem; border-radius: 10px; margin-top: 1.5rem;">
+                        <p style="margin: 0; color: var(--navy); font-weight: 600;">
+                            <i class="fas fa-info-circle" style="color: var(--mid-blue);"></i> 
+                            少額随意契約でのスモールスタートが可能です。予算確保の負担を軽減します。
+                        </p>
+                    </div>
+
+                    <div class="service-price">
+                        <div class="price-label">パッケージ料金</div>
+                        <div class="price-amount">¥390,000</div>
+                        <div class="price-note">税別</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- サービス3: サイボウズ災害支援 -->
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-number">03</div>
+                    <div class="service-title-group">
+                        <h3>サイボウズ災害支援</h3>
+                        <span class="service-badge">無償支援</span>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.8;">
+                        災害支援のDXパートナーとして、復旧・復興に関わる団体を無償で支援します。<br>
+                        興栄コンサルタントは、サイボウズ社が提供する<a href="https://saigai.cybozu.co.jp/license/" target="_blank" rel="noopener noreferrer" style="color: var(--mid-blue); text-decoration: underline; font-weight: 600;">「災害支援プログラム」</a>の趣旨に賛同。災害の復旧・復興に関わる団体・組織を支援するため、サイボウズの災害支援パートナーとして、<strong>サイボウズサービスの無償構築支援</strong>や<strong>kintone導入などの無償コンサルティング</strong>を実施します。
+                    </p>
+                    
+                    <h4><i class="fas fa-life-ring"></i> 災害時の支援</h4>
+                    <ul class="service-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>緊急のシステム構築</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">災害対策本部の情報共有システムや避難所運営管理システムを迅速に構築します。</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>アプリ作成支援</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">被災状況の集計、支援物資の管理、ボランティアの調整など、必要なアプリを無償で作成します。</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h4><i class="fas fa-shield-alt"></i> 平時の支援</h4>
+                    <ul class="service-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>災害訓練のサポート</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">災害時を見越した訓練や、システムの事前準備をサポートします。</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>業務効率化のコンサルティング</strong><br>
+                                <span style="color: var(--text-gray); font-size: 0.95rem;">平時の業務効率化を通じて、災害時にも対応できる体制づくりを支援します。</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="service-price">
+                        <div class="price-label">支援料金</div>
+                        <div class="price-amount">無償</div>
+                        <div class="price-note">災害復旧・復興に関わる団体が対象</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 導入事例 -->
+    <section class="case-studies fade-in">
+        <div class="container">
+            <h2 class="section-title">自治体での導入事例</h2>
+            <p class="section-subtitle">実際に導入いただいた自治体様の成果をご紹介します</p>
+            <div class="cases-grid">
+                <!-- 事例1 -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <span class="case-tag">建設課</span>
+                        <h3>A市役所</h3>
+                        <p class="case-info">職員数：約500名</p>
+                    </div>
+                    <div class="case-content">
+                        <h4><i class="fas fa-exclamation-circle"></i> 課題</h4>
+                        <p>道路補修要望の受付・進捗管理が紙ベースで行われており、情報の共有が困難。住民への回答にも時間がかかっていました。</p>
+                        
+                        <h4><i class="fas fa-lightbulb"></i> 導入効果</h4>
+                        <div class="case-results">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> 要望受付から回答までの期間を平均5日短縮</li>
+                                <li><i class="fas fa-check-circle"></i> 進捗状況の可視化により部署間の連携が向上</li>
+                                <li><i class="fas fa-check-circle"></i> 過去の対応履歴を参照できるようになり、業務品質が向上</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 事例2 -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <span class="case-tag">福祉課</span>
+                        <h3>B市役所</h3>
+                        <p class="case-info">職員数：約300名</p>
+                    </div>
+                    <div class="case-content">
+                        <h4><i class="fas fa-exclamation-circle"></i> 課題</h4>
+                        <p>高齢者支援の相談記録がExcelで個別管理されており、ケース会議での情報共有が非効率。引き継ぎ時の負担も大きい状況でした。</p>
+                        
+                        <h4><i class="fas fa-lightbulb"></i> 導入効果</h4>
+                        <div class="case-results">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> 相談記録の検索時間を80%削減</li>
+                                <li><i class="fas fa-check-circle"></i> ケース会議の準備時間を半分に短縮</li>
+                                <li><i class="fas fa-check-circle"></i> 職員異動時の引き継ぎがスムーズに</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 事例3 -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <span class="case-tag">総務課</span>
+                        <h3>C町役場</h3>
+                        <p class="case-info">職員数：約100名</p>
+                    </div>
+                    <div class="case-content">
+                        <h4><i class="fas fa-exclamation-circle"></i> 課題</h4>
+                        <p>起案書の決裁に紙と押印が必須で、決裁者不在時は業務が停滞。テレワークの導入も困難な状況でした。</p>
+                        
+                        <h4><i class="fas fa-lightbulb"></i> 導入効果</h4>
+                        <div class="case-results">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> 決裁スピードが平均3日短縮</li>
+                                <li><i class="fas fa-check-circle"></i> テレワーク環境を整備し、働き方改革を実現</li>
+                                <li><i class="fas fa-check-circle"></i> ペーパーレス化により年間約30万円のコスト削減</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="../cases/index.html" class="btn btn-primary">導入事例をもっと見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- クロージングCTA -->
+    <section class="cta-closing">
+        <div class="container">
+            <h2>まずは無料相談から始めませんか？</h2>
+            <p>自治体のDX推進に精通したコンサルタントが、<br>貴自治体の課題とご要望を丁寧にヒアリングいたします。</p>
+            <div class="cta-buttons">
+                <a href="#dx-box" class="btn btn-success">期間限定キャンペーンに申し込む</a>
+                <a href="../contact/index.html" class="btn btn-secondary">無料相談を予約する</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>株式会社興栄コンサルタント</h3>
+                <p>〒500-8288<br>岐阜県岐阜市中鶉4丁目11番地</p>
+                <p>TEL: 058-274-2332<br>FAX: 058-274-2498</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>サービス</h3>
+                <ul>
+                    <li><a href="../news/index.html">News</a></li>
+                    <li><a href="../private/index.html">民間企業様向け</a></li>
+                    <li><a href="index.html">自治体様向け</a></li>
+                    <li><a href="../cases/index.html">導入事例</a></li>
+                    <li><a href="../column/index.html">コラム</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>企業情報</h3>
+                <ul>
+                    <li><a href="../company/index.html">会社概要</a></li>
+                    <li><a href="../contact/index.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // スクロール時のフェードイン
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

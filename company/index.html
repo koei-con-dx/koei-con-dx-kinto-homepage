@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要 | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="株式会社興栄コンサルタントの会社概要。1959年創業の建設コンサルタントとして培った公共事業の実績と、kintone公式パートナーとしての専門性を併せ持ちます。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/common.css">
+
+    <style>
+        /* ==================== 強みセクション ==================== */
+        .strengths-section {
+            background: var(--white);
+        }
+        
+        .strength-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .strength-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            gap: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .strength-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .strength-icon {
+            font-size: 60px;
+            color: var(--kintone-yellow);
+            flex-shrink: 0;
+        }
+        
+        .strength-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+        
+        .strength-content p {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+        
+        /* ==================== 会社情報セクション ==================== */
+        .company-info-section {
+            background: var(--light-gray);
+        }
+        
+        .company-info-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .company-info-box h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--kintone-yellow);
+        }
+        
+        .company-table {
+            width: 100%;
+        }
+        
+        .company-table tr {
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .company-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .company-table th {
+            text-align: left;
+            padding: 25px 20px;
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--light-gray);
+            width: 180px;
+            vertical-align: top;
+        }
+        
+        .company-table td {
+            padding: 25px 30px;
+            color: var(--text-gray);
+            line-height: 1.9;
+        }
+        
+        .company-table td a {
+            color: var(--mid-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .company-table td a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ==================== 代表者メッセージ ==================== */
+        .ceo-message-section {
+            background: var(--white);
+        }
+        
+        .ceo-message-box {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 50px;
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 60px;
+        }
+        
+        .ceo-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--mid-blue) 0%, #0088CC 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 80px;
+            box-shadow: 0 8px 25px rgba(0, 90, 156, 0.3);
+        }
+        
+        .ceo-content h3 {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 25px;
+        }
+        
+        .ceo-content .highlight {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--error);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .ceo-content p {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        
+        .ceo-content .signature {
+            text-align: right;
+            margin-top: 40px;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 16px;
+        }
+        
+        /* ==================== アクセス ==================== */
+        .access-section {
+            background: var(--light-gray);
+        }
+        
+        .access-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .access-box h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 30px;
+        }
+        
+        .access-info {
+            margin-bottom: 30px;
+        }
+        
+        .access-info p {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.9;
+            margin-bottom: 10px;
+        }
+        
+        .access-info strong {
+            color: var(--navy);
+            font-weight: 700;
+        }
+        
+        .map-placeholder {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 100px 40px;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 16px;
+        }
+        
+        /* ==================== レスポンシブ ==================== */
+        @media (max-width: 1024px) {
+            .strength-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .ceo-message-box {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .strength-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .company-info-box,
+            .access-box,
+            .ceo-message-box {
+                padding: 30px 20px;
+            }
+
+            .company-table th,
+            .company-table td {
+                display: block;
+                width: 100%;
+                padding: 15px;
+            }
+
+            .company-table th {
+                background: var(--navy);
+                color: var(--white);
+            }
+
+            .ceo-message-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .ceo-photo {
+                margin: 0 auto;
+            }
+
+            .ceo-content .signature {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
+                    <img src="../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                </a>
+                <span class="logo-badge">kintoneパートナー</span>
+            </div>
+            
+            <nav class="nav" aria-label="メインナビゲーション">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../private/index.html">民間企業様向け</a></li>
+                            <li><a href="../public/index.html">自治体様向け</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../cases/index.html" class="nav-link">導入事例</a></li>
+                    <li><a href="../column/index.html" class="nav-link">コラム</a></li>
+                    <li><a href="index.html" class="nav-link active">会社概要</a></li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <a href="../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                </div>
+            </nav>
+            
+            <div class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ==================== ページヘッダー ==================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>会社概要</h1>
+            <p>1959年創業。公共事業の実績とkintone専門性を併せ持つ</p>
+        </div>
+    </section>
+    
+    <!-- ==================== 私たちの強み ==================== -->
+    <section class="section strengths-section">
+        <div class="container">
+            <h2 class="section-title">私たちの強み</h2>
+            
+            <div class="strength-cards">
+                <article class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="strength-content">
+                        <h3>kintone公式パートナー</h3>
+                        <p>cybozu公式のkintoneエバンジェリスト・パートナー認定を取得。最新情報とノウハウに基づいた支援を提供します。専門的な知識と豊富な経験で、お客様の業務改善を実現します。</p>
+                    </div>
+                </article>
+                
+                <article class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="strength-content">
+                        <h3>公共事業50年の実績</h3>
+                        <p>1959年創業の建設コンサルタントとして、測量業、補償コンサルタント業、建設コンサルタント業で、国・県・市町村の公共事業に長年携わってきました。行政業務の理解とkintone専門性を併せ持ちます。</p>
+                    </div>
+                </article>
+                
+                <article class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="strength-content">
+                        <h3>現場視点のコンサルティング</h3>
+                        <p>机上の理論ではなく、現場の実態を踏まえた要件定義と設計を重視。実際に運用できるシステム構築を支援します。現場訪問によるヒアリングで、本当に必要な機能を見極めます。</p>
+                    </div>
+                </article>
+                
+                <article class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="strength-content">
+                        <h3>導入後の継続支援</h3>
+                        <p>システム導入後の運用定着まで継続的に支援。改善要望への対応や追加開発にも柔軟に対応します。月額プランやスポット支援など、お客様の状況に応じた支援体制をご用意しています。</p>
+                    </div>
+                </article>
+                
+                <article class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="strength-content">
+                        <h3>全国対応可能</h3>
+                        <p>本社は岐阜ですが、オンラインでの支援により全国対応が可能です。必要に応じて訪問での対応も行っています。リモートとオンサイトを組み合わせ、効率的な支援を実現します。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== 会社情報 ==================== -->
+    <section class="section company-info-section">
+        <div class="container">
+            <div class="company-info-box">
+                <h2>会社情報</h2>
+                <table class="company-table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">会社名</th>
+                            <td>株式会社興栄コンサルタント</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">設立年月日</th>
+                            <td>1966年11月5日</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">代表者</th>
+                            <td>代表取締役会長 小野 優 / 代表取締役社長 小野 慶太</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">本社所在地</th>
+                            <td>〒500-8288 岐阜県岐阜市中鶉4丁目11番地</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">事業内容</th>
+                            <td>
+                                <strong>【コンサルタント業務】</strong><br>
+                                道路、橋梁、河川・砂防、農業土木、森林土木、建設環境、上下水道、都市計画、公園緑地、廃棄物、トンネル、施工計画<br>
+                                <br>
+                                <strong>【補償コンサルタント業務】</strong><br>
+                                土地調査、物件、営業補償・特殊補償、機械工作物、事業損失、補償関連<br>
+                                <br>
+                                <strong>【測量業務・地質調査業務】</strong><br>
+                                ・基本測量、公共測量、用地測量<br>
+                                ・地質調査・土質調査<br>
+                                ・地籍調査<br>
+                                <br>
+                                <strong>【建築業務】</strong><br>
+                                建築設計及び施工監理<br>
+                                <br>
+                                <strong>【DX推進業務】</strong><br>
+                                kintoneを用いたDX支援（自治体・公共団体・民間）<br>
+                                <br>
+                                <strong>【空き家対策】</strong><br>
+                                空き家の買取再販
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">認定</th>
+                            <td>cybozu公式 kintoneエバンジェリスト・kintoneパートナー</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">URL</th>
+                            <td><a href="https://www.koei-con.co.jp/" target="_blank" rel="noopener">https://www.koei-con.co.jp/</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== アクセス ==================== -->
+    <section class="section access-section">
+        <div class="container">
+            <div class="access-box">
+                <h2>アクセス</h2>
+                <div class="access-info">
+                    <p><strong>本社</strong></p>
+                    <p>〒500-8288 岐阜県岐阜市中鶉4丁目11番地</p>
+                    <p>TEL: 058-274-2332 / FAX: 058-274-2498</p>
+                    <p>営業時間: 平日 9:00〜18:00（土日祝休み）</p>
+                </div>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="font-size: 48px; margin-bottom: 20px; display: block;"></i>
+                    <p>※ Googleマップ等の地図埋め込みはこちらに設定できます</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== CTA セクション ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>まずはお気軽にご相談ください</h2>
+            <p>貴社の業務課題について、30分の無料相談を承ります</p>
+            <div class="cta-buttons">
+                <a href="../contact/index.html" class="btn btn-primary" style="background: var(--kintone-yellow); color: var(--navy);">お問い合わせ</a>
+                <a href="../index.html#download" class="btn btn-secondary">サービス資料請求</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== フッター ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">株式会社興栄コンサルタント</div>
+                    <p class="footer-desc">
+                        kintone導入・活用支援を通じて、<br>
+                        民間企業・自治体の業務改善を支援しています。
+                    </p>
+                </div>
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
+                    <a href="../news/index.html">News</a>
+                    <div style="display: inline; margin: 0 10px; color: #999;">サービス内容：</div>
+                    <a href="../private/index.html">民間企業様向け</a>
+                    <a href="../public/index.html">自治体様向け</a>
+                    <a href="../cases/index.html">導入事例</a>
+                    <a href="../column/index.html">コラム</a>
+                    <a href="index.html">会社概要</a>
+                    <a href="../contact/index.html">お問い合わせ</a>
+                    <a href="../index.html#download">資料ダウンロード</a>
+                </nav>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+        
+        hamburger?.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
