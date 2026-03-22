@@ -540,6 +540,10 @@
             margin-bottom: 40px;
         }
 
+        .plan-diagnosis-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
         /* ==================== レスポンシブ ==================== */
         @media (max-width: 1024px) {
             .hero-container {
@@ -593,6 +597,58 @@
             .closing-buttons {
                 flex-direction: column;
                 align-items: stretch;
+            }
+
+            /* プラン診断フローチャート: 3列→1列 */
+            .plan-diagnosis-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* サービスカード: 2列→1列 */
+            .service-cards {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* ヒーロービジュアル: ボックスを縮小 */
+            .visual-before,
+            .visual-after {
+                width: 200px !important;
+                height: 180px !important;
+            }
+
+            .hero-visual {
+                height: 350px;
+            }
+
+            /* ステップアイコン: 縮小 */
+            .step-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 12px;
+            }
+
+            .step-label {
+                font-size: 11px;
+            }
+
+            /* サービス価格: フォント縮小 */
+            .service-price {
+                font-size: 22px;
+            }
+
+            /* セクションサブタイトル: フォント縮小 */
+            .section-subtitle {
+                font-size: 15px;
+            }
+
+            /* サービスブロック: パディング縮小 */
+            .service-block {
+                padding: 40px 20px;
+            }
+
+            /* セッショングリッド: 2列→1列 */
+            .session-grid {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
@@ -747,7 +803,7 @@
                     <i class="fas fa-compass" aria-hidden="true" style="color: var(--accent-orange); margin-right: 8px;"></i>
                     3つの質問で、ぴったりのプランがわかります
                 </h3>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div class="plan-diagnosis-grid" style="display: grid; gap: 20px;">
                     <div style="background: white; border-radius: 12px; padding: 24px; text-align: center;">
                         <div style="font-size: 28px; font-weight: 900; color: var(--accent-orange); margin-bottom: 8px;">Q1</div>
                         <p style="font-size: 14px; color: var(--text-dark); margin-bottom: 12px;">社内にIT担当者・<br>kintoneを触れる人がいますか？</p>
@@ -857,7 +913,7 @@
                     <div class="service-card">
                         <h4>伴走開発支援パック</h4>
                         <div class="service-price">¥390,000<small>（固定・アプリ数不問）</small></div>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 16px 0;">
+                        <div class="session-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 16px 0;">
                             <div style="background: var(--light-gray); border-radius: 8px; padding: 12px; font-size: 13px;">
                                 <strong>Session 1</strong><br>キックオフ・業務整理（2h）
                             </div>
