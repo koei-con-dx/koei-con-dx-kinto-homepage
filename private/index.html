@@ -590,8 +590,13 @@
             }
 
             .step-items {
-                flex-direction: column;
-                gap: 30px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .step-item {
+                gap: 8px;
             }
 
             .closing-buttons {
@@ -620,15 +625,25 @@
                 height: 350px;
             }
 
-            /* ステップアイコン: 縮小 */
+            /* ステップアイコン: コンパクト化 */
             .step-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 12px;
+                width: 55px;
+                height: 55px;
+                font-size: 11px;
+                border-width: 3px;
             }
 
             .step-label {
                 font-size: 11px;
+            }
+
+            /* ヒーロービジュアル: モバイルでは非表示 */
+            .hero-visual {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr !important;
             }
 
             /* サービス価格: フォント縮小 */
@@ -641,9 +656,41 @@
                 font-size: 15px;
             }
 
+            /* セクションタイトル: 余白縮小 */
+            .section-title {
+                margin-bottom: 30px;
+            }
+
             /* サービスブロック: パディング縮小 */
             .service-block {
-                padding: 40px 20px;
+                padding: 30px 16px;
+                margin-bottom: 30px;
+            }
+
+            .service-block h3 {
+                font-size: 20px;
+            }
+
+            /* pain-card: コンパクト化 */
+            .pain-card {
+                padding: 20px;
+            }
+
+            .pain-card i {
+                font-size: 32px;
+            }
+
+            .pain-card h3 {
+                font-size: 15px;
+            }
+
+            .pain-card p {
+                font-size: 13px;
+            }
+
+            /* 診断フロー: コンパクト化 */
+            .plan-diagnosis-grid > div {
+                padding: 16px !important;
             }
 
             /* セッショングリッド: 2列→1列 */
