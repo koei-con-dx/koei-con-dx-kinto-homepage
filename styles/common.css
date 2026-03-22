@@ -94,7 +94,7 @@ a:hover {
     text-align: center;
     color: var(--text-gray);
     font-size: 16px;
-    margin-top: -40px;
+    margin-top: -20px;
     margin-bottom: 60px;
 }
 
@@ -568,6 +568,12 @@ a:hover {
     .section-title {
         font-size: 20px;
         margin-bottom: 25px;
+    }
+
+    .section-subtitle {
+        margin-top: -5px;
+        margin-bottom: 25px;
+        font-size: 13px;
     }
 
     .cta-section h2 {
