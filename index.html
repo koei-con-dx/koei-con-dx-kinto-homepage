@@ -599,81 +599,155 @@
         }
 
         @media (max-width: 768px) {
+            /* ヒーロー */
+            .hero {
+                padding-top: 100px;
+                padding-bottom: 50px;
+            }
+
             .hero h1 {
                 font-size: 22px;
                 line-height: 1.5;
+                margin-bottom: 15px;
             }
 
             .hero-lead {
-                font-size: 14px;
+                font-size: 13px;
+                margin-bottom: 25px;
+                line-height: 1.7;
             }
 
             .hero-buttons {
-                flex-direction: column;
+                gap: 10px;
             }
 
-            .hero-buttons .btn,
-            .hero-buttons-second .btn {
+            .hero-buttons .btn {
                 min-width: auto;
                 width: 100%;
+                padding: 14px 20px;
+                font-size: 14px;
             }
 
-            .download-icon {
-                font-size: 48px;
-                margin-bottom: 20px;
+            /* 資料DLボタンはモバイルで非表示 */
+            .hero-buttons-second {
+                display: none;
             }
 
-            .service-target-card h3 {
-                font-size: 22px;
+            /* News: 縦並びでコンパクトに */
+            .news-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+                padding: 12px 16px;
             }
 
-            .column-thumbnail {
-                height: 120px;
+            .news-date {
+                font-size: 12px;
             }
 
-            .column-thumbnail i {
-                font-size: 32px;
+            .news-category {
+                font-size: 10px;
+                padding: 2px 8px;
             }
 
-            .strength-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .download-container {
-                padding: 30px 20px;
-            }
-
-            .section-title {
-                margin-bottom: 30px;
-            }
-
-            .problem-card {
-                padding: 25px;
-            }
-
-            .problem-card i {
-                font-size: 32px;
-            }
-
-            .problem-card h3 {
-                font-size: 15px;
-            }
-
-            .problem-card p {
+            .news-title {
                 font-size: 13px;
+                line-height: 1.5;
             }
 
-            .case-card,
-            .column-card {
-                margin-bottom: 0;
-            }
-
-            .news-compact .news-item {
-                padding: 15px 20px;
+            /* お客様別サービス: 2ボタン横並び */
+            .service-targets {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px;
             }
 
             .service-target-card {
-                padding: 30px 20px;
+                padding: 20px 12px;
+                text-align: center;
+            }
+
+            .service-target-card .icon {
+                font-size: 30px;
+            }
+
+            .service-target-card h3 {
+                font-size: 16px;
+            }
+
+            .service-target-card ul {
+                display: none;
+            }
+
+            .service-target-card .btn {
+                font-size: 13px;
+                padding: 10px 16px;
+            }
+
+            /* 強み */
+            .strength-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .strength-card {
+                padding: 15px;
+            }
+
+            .strength-icon i {
+                font-size: 24px;
+            }
+
+            .strength-content h4 {
+                font-size: 15px;
+            }
+
+            .strength-content p {
+                font-size: 12px;
+            }
+
+            /* 課題カード */
+            .problem-card {
+                padding: 20px;
+            }
+
+            .problem-card i {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .problem-card h3 {
+                font-size: 14px;
+            }
+
+            .problem-card p {
+                font-size: 12px;
+            }
+
+            /* 事例・コラム */
+            .column-thumbnail {
+                height: 100px;
+            }
+
+            .column-thumbnail i {
+                font-size: 28px;
+            }
+
+            .column-content {
+                padding: 15px;
+            }
+
+            .column-title {
+                font-size: 13px;
+            }
+
+            /* 資料DL */
+            .download-icon {
+                font-size: 48px;
+                margin-bottom: 15px;
+            }
+
+            .download-container {
+                padding: 25px 16px;
             }
         }
     </style>
