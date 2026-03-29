@@ -225,7 +225,7 @@ a:hover {
     color: var(--text-dark);
     padding: 4px 10px;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
 }
 
@@ -506,6 +506,11 @@ a:hover {
 
 .news-category.media {
     background: var(--cat-purple);
+    color: var(--white);
+}
+
+.news-category.event {
+    background: #009688;
     color: var(--white);
 }
 

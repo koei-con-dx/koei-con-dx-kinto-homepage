@@ -22,107 +22,216 @@
     <link rel="stylesheet" href="../styles/common.css">
 
     <style>
-        /* ==================== イベントカード ==================== */
+        /* ==================== セクション見出し ==================== */
         .events-section-title {
             font-size: 28px;
             font-weight: 900;
             color: var(--navy);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             padding-bottom: 15px;
             border-bottom: 3px solid var(--kintone-yellow);
             display: inline-block;
         }
 
-        .event-card {
+        .events-section-title i {
+            margin-right: 10px;
+        }
+
+        /* ==================== 空セクション ==================== */
+        .empty-message {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 48px 32px;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        .empty-message i {
+            display: block;
+            font-size: 36px;
+            color: #ccc;
+            margin-bottom: 16px;
+        }
+
+        /* ==================== アコーディオンカード ==================== */
+        .event-accordion {
+            margin-bottom: 24px;
+        }
+
+        .event-accordion:last-child {
+            margin-bottom: 0;
+        }
+
+        .event-summary {
+            list-style: none;
+            cursor: pointer;
             background: var(--white);
             border-radius: 12px;
-            overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 40px;
-        }
-
-        .event-card-header {
-            background: linear-gradient(135deg, var(--navy) 0%, #004080 100%);
-            color: var(--white);
-            padding: 30px 40px;
+            padding: 24px 32px;
             display: flex;
-            align-items: flex-start;
-            gap: 30px;
+            align-items: center;
+            gap: 24px;
+            transition: box-shadow 0.3s ease, transform 0.15s ease;
+            position: relative;
         }
 
-        .event-date-badge {
+        .event-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .event-summary::marker {
+            display: none;
+            content: "";
+        }
+
+        .event-summary:hover {
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .event-accordion[open] .event-summary {
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transform: none;
+        }
+
+        /* 日付バッジ */
+        .summary-date {
             background: var(--kintone-yellow);
             color: var(--navy);
-            border-radius: 10px;
-            padding: 15px 20px;
+            border-radius: 8px;
+            padding: 10px 16px;
             text-align: center;
-            min-width: 100px;
+            min-width: 80px;
             flex-shrink: 0;
         }
 
-        .event-date-badge .year {
-            font-size: 13px;
+        .summary-date .year {
+            font-size: 11px;
             font-weight: 700;
             display: block;
             line-height: 1.2;
         }
 
-        .event-date-badge .day {
-            font-size: 24px;
+        .summary-date .day {
+            font-size: 20px;
             font-weight: 900;
             display: block;
             line-height: 1.3;
         }
 
-        .event-header-info {
+        /* サマリーテキスト */
+        .summary-text {
             flex: 1;
+            min-width: 0;
         }
 
-        .event-status {
+        .summary-status {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--white);
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
-        .event-status.ended {
-            background: rgba(255, 255, 255, 0.15);
+        .summary-status.ended {
+            background: var(--light-gray);
+            color: var(--text-gray);
         }
 
-        .event-card-title {
-            font-size: 22px;
+        .summary-status.upcoming {
+            background: var(--kintone-yellow);
+            color: var(--navy);
+        }
+
+        .summary-title {
+            font-size: 17px;
             font-weight: 900;
-            color: var(--white);
+            color: var(--navy);
             line-height: 1.5;
+            margin-bottom: 4px;
         }
 
-        .event-card-body {
-            padding: 35px 40px;
+        .summary-excerpt {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
+        /* 開閉アイコン */
+        .summary-toggle {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--mid-blue);
+            font-size: 14px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .event-accordion[open] .summary-toggle {
+            transform: rotate(180deg);
+            background: var(--mid-blue);
+            color: var(--white);
+        }
+
+        /* ==================== 展開コンテンツ ==================== */
+        .event-detail {
+            background: var(--white);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .event-hero-image {
+            width: 100%;
+            max-height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .event-detail-body {
+            padding: 32px 36px;
+        }
+
+        /* メタ情報 */
         .event-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
         }
 
         .event-meta-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 15px;
+            gap: 10px;
+            font-size: 14px;
             color: var(--text-gray);
         }
 
         .event-meta-item i {
             color: var(--mid-blue);
-            font-size: 16px;
-            width: 20px;
+            font-size: 15px;
+            width: 18px;
             text-align: center;
         }
 
@@ -131,20 +240,22 @@
             font-weight: 700;
         }
 
+        /* 説明文 */
         .event-description {
             font-size: 15px;
-            line-height: 1.8;
+            line-height: 1.9;
             color: var(--text-gray);
-            margin-bottom: 30px;
-            padding-bottom: 25px;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
             border-bottom: 1px solid var(--light-gray);
         }
 
+        /* 発表内容 */
         .event-presentations-title {
             font-size: 18px;
             font-weight: 900;
             color: var(--navy);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -158,15 +269,15 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 30px;
+            gap: 14px;
+            margin-bottom: 28px;
         }
 
         .presentation-item {
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            padding: 18px 20px;
+            padding: 16px 20px;
             background: var(--light-gray);
             border-radius: 8px;
             border-left: 4px solid var(--mid-blue);
@@ -176,7 +287,7 @@
             font-weight: 700;
             color: var(--navy);
             font-size: 14px;
-            min-width: 180px;
+            min-width: 170px;
             flex-shrink: 0;
         }
 
@@ -186,8 +297,21 @@
             line-height: 1.7;
         }
 
-        .event-card-footer {
-            padding: 0 40px 35px;
+        /* 締めコメント */
+        .event-closing {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 28px;
+            padding: 20px 24px;
+            background: var(--pale-yellow);
+            border-radius: 8px;
+            border-left: 4px solid var(--kintone-yellow);
+        }
+
+        /* フッターリンク */
+        .event-detail-footer {
+            padding: 0 36px 32px;
             text-align: right;
         }
 
@@ -211,45 +335,58 @@
             transform: translateY(-2px);
         }
 
+        /* ==================== セクション間スペース ==================== */
+        .events-block {
+            margin-bottom: 64px;
+        }
+
+        .events-block:last-child {
+            margin-bottom: 0;
+        }
+
         /* ==================== レスポンシブ ==================== */
         @media (max-width: 768px) {
             .events-section-title {
                 font-size: 22px;
             }
 
-            .event-card-header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
+            .event-summary {
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 18px 20px;
             }
 
-            .event-date-badge {
-                align-self: flex-start;
+            .summary-date {
                 min-width: auto;
-                padding: 10px 18px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
+                padding: 8px 14px;
             }
 
-            .event-date-badge .year {
+            .summary-date .year {
+                font-size: 10px;
+            }
+
+            .summary-date .day {
+                font-size: 16px;
+            }
+
+            .summary-title {
+                font-size: 15px;
+            }
+
+            .summary-excerpt {
                 font-size: 12px;
             }
 
-            .event-date-badge .day {
-                font-size: 18px;
+            .event-hero-image {
+                max-height: 200px;
             }
 
-            .event-card-title {
-                font-size: 17px;
-            }
-
-            .event-card-body {
+            .event-detail-body {
                 padding: 20px;
             }
 
             .event-meta {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 10px;
             }
 
@@ -276,8 +413,8 @@
                 font-size: 13px;
             }
 
-            .event-card-footer {
-                padding: 0 20px 25px;
+            .event-detail-footer {
+                padding: 0 20px 24px;
                 text-align: center;
             }
 
@@ -299,7 +436,7 @@
                     <img src="../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
                     <span class="logo-text">株式会社興栄コンサルタント</span>
                 </a>
-                <span class="logo-badge">kintoneパートナー</span>
+                <span class="logo-badge">サイボウズオフィシャルパートナー</span>
             </div>
 
             <nav class="nav" aria-label="メインナビゲーション">
@@ -339,74 +476,103 @@
         </div>
     </section>
 
-    <!-- ==================== 過去のイベント ==================== -->
+    <!-- ==================== イベント一覧 ==================== -->
     <section class="section">
         <div class="container">
-            <h2 class="events-section-title"><i class="fas fa-calendar-check" style="margin-right: 10px; color: var(--mid-blue);"></i>過去のイベント</h2>
 
-            <div class="event-card">
-                <div class="event-card-header">
-                    <div class="event-date-badge">
-                        <span class="year">2025年</span>
-                        <span class="day">10/31</span>
-                    </div>
-                    <div class="event-header-info">
-                        <span class="event-status ended">開催終了</span>
-                        <h3 class="event-card-title">【kintone×社会福祉協議会】社会福祉協議会職員限定のユーザー交流会</h3>
-                    </div>
-                </div>
+            <!-- ========== 告知 ========== -->
+            <div class="events-block">
+                <h2 class="events-section-title"><i class="fas fa-bullhorn" style="color: var(--accent-orange);"></i>告知</h2>
 
-                <div class="event-card-body">
-                    <div class="event-meta">
-                        <div class="event-meta-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span><strong>開催日：</strong>2025年10月31日</span>
-                        </div>
-                        <div class="event-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span><strong>会場：</strong>サイボウズ名古屋オフィス</span>
-                        </div>
-                        <div class="event-meta-item">
-                            <i class="fas fa-users"></i>
-                            <span><strong>参加者：</strong>30名以上（満員御礼）</span>
-                        </div>
-                    </div>
-
-                    <p class="event-description">
-                        社会福祉協議会職員を対象に、kintoneの業務改善ツールとしての活用方法を紹介するユーザー交流会を開催しました。各社会福祉協議会から、kintone導入の経緯や活用事例について発表が行われました。
-                    </p>
-
-                    <h4 class="event-presentations-title"><i class="fas fa-microphone-alt"></i> 発表内容</h4>
-                    <ul class="presentation-list">
-                        <li class="presentation-item">
-                            <span class="org-name">山県市社会福祉協議会</span>
-                            <span class="org-detail">相談業務管理をエクセルから専用システム、さらにkintoneへと移行した経緯を報告</span>
-                        </li>
-                        <li class="presentation-item">
-                            <span class="org-name">春日井市社会福祉協議会</span>
-                            <span class="org-detail">ボランティア（団体・個人）管理をエクセルからkintoneに変更。訪問開発の活用ポイントを共有</span>
-                        </li>
-                        <li class="presentation-item">
-                            <span class="org-name">犬山市社会福祉協議会</span>
-                            <span class="org-detail">kintoneと連携サービス「プリントクリエーター」を組み合わせ、地域助成事業をシステム化</span>
-                        </li>
-                        <li class="presentation-item">
-                            <span class="org-name">可児市社会福祉協議会</span>
-                            <span class="org-detail">相談管理業務において、kintoneとプラグイン「レポトン」を組み合わせて運用する事例を紹介</span>
-                        </li>
-                        <li class="presentation-item">
-                            <span class="org-name">美濃加茂市社会福祉協議会</span>
-                            <span class="org-detail">300を超えるアプリを構築。「エクセルでやっているものはだいたいkintoneで代替可能」というアプローチを展開</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="event-card-footer">
-                    <a href="https://www.koei-con.co.jp/news/kintone/p6733/" class="event-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> 元記事を見る
-                    </a>
+                <div class="empty-message">
+                    <i class="fas fa-calendar-plus"></i>
+                    現在、告知はありません。新しいイベント情報をお待ちください。
                 </div>
             </div>
+
+            <!-- ========== イベントレポート ========== -->
+            <div class="events-block">
+                <h2 class="events-section-title"><i class="fas fa-calendar-check" style="color: var(--mid-blue);"></i>イベントレポート</h2>
+
+                <!-- 社会福祉協議会 交流会 -->
+                <details class="event-accordion">
+                    <summary class="event-summary">
+                        <div class="summary-date">
+                            <span class="year">2025年</span>
+                            <span class="day">10/31</span>
+                        </div>
+                        <div class="summary-text">
+                            <span class="summary-status ended">開催終了</span>
+                            <h3 class="summary-title">【kintone×社会福祉協議会】社会福祉協議会職員限定のユーザー交流会</h3>
+                            <p class="summary-excerpt">社会福祉協議会の日常業務におけるkintone活用可能性をテーマに、5つの社協による事例発表が行われました。</p>
+                        </div>
+                        <div class="summary-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </summary>
+
+                    <div class="event-detail">
+                        <img
+                            src="https://www.koei-con.co.jp/wp/wp-content/uploads/2026/01/P1071517A-720x275.jpg"
+                            alt="社会福祉協議会職員限定のユーザー交流会の様子"
+                            class="event-hero-image"
+                        >
+
+                        <div class="event-detail-body">
+                            <div class="event-meta">
+                                <div class="event-meta-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span><strong>開催日：</strong>2025年10月31日</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span><strong>会場：</strong>サイボウズ名古屋オフィス</span>
+                                </div>
+                            </div>
+
+                            <p class="event-description">
+                                社会福祉協議会にとってkintoneは「災害ボランティアセンター」というイメージが強いものの、「日常業務での活用可能性を認識してもらいたい」という想いから開催。実運用している5つの社協による事例発表が行われました。
+                            </p>
+
+                            <h4 class="event-presentations-title"><i class="fas fa-microphone-alt"></i> 発表内容</h4>
+                            <ul class="presentation-list">
+                                <li class="presentation-item">
+                                    <span class="org-name">山県市社会福祉協議会</span>
+                                    <span class="org-detail">相談業務管理をエクセルから専用システム経由でkintoneへ移行した過程を説明</span>
+                                </li>
+                                <li class="presentation-item">
+                                    <span class="org-name">春日井市社会福祉協議会</span>
+                                    <span class="org-detail">ボランティア（団体・個人）管理をエクセルからkintoneへ変更、訪問開発活用のポイント共有</span>
+                                </li>
+                                <li class="presentation-item">
+                                    <span class="org-name">犬山市社会福祉協議会</span>
+                                    <span class="org-detail">kintoneと連携サービス「プリントクリエーター」を組み合わせた助成事業のシステム化事例</span>
+                                </li>
+                                <li class="presentation-item">
+                                    <span class="org-name">可児市社会福祉協議会</span>
+                                    <span class="org-detail">相談管理業務でkintoneとプラグイン「レポトン」を組み合わせた活用事例</span>
+                                </li>
+                                <li class="presentation-item">
+                                    <span class="org-name">美濃加茂市社会福祉協議会</span>
+                                    <span class="org-detail">「ほぼ全業務でkintoneを活用」。300を超えるアプリ構築の秘訣は「観察→勝手にアプリ作成→メリット提示→選択」という流れ。「エクセル業務はだいたい代替可能」であり、複数ファイル統合や入力削減が改善のポイント</span>
+                                </li>
+                            </ul>
+
+                            <div class="event-closing">
+                                社会福祉協議会の業務改善が「日常生活の幸せ実感」につながることへの期待が示されました。
+                            </div>
+                        </div>
+
+                        <div class="event-detail-footer">
+                            <a href="https://www.koei-con.co.jp/news/kintone/p6733/" class="event-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> 元記事を見る
+                            </a>
+                        </div>
+                    </div>
+                </details>
+
+            </div>
+
         </div>
     </section>
 
