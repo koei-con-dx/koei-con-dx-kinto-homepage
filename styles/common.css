@@ -94,7 +94,7 @@ a:hover {
     text-align: center;
     color: var(--text-gray);
     font-size: 16px;
-    margin-top: -20px;
+    margin-top: 0;
     margin-bottom: 60px;
 }
 
@@ -571,7 +571,7 @@ a:hover {
     }
 
     .section-subtitle {
-        margin-top: -5px;
+        margin-top: 0;
         margin-bottom: 25px;
         font-size: 13px;
     }
