@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イベント | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="株式会社興栄コンサルタントのkintone関連イベント情報。セミナー・交流会・勉強会など、kintone活用に役立つイベント情報を掲載しています。">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../images/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/common.css">
+
+    <style>
+        /* ==================== イベントカード ==================== */
+        .events-section-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--kintone-yellow);
+            display: inline-block;
+        }
+
+        .event-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .event-card-header {
+            background: linear-gradient(135deg, var(--navy) 0%, #004080 100%);
+            color: var(--white);
+            padding: 30px 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .event-date-badge {
+            background: var(--kintone-yellow);
+            color: var(--navy);
+            border-radius: 10px;
+            padding: 15px 20px;
+            text-align: center;
+            min-width: 100px;
+            flex-shrink: 0;
+        }
+
+        .event-date-badge .year {
+            font-size: 13px;
+            font-weight: 700;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .event-date-badge .day {
+            font-size: 24px;
+            font-weight: 900;
+            display: block;
+            line-height: 1.3;
+        }
+
+        .event-header-info {
+            flex: 1;
+        }
+
+        .event-status {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .event-status.ended {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .event-card-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.5;
+        }
+
+        .event-card-body {
+            padding: 35px 40px;
+        }
+
+        .event-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        .event-meta-item i {
+            color: var(--mid-blue);
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .event-meta-item strong {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .event-description {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .event-presentations-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .event-presentations-title i {
+            color: var(--kintone-yellow);
+        }
+
+        .presentation-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .presentation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 18px 20px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            border-left: 4px solid var(--mid-blue);
+        }
+
+        .presentation-item .org-name {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 14px;
+            min-width: 180px;
+            flex-shrink: 0;
+        }
+
+        .presentation-item .org-detail {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .event-card-footer {
+            padding: 0 40px 35px;
+            text-align: right;
+        }
+
+        .event-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--mid-blue);
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            padding: 12px 25px;
+            border: 2px solid var(--mid-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .event-link:hover {
+            background: var(--mid-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== レスポンシブ ==================== */
+        @media (max-width: 768px) {
+            .events-section-title {
+                font-size: 22px;
+            }
+
+            .event-card-header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .event-date-badge {
+                align-self: flex-start;
+                min-width: auto;
+                padding: 10px 18px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .event-date-badge .year {
+                font-size: 12px;
+            }
+
+            .event-date-badge .day {
+                font-size: 18px;
+            }
+
+            .event-card-title {
+                font-size: 17px;
+            }
+
+            .event-card-body {
+                padding: 20px;
+            }
+
+            .event-meta {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .event-meta-item {
+                font-size: 13px;
+            }
+
+            .event-description {
+                font-size: 14px;
+            }
+
+            .presentation-item {
+                flex-direction: column;
+                gap: 6px;
+                padding: 14px 16px;
+            }
+
+            .presentation-item .org-name {
+                min-width: auto;
+                font-size: 13px;
+            }
+
+            .presentation-item .org-detail {
+                font-size: 13px;
+            }
+
+            .event-card-footer {
+                padding: 0 20px 25px;
+                text-align: center;
+            }
+
+            .event-link {
+                font-size: 14px;
+                padding: 10px 20px;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
+                    <img src="../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                </a>
+                <span class="logo-badge">kintoneパートナー</span>
+            </div>
+
+            <nav class="nav" aria-label="メインナビゲーション">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../private/index.html">民間企業様向け</a></li>
+                            <li><a href="../public/index.html">自治体様向け</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../cases/index.html" class="nav-link">導入事例</a></li>
+                    <li><a href="../column/index.html" class="nav-link">コラム</a></li>
+                    <li><a href="index.html" class="nav-link active">イベント</a></li>
+                    <li><a href="../company/index.html" class="nav-link">会社概要</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <a href="../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                </div>
+            </nav>
+
+            <div class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== ページヘッダー ==================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>イベント</h1>
+            <p>セミナー・交流会・イベント情報を掲載しています</p>
+        </div>
+    </section>
+
+    <!-- ==================== 過去のイベント ==================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="events-section-title"><i class="fas fa-calendar-check" style="margin-right: 10px; color: var(--mid-blue);"></i>過去のイベント</h2>
+
+            <div class="event-card">
+                <div class="event-card-header">
+                    <div class="event-date-badge">
+                        <span class="year">2025年</span>
+                        <span class="day">10/31</span>
+                    </div>
+                    <div class="event-header-info">
+                        <span class="event-status ended">開催終了</span>
+                        <h3 class="event-card-title">【kintone×社会福祉協議会】社会福祉協議会職員限定のユーザー交流会</h3>
+                    </div>
+                </div>
+
+                <div class="event-card-body">
+                    <div class="event-meta">
+                        <div class="event-meta-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span><strong>開催日：</strong>2025年10月31日</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span><strong>会場：</strong>サイボウズ名古屋オフィス</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>参加者：</strong>30名以上（満員御礼）</span>
+                        </div>
+                    </div>
+
+                    <p class="event-description">
+                        社会福祉協議会職員を対象に、kintoneの業務改善ツールとしての活用方法を紹介するユーザー交流会を開催しました。各社会福祉協議会から、kintone導入の経緯や活用事例について発表が行われました。
+                    </p>
+
+                    <h4 class="event-presentations-title"><i class="fas fa-microphone-alt"></i> 発表内容</h4>
+                    <ul class="presentation-list">
+                        <li class="presentation-item">
+                            <span class="org-name">山県市社会福祉協議会</span>
+                            <span class="org-detail">相談業務管理をエクセルから専用システム、さらにkintoneへと移行した経緯を報告</span>
+                        </li>
+                        <li class="presentation-item">
+                            <span class="org-name">春日井市社会福祉協議会</span>
+                            <span class="org-detail">ボランティア（団体・個人）管理をエクセルからkintoneに変更。訪問開発の活用ポイントを共有</span>
+                        </li>
+                        <li class="presentation-item">
+                            <span class="org-name">犬山市社会福祉協議会</span>
+                            <span class="org-detail">kintoneと連携サービス「プリントクリエーター」を組み合わせ、地域助成事業をシステム化</span>
+                        </li>
+                        <li class="presentation-item">
+                            <span class="org-name">可児市社会福祉協議会</span>
+                            <span class="org-detail">相談管理業務において、kintoneとプラグイン「レポトン」を組み合わせて運用する事例を紹介</span>
+                        </li>
+                        <li class="presentation-item">
+                            <span class="org-name">美濃加茂市社会福祉協議会</span>
+                            <span class="org-detail">300を超えるアプリを構築。「エクセルでやっているものはだいたいkintoneで代替可能」というアプローチを展開</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="event-card-footer">
+                    <a href="https://www.koei-con.co.jp/news/kintone/p6733/" class="event-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> 元記事を見る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA セクション ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>最新のイベント情報をお見逃しなく</h2>
+            <p>セミナー・交流会の開催情報やお役立ち情報をお届けします</p>
+            <div class="cta-buttons">
+                <a href="../contact/index.html" class="btn btn-primary" style="background: var(--kintone-yellow); color: var(--navy);">お問い合わせ</a>
+                <a href="../index.html#download" class="btn btn-secondary">サービス資料請求</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== フッター ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">株式会社興栄コンサルタント</div>
+                    <p class="footer-desc">
+                        kintone導入・活用支援を通じて、<br>
+                        民間企業・自治体の業務改善を支援しています。
+                    </p>
+                </div>
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
+                    <a href="../news/index.html">News</a>
+                    <div style="display: inline; margin: 0 10px; color: #999;">サービス内容：</div>
+                    <a href="../private/index.html">民間企業様向け</a>
+                    <a href="../public/index.html">自治体様向け</a>
+                    <a href="../cases/index.html">導入事例</a>
+                    <a href="../column/index.html">コラム</a>
+                    <a href="index.html">イベント</a>
+                    <a href="../company/index.html">会社概要</a>
+                    <a href="../contact/index.html">お問い合わせ</a>
+                    <a href="../index.html#download">資料ダウンロード</a>
+                </nav>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+
+        hamburger?.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
