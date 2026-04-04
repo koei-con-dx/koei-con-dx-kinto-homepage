@@ -1021,41 +1021,15 @@
                 <div class="download-icon">
                     <i class="fas fa-file-pdf"></i>
                 </div>
-                
-                <form class="download-form" action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">お名前 <span style="color: var(--accent-orange);">*</span></label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="company">企業名 <span style="color: var(--accent-orange);">*</span></label>
-                        <input type="text" id="company" name="company" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="department">部署名</label>
-                        <input type="text" id="department" name="department">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">メールアドレス <span style="color: var(--accent-orange);">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-yellow btn-large">📥 資料をダウンロード（無料）</button>
-                    </div>
-                    
+
+                <div style="text-align: center;">
+                    <h3 style="font-size: 22px; margin-bottom: 12px; color: var(--white);">kintone導入支援サービス カタログ</h3>
+                    <p style="font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px;">サービス内容・料金プラン・導入の流れをまとめた資料です</p>
+                    <a href="downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf" download class="btn btn-yellow btn-large" style="display: inline-block; text-decoration: none;">📥 資料をダウンロード（無料）</a>
                     <p style="font-size: 12px; text-align: center; margin-top: 20px; opacity: 0.8;">
-                        ご入力いただいた情報は、資料送付およびサービスのご案内にのみ使用いたします。
+                        PDF形式（無料・登録不要）
                     </p>
-                </form>
+                </div>
             </div>
         </div>
     </section>
@@ -1151,13 +1125,7 @@
             });
         });
         
-        // フォーム送信時の処理（デモ）
-        const downloadForm = document.querySelector('.download-form');
-        downloadForm?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('資料ダウンロードのリクエストを受け付けました。\n入力いただいたメールアドレス宛にダウンロードリンクをお送りいたします。');
-            // 実際の実装では、ここでフォームデータをサーバーに送信
-        });
+        // 資料ダウンロードは直接リンクのため、JSハンドラ不要
     </script>
 </body>
 </html>
