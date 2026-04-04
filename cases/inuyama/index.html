@@ -94,6 +94,37 @@
             font-weight: 700;
         }
 
+        /* ==================== 導入先紹介 ==================== */
+        .client-intro {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding: 28px;
+            background: var(--light-gray);
+            border-radius: 12px;
+        }
+
+        .client-intro-image {
+            width: 280px;
+            min-width: 280px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .client-intro-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .client-intro-text p {
+            font-size: 15px;
+            line-height: 1.9;
+            color: var(--text-gray);
+        }
+
         /* ==================== 記事本文 ==================== */
         .article-body {
             max-width: 840px;
@@ -345,6 +376,17 @@
                 height: auto;
             }
 
+            .client-intro {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .client-intro-image {
+                width: 100%;
+                min-width: auto;
+                max-height: 200px;
+            }
+
             .article-header h1 {
                 font-size: 20px;
             }
@@ -492,6 +534,15 @@
                             <i class="fas fa-globe"></i>
                             <span><strong>HP：</strong><a href="https://inuyama-shakyo.or.jp/" target="_blank" rel="noopener noreferrer" style="color: var(--mid-blue); text-decoration: underline;">犬山市社会福祉協議会</a></span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- 導入先紹介 -->
+                <div class="client-intro">
+                    <img src="photo2.jpg" alt="犬山市社会福祉協議会 インタビューの様子" class="client-intro-image">
+                    <div class="client-intro-text">
+                        <h3>犬山市社会福祉協議会について</h3>
+                        <p>犬山市社会福祉協議会は、「ふだんの くらしを しあわせに」を理念に掲げる社会福祉法人です。地域福祉の推進を担い、ボランティアの育成・支援、助成金の管理、資金貸付、障がい者相談支援、日常生活自立支援など多岐にわたる福祉サービスを展開しています。地域サロンへの訪問や災害時のボランティアセンター運営なども行い、住民に身近な福祉の拠点として活動しています。</p>
                     </div>
                 </div>
 
