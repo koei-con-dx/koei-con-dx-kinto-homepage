@@ -1022,14 +1022,33 @@
                     <i class="fas fa-file-pdf"></i>
                 </div>
 
-                <div style="text-align: center;">
-                    <h3 style="font-size: 22px; margin-bottom: 12px; color: var(--white);">kintone導入支援サービス カタログ</h3>
-                    <p style="font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px;">サービス内容・料金プラン・導入の流れをまとめた資料です</p>
-                    <a href="downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf" download class="btn btn-yellow btn-large" style="display: inline-block; text-decoration: none;">📥 資料をダウンロード（無料）</a>
+                <h3 style="font-size: 22px; margin-bottom: 12px; color: var(--white); text-align: center;">kintone導入支援サービス カタログ</h3>
+                <p style="font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; text-align: center;">サービス内容・料金プラン・導入の流れをまとめた資料です</p>
+
+                <form class="download-form" id="downloadForm">
+                    <div class="form-group">
+                        <label for="dl-name">お名前 <span style="color: var(--accent-orange);">*</span></label>
+                        <input type="text" id="dl-name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dl-company">企業名 <span style="color: var(--accent-orange);">*</span></label>
+                        <input type="text" id="dl-company" name="company" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dl-email">メールアドレス <span style="color: var(--accent-orange);">*</span></label>
+                        <input type="email" id="dl-email" name="email" required>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-yellow btn-large">📥 資料をダウンロード（無料）</button>
+                    </div>
+
                     <p style="font-size: 12px; text-align: center; margin-top: 20px; opacity: 0.8;">
-                        PDF形式（無料・登録不要）
+                        PDF形式 ｜ 必須項目を入力後、すぐにダウンロードできます
                     </p>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -1125,7 +1144,17 @@
             });
         });
         
-        // 資料ダウンロードは直接リンクのため、JSハンドラ不要
+        // 資料ダウンロード：必須項目入力後に即DL
+        const downloadForm = document.getElementById('downloadForm');
+        downloadForm?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const link = document.createElement('a');
+            link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
+            link.download = '';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
     </script>
 </body>
 </html>
