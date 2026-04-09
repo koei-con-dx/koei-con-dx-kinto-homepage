@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結局、kintone（キントーン）で何ができるの？自社の業務がどう変わるか分かりやすく解説 | コラム | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="kintoneで何ができるのか、メリットや具体的な活用例を分かりやすく解説。顧客管理、ペーパーレス稟議、日報集約など、日常業務がどう変わるかイメージできるコラムです。">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../styles/common.css">
+
+    <style>
+        /* ==================== ヒーローセクション ==================== */
+        .column-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #004080 60%, var(--mid-blue) 100%);
+            padding: 160px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .column-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 203, 5, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .column-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 90, 156, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .column-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(255, 203, 5, 0.2);
+            border: 1px solid rgba(255, 203, 5, 0.4);
+            border-radius: 30px;
+            color: var(--kintone-yellow);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .column-hero h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .column-hero h1 .highlight {
+            color: var(--kintone-yellow);
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .hero-meta i {
+            margin-right: 6px;
+        }
+
+        /* ==================== パンくず ==================== */
+        .breadcrumb {
+            padding: 16px 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ==================== 記事本文 ==================== */
+        .article-body {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .article-body p {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--text-gray);
+            margin-bottom: 28px;
+        }
+
+        .article-body p strong {
+            color: var(--navy);
+        }
+
+        /* ==================== リード文 ==================== */
+        .lead-text {
+            font-size: 17px !important;
+            color: var(--text-gray);
+            line-height: 2.1 !important;
+            padding: 32px;
+            background: var(--white);
+            border-radius: 12px;
+            border-left: 5px solid var(--kintone-yellow);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            margin-bottom: 48px !important;
+        }
+
+        /* ==================== セクション見出し ==================== */
+        .article-body h2 {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--white);
+            background: var(--navy);
+            margin-top: 56px;
+            margin-bottom: 32px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
+        .article-body h2 i {
+            color: var(--kintone-yellow);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .article-body h3 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid var(--kintone-yellow);
+            line-height: 1.6;
+        }
+
+        /* ==================== kintone定義カード ==================== */
+        .definition-card {
+            background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF4CC 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 32px 0 40px;
+            text-align: center;
+            border: 2px solid rgba(255, 203, 5, 0.3);
+        }
+
+        .definition-card .definition-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .definition-card .definition-text {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .definition-card .definition-text .em {
+            background: linear-gradient(transparent 60%, var(--kintone-yellow) 60%);
+            padding: 0 4px;
+        }
+
+        /* ==================== 実績バー ==================== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 32px 0 40px;
+        }
+
+        .stat-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border-top: 4px solid var(--mid-blue);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--mid-blue);
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .stat-number span {
+            font-size: 16px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* ==================== 活用事例カード ==================== */
+        .use-case-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 0;
+            margin: 32px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .use-case-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 28px;
+            background: var(--light-gray);
+            border-bottom: 3px solid var(--kintone-yellow);
+        }
+
+        .use-case-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .use-case-icon.excel { background: linear-gradient(135deg, #217346, #33a06f); }
+        .use-case-icon.workflow { background: linear-gradient(135deg, var(--accent-orange), #ff8f5e); }
+        .use-case-icon.report { background: linear-gradient(135deg, var(--mid-blue), #3399cc); }
+
+        .use-case-header h4 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.5;
+        }
+
+        .use-case-body {
+            padding: 28px;
+        }
+
+        .use-case-body p {
+            margin-bottom: 20px;
+        }
+
+        /* Before/After 比較 */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: stretch;
+            margin: 20px 0 8px;
+        }
+
+        .comparison-box {
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .comparison-box.before {
+            background: #FFF0F0;
+            border: 1px solid #FFD4D4;
+        }
+
+        .comparison-box.after {
+            background: #F0FFF4;
+            border: 1px solid #C3E6CB;
+        }
+
+        .comparison-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .before .comparison-label {
+            background: var(--cat-red);
+            color: var(--white);
+        }
+
+        .after .comparison-label {
+            background: var(--cat-green);
+            color: var(--white);
+        }
+
+        .comparison-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--mid-blue);
+        }
+
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        .comparison-list li i {
+            margin-top: 3px;
+            flex-shrink: 0;
+            font-size: 12px;
+        }
+
+        .before .comparison-list li i { color: var(--cat-red); }
+        .after .comparison-list li i { color: var(--cat-green); }
+
+        /* ==================== メリット一覧テーブル ==================== */
+        .merit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .merit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .merit-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--pale-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--navy);
+            font-size: 18px;
+        }
+
+        .merit-text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .merit-text p {
+            font-size: 13px !important;
+            line-height: 1.7 !important;
+            color: var(--text-gray);
+            margin-bottom: 0 !important;
+        }
+
+        /* ==================== 料金ノート ==================== */
+        .price-note {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 28px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 2px solid var(--kintone-yellow);
+            margin: 32px 0;
+        }
+
+        .price-note-icon {
+            font-size: 36px;
+            color: var(--kintone-yellow);
+            flex-shrink: 0;
+        }
+
+        .price-note-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .price-note-text strong {
+            color: var(--navy);
+        }
+
+        /* ==================== ポイントボックス ==================== */
+        .point-box {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFF4CC 100%);
+            border-radius: 16px;
+            padding: 36px;
+            margin: 40px 0;
+            border-left: 5px solid var(--accent-orange);
+        }
+
+        .point-box h4 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .point-box p {
+            margin-bottom: 0 !important;
+            font-size: 15px;
+        }
+
+        /* ==================== CTA ボックス ==================== */
+        .inline-cta {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 48px 0 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--accent-orange);
+        }
+
+        .inline-cta h3 {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 16px;
+            border: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .inline-cta p {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin-bottom: 12px !important;
+        }
+
+        .inline-cta .worry-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .inline-cta .worry-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 2;
+        }
+
+        .inline-cta .worry-list li i {
+            color: var(--accent-orange);
+            flex-shrink: 0;
+        }
+
+        .inline-cta .cta-buttons {
+            margin-top: 8px;
+        }
+
+        /* ==================== 戻るリンク ==================== */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--mid-blue);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 40px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--light-gray);
+        }
+
+        /* ==================== レスポンシブ ==================== */
+        @media (max-width: 768px) {
+            .column-hero {
+                padding: 120px 0 50px;
+            }
+
+            .column-hero h1 {
+                font-size: 22px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .article-body {
+                padding: 40px 0;
+            }
+
+            .article-body h2 {
+                font-size: 17px;
+                padding: 14px 18px;
+                margin-top: 40px;
+                margin-bottom: 24px;
+            }
+
+            .article-body h3 {
+                font-size: 16px;
+            }
+
+            .article-body p {
+                font-size: 14px;
+            }
+
+            .lead-text {
+                font-size: 15px !important;
+                padding: 24px;
+            }
+
+            .definition-card {
+                padding: 28px 20px;
+            }
+
+            .definition-card .definition-text {
+                font-size: 17px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .comparison-arrow {
+                transform: rotate(90deg);
+                padding: 4px 0;
+            }
+
+            .merit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-note {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .point-box {
+                padding: 24px 20px;
+            }
+
+            .inline-cta {
+                padding: 28px 20px;
+            }
+
+            .inline-cta h3 {
+                font-size: 18px;
+            }
+
+            .use-case-header {
+                padding: 18px 20px;
+            }
+
+            .use-case-header h4 {
+                font-size: 16px;
+            }
+
+            .use-case-body {
+                padding: 20px;
+            }
+
+            .use-case-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
+                    <img src="../../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                </a>
+                <span class="logo-badge">サイボウズオフィシャルパートナー</span>
+            </div>
+
+            <nav class="nav" aria-label="メインナビゲーション">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../private/index.html">民間企業様向け</a></li>
+                            <li><a href="../../public/index.html">自治体様向け</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../cases/index.html" class="nav-link">導入事例</a></li>
+                    <li><a href="../../column/index.html" class="nav-link active">コラム</a></li>
+                    <li><a href="../../events/index.html" class="nav-link">イベント</a></li>
+                    <li><a href="../../company/index.html" class="nav-link">会社概要</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <a href="../../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="../../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                </div>
+            </nav>
+
+            <div class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== ヒーローセクション ==================== -->
+    <section class="column-hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../../index.html">ホーム</a>
+                <span>&gt;</span>
+                <a href="../index.html">コラム</a>
+                <span>&gt;</span>
+                kintoneで何ができる？
+            </nav>
+
+            <div class="hero-badge">
+                <i class="fas fa-lightbulb"></i>
+                kintone入門
+            </div>
+            <h1>結局、<span class="highlight">kintone（キントーン）</span>で<br>何ができるの？<br>自社の業務がどう変わるか分かりやすく解説</h1>
+            <div class="hero-meta">
+                <span><i class="fas fa-calendar-alt"></i>2026.04.09</span>
+                <span><i class="fas fa-clock"></i>読了目安 8分</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 記事本文 ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="article-body">
+
+                <!-- リード文 -->
+                <p class="lead-text">
+                    テレビCMで「キントーン♪」というフレーズを耳にしたり、取引先から「うちはkintone入れたよ」と聞いたりすることが増えていませんか？<br><br>
+                    「なんとなくITっぽいツールらしい」「業務改善に良いらしい」――そこまでは分かっていても、<strong>「結局、kintoneで何ができるの？」</strong>という疑問をお持ちの方は多いのではないでしょうか。<br><br>
+                    この記事では、ITの専門知識がなくても「なるほど、そういうことか！」と腹落ちしていただけるよう、kintoneの正体と具体的な活用イメージを分かりやすくお伝えします。
+                </p>
+
+                <!-- ==================== kintoneとは ==================== -->
+                <h2><i class="fas fa-puzzle-piece"></i> kintoneとは、一言でいうと「自分たちで作れる業務システム」</h2>
+
+                <p>
+                    kintone（キントーン）は、サイボウズ株式会社が提供するクラウド型の<strong>業務改善プラットフォーム</strong>です。
+                </p>
+                <p>
+                    ……と言われても、ピンとこないですよね。もっとかみ砕くと、こういうことです。
+                </p>
+
+                <div class="definition-card">
+                    <div class="definition-icon"><i class="fas fa-cubes" style="color: var(--navy);"></i></div>
+                    <p class="definition-text">
+                        <span class="em">レゴブロックのように</span>、自社の業務にぴったり合うシステムを、<br><span class="em">プログラミングなしで自分たちで組み立てられる</span>ツール
+                    </p>
+                </div>
+
+                <p>
+                    たとえば、顧客管理の仕組みが欲しければ「顧客管理アプリ」を作る。日報を効率化したければ「日報アプリ」を作る。必要なパーツ（入力項目やボタン）を<strong>ドラッグ＆ドロップで画面に並べるだけ</strong>で、自社専用の業務アプリが出来上がります。
+                </p>
+
+                <p>
+                    「でも、それって難しいんでしょ？」と思われるかもしれません。実は、<strong>200種類以上のサンプルアプリ（テンプレート）</strong>が最初から用意されていて、それを選ぶだけでもすぐに使い始められます。さらに、今お使いのExcelファイルを読み込んで、そのままアプリに変換することもできます。
+                </p>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">3社に1社</div>
+                        <div class="stat-label">東証プライム上場企業の導入率</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">330万<span>件+</span></div>
+                        <div class="stat-label">累計アプリ作成数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200<span>種類+</span></div>
+                        <div class="stat-label">サンプルアプリ</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 12px; color: #999; text-align: right; margin-top: -20px;">
+                    ※ サイボウズ公式発表（2025年8月時点）に基づく
+                </p>
+
+                <!-- ==================== 何ができる？活用シーン ==================== -->
+                <h2><i class="fas fa-rocket"></i> kintoneで「何ができる」のか？ よくある3つの活用シーン</h2>
+
+                <p>
+                    kintoneのメリットは、「これまで手作業やExcelで頑張っていた業務が、驚くほどスムーズになる」こと。ここでは、多くの企業が最初に取り組む代表的な活用例を3つご紹介します。
+                </p>
+
+                <!-- 活用例① Excel顧客管理からの卒業 -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-icon excel">
+                            <i class="fas fa-address-book"></i>
+                        </div>
+                        <h4>活用例 1 ： Excelの顧客管理から卒業する</h4>
+                    </div>
+                    <div class="use-case-body">
+                        <p>
+                            「顧客リストはExcelで管理しています」という会社は、今でも少なくありません。Excelでの管理には、こんな「あるある」がつきものです。
+                        </p>
+
+                        <div class="comparison">
+                            <div class="comparison-box before">
+                                <div class="comparison-label"><i class="fas fa-times"></i> Excel管理の困りごと</div>
+                                <ul class="comparison-list">
+                                    <li><i class="fas fa-times-circle"></i>誰かがファイルを開いていると編集できない</li>
+                                    <li><i class="fas fa-times-circle"></i>「最新版はどれ？」とファイルが乱立する</li>
+                                    <li><i class="fas fa-times-circle"></i>担当者が変わると引き継ぎがうまくいかない</li>
+                                    <li><i class="fas fa-times-circle"></i>外出先からスマホで確認できない</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="comparison-box after">
+                                <div class="comparison-label"><i class="fas fa-check"></i> kintoneなら</div>
+                                <ul class="comparison-list">
+                                    <li><i class="fas fa-check-circle"></i>複数人が同時にアクセス・編集できる</li>
+                                    <li><i class="fas fa-check-circle"></i>常に最新データを全員が共有</li>
+                                    <li><i class="fas fa-check-circle"></i>対応履歴もコメントで紐づけ</li>
+                                    <li><i class="fas fa-check-circle"></i>スマホからいつでも確認・入力OK</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 活用例② ペーパーレス稟議 -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-icon workflow">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h4>活用例 2 ： ハンコ待ちをなくすペーパーレス稟議</h4>
+                    </div>
+                    <div class="use-case-body">
+                        <p>
+                            「稟議書を印刷して、上司のデスクに置いて、ハンコをもらって回す」。この作業に何日もかかった経験はありませんか？ 上司が外出中なら承認は翌日以降。出張が重なれば、さらに数日待ち。その間に案件の鮮度はどんどん落ちていきます。
+                        </p>
+
+                        <div class="comparison">
+                            <div class="comparison-box before">
+                                <div class="comparison-label"><i class="fas fa-times"></i> 紙の稟議</div>
+                                <ul class="comparison-list">
+                                    <li><i class="fas fa-times-circle"></i>印刷 → 押印 → 回覧で数日かかる</li>
+                                    <li><i class="fas fa-times-circle"></i>上司が不在だと承認が止まる</li>
+                                    <li><i class="fas fa-times-circle"></i>書類の保管場所を取る</li>
+                                    <li><i class="fas fa-times-circle"></i>過去の稟議を探すのが大変</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="comparison-box after">
+                                <div class="comparison-label"><i class="fas fa-check"></i> kintoneなら</div>
+                                <ul class="comparison-list">
+                                    <li><i class="fas fa-check-circle"></i>申請 → 通知 → 承認がオンラインで完結</li>
+                                    <li><i class="fas fa-check-circle"></i>外出先でもスマホからワンタップ承認</li>
+                                    <li><i class="fas fa-check-circle"></i>ペーパーレスで保管の手間ゼロ</li>
+                                    <li><i class="fas fa-check-circle"></i>過去の稟議も検索一発で表示</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 14px; color: var(--text-gray); margin-top: 16px;">
+                            <i class="fas fa-building" style="color: var(--mid-blue); margin-right: 6px;"></i>
+                            建設業の熊本利水工業様では、kintone導入で紙運用からのペーパーレス化を達成しています。（サイボウズ公式事例より）
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 活用例③ 日報の集約 -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-icon report">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h4>活用例 3 ： バラバラだった日報を一か所に集約</h4>
+                    </div>
+                    <div class="use-case-body">
+                        <p>
+                            日報の運用方法は会社によってさまざまです。メールで送る会社、Excelに記入する会社、チャットに書く会社……。どのやり方にも共通するのは、<strong>「日報が散らばって、後から振り返りにくい」</strong>という問題です。
+                        </p>
+
+                        <div class="comparison">
+                            <div class="comparison-box before">
+                                <div class="comparison-label"><i class="fas fa-times"></i> 従来の日報</div>
+                                <ul class="comparison-list">
+                                    <li><i class="fas fa-times-circle"></i>メール・Excel・チャットに分散</li>
+                                    <li><i class="fas fa-times-circle"></i>過去の内容を振り返りにくい</li>
+                                    <li><i class="fas fa-times-circle"></i>上司が確認するのに手間がかかる</li>
+                                    <li><i class="fas fa-times-circle"></i>報告のためだけの会議が発生</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="comparison-box after">
+                                <div class="comparison-label"><i class="fas fa-check"></i> kintoneなら</div>
+                                <ul class="comparison-list">
+                                    <li><i class="fas fa-check-circle"></i>全社員の日報が一か所に集まる</li>
+                                    <li><i class="fas fa-check-circle"></i>キーワード検索で経緯がすぐ分かる</li>
+                                    <li><i class="fas fa-check-circle"></i>ダッシュボードで一覧をさっと確認</li>
+                                    <li><i class="fas fa-check-circle"></i>コメントでその場にフィードバック</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== メリットまとめ ==================== -->
+                <h2><i class="fas fa-star"></i> kintoneのメリットを整理すると</h2>
+
+                <div class="merit-grid">
+                    <div class="merit-item">
+                        <div class="merit-icon"><i class="fas fa-mouse-pointer"></i></div>
+                        <div class="merit-text">
+                            <h4>プログラミング不要</h4>
+                            <p>ドラッグ＆ドロップやExcel読み込みでアプリを作成できる</p>
+                        </div>
+                    </div>
+                    <div class="merit-item">
+                        <div class="merit-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="merit-text">
+                            <h4>すぐに始められる</h4>
+                            <p>200種類以上のテンプレートから選ぶだけでもOK</p>
+                        </div>
+                    </div>
+                    <div class="merit-item">
+                        <div class="merit-icon"><i class="fas fa-database"></i></div>
+                        <div class="merit-text">
+                            <h4>情報の一元管理</h4>
+                            <p>バラバラだったデータや書類をクラウドに集約</p>
+                        </div>
+                    </div>
+                    <div class="merit-item">
+                        <div class="merit-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="merit-text">
+                            <h4>どこからでもアクセス</h4>
+                            <p>PC・スマホ・タブレットから利用可能</p>
+                        </div>
+                    </div>
+                    <div class="merit-item">
+                        <div class="merit-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div class="merit-text">
+                            <h4>柔軟に変えられる</h4>
+                            <p>業務の変化に合わせてアプリを修正・追加できる</p>
+                        </div>
+                    </div>
+                    <div class="merit-item">
+                        <div class="merit-icon"><i class="fas fa-plug"></i></div>
+                        <div class="merit-text">
+                            <h4>拡張性が高い</h4>
+                            <p>400種類以上のプラグインや外部サービスとの連携が可能</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-note">
+                    <div class="price-note-icon"><i class="fas fa-yen-sign"></i></div>
+                    <div class="price-note-text">
+                        料金は<strong>1ユーザーあたり月額1,000円</strong>（ライトコース）から。10ユーザーから契約でき、<strong>初期費用は無料</strong>です。より多くの機能を使えるスタンダードコースでも月額1,800円/ユーザーと、専用システムの開発に比べれば圧倒的に手軽なコストで始められます。
+                    </div>
+                </div>
+
+                <!-- ==================== 大事なポイント ==================== -->
+                <h2><i class="fas fa-exclamation-circle"></i> 大事なのは「ツールを入れること」ではなく「自社に合わせること」</h2>
+
+                <p>
+                    ここまで読んで、「kintoneって便利そうだな」と感じていただけたなら嬉しいです。ただ、一つだけお伝えしたいことがあります。
+                </p>
+
+                <div class="point-box">
+                    <h4><i class="fas fa-lightbulb" style="color: var(--accent-orange);"></i> ここが重要！</h4>
+                    <p>
+                        <strong>kintoneは「入れれば自動的に業務が良くなる魔法のツール」ではありません。</strong><br><br>
+                        kintoneの本当の力を引き出すには、「自社の業務フローのどこに課題があるのか」を整理し、「どのようにアプリを設計すれば現場が本当に使いやすいか」を考えるプロセスが不可欠です。<br><br>
+                        逆にいえば、この<strong>「業務の棚卸しと設計」</strong>さえきちんとできれば、kintoneは中小企業にとって非常に心強い<strong>業務改善</strong>のパートナーになります。
+                    </p>
+                </div>
+
+                <!-- ==================== CTA ==================== -->
+                <div class="inline-cta">
+                    <h3>「何から始めればいいか分からない」方へ</h3>
+                    <p>
+                        私たち<strong>興栄コンサルタント</strong>は、kintoneのサイボウズ公式パートナーとして、数多くの企業様の業務改善をお手伝いしてきました。<br>
+                        大切にしているのは、<strong>「現場に寄り添う伴走支援」</strong>です。
+                    </p>
+                    <ul class="worry-list">
+                        <li><i class="fas fa-check-circle"></i>「Excelの管理が限界だけど、何から手をつければ…」</li>
+                        <li><i class="fas fa-check-circle"></i>「kintoneが良さそうなのは分かったけど、うちの業務に合うの？」</li>
+                        <li><i class="fas fa-check-circle"></i>「過去にITツールを入れて失敗したから不安…」</li>
+                    </ul>
+                    <p>
+                        そんなお悩みをお持ちでしたら、お気軽にご相談ください。<br>
+                        <strong>ちょっとした疑問レベルのご相談でも大歓迎です。</strong>
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="../../contact/index.html" class="btn btn-primary" style="background: var(--accent-orange); color: var(--white);">無料で相談する</a>
+                        <a href="../../index.html#download" class="btn btn-secondary">サービス資料を見る</a>
+                    </div>
+                </div>
+
+                <!-- 戻るリンク -->
+                <a href="../index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> コラム一覧に戻る
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA セクション ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>kintone導入に関するご相談はお気軽に</h2>
+            <p>業務改善の第一歩を一緒に踏み出しましょう</p>
+            <div class="cta-buttons">
+                <a href="../../contact/index.html" class="btn btn-primary" style="background: var(--kintone-yellow); color: var(--navy);">お問い合わせ</a>
+                <a href="../../index.html#download" class="btn btn-secondary">サービス資料請求</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== フッター ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">株式会社興栄コンサルタント</div>
+                    <p class="footer-desc">
+                        kintone導入・活用支援を通じて、<br>
+                        民間企業・自治体の業務改善を支援しています。
+                    </p>
+                </div>
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
+                    <a href="../../news/index.html">News</a>
+                    <div style="display: inline; margin: 0 10px; color: #999;">サービス内容：</div>
+                    <a href="../../private/index.html">民間企業様向け</a>
+                    <a href="../../public/index.html">自治体様向け</a>
+                    <a href="../../cases/index.html">導入事例</a>
+                    <a href="../../column/index.html">コラム</a>
+                    <a href="../../events/index.html">イベント</a>
+                    <a href="../../company/index.html">会社概要</a>
+                    <a href="../../contact/index.html">お問い合わせ</a>
+                    <a href="../../index.html#download">資料ダウンロード</a>
+                </nav>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+
+        hamburger?.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
