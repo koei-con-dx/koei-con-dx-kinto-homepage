@@ -73,7 +73,7 @@ Claude 設定側で同等の安全装置を実装している。
 ### main 反映の手順（社員はこの手順だけ）
 
 1. dev ブランチでの編集 → push まで完了し、Netlify プレビューでユーザーが OK を出している前提
-2. ブラウザで `https://github.com/koei-con-dx/kinto-homepage` を開く
+2. ブラウザで `https://github.com/koei-con-dx/koei-con-dx-kinto-homepage` を開く
 3. 上部「Pull requests」タブ →「New pull request」
 4. **base: `main`, compare: `dev`** を選択 →「Create pull request」
 5. タイトルは dev ブランチの最新コミットメッセージで OK
