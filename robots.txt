@@ -1,3 +1,5 @@
-# 検索エンジンクローラーをブロック
+# 検索エンジンクローラーを全面許可
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://koei-con-dx.jp/sitemap.xml

@@ -1,0 +1,29 @@
+# Personal Claude Code settings (per-user, not shared)
+.claude/settings.local.json
+.claude/.credentials.json
+.claude/projects/
+.claude/shell-snapshots/
+.claude/todos/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python build artifacts (marketing simulation scripts)
+__pycache__/
+*.pyc
+*.pyo
+
+# Local environment
+.env
+.env.local
+
+# Temporary files
+*.log
+*.tmp
+~$*
