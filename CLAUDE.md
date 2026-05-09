@@ -8,14 +8,10 @@
 ## 1. このリポジトリは何か
 
 静的 HTML マルチページサイト（Vanilla HTML / CSS / JS、ビルドツールなし）。
-Netlify で自動デプロイされ、本番は `https://koei-con-dx.jp/` 系。
+Netlify で自動デプロイされ、本番は `https://koei-con-dx.jp/`。
 
-サイトは2系統入っています：
-
-| パス | 内容 |
-|---|---|
-| `/`（ルート） | 本サイト（自治体・民間共通の入り口） |
-| `/kintone/html/` | kintone 専用サイトのソース（別 Netlify サイト） |
+Netlify プロジェクトは **`koei-con-dx.jp` の 1 つだけ**（`Deploys from GitHub` でこのリポジトリを参照）。
+ローカルに `kintone/html/` フォルダがあるが、これは Git 管理外の旧ドラフト・本番未デプロイなので **触らない**。
 
 ---
 
@@ -37,12 +33,14 @@ Netlify で自動デプロイされ、本番は `https://koei-con-dx.jp/` 系。
 ├── downloads/              配布PDF
 ├── images/                 画像
 ├── styles/                 共通CSS
-├── netlify.toml            Netlify設定（Basic認証あり）
-└── kintone/html/...        kintone専用サイト一式（同様の構造）
+├── robots.txt              クローラー制御（全許可 + sitemap参照）
+└── sitemap.xml             サイトマップ（Search Console 送信用）
 ```
 
 ナビ・フッターは **テンプレート化されていません**。各 `*/index.html` にインライン記載。
 **ナビを変更したときは全ページを横並びで修正すること**（`Grep` で `<nav>` を探して全件確認）。
+
+なお、ローカルには上記以外に `kintone/`、`新規事業/`、`エンゲージメントサーベイ/`、各種 `build_*.py` や `*.xlsx`/`*.pptx`/`*.docx` があるが、いずれも Git 管理外（本番無関係）なので触らない。
 
 ---
 
@@ -88,13 +86,10 @@ Claude 設定側で同等の安全装置を実装している。
 
 理由：このリポジトリには自動テストが無いため、人間の目視確認が唯一の品質ゲート。
 
-### Netlify 認証
+### Netlify 認証 / 公開状態
 
-`netlify.toml` で Basic 認証あり：
-- ユーザー: `koei` / パスワード: `demo2024`
-- `X-Robots-Tag: noindex, nofollow` を全ページに付与（検索エンジンブロック）
-
-本番公開時は `netlify.toml` のパスワードと noindex 設定を見直すこと。
+現在は **完全公開** 状態（`netlify.toml` を 2026-05 に削除、`robots.txt` も `Allow: /` に変更、`sitemap.xml` を追加済み）。
+Basic 認証や noindex は今は無し。再度クローラーを止めたい時は `robots.txt` で `Disallow: /` にするのが最短。
 
 ---
 
@@ -131,8 +126,8 @@ Claude 設定側で同等の安全装置を実装している。
 - `build_marketing_excel.py`, `build_marketing_pptx.py`
 - `kintone_3year_marketing_plan.{xlsx,pptx}`
 - `business-idea-reviewer/`, `エンゲージメントサーベイ/`
-- `kintone/blog_kintone_what_can_it_do.md`, `kintone/revision_*.txt`, `kintone/interview_annotated.txt`
-  （編集中ドラフト・元原稿。HTML 化されたものは `kintone/html/` 配下）
+- `kintone/` 配下一式（旧ドラフト・本番無関係。Git 管理外）
+- `新規事業/`, `エンゲージメントサーベイ/`（事業計画ドラフト）
 - `.claude/settings.local.json`（個人設定、gitignore 済み）
 
 ---
@@ -141,7 +136,6 @@ Claude 設定側で同等の安全装置を実装している。
 
 ### ニュース追加
 - `news/index.html` の記事カード一覧に **新しい順** で追加
-- `kintone/html/news/index.html` 側にも同じ更新が必要なら確認する
 - 日付フォーマットは既存カードに合わせる
 
 ### 導入事例の追加
