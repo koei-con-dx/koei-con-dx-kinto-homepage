@@ -46,15 +46,29 @@ Netlify プロジェクトは **`koei-con-dx.jp` の 1 つだけ**（`Deploys fr
 
 ## 3. ブランチ運用 & デプロイ
 
-- `main` ... 本番（Netlify 自動デプロイ）
-- `dev` ... ステージング（Netlify がプレビュー URL を払い出す）
+- `main` ... 本番（Netlify 自動デプロイ）。本番ドメイン: `https://koei-con-dx.jp/`
+- `dev` ... ステージング。**固定プレビュー URL: `https://dev--koei-con-kintone.netlify.app/`**（push されるたびに同 URL に最新版が反映）
+
+Netlify サイト名は `koei-con-kintone`（GitHub `koei-con-dx/koei-con-dx-kinto-homepage` リポジトリの GitHub 連携でデプロイ）。
 
 ### 標準フロー
 
 1. `dev` ブランチで編集 → コミット
-2. `dev` に `git push` → Netlify がプレビューを自動ビルド
-3. **ユーザーにプレビュー URL を案内し、目視確認してもらう**（自動化されたテストは無し）
+2. `dev` に `git push` → Netlify がプレビューを自動ビルド（数十秒〜数分）
+3. **ユーザーに `https://dev--koei-con-kintone.netlify.app/` を案内し、目視確認してもらう**（自動化されたテストは無し）
 4. OK が出たら **GitHub の Web UI で `dev` → `main` の Pull Request を作って Merge**（本番反映）
+
+### スタッフ運用 / プレビューアクセス（Netlify アカウント不要）
+
+このリポジトリは複数スタッフ運用を想定。Netlify アカウントは小野様 1 つで足り、**スタッフは GitHub アクセスだけでプレビュー確認可能**。アクセスルートは 3 つ：
+
+| # | ルート | 用途 |
+|---|---|---|
+| A | 固定 URL `https://dev--koei-con-kintone.netlify.app/` を直接ブラウザで開く | dev push 後すぐ確認したい時 |
+| B | GitHub の自分のコミットページ → 緑✓マーク →「Details」→ Netlify Deploy Preview | コミット単位の確認 |
+| C | PR ページに Netlify ボットが自動コメントするプレビュー URL | PR レビュー時 |
+
+**前提**: スタッフは GitHub Organization `koei-con-dx` のメンバーで、リポジトリ `koei-con-dx-kinto-homepage` に Write 権限が必要（Private リポジトリのため未招待者は GitHub からも見られない）。
 
 ### main への直接操作は Claude からは禁止
 
@@ -80,9 +94,10 @@ Claude 設定側で同等の安全装置を実装している。
 
 ### Claude が dev に push したら必ず行うこと
 
-> dev ブランチへの push 後は「Netlify のプレビュー URL を確認してください」と
-> ユーザーに案内し、確認結果を待ってから次のアクション（main マージなど）に進む。
-> main へのマージは Claude 側では実行できないので、ユーザーに Web UI での PR マージを案内する。
+> dev ブランチへの push 後は **`https://dev--koei-con-kintone.netlify.app/` を案内**し、
+> 確認結果を待ってから次のアクション（main マージなど）に進む。
+> main へのマージは Claude 側では実行できないので、ユーザーに以下の compare URL での PR マージを案内する：
+> `https://github.com/koei-con-dx/koei-con-dx-kinto-homepage/compare/main...dev`
 
 理由：このリポジトリには自動テストが無いため、人間の目視確認が唯一の品質ゲート。
 
