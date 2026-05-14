@@ -650,6 +650,28 @@
                 font-size: 20px;
             }
         }
+
+        /* ==================== 装飾イラスト（余白に散りばめ） ==================== */
+        .article-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deco-icon {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.13;
+        }
+
+        @media (max-width: 1100px) {
+            .deco-icon { display: none; }
+        }
+
+        .article-section .container {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -717,7 +739,19 @@
     </section>
 
     <!-- ==================== 記事本文 ==================== -->
-    <section class="section">
+    <section class="section article-section">
+        <!-- 装飾イラスト（PCのみ表示、余白部分にランダム配置） -->
+        <i class="deco-icon fas fa-copy" style="top: 80px; left: 4%; font-size: 70px; color: var(--kintone-yellow); transform: rotate(-15deg);"></i>
+        <i class="deco-icon fas fa-cogs" style="top: 380px; right: 3%; font-size: 90px; color: var(--mid-blue); transform: rotate(20deg);"></i>
+        <i class="deco-icon fas fa-layer-group" style="top: 720px; left: 2%; font-size: 60px; color: var(--accent-orange); transform: rotate(-10deg);"></i>
+        <i class="deco-icon fas fa-puzzle-piece" style="top: 1080px; right: 4%; font-size: 80px; color: var(--cat-purple); transform: rotate(15deg);"></i>
+        <i class="deco-icon fas fa-clone" style="top: 1480px; left: 3%; font-size: 75px; color: var(--cat-green); transform: rotate(-25deg);"></i>
+        <i class="deco-icon fas fa-chart-line" style="top: 1880px; right: 2%; font-size: 65px; color: var(--mid-blue); transform: rotate(10deg);"></i>
+        <i class="deco-icon fas fa-bolt" style="top: 2280px; left: 4%; font-size: 70px; color: var(--kintone-yellow); transform: rotate(25deg);"></i>
+        <i class="deco-icon fas fa-rocket" style="top: 2680px; right: 3%; font-size: 85px; color: var(--accent-orange); transform: rotate(-15deg);"></i>
+        <i class="deco-icon fas fa-thumbs-up" style="top: 3080px; left: 2%; font-size: 70px; color: var(--cat-green); transform: rotate(-10deg);"></i>
+        <i class="deco-icon fas fa-star" style="top: 3380px; right: 4%; font-size: 60px; color: var(--kintone-yellow); transform: rotate(15deg);"></i>
+
         <div class="container">
             <div class="article-body">
 
