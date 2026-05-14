@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kintone（キントーン）は特定の人だけ見れる？アクセス権機能を解説 | コラム | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="kintoneのアクセス権機能を使えば、ユーザー・部署・役職ごとに情報の閲覧や編集を制限できます。アプリ単位・レコード単位・フィールド単位の3つの設定方法とメリットを解説します。">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../styles/common.css">
+
+    <style>
+        /* ==================== ヒーローセクション ==================== */
+        .column-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #004080 60%, var(--mid-blue) 100%);
+            padding: 160px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .column-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 203, 5, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .column-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 90, 156, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .column-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(255, 203, 5, 0.2);
+            border: 1px solid rgba(255, 203, 5, 0.4);
+            border-radius: 30px;
+            color: var(--kintone-yellow);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .column-hero h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .column-hero h1 .highlight {
+            color: var(--kintone-yellow);
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .hero-meta i {
+            margin-right: 6px;
+        }
+
+        /* ==================== パンくず ==================== */
+        .breadcrumb {
+            padding: 16px 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ==================== 記事本文 ==================== */
+        .article-body {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .article-body p {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--text-gray);
+            margin-bottom: 28px;
+        }
+
+        .article-body p strong {
+            color: var(--navy);
+        }
+
+        /* ==================== リード文 ==================== */
+        .lead-text {
+            font-size: 17px !important;
+            color: var(--text-gray);
+            line-height: 2.1 !important;
+            padding: 32px;
+            background: var(--white);
+            border-radius: 12px;
+            border-left: 5px solid var(--kintone-yellow);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            margin-bottom: 48px !important;
+        }
+
+        /* ==================== セクション見出し ==================== */
+        .article-body h2 {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--white);
+            background: var(--navy);
+            margin-top: 56px;
+            margin-bottom: 32px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
+        .article-body h2 i {
+            color: var(--kintone-yellow);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .article-body h3 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid var(--kintone-yellow);
+            line-height: 1.6;
+        }
+
+        /* ==================== kintone定義カード ==================== */
+        .definition-card {
+            background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF4CC 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 32px 0 40px;
+            text-align: center;
+            border: 2px solid rgba(255, 203, 5, 0.3);
+        }
+
+        .definition-card .definition-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .definition-card .definition-text {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .definition-card .definition-text .em {
+            background: linear-gradient(transparent 60%, var(--kintone-yellow) 60%);
+            padding: 0 4px;
+        }
+
+        /* ==================== 実績バー ==================== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 32px 0 40px;
+        }
+
+        .stat-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border-top: 4px solid var(--mid-blue);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--mid-blue);
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .stat-number span {
+            font-size: 16px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* ==================== 活用事例カード ==================== */
+        .use-case-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 0;
+            margin: 32px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .use-case-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 28px;
+            background: var(--light-gray);
+            border-bottom: 3px solid var(--kintone-yellow);
+        }
+
+        .use-case-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .use-case-icon.excel { background: linear-gradient(135deg, #217346, #33a06f); }
+        .use-case-icon.workflow { background: linear-gradient(135deg, var(--accent-orange), #ff8f5e); }
+        .use-case-icon.report { background: linear-gradient(135deg, var(--mid-blue), #3399cc); }
+
+        .use-case-header h4 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.5;
+        }
+
+        .use-case-body {
+            padding: 28px;
+        }
+
+        .use-case-body p {
+            margin-bottom: 20px;
+        }
+
+        /* Before/After 比較 */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: stretch;
+            margin: 20px 0 8px;
+        }
+
+        .comparison-box {
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .comparison-box.before {
+            background: #FFF0F0;
+            border: 1px solid #FFD4D4;
+        }
+
+        .comparison-box.after {
+            background: #F0FFF4;
+            border: 1px solid #C3E6CB;
+        }
+
+        .comparison-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .before .comparison-label {
+            background: var(--cat-red);
+            color: var(--white);
+        }
+
+        .after .comparison-label {
+            background: var(--cat-green);
+            color: var(--white);
+        }
+
+        .comparison-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--mid-blue);
+        }
+
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        .comparison-list li i {
+            margin-top: 3px;
+            flex-shrink: 0;
+            font-size: 12px;
+        }
+
+        .before .comparison-list li i { color: var(--cat-red); }
+        .after .comparison-list li i { color: var(--cat-green); }
+
+        /* ==================== メリット一覧テーブル ==================== */
+        .merit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .merit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .merit-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--pale-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--navy);
+            font-size: 18px;
+        }
+
+        .merit-text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .merit-text p {
+            font-size: 13px !important;
+            line-height: 1.7 !important;
+            color: var(--text-gray);
+            margin-bottom: 0 !important;
+        }
+
+        /* ==================== 料金ノート ==================== */
+        .price-note {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 28px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 2px solid var(--kintone-yellow);
+            margin: 32px 0;
+        }
+
+        .price-note-icon {
+            font-size: 36px;
+            color: var(--kintone-yellow);
+            flex-shrink: 0;
+        }
+
+        .price-note-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .price-note-text strong {
+            color: var(--navy);
+        }
+
+        /* ==================== ポイントボックス ==================== */
+        .point-box {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFF4CC 100%);
+            border-radius: 16px;
+            padding: 36px;
+            margin: 40px 0;
+            border-left: 5px solid var(--accent-orange);
+        }
+
+        .point-box h4 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .point-box p {
+            margin-bottom: 0 !important;
+            font-size: 15px;
+        }
+
+        /* ==================== CTA ボックス ==================== */
+        .inline-cta {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 48px 0 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--accent-orange);
+        }
+
+        .inline-cta h3 {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 16px;
+            border: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .inline-cta p {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin-bottom: 12px !important;
+        }
+
+        .inline-cta .worry-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .inline-cta .worry-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 2;
+        }
+
+        .inline-cta .worry-list li i {
+            color: var(--accent-orange);
+            flex-shrink: 0;
+        }
+
+        .inline-cta .cta-buttons {
+            margin-top: 8px;
+        }
+
+        /* ==================== 戻るリンク ==================== */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--mid-blue);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 40px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--light-gray);
+        }
+
+        /* ==================== レスポンシブ ==================== */
+        @media (max-width: 768px) {
+            .column-hero {
+                padding: 120px 0 50px;
+            }
+
+            .column-hero h1 {
+                font-size: 22px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .article-body {
+                padding: 40px 0;
+            }
+
+            .article-body h2 {
+                font-size: 17px;
+                padding: 14px 18px;
+                margin-top: 40px;
+                margin-bottom: 24px;
+            }
+
+            .article-body h3 {
+                font-size: 16px;
+            }
+
+            .article-body p {
+                font-size: 14px;
+            }
+
+            .lead-text {
+                font-size: 15px !important;
+                padding: 24px;
+            }
+
+            .definition-card {
+                padding: 28px 20px;
+            }
+
+            .definition-card .definition-text {
+                font-size: 17px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .comparison-arrow {
+                transform: rotate(90deg);
+                padding: 4px 0;
+            }
+
+            .merit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-note {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .point-box {
+                padding: 24px 20px;
+            }
+
+            .inline-cta {
+                padding: 28px 20px;
+            }
+
+            .inline-cta h3 {
+                font-size: 18px;
+            }
+
+            .use-case-header {
+                padding: 18px 20px;
+            }
+
+            .use-case-header h4 {
+                font-size: 16px;
+            }
+
+            .use-case-body {
+                padding: 20px;
+            }
+
+            .use-case-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
+                    <img src="../../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                </a>
+                <span class="logo-badge">サイボウズオフィシャルパートナー</span>
+            </div>
+
+            <nav class="nav" aria-label="メインナビゲーション">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../private/index.html">民間企業様向け</a></li>
+                            <li><a href="../../public/index.html">自治体様向け</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../cases/index.html" class="nav-link">導入事例</a></li>
+                    <li><a href="../../column/index.html" class="nav-link active">コラム</a></li>
+                    <li><a href="../../events/index.html" class="nav-link">イベント</a></li>
+                    <li><a href="../../company/index.html" class="nav-link">会社概要</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <a href="../../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="../../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                </div>
+            </nav>
+
+            <div class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== ヒーローセクション ==================== -->
+    <section class="column-hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../../index.html">ホーム</a>
+                <span>&gt;</span>
+                <a href="../index.html">コラム</a>
+                <span>&gt;</span>
+                kintoneのアクセス権機能
+            </nav>
+
+            <div class="hero-badge">
+                <i class="fas fa-user-shield"></i>
+                kintone入門
+            </div>
+            <h1><span class="highlight">kintone（キントーン）</span>は特定の人だけ見れる？<br>アクセス権機能を解説</h1>
+            <div class="hero-meta">
+                <span><i class="fas fa-calendar-alt"></i>2026.05.13</span>
+                <span><i class="fas fa-clock"></i>読了目安 5分</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 記事本文 ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="article-body">
+
+                <!-- リード文 -->
+                <p class="lead-text">
+                    kintone（キントーン）は、全員が同じ情報を見られるわけではありません。<br><br>
+                    ユーザーごと、部署ごと、役職ごとに閲覧や編集の権限を設定できるため、<strong>必要な人だけに情報を見せることができます</strong>。例えば、人事情報は人事担当者だけ、給与情報は管理職だけ、問い合わせ情報は担当部署だけが見られるように設定できます。<br><br>
+                    「全員に見えてしまうのは不安」「個人情報や機密情報を安全に管理したい」という企業にとって、<strong>kintoneのアクセス権機能は大きなメリットがあります。</strong>
+                </p>
+
+                <!-- ==================== アクセス権機能とは ==================== -->
+                <h2><i class="fas fa-info-circle"></i> kintone（キントーン）のアクセス権機能とは？</h2>
+
+                <p>
+                    kintoneには、<strong>ユーザーごと、部署ごと、グループごとにアクセス権を設定できる機能</strong>があります。
+                </p>
+                <p>
+                    例えば、ある人には閲覧だけ許可し、別の人には編集や削除まで許可することができます。そのため、必要な人だけに必要な情報を見せる運用がしやすくなります。
+                </p>
+                <p>
+                    また、kintoneのアクセス権の設定は、アプリ単位だけでなく、フィールド単位やレコード単位でも設定できます。アプリ全体を見られる人を限定することもできますし、一部の項目だけ非表示にすることもできます。
+                </p>
+                <p>
+                    例えば、顧客管理アプリの中で、住所や電話番号は全員が見られるようにしつつ、売上情報や担当者メモだけは管理職しか見られないように設定することも可能です。さらに、申請者本人が作成したレコードだけ見られるようにしたり、担当者だけ編集できるようにしたりすることもできます。
+                </p>
+                <p>
+                    このように、<strong>kintoneのアクセス権機能を使えば、社内の情報管理を細かく行いやすくなります。</strong>
+                </p>
+
+                <!-- ==================== アクセス権の3つの設定方法 ==================== -->
+                <h2><i class="fas fa-layer-group"></i> kintoneのアクセス権の3つの設定方法</h2>
+
+                <p>
+                    kintoneのアクセス権は、設定の単位によって3種類に分けられます。それぞれの違いを見ていきましょう。
+                </p>
+
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-icon excel">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <h4>設定方法1：アプリ単位のアクセス権でできること</h4>
+                    </div>
+                    <div class="use-case-body">
+                        <p>
+                            アプリ単位のアクセス権では、<strong>アプリ全体を誰が使えるか</strong>を設定できます。例えば、人事関連のアプリは人事担当者だけ、経理関連のアプリは経理担当者だけが利用できるように設定できます。
+                        </p>
+                        <p>
+                            また、アプリを利用できる人の中でも、操作できる範囲を分けることができます。閲覧だけを許可する、レコードの追加を許可する、編集を許可する、削除を許可する、といった設定が可能です。
+                        </p>
+                        <p>
+                            例えば、問い合わせ管理アプリで、一般社員は閲覧のみ、担当部署は編集可能、管理者は削除まで可能にするといった使い分けができます。アプリ単位のアクセス権は、「そもそもこのアプリを誰に使わせるか」を決めるための基本的な設定です。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-icon workflow">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>設定方法2：レコード単位のアクセス権でできること</h4>
+                    </div>
+                    <div class="use-case-body">
+                        <p>
+                            レコード単位のアクセス権では、<strong>アプリ内に登録されたデータごとに、見られる人や編集できる人を分けられます</strong>。例えば、申請管理アプリで「自分が申請した内容だけ見られるようにする」といった設定ができます。
+                        </p>
+                        <p>
+                            営業管理アプリであれば、「自分が担当している顧客だけを見られるようにする」「所属部署の案件だけを編集できるようにする」といった運用も考えられます。
+                        </p>
+                        <p>
+                            拠点が複数ある企業では、名古屋支店の担当者は名古屋支店のレコードだけ、大阪支店の担当者は大阪支店のレコードだけを確認できるようにすることもできます。このように、レコード単位のアクセス権は、同じアプリを使いながら、ユーザーごとに見えるデータを分けたい場合に役立ちます。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-icon report">
+                            <i class="fas fa-stream"></i>
+                        </div>
+                        <h4>設定方法3：フィールド単位のアクセス権でできること</h4>
+                    </div>
+                    <div class="use-case-body">
+                        <p>
+                            フィールド単位のアクセス権では、<strong>アプリ内の特定の項目だけを見せない、または編集させない設定</strong>ができます。例えば、社員名簿アプリで、氏名や部署は社内で共有しつつ、住所や緊急連絡先は人事担当者だけが見られるようにすることができます。
+                        </p>
+                        <p>
+                            顧客管理アプリであれば、顧客名や連絡先は営業部全体で共有し、売上見込みや管理者メモは管理職だけが確認できるようにすることもできます。
+                        </p>
+                        <p>
+                            また、申請管理アプリで、申請内容は承認者が確認できるようにしつつ、管理部門が入力する確認欄は一般ユーザーが編集できないようにする、といった使い方もできます。フィールド単位のアクセス権は、「アプリ全体は見せたいけれど、一部の項目だけは制限したい」という場合に便利です。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ==================== メリット ==================== -->
+                <h2><i class="fas fa-star"></i> kintone（キントーン）のアクセス権を設定するメリット</h2>
+
+                <h3><i class="fas fa-lock" style="color: var(--kintone-yellow); margin-right: 8px;"></i>メリット1：個人情報や機密情報を守りやすい</h3>
+                <p>
+                    kintoneのアクセス権を設定する最大のメリットは、<strong>個人情報や機密情報を守りやすくなる</strong>ことです。必要な人だけが情報を見られるため、情報漏えいのリスクを減らせます。
+                </p>
+
+                <h3><i class="fas fa-eye" style="color: var(--kintone-yellow); margin-right: 8px;"></i>メリット2：画面が見やすくなる</h3>
+                <p>
+                    また、不要な情報を表示しないことで、<strong>画面が見やすくなるメリット</strong>もあります。自分に関係のある情報だけが表示されるため、操作しやすくなります。
+                </p>
+
+                <h3><i class="fas fa-check-double" style="color: var(--kintone-yellow); margin-right: 8px;"></i>メリット3：誤操作や誤削除を防ぎやすい</h3>
+                <p>
+                    さらに、<strong>誤操作や誤削除を防ぎやすくなります</strong>。編集権限を限定しておけば、誰でも自由にデータを変更できる状態を避けられます。特に、申請管理や顧客管理、人事管理などの重要な業務では、権限設定をしておくことで安心して運用しやすくなります。
+                </p>
+
+                <h3><i class="fas fa-share-alt" style="color: var(--kintone-yellow); margin-right: 8px;"></i>メリット4：社内全体に展開しやすい</h3>
+                <p>
+                    部署ごとに使いやすい画面を作りやすくなるため、<strong>社内全体にも展開しやすくなる</strong>でしょう。kintoneの閲覧制限やアクセス権を活用すれば、安全性と使いやすさの両方を高めやすくなります。
+                </p>
+
+                <!-- ==================== インラインCTA ==================== -->
+                <div class="inline-cta">
+                    <h3>kintoneのアクセス権設定でお困りなら</h3>
+                    <p>「権限の設計が複雑で手が止まっている」<br>「個人情報を扱うアプリの運用方針を整理したい」<br>そんな課題があれば、お気軽にご相談ください。</p>
+                    <div class="cta-buttons">
+                        <a href="../../contact/index.html" class="btn btn-primary" style="background: var(--accent-orange); color: var(--white);">無料で相談する</a>
+                        <a href="../../index.html#download" class="btn btn-secondary">サービス資料を見る</a>
+                    </div>
+                </div>
+
+                <!-- 戻るリンク -->
+                <a href="../index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> コラム一覧に戻る
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA セクション ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>kintone導入に関するご相談はお気軽に</h2>
+            <p>業務改善の第一歩を一緒に踏み出しましょう</p>
+            <div class="cta-buttons">
+                <a href="../../contact/index.html" class="btn btn-primary" style="background: var(--kintone-yellow); color: var(--navy);">お問い合わせ</a>
+                <a href="../../index.html#download" class="btn btn-secondary">サービス資料請求</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== フッター ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">株式会社興栄コンサルタント</div>
+                    <p class="footer-desc">
+                        kintone導入・活用支援を通じて、<br>
+                        民間企業・自治体の業務改善を支援しています。
+                    </p>
+                </div>
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
+                    <a href="../../news/index.html">News</a>
+                    <div style="display: inline; margin: 0 10px; color: #999;">サービス内容：</div>
+                    <a href="../../private/index.html">民間企業様向け</a>
+                    <a href="../../public/index.html">自治体様向け</a>
+                    <a href="../../cases/index.html">導入事例</a>
+                    <a href="../../column/index.html">コラム</a>
+                    <a href="../../events/index.html">イベント</a>
+                    <a href="../../company/index.html">会社概要</a>
+                    <a href="../../contact/index.html">お問い合わせ</a>
+                    <a href="../../index.html#download">資料ダウンロード</a>
+                </nav>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+
+        hamburger?.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
