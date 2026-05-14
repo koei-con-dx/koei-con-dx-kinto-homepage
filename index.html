@@ -954,6 +954,12 @@
             <h2 class="section-title">News（新着情報）</h2>
             
             <div class="news-list">
+                <div class="news-item" onclick="location.href='column/index.html'" style="cursor: pointer;">
+                    <span class="news-date">2026.05.14</span>
+                    <span class="news-category column">コラム</span>
+                    <span class="news-title">【コラム公開】kintone入門コラム4本を新たに公開しました</span>
+                </div>
+
                 <div class="news-item" onclick="location.href='cases/index.html'" style="cursor: pointer;">
                     <span class="news-date">2026.04.20</span>
                     <span class="news-category case">導入事例</span>
@@ -964,12 +970,6 @@
                     <span class="news-date">2026.04.09</span>
                     <span class="news-category column">コラム</span>
                     <span class="news-title">【コラム公開】「結局、kintone（キントーン）で何ができるの？」自社の業務がどう変わるか分かりやすく解説</span>
-                </div>
-
-                <div class="news-item">
-                    <span class="news-date">2026.04.01</span>
-                    <span class="news-category case">お知らせ</span>
-                    <span class="news-title">kintone導入・活用支援サービスのホームページを公開しました</span>
                 </div>
             </div>
             
@@ -1087,18 +1087,46 @@
     <section class="section column-section visible">
         <div class="container">
             <h2 class="section-title">コラム</h2>
+            <p class="section-subtitle">kintone活用・業務改善のヒントをお届けします</p>
 
-            <div style="max-width: 480px; margin: 0 auto 50px;">
-                <a href="column/kintone-what-can-it-do/index.html" style="text-decoration: none; display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto 50px;">
+
+                <!-- 承認フロー -->
+                <a href="column/kintone-approval-flow/index.html" style="text-decoration: none; display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
                     <div style="height: 160px; background: linear-gradient(135deg, var(--kintone-yellow) 0%, #FFD700 100%); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-puzzle-piece" style="font-size: 56px; color: var(--navy);"></i>
+                        <i class="fas fa-tasks" style="font-size: 56px; color: var(--navy);"></i>
                     </div>
                     <div style="padding: 24px;">
                         <span style="display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--kintone-yellow); color: var(--navy); margin-bottom: 12px;">kintone入門</span>
-                        <p style="font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 8px;">結局、kintone（キントーン）で何ができるの？ 自社の業務がどう変わるか分かりやすく解説</p>
-                        <p style="font-size: 12px; color: #999;">2026.04.09</p>
+                        <p style="font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 8px;">kintone（キントーン）の承認フローとは？申請を順番に確認できる機能を解説</p>
+                        <p style="font-size: 12px; color: #999;">2026.05.14</p>
                     </div>
                 </a>
+
+                <!-- スペース機能 -->
+                <a href="column/kintone-space/index.html" style="text-decoration: none; display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                    <div style="height: 160px; background: linear-gradient(135deg, var(--kintone-yellow) 0%, #FFD700 100%); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-users" style="font-size: 56px; color: var(--navy);"></i>
+                    </div>
+                    <div style="padding: 24px;">
+                        <span style="display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--kintone-yellow); color: var(--navy); margin-bottom: 12px;">kintone入門</span>
+                        <p style="font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 8px;">kintone（キントーン）のスペース機能とは？部署ごとにコミュニティを作れる便利機能を解説</p>
+                        <p style="font-size: 12px; color: #999;">2026.05.14</p>
+                    </div>
+                </a>
+
+                <!-- アクセス権 -->
+                <a href="column/kintone-access-permission/index.html" style="text-decoration: none; display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                    <div style="height: 160px; background: linear-gradient(135deg, var(--kintone-yellow) 0%, #FFD700 100%); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user-shield" style="font-size: 56px; color: var(--navy);"></i>
+                    </div>
+                    <div style="padding: 24px;">
+                        <span style="display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--kintone-yellow); color: var(--navy); margin-bottom: 12px;">kintone入門</span>
+                        <p style="font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 8px;">kintone（キントーン）は特定の人だけ見れる？アクセス権機能を解説</p>
+                        <p style="font-size: 12px; color: #999;">2026.05.13</p>
+                    </div>
+                </a>
+
             </div>
             <div style="text-align: center;">
                 <a href="column/index.html" class="btn btn-secondary">コラム一覧を見る</a>
