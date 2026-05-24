@@ -1,8 +1,8 @@
 // 興栄コンサルタント 問い合わせフォーム → kintone REST API ブリッジ
 // 環境変数（Netlify管理画面 → Site settings → Environment variables）:
-//   KINTONE_SUBDOMAIN          ... 例: "koei-con"（koei-con.cybozu.com の場合）
-//   KINTONE_CONTACT_APP_ID     ... 問い合わせ用kintoneアプリのID（数字）
-//   KINTONE_CONTACT_API_TOKEN  ... レコード追加権限ONで発行したAPIトークン
+//   KINTONE_SUBDOMAIN   ... 例: "koei-con"（koei-con.cybozu.com の場合）
+//   KINTONE_APP_ID      ... 受信用kintoneアプリのID（数字）
+//   KINTONE_API_TOKEN   ... レコード追加権限ONで発行したAPIトークン
 //
 // kintoneアプリ側のフィールドコード（フィールド設定で必ず合わせる）:
 //   name / company / department / email / phone / service / message
@@ -51,8 +51,8 @@ exports.handler = async (event) => {
     }
 
     const subdomain = process.env.KINTONE_SUBDOMAIN;
-    const appId = process.env.KINTONE_CONTACT_APP_ID;
-    const token = process.env.KINTONE_CONTACT_API_TOKEN;
+    const appId = process.env.KINTONE_APP_ID;
+    const token = process.env.KINTONE_API_TOKEN;
     if (!subdomain || !appId || !token) {
         console.error('Kintone環境変数が未設定です');
         return json(500, { error: 'サーバー設定エラー（管理者へお問い合わせください）' });
