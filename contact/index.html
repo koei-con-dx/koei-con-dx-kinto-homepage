@@ -209,6 +209,45 @@
             font-size: 0.95rem;
         }
 
+        /* 送信結果表示（成功 / 失敗） */
+        .form-result {
+            margin-top: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .form-result.success {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+
+        .form-result.error {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+
+        .form-result h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-result p {
+            margin: 0;
+        }
+
+        button[disabled] {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         /* ==================== レスポンシブ（ページ固有） ==================== */
         @media (max-width: 768px) {
             .contact-grid {
@@ -341,8 +380,8 @@
                     <!-- お問い合わせフォーム -->
                     <div class="contact-form-wrapper">
                         <h2>お問い合わせフォーム</h2>
-                        <form id="contactForm" name="contact" data-netlify="true" netlify-honeypot="bot-field">
-                            <p hidden><label>入力しないでください: <input name="bot-field"></label></p>
+                        <form id="contactForm" name="contact" novalidate>
+                            <p hidden aria-hidden="true"><label>入力しないでください: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                             <div class="form-group">
                                 <label for="name">お名前 <span class="required">*</span></label>
                                 <input type="text" id="name" name="name" class="form-control" required>
@@ -389,7 +428,9 @@
                             <button type="submit" class="btn btn-primary btn-block">
                                 <i class="fas fa-paper-plane"></i> 送信する
                             </button>
-                            
+
+                            <div id="formResult" class="form-result" role="status" aria-live="polite" style="display: none;"></div>
+
                         </form>
                     </div>
                 </div>
@@ -433,13 +474,89 @@
         // ハンバーガーメニュー
         const hamburger = document.getElementById('hamburger');
         const nav = document.getElementById('nav');
-        
+
         if (hamburger && nav) {
             hamburger.addEventListener('click', () => {
                 nav.classList.toggle('active');
             });
         }
-        
+
+        // 問い合わせフォーム送信処理（Netlify Functions経由でkintoneへ転送）
+        const contactForm = document.getElementById('contactForm');
+        const formResult = document.getElementById('formResult');
+
+        if (contactForm && formResult) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (!contactForm.checkValidity()) {
+                    contactForm.reportValidity();
+                    return;
+                }
+
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 送信中...';
+                formResult.style.display = 'none';
+                formResult.className = 'form-result';
+
+                const data = Object.fromEntries(new FormData(contactForm).entries());
+
+                const renderResult = (cls, headIconClass, headText, bodyText) => {
+                    formResult.className = 'form-result ' + cls;
+                    formResult.innerHTML = '';
+                    const h3 = document.createElement('h3');
+                    const icon = document.createElement('i');
+                    icon.className = headIconClass;
+                    h3.appendChild(icon);
+                    h3.appendChild(document.createTextNode(' ' + headText));
+                    const p = document.createElement('p');
+                    p.textContent = bodyText;
+                    formResult.appendChild(h3);
+                    formResult.appendChild(p);
+                    formResult.style.display = 'block';
+                };
+
+                try {
+                    const res = await fetch('/.netlify/functions/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    });
+                    const result = await res.json().catch(() => ({}));
+
+                    if (res.ok && result.ok) {
+                        contactForm.reset();
+                        renderResult(
+                            'success',
+                            'fas fa-check-circle',
+                            'お問い合わせを受け付けました',
+                            '担当者より2営業日以内にご返信いたします。お時間をいただく場合はご了承ください。'
+                        );
+                        formResult.setAttribute('tabindex', '-1');
+                        formResult.focus();
+                    } else {
+                        renderResult(
+                            'error',
+                            'fas fa-exclamation-triangle',
+                            '送信に失敗しました',
+                            result.error || 'お手数ですが時間をおいて再度お試しいただくか、お電話（058-274-2332）でご連絡ください。'
+                        );
+                    }
+                } catch (err) {
+                    renderResult(
+                        'error',
+                        'fas fa-exclamation-triangle',
+                        '通信エラーが発生しました',
+                        'ネットワークをご確認のうえ再度お試しいただくか、お電話（058-274-2332）でご連絡ください。'
+                    );
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
     </script>
 </body>
 </html>
