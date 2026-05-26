@@ -46,9 +46,14 @@ exports.handler = async (event) => {
         }
     }
 
-    const subdomain = process.env.KINTONE_SUBDOMAIN;
-    const appId = process.env.KINTONE_DOWNLOAD_APP_ID;
-    const token = process.env.KINTONE_DOWNLOAD_API_TOKEN;
+    // サブドメインは "koei-con" でも "koei-con.cybozu.com" でも "https://koei-con.cybozu.com/" でもOK
+    const subdomain = (process.env.KINTONE_SUBDOMAIN || '')
+        .trim()
+        .replace(/^https?:\/\//, '')
+        .replace(/\/.*$/, '')
+        .replace(/\.cybozu\.com$/i, '');
+    const appId = (process.env.KINTONE_DOWNLOAD_APP_ID || '').trim();
+    const token = (process.env.KINTONE_DOWNLOAD_API_TOKEN || '').trim();
     if (!subdomain || !appId || !token) {
         console.error('Kintone環境変数が未設定です（download）');
         return json(500, { error: 'サーバー設定エラー' });
