@@ -1277,31 +1277,27 @@
             });
         });
         
-        // 資料ダウンロード：Netlify Formsに送信後、即DL
+        // 資料ダウンロード：kintone（Netlify Functions経由）にfire-and-forget送信 → 即PDF DL
         const downloadForm = document.getElementById('downloadForm');
         downloadForm?.addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(downloadForm);
-            fetch('/', {
+            const data = Object.fromEntries(new FormData(downloadForm).entries());
+            data.catalog = 'kintone導入支援サービス カタログ';
+
+            // 送信完了を待たずにDL開始（kintone送信が遅延・失敗してもDL体験を阻害しない）
+            fetch('/.netlify/functions/download', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            }).then(() => {
-                const link = document.createElement('a');
-                link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
-                link.download = '';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }).catch(() => {
-                // 送信失敗してもDLは実行
-                const link = document.createElement('a');
-                link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
-                link.download = '';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+                keepalive: true
+            }).catch(err => console.error('download log failed:', err));
+
+            const link = document.createElement('a');
+            link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
+            link.download = '';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
     </script>
 </body>
