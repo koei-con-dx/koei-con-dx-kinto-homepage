@@ -186,7 +186,97 @@ Live Server（VS Code 拡張）でも可。
 
 ---
 
-## 8. Claude Code 利用上の注意
+## 8. お問い合わせ・資料DLフォームの kintone 連携（2026-05 移行）
+
+サイトの 2 つのフォームは **Netlify Forms ではなく、Netlify Functions 経由で kintone アプリにレコードを直接追加** する構成。
+Netlify管理画面の Forms 機能は使っていない。
+
+### 構成図
+
+```
+[ブラウザ] →fetch JSON→ [Netlify Functions] →REST API→ [kintone]
+                              ↓
+                  netlify/functions/contact.js
+                  netlify/functions/download.js
+```
+
+### kintone 受信アプリ
+- **お問い合わせ管理(専用HP)** ・・・ アプリID `531`
+- **資料DL管理(専用HP)** ・・・ アプリID `530`
+
+### Netlify 環境変数（5つ・全て All scopes 同値）
+
+| Key | 値 | Secret |
+|---|---|---|
+| `KINTONE_SUBDOMAIN` | `koei-con.cybozu.com`（Functions側で `.cybozu.com` 自動除去） | OFF |
+| `KINTONE_CONTACT_APP_ID` | `531` | OFF |
+| `KINTONE_CONTACT_API_TOKEN` | レコード追加権限のみONのトークン | **ON** |
+| `KINTONE_DOWNLOAD_APP_ID` | `530` | OFF |
+| `KINTONE_DOWNLOAD_API_TOKEN` | レコード追加権限のみONのトークン | **ON** |
+
+環境変数を変更後は **Deploys → Trigger deploy → Deploy site** で再デプロイ必須（既存デプロイには即時反映されない）。
+
+### kintone アプリのフィールド仕様（**変更厳禁**）
+
+#### お問い合わせ管理(専用HP)
+
+| フィールドコード | タイプ | ラベル例 |
+|---|---|---|
+| `name` | 文字列1行 | 名前 |
+| `company` | 文字列1行 | 企業名 |
+| `department` | 文字列1行 | 部署名 |
+| `email` | 文字列1行 | メールアドレス |
+| `phone` | **文字列1行** | 電話番号 |
+| `service` | ドロップダウン | お問い合わせ種別 |
+| `message` | 文字列複数行 | お問い合わせ内容 |
+| `source_ip` | 文字列1行 | 送信元IP（運用調査用） |
+| `user_agent` | 文字列複数行 | UA（運用調査用） |
+
+#### 資料DL管理(専用HP)
+上記から `service` / `message` を除き、`catalog`（文字列1行・ラベル「資料名」）を追加。
+
+⚠️ **2026-05 移行時に踏んだ落とし穴**：
+- フィールドコードは**大文字小文字も完全一致必須**（`Department` ≠ `department`）
+- `phone` を NUMBER 型にすると失敗する（電話番号にハイフン・先頭0が入るため文字列1行が正解）
+- kintone でフィールドを変更したら**右上「アプリを更新」ボタン**を必ず押す（押さないと反映されない）
+
+### service ドロップダウンの選択肢（HTMLとkintoneで完全一致必須）
+```
+民間企業様向けサービスについて
+自治体様向けサービスについて
+導入事例について
+セミナー・勉強会について
+資料ダウンロードについて
+その他
+```
+
+HTML側の `<option value="...">` キーは `contact.js` の `serviceLabels` マップで日本語ラベルに変換される。
+
+### よくある作業
+
+#### お問い合わせ種別を追加・変更したい
+1. `contact/index.html` の `<select id="service">` に `<option value="newkey">` を追加
+2. `netlify/functions/contact.js` の `serviceLabels` に `newkey: '日本語ラベル'` を追加
+3. kintone「お問い合わせ管理(専用HP)」の `service` ドロップダウンに同じ日本語ラベルを追加 →「アプリを更新」
+- **3か所が完全一致**していないとレコード追加失敗する
+
+#### 新しい資料を追加・差し替えたい
+- 単純な差し替えなら `downloads/` のPDFを置き換えて、`index.html` の `link.href` を変更
+- 複数資料に対応したい場合は資料選択UIを追加し、`data.catalog` に資料名をセットして送信（kintone `catalog` 欄に格納）
+
+#### Functions のエラー調査
+- まず Netlify管理画面 → Logs → Functions → contact / download のログを確認
+- ログだけで原因が掴めない場合、一時的に `netlify/functions/debug-kintone.js` を作って kintone REST API の生応答を返すようにする（過去にこの方法で原因特定済み）
+- 原因究明後は debug Function を必ず削除
+
+### 緊急ロールバック（本番フォームが壊れた場合）
+1. dev ブランチで kintone 連携コミットを `git revert`
+2. push して PR マージで main に反映
+3. 旧 Netlify Forms 仕様に戻る（ただし本作業はもう Netlify Forms を有効化していないので、フォーム送信が単に動かなくなる可能性あり → 状況見て判断）
+
+---
+
+## 9. Claude Code 利用上の注意
 
 - このリポジトリの `.claude/settings.json` には **チーム共通の権限ルール** が入っている（編集する場合はチームに共有）
 - 個人用の権限上書きは `.claude/settings.local.json` に書く（gitignore 済み・他人には見えない）
