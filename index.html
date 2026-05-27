@@ -1148,7 +1148,7 @@
                 <h3 style="font-size: 22px; margin-bottom: 12px; color: var(--white); text-align: center;">kintone導入支援サービス カタログ</h3>
                 <p style="font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; text-align: center;">サービス内容・料金プラン・導入の流れをまとめた資料です</p>
 
-                <form class="download-form" id="downloadForm" name="catalog-download" data-netlify="true">
+                <form class="download-form" id="downloadForm" name="catalog-download" novalidate>
                     <div class="form-group">
                         <label for="dl-name">お名前 <span style="color: var(--accent-orange);">*</span></label>
                         <input type="text" id="dl-name" name="name" required>
@@ -1277,31 +1277,27 @@
             });
         });
         
-        // 資料ダウンロード：Netlify Formsに送信後、即DL
+        // 資料ダウンロード：kintone（Netlify Functions経由）にfire-and-forget送信 → 即PDF DL
         const downloadForm = document.getElementById('downloadForm');
         downloadForm?.addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(downloadForm);
-            fetch('/', {
+            const data = Object.fromEntries(new FormData(downloadForm).entries());
+            data.catalog = 'kintone導入支援サービス カタログ';
+
+            // 送信完了を待たずにDL開始（kintone送信が遅延・失敗してもDL体験を阻害しない）
+            fetch('/.netlify/functions/download', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            }).then(() => {
-                const link = document.createElement('a');
-                link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
-                link.download = '';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }).catch(() => {
-                // 送信失敗してもDLは実行
-                const link = document.createElement('a');
-                link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
-                link.download = '';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+                keepalive: true
+            }).catch(err => console.error('download log failed:', err));
+
+            const link = document.createElement('a');
+            link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
+            link.download = '';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
     </script>
 </body>
