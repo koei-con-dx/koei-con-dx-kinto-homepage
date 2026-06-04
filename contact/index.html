@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/ga4.js"></script>
     <title>お問い合わせ | 株式会社興栄コンサルタント</title>
     <meta name="description" content="kintone導入・活用支援に関するお問い合わせはこちらから。無料相談も承っております。お気軽にご連絡ください。">
     
@@ -528,6 +529,13 @@
 
                     if (res.ok && result.ok) {
                         contactForm.reset();
+                        if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'form_submit_contact', {
+                                event_category: 'form',
+                                event_label: 'contact_form',
+                                service: data.service || ''
+                            });
+                        }
                         renderResult(
                             'success',
                             'fas fa-check-circle',
