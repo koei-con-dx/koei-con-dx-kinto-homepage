@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/ga4.js"></script>
     <title>kintone導入・活用支援 岐阜・東海拠点／オンラインで全国どこでも | サイボウズ オフィシャルパートナー 興栄コンサルタント</title>
     <meta name="description" content="岐阜・東海拠点／オンラインで全国どこでも対応。kintone導入を検討中の中小企業・自治体向けコンサルティングサービス。サイボウズ オフィシャルパートナー / 60年以上の実績を持つ興栄コンサルタントが、Excel脱却・業務改善・内製化までワンストップで伴走支援します。建設・製造・自治体DX 多数実績。">
     <meta name="keywords" content="kintone 岐阜, kintone 東海, kintone コンサル 岐阜, kintone 建設, kintone 建設業 岐阜, 自治体DX 岐阜, kintone 内製化, kintone オンライン, サイボウズ オフィシャルパートナー">
@@ -1283,6 +1284,14 @@
             e.preventDefault();
             const data = Object.fromEntries(new FormData(downloadForm).entries());
             data.catalog = 'kintone導入支援サービス カタログ';
+
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'form_submit_download', {
+                    event_category: 'form',
+                    event_label: 'download_form',
+                    catalog: data.catalog
+                });
+            }
 
             // 送信完了を待たずにDL開始（kintone送信が遅延・失敗してもDL体験を阻害しない）
             fetch('/.netlify/functions/download', {
