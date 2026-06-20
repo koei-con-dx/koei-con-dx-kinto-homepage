@@ -1175,6 +1175,13 @@
                         <input type="tel" id="dl-phone" name="phone">
                     </div>
 
+                    <div class="form-group" style="margin-bottom: 24px;">
+                        <label for="dl-consent" style="display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.7; cursor: pointer; font-weight: 400;">
+                            <input type="checkbox" id="dl-consent" name="consent" required style="margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;">
+                            <span><a href="privacy/index.html" target="_blank" rel="noopener" style="color: var(--kintone-yellow); text-decoration: underline;">プライバシーポリシー</a>に同意のうえ、いただいた情報を資料のご提供および当社サービス・セミナー等のご案内に利用することに同意します。<span style="color: var(--accent-orange);">*</span></span>
+                        </label>
+                    </div>
+
                     <div class="form-submit">
                         <button type="submit" class="btn btn-yellow btn-large">📥 資料をダウンロード（無料）</button>
                     </div>
@@ -1224,6 +1231,7 @@
                     <a href="company/index.html">会社概要</a>
                     <a href="contact/index.html">お問い合わせ</a>
                     <a href="#download">資料ダウンロード</a>
+                <a href="privacy/index.html">プライバシーポリシー</a>
                 </nav>
             </div>
             
@@ -1282,6 +1290,11 @@
         const downloadForm = document.getElementById('downloadForm');
         downloadForm?.addEventListener('submit', function(e) {
             e.preventDefault();
+            // 必須項目（お名前・企業名・メール）と同意チェックを検証
+            if (!downloadForm.checkValidity()) {
+                downloadForm.reportValidity();
+                return;
+            }
             const data = Object.fromEntries(new FormData(downloadForm).entries());
             data.catalog = 'kintone導入支援サービス カタログ';
 
