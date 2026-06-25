@@ -89,11 +89,41 @@
             justify-content: center;
             color: var(--white);
             font-size: 60px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
         .column-thumbnail.intro {
             background: linear-gradient(135deg, var(--kintone-yellow) 0%, #FFD700 100%);
             color: var(--navy);
+        }
+
+        /* ==================== サムネ内のイラスト合成 ==================== */
+        .thumb-composition {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .thumb-composition i.thumb-main {
+            font-size: 42px;
+        }
+
+        .thumb-composition .thumb-title {
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        .thumb-deco {
+            position: absolute;
+            font-size: 22px;
+            opacity: 0.22;
+            z-index: 1;
         }
         
         .column-thumbnail.strategy {
@@ -251,7 +281,14 @@
                 <a href="kintone-business-improvement/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-cog thumb-deco" style="top: 14px; left: 16px; transform: rotate(-15deg);"></i>
+                            <i class="fas fa-check-circle thumb-deco" style="top: 14px; right: 16px; transform: rotate(15deg);"></i>
+                            <i class="fas fa-lightbulb thumb-deco" style="bottom: 14px; left: 16px; transform: rotate(10deg);"></i>
+                            <i class="fas fa-rocket thumb-deco" style="bottom: 14px; right: 16px; transform: rotate(-10deg);"></i>
+                            <div class="thumb-composition">
+                                <i class="fas fa-chart-line thumb-main"></i>
+                                <div class="thumb-title">業務改善を解説</div>
+                            </div>
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -265,7 +302,14 @@
                 <a href="kintone-approval-flow/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-tasks"></i>
+                            <i class="fas fa-paper-plane thumb-deco" style="top: 14px; left: 16px; transform: rotate(-15deg);"></i>
+                            <i class="fas fa-check thumb-deco" style="top: 14px; right: 16px; transform: rotate(15deg);"></i>
+                            <i class="fas fa-bell thumb-deco" style="bottom: 14px; left: 16px; transform: rotate(10deg);"></i>
+                            <i class="fas fa-file-signature thumb-deco" style="bottom: 14px; right: 16px; transform: rotate(-10deg);"></i>
+                            <div class="thumb-composition">
+                                <i class="fas fa-tasks thumb-main"></i>
+                                <div class="thumb-title">承認フローとは？</div>
+                            </div>
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -279,7 +323,14 @@
                 <a href="kintone-space/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-comments thumb-deco" style="top: 14px; left: 16px; transform: rotate(-15deg);"></i>
+                            <i class="fas fa-folder-open thumb-deco" style="top: 14px; right: 16px; transform: rotate(15deg);"></i>
+                            <i class="fas fa-thumbtack thumb-deco" style="bottom: 14px; left: 16px; transform: rotate(10deg);"></i>
+                            <i class="fas fa-layer-group thumb-deco" style="bottom: 14px; right: 16px; transform: rotate(-10deg);"></i>
+                            <div class="thumb-composition">
+                                <i class="fas fa-users thumb-main"></i>
+                                <div class="thumb-title">スペース機能</div>
+                            </div>
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -293,7 +344,14 @@
                 <a href="kintone-access-permission/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-user-shield"></i>
+                            <i class="fas fa-lock thumb-deco" style="top: 14px; left: 16px; transform: rotate(-15deg);"></i>
+                            <i class="fas fa-key thumb-deco" style="top: 14px; right: 16px; transform: rotate(15deg);"></i>
+                            <i class="fas fa-eye thumb-deco" style="bottom: 14px; left: 16px; transform: rotate(10deg);"></i>
+                            <i class="fas fa-fingerprint thumb-deco" style="bottom: 14px; right: 16px; transform: rotate(-10deg);"></i>
+                            <div class="thumb-composition">
+                                <i class="fas fa-user-shield thumb-main"></i>
+                                <div class="thumb-title">アクセス権機能</div>
+                            </div>
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -307,7 +365,14 @@
                 <a href="kintone-app-reuse/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-copy"></i>
+                            <i class="fas fa-clone thumb-deco" style="top: 14px; left: 16px; transform: rotate(-15deg);"></i>
+                            <i class="fas fa-cogs thumb-deco" style="top: 14px; right: 16px; transform: rotate(15deg);"></i>
+                            <i class="fas fa-layer-group thumb-deco" style="bottom: 14px; left: 16px; transform: rotate(10deg);"></i>
+                            <i class="fas fa-bolt thumb-deco" style="bottom: 14px; right: 16px; transform: rotate(-10deg);"></i>
+                            <div class="thumb-composition">
+                                <i class="fas fa-copy thumb-main"></i>
+                                <div class="thumb-title">アプリ再利用</div>
+                            </div>
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -321,7 +386,14 @@
                 <a href="kintone-what-can-it-do/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-puzzle-piece"></i>
+                            <i class="fas fa-file-excel thumb-deco" style="top: 14px; left: 16px; transform: rotate(-15deg);"></i>
+                            <i class="fas fa-chart-bar thumb-deco" style="top: 14px; right: 16px; transform: rotate(15deg);"></i>
+                            <i class="fas fa-cog thumb-deco" style="bottom: 14px; left: 16px; transform: rotate(10deg);"></i>
+                            <i class="fas fa-users thumb-deco" style="bottom: 14px; right: 16px; transform: rotate(-10deg);"></i>
+                            <div class="thumb-composition">
+                                <i class="fas fa-puzzle-piece thumb-main"></i>
+                                <div class="thumb-title">kintoneで何ができる？</div>
+                            </div>
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
