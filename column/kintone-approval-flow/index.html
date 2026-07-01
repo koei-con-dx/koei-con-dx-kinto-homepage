@@ -760,7 +760,7 @@
 
                 <!-- リード文 -->
                 <p class="lead-text">
-                    kintone（キントーン）は、<strong>申請内容を順番に確認・承認していくことができます。</strong><br><br>
+                    <span style="color: #D32F2F; font-weight: 900;">kintone（キントーン）は、申請内容を順番に確認・承認していくことができます。</span><br><br>
                     紙やメールで申請を管理していると、「今誰が確認しているのか分からない」「どこで止まっているのか分からない」といったことが起こりやすくなります。<br><br>
                     kintoneの承認フロー機能を使えば、<strong>申請から承認までの流れを見える化しやすくなります。</strong>誰が次に確認するのか、申請が今どの段階なのかを分かりやすく表示できるため、確認漏れや承認漏れを防ぎやすくなります。
                 </p>
@@ -769,20 +769,50 @@
                 <h2><i class="fas fa-info-circle"></i> kintone（キントーン）の承認フロー・プロセス管理機能とは？</h2>
 
                 <p>
-                    kintoneには、<strong>申請から承認までの流れを設定できる「プロセス管理」機能</strong>があります。例えば、申請者が入力した後に上司が確認し、その後に経理や総務が確認するといった流れを設定できます。誰が次に確認するのかも設定できるため、申請内容を順番に承認していくことができます。
-                </p>
-                <p>
-                    また、kintoneでは現在の状況を<strong>ステータスで表示</strong>できます。例えば、以下のような状態を設定できます。
+                    kintoneには、<strong>申請から承認までの流れを設定できる「プロセス管理」機能</strong>があります。
                 </p>
 
-                <div class="definition-card" style="max-width: 360px; margin-left: auto; margin-right: auto; padding: 16px 24px;">
-                    <p class="definition-text" style="font-size: 17px; text-align: left;">
-                        <i class="fas fa-paper-plane" style="color: var(--accent-orange); margin-right: 10px; width: 20px;"></i>申請中<br>
-                        <i class="fas fa-user-check" style="color: var(--accent-orange); margin-right: 10px; width: 20px;"></i>上司確認中<br>
-                        <i class="fas fa-yen-sign" style="color: var(--accent-orange); margin-right: 10px; width: 20px;"></i>経理確認中<br>
-                        <i class="fas fa-check-circle" style="color: var(--accent-orange); margin-right: 10px; width: 20px;"></i>承認済み<br>
-                        <i class="fas fa-undo" style="color: var(--accent-orange); margin-right: 10px; width: 20px;"></i>差し戻し
-                    </p>
+                <figure style="max-width: 840px; margin: 0 auto 32px; text-align: center;">
+                    <img src="../../images/column/approval-flow-process.png" alt="kintoneのプロセス管理機能" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+                </figure>
+
+                <p>
+                    例えば、申請者が入力した後に上司が確認し、その後に経理や総務が確認するといった流れを設定できます。誰が次に確認するのかも設定できるため、申請内容を順番に承認していくことができます。
+                </p>
+
+                <p>
+                    また、kintoneでは現在の状況を<strong>ステータスで表示</strong>できます。
+                </p>
+
+                <figure style="max-width: 720px; margin: 0 auto 32px; text-align: center;">
+                    <img src="../../images/column/approval-flow-status.png" alt="kintoneのステータス表示" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+                </figure>
+
+                <p>
+                    例えば、以下のような状態を設定できます。
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 720px; margin: 28px auto 36px;">
+                    <div style="aspect-ratio: 1 / 1; background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF4CC 100%); border: 2px solid rgba(255, 203, 5, 0.4); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;">
+                        <i class="fas fa-paper-plane" style="color: #D32F2F; font-size: 30px;"></i>
+                        <div style="color: #000; font-weight: 900; font-size: 15px; line-height: 1.3;">申請中</div>
+                    </div>
+                    <div style="aspect-ratio: 1 / 1; background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF4CC 100%); border: 2px solid rgba(255, 203, 5, 0.4); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;">
+                        <i class="fas fa-user-check" style="color: #D32F2F; font-size: 30px;"></i>
+                        <div style="color: #000; font-weight: 900; font-size: 15px; line-height: 1.3;">○○部長<br>確認中</div>
+                    </div>
+                    <div style="aspect-ratio: 1 / 1; background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF4CC 100%); border: 2px solid rgba(255, 203, 5, 0.4); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;">
+                        <i class="fas fa-yen-sign" style="color: #D32F2F; font-size: 30px;"></i>
+                        <div style="color: #000; font-weight: 900; font-size: 15px; line-height: 1.3;">経理確認中</div>
+                    </div>
+                    <div style="aspect-ratio: 1 / 1; background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF4CC 100%); border: 2px solid rgba(255, 203, 5, 0.4); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;">
+                        <i class="fas fa-check-circle" style="color: #D32F2F; font-size: 30px;"></i>
+                        <div style="color: #000; font-weight: 900; font-size: 15px; line-height: 1.3;">承認済み</div>
+                    </div>
+                    <div style="aspect-ratio: 1 / 1; background: linear-gradient(135deg, var(--pale-yellow) 0%, #FFF4CC 100%); border: 2px solid rgba(255, 203, 5, 0.4); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;">
+                        <i class="fas fa-undo" style="color: #D32F2F; font-size: 30px;"></i>
+                        <div style="color: #000; font-weight: 900; font-size: 15px; line-height: 1.3;">差し戻し</div>
+                    </div>
                 </div>
 
                 <p>
@@ -799,53 +829,30 @@
                     kintoneの承認フロー機能を使うと、さまざまな申請業務を管理できます。具体的な活用シーンを見ていきましょう。
                 </p>
 
-                <div class="use-case-card">
-                    <div class="use-case-header">
-                        <div class="use-case-icon excel">
-                            <i class="fas fa-receipt"></i>
-                        </div>
-                        <h4>活用例1：経費申請</h4>
-                    </div>
-                    <div class="use-case-body">
-                        <p>
-                            経費申請では、申請者が入力した後に上司が確認し、その後に経理担当者が承認するといった流れを作ることができます。
-                        </p>
-                    </div>
-                </div>
+                <figure style="max-width: 840px; margin: 0 auto 32px; text-align: center;">
+                    <img src="../../images/column/approval-flow-uses.png" alt="kintoneの承認フロー活用シーン" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+                </figure>
 
-                <div class="use-case-card">
-                    <div class="use-case-header">
-                        <div class="use-case-icon workflow">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <h4>活用例2：有給申請</h4>
-                    </div>
-                    <div class="use-case-body">
-                        <p>
-                            有給申請であれば、申請者→上司→総務という順番で進めることができます。
-                        </p>
-                    </div>
-                </div>
+                <h3><i class="fas fa-receipt" style="color: #1976D2; margin-right: 8px;"></i>活用例1：経費申請</h3>
+                <p>
+                    経費申請では、申請者が入力した後に上司が確認し、その後に経理担当者が承認するといった流れを作ることができます。
+                </p>
 
-                <div class="use-case-card">
-                    <div class="use-case-header">
-                        <div class="use-case-icon report">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <h4>活用例3：契約書の確認</h4>
-                    </div>
-                    <div class="use-case-body">
-                        <p>
-                            契約書の確認であれば、営業担当→管理職→法務担当という流れも設定できます。
-                        </p>
-                    </div>
-                </div>
+                <h3><i class="fas fa-calendar-check" style="color: #388E3C; margin-right: 8px;"></i>活用例2：有給申請</h3>
+                <p>
+                    有給申請であれば、申請者→上司→総務という順番で進めることができます。
+                </p>
+
+                <h3><i class="fas fa-file-contract" style="color: #F57C00; margin-right: 8px;"></i>活用例3：契約書の確認</h3>
+                <p>
+                    契約書の確認であれば、営業担当→管理職→法務担当という流れも設定できます。
+                </p>
 
                 <p>
                     このように、<strong>部署や業務内容に合わせて承認フローを自由に作れます。</strong>
                 </p>
 
-                <h3><i class="fas fa-search" style="color: var(--kintone-yellow); margin-right: 8px;"></i>誰が止めているかが分かる</h3>
+                <h3><i class="fas fa-lightbulb" style="color: var(--kintone-yellow); margin-right: 8px;"></i>誰が止めているかが分かる</h3>
                 <p>
                     また、<strong>誰が止めているかも分かりやすくなります。</strong>例えば、「上司確認中」のまま止まっていれば、現在は上司が確認する番だと分かります。
                 </p>
@@ -853,13 +860,17 @@
                     そのため、「誰に聞けばいいか分からない」「どこで止まっているか分からない」といった状況を減らしやすくなります。
                 </p>
 
-                <h3><i class="fas fa-bell" style="color: var(--kintone-yellow); margin-right: 8px;"></i>確認漏れ・承認漏れを防げる</h3>
+                <h3><i class="fas fa-lightbulb" style="color: var(--kintone-yellow); margin-right: 8px;"></i>確認漏れ・承認漏れを防げる</h3>
                 <p>
                     さらに、<strong>確認漏れや承認漏れも防ぎやすくなります。</strong>承認が必要な人に通知を送ることもできるため、対応忘れを減らしやすくなります。
                 </p>
 
                 <!-- ==================== メリット ==================== -->
                 <h2><i class="fas fa-star"></i> kintone（キントーン）の承認フローを活用するメリット</h2>
+
+                <figure style="max-width: 840px; margin: 0 auto 32px; text-align: center;">
+                    <img src="../../images/column/approval-flow-merits.png" alt="kintoneの承認フローを活用するメリット" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+                </figure>
 
                 <h3><i class="fas fa-eye" style="color: var(--kintone-yellow); margin-right: 8px;"></i>メリット1：申請状況を見える化できる</h3>
                 <p>

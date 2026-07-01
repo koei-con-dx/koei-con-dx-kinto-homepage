@@ -758,7 +758,7 @@
 
                 <!-- リード文 -->
                 <p class="lead-text">
-                    kintone（キントーン）は、全員が同じ情報を見られるわけではありません。<br><br>
+                    <span style="color: #D32F2F; font-weight: 900;">kintone（キントーン）は、全員が同じ情報を見られるわけではありません。</span><br><br>
                     ユーザーごと、部署ごと、役職ごとに閲覧や編集の権限を設定できるため、<strong>必要な人だけに情報を見せることができます</strong>。例えば、人事情報は人事担当者だけ、給与情報は管理職だけ、問い合わせ情報は担当部署だけが見られるように設定できます。<br><br>
                     「全員に見えてしまうのは不安」「個人情報や機密情報を安全に管理したい」という企業にとって、<strong>kintoneのアクセス権機能は大きなメリットがあります。</strong>
                 </p>
@@ -766,9 +766,18 @@
                 <!-- ==================== アクセス権機能とは ==================== -->
                 <h2><i class="fas fa-info-circle"></i> kintone（キントーン）のアクセス権機能とは？</h2>
 
+                <figure style="max-width: 540px; margin: 0 auto 32px; text-align: center;">
+                    <img src="../../images/column/access-permission-overview.png" alt="kintoneのアクセス権機能の概要" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+                </figure>
+
                 <p>
                     kintoneには、<strong>ユーザーごと、部署ごと、グループごとにアクセス権を設定できる機能</strong>があります。
                 </p>
+
+                <figure style="max-width: 800px; margin: 28px auto 32px; text-align: center;">
+                    <img src="../../images/column/access-permission-feature.png" alt="kintoneのアクセス権機能" style="width: 100%; aspect-ratio: 2/1; object-fit: cover; border-radius: 8px; display: block;">
+                </figure>
+
                 <p>
                     例えば、ある人には閲覧だけ許可し、別の人には編集や削除まで許可することができます。そのため、必要な人だけに必要な情報を見せる運用がしやすくなります。
                 </p>
@@ -789,16 +798,20 @@
                     kintoneのアクセス権は、設定の単位によって3種類に分けられます。それぞれの違いを見ていきましょう。
                 </p>
 
+                <figure style="max-width: 800px; margin: 28px auto 32px; text-align: center;">
+                    <img src="../../images/column/access-permission-types.png" alt="kintoneのアクセス権3種類" style="width: 100%; height: auto; border-radius: 8px; display: block; filter: saturate(0.7) brightness(1.05);">
+                </figure>
+
                 <div class="use-case-card">
                     <div class="use-case-header">
-                        <div class="use-case-icon excel">
+                        <div class="use-case-icon" style="background: linear-gradient(135deg, #1976D2, #2196F3);">
                             <i class="fas fa-th-large"></i>
                         </div>
                         <h4>設定方法1：アプリ単位のアクセス権でできること</h4>
                     </div>
                     <div class="use-case-body">
                         <p>
-                            アプリ単位のアクセス権では、<strong>アプリ全体を誰が使えるか</strong>を設定できます。例えば、人事関連のアプリは人事担当者だけ、経理関連のアプリは経理担当者だけが利用できるように設定できます。
+                            アプリ単位のアクセス権では、<strong style="border-bottom: 3px solid #D32F2F; padding-bottom: 2px;">アプリ全体を誰が使えるか</strong>を設定できます。例えば、人事関連のアプリは人事担当者だけ、経理関連のアプリは経理担当者だけが利用できるように設定できます。
                         </p>
                         <p>
                             また、アプリを利用できる人の中でも、操作できる範囲を分けることができます。閲覧だけを許可する、レコードの追加を許可する、編集を許可する、削除を許可する、といった設定が可能です。
@@ -811,14 +824,14 @@
 
                 <div class="use-case-card">
                     <div class="use-case-header">
-                        <div class="use-case-icon workflow">
+                        <div class="use-case-icon" style="background: linear-gradient(135deg, #388E3C, #4CAF50);">
                             <i class="fas fa-database"></i>
                         </div>
                         <h4>設定方法2：レコード単位のアクセス権でできること</h4>
                     </div>
                     <div class="use-case-body">
                         <p>
-                            レコード単位のアクセス権では、<strong>アプリ内に登録されたデータごとに、見られる人や編集できる人を分けられます</strong>。例えば、申請管理アプリで「自分が申請した内容だけ見られるようにする」といった設定ができます。
+                            レコード単位のアクセス権では、<strong style="border-bottom: 3px solid #D32F2F; padding-bottom: 2px;">アプリ内に登録されたデータごとに、見られる人や編集できる人を分けられます</strong>。例えば、申請管理アプリで「自分が申請した内容だけ見られるようにする」といった設定ができます。
                         </p>
                         <p>
                             営業管理アプリであれば、「自分が担当している顧客だけを見られるようにする」「所属部署の案件だけを編集できるようにする」といった運用も考えられます。
@@ -831,14 +844,14 @@
 
                 <div class="use-case-card">
                     <div class="use-case-header">
-                        <div class="use-case-icon report">
+                        <div class="use-case-icon" style="background: linear-gradient(135deg, #F57C00, #FF9800);">
                             <i class="fas fa-stream"></i>
                         </div>
                         <h4>設定方法3：フィールド単位のアクセス権でできること</h4>
                     </div>
                     <div class="use-case-body">
                         <p>
-                            フィールド単位のアクセス権では、<strong>アプリ内の特定の項目だけを見せない、または編集させない設定</strong>ができます。例えば、社員名簿アプリで、氏名や部署は社内で共有しつつ、住所や緊急連絡先は人事担当者だけが見られるようにすることができます。
+                            フィールド単位のアクセス権では、<strong style="border-bottom: 3px solid #D32F2F; padding-bottom: 2px;">アプリ内の特定の項目だけを見せない、または編集させない設定</strong>ができます。例えば、社員名簿アプリで、氏名や部署は社内で共有しつつ、住所や緊急連絡先は人事担当者だけが見られるようにすることができます。
                         </p>
                         <p>
                             顧客管理アプリであれば、顧客名や連絡先は営業部全体で共有し、売上見込みや管理者メモは管理職だけが確認できるようにすることもできます。
@@ -851,6 +864,10 @@
 
                 <!-- ==================== メリット ==================== -->
                 <h2><i class="fas fa-star"></i> kintone（キントーン）のアクセス権を設定するメリット</h2>
+
+                <figure style="max-width: 700px; margin: 0 auto 32px; text-align: center;">
+                    <img src="../../images/column/access-permission-merits.png" alt="kintoneのアクセス権を設定するメリット" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+                </figure>
 
                 <h3><i class="fas fa-lock" style="color: var(--kintone-yellow); margin-right: 8px;"></i>メリット1：個人情報や機密情報を守りやすい</h3>
                 <p>

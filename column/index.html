@@ -89,11 +89,49 @@
             justify-content: center;
             color: var(--white);
             font-size: 60px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
         .column-thumbnail.intro {
             background: linear-gradient(135deg, var(--kintone-yellow) 0%, #FFD700 100%);
             color: var(--navy);
+        }
+
+        /* ==================== サムネ内のイラスト合成 ==================== */
+        .thumb-composition {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .thumb-composition i.thumb-main {
+            font-size: 42px;
+        }
+
+        .thumb-composition .thumb-title {
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        .thumb-deco {
+            position: absolute;
+            font-size: 22px;
+            opacity: 0.22;
+            z-index: 1;
+        }
+
+        /* 画像付きサムネ */
+        .column-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         .column-thumbnail.strategy {
@@ -251,7 +289,7 @@
                 <a href="kintone-business-improvement/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-chart-line"></i>
+                            <img src="../images/column/column-business-improvement.png" alt="kintoneを使った業務改善を解説">
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -265,7 +303,7 @@
                 <a href="kintone-approval-flow/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-tasks"></i>
+                            <img src="../images/column/column-approval-flow.png" alt="kintoneの承認フローとは？">
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -279,7 +317,7 @@
                 <a href="kintone-space/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-users"></i>
+                            <img src="../images/column/column-space.png" alt="kintoneのスペース機能">
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -293,7 +331,7 @@
                 <a href="kintone-access-permission/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-user-shield"></i>
+                            <img src="../images/column/column-access-permission.png" alt="kintoneのアクセス権機能">
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -307,7 +345,7 @@
                 <a href="kintone-app-reuse/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-copy"></i>
+                            <img src="../images/column/column-app-reuse.png" alt="kintoneは一度作れば使い回せる？アプリ再利用機能">
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
@@ -321,7 +359,7 @@
                 <a href="kintone-what-can-it-do/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="intro">
                         <div class="column-thumbnail intro">
-                            <i class="fas fa-puzzle-piece"></i>
+                            <img src="../images/column/column-what-can-it-do.png" alt="結局、kintoneで何ができるの？">
                         </div>
                         <div class="column-content">
                             <span class="column-tag tag-intro">kintone入門</span>
