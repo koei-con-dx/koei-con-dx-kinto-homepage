@@ -1426,6 +1426,10 @@
                     event_label: 'download_form',
                     catalog: data.catalog
                 });
+                // Google広告 コンバージョン（資料ダウンロード）
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-18213351414/DQmuCOO358ocEPbf5uxD'
+                });
             }
 
             // 送信完了を待たずにDL開始（kintone送信が遅延・失敗してもDL体験を阻害しない）
