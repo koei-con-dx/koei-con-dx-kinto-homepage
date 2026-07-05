@@ -543,6 +543,10 @@
                                 event_label: 'contact_form',
                                 service: data.service || ''
                             });
+                            // Google広告 コンバージョン（お問い合わせ）
+                            window.gtag('event', 'conversion', {
+                                'send_to': 'AW-18213351414/nEkuCIyCgsscEPbf5uxD'
+                            });
                         }
                         renderResult(
                             'success',
