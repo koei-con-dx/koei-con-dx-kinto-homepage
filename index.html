@@ -888,6 +888,22 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ヒーロー：ターゲット明示ラベル */
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-eyebrow {
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -934,7 +950,8 @@
     <!-- ==================== ファーストビュー ==================== -->
     <section class="hero">
         <div class="container">
-            <h1>「いつもの業務」が<br>もっとラクになる。</h1>
+            <p class="hero-eyebrow">建設業・不動産業などの中小企業から、地方自治体まで。</p>
+            <h1>現場で本当に使える<br>kintone伴走支援</h1>
             <p class="hero-lead">
                 現場に寄り添う、無理のないDX。<br>
                 愛知（名古屋）・岐阜は現場に伺い、遠方は全国オンラインで。kintone導入から内製化まで伴走。<br>
@@ -1000,6 +1017,18 @@
                     <i class="fas fa-robot" aria-hidden="true"></i>
                     <h3>データ活用・AI連携</h3>
                     <p>AIに頼みたい業務はあるのに、情報がバラバラでAIが使える状態になっていない。</p>
+                </article>
+
+                <article class="problem-card">
+                    <i class="fas fa-user-slash" aria-hidden="true"></i>
+                    <h3>専任のIT担当者がいない</h3>
+                    <p>社内にシステムに詳しい人がおらず、「導入しても誰が管理・運用するのか」が不安で一歩を踏み出せない。</p>
+                </article>
+
+                <article class="problem-card">
+                    <i class="fas fa-piggy-bank" aria-hidden="true"></i>
+                    <h3>スモールスタートで始めたい</h3>
+                    <p>限られた予算でいきなり大きく投資するのは不安。まずは小さく始めて、予算を抑えながら段階的にDXを進めたい。</p>
                 </article>
             </div>
             
