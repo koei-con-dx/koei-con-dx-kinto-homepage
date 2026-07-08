@@ -660,36 +660,23 @@ a:hover {
     font-size: 22px;
     color: #16A394 !important;
     font-weight: 900;
-    padding: 3px 8px 6px;
+    padding: 3px 8px;
     border-radius: 4px;
     display: inline-block;
-    transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
+    transition: all 0.2s ease;
     background: transparent;
-    text-decoration: none;
-    position: relative;
-}
-
-.company-name-badge::after {
-    content: '';
-    position: absolute;
-    left: 8px;
-    right: 8px;
-    bottom: 2px;
-    height: 3px;
-    background: #0E7A6E;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
+    text-decoration: underline;
+    text-decoration-color: #16A394;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
 }
 
 .company-name-link:hover .company-name-badge {
     background: rgba(22, 163, 148, 0.05);
     color: #0E7A6E !important;
+    text-decoration-color: #0E7A6E;
+    text-decoration-thickness: 3px;
     transform: translateY(-2px);
     text-shadow: 0 0 0.5px currentColor;
     box-shadow: 0 3px 10px rgba(22, 163, 148, 0.2);
-}
-
-.company-name-link:hover .company-name-badge::after {
-    transform: scaleX(1);
 }
