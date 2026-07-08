@@ -672,13 +672,13 @@ a:hover {
 }
 
 .company-name-link:hover .company-name-badge {
-    background: rgba(15, 122, 110, 0.05);
-    color: #0F7A6E !important;
-    text-decoration-color: #0F7A6E;
+    background: rgba(22, 163, 148, 0.05);
+    color: #16A394 !important;
+    text-decoration-color: #16A394;
     text-decoration-thickness: 3px;
     transform: translateY(-2px);
     text-shadow: 0 0 0.5px currentColor;
-    box-shadow: 0 3px 10px rgba(15, 122, 110, 0.25);
+    box-shadow: 0 3px 10px rgba(22, 163, 148, 0.2);
 }
 
 /* ==================== 関連コラム見出し（左右ライン付き） ==================== */
