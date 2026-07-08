@@ -669,8 +669,8 @@ a:hover {
     color: var(--navy);
     text-align: center;
     margin-bottom: 28px;
-    padding-left: 0;
-    border-left: none;
+    padding-left: 0 !important;
+    border-left: none !important;
     line-height: 1.4;
 }
 
