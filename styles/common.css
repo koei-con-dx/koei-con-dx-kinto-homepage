@@ -658,7 +658,7 @@ a:hover {
 
 .company-name-badge {
     font-size: 22px;
-    color: #16A394;
+    color: #16A394 !important;
     font-weight: 900;
     padding: 3px 8px;
     border-radius: 4px;
@@ -669,7 +669,7 @@ a:hover {
 
 .company-name-link:hover .company-name-badge {
     background: var(--navy);
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
 }
