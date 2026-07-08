@@ -677,4 +677,5 @@ a:hover {
     text-decoration-thickness: 3px;
     transform: translateY(-2px);
     text-shadow: 0 0 0.5px currentColor;
+    box-shadow: 0 3px 10px rgba(22, 163, 148, 0.2);
 }
