@@ -649,3 +649,51 @@ a:hover {
         font-size: 15px;
     }
 }
+
+/* ==================== 会社名バッジ（コラム締め文用） ==================== */
+.company-name-badge {
+    font-size: 19px;
+    color: var(--navy) !important;
+    font-weight: 900;
+    display: inline-block;
+}
+
+/* ==================== 関連コラム見出し（左右ライン付き） ==================== */
+.related-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 28px;
+    padding-left: 0 !important;
+    border-left: none !important;
+    line-height: 1.4;
+}
+
+.related-heading::before,
+.related-heading::after {
+    content: '';
+    flex: 0 0 60px;
+    height: 1px;
+    background: var(--navy);
+    opacity: 0.4;
+}
+
+/* ==================== コラムヒーローのサブタイトル ==================== */
+.column-hero h1 .hero-subtitle {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+    opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+    .column-hero h1 .hero-subtitle {
+        font-size: 16px;
+    }
+}
