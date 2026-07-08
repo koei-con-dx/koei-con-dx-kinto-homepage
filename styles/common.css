@@ -668,8 +668,8 @@ a:hover {
 }
 
 .company-name-link:hover .company-name-badge {
-    background: #16A394;
+    background: var(--navy);
     color: #FFFFFF;
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(22, 163, 148, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
 }
