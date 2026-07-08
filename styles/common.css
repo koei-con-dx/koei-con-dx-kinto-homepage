@@ -672,8 +672,9 @@ a:hover {
 }
 
 .company-name-link:hover .company-name-badge {
-    background: rgba(22, 163, 148, 0.25);
-    color: #0E5A52 !important;
-    text-decoration-color: #0E5A52;
-    text-decoration-thickness: 3px;
+    background: #16A394;
+    color: #FFFFFF !important;
+    text-decoration-color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(22, 163, 148, 0.4);
 }
