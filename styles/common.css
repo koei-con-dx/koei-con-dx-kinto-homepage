@@ -680,3 +680,28 @@ a:hover {
     text-shadow: 0 0 0.5px currentColor;
     box-shadow: 0 3px 10px rgba(22, 163, 148, 0.2);
 }
+
+/* ==================== 関連コラム見出し（左右ライン付き） ==================== */
+.related-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 28px;
+    padding-left: 0;
+    border-left: none;
+    line-height: 1.4;
+}
+
+.related-heading::before,
+.related-heading::after {
+    content: '';
+    flex: 0 0 60px;
+    height: 1px;
+    background: var(--navy);
+    opacity: 0.4;
+}
