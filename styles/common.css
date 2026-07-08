@@ -665,6 +665,10 @@ a:hover {
     display: inline-block;
     transition: all 0.2s ease;
     background: transparent;
+    text-decoration: underline;
+    text-decoration-color: #16A394;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
 }
 
 .company-name-link:hover .company-name-badge {
@@ -672,4 +676,5 @@ a:hover {
     color: #FFFFFF !important;
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(22, 163, 148, 0.3);
+    text-decoration-color: #FFFFFF;
 }
