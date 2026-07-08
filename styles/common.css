@@ -649,3 +649,28 @@ a:hover {
         font-size: 15px;
     }
 }
+
+/* ==================== 会社名リンクバッジ（コラム締め文用） ==================== */
+.company-name-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.company-name-badge {
+    font-size: 22px;
+    color: #16A394;
+    font-weight: 900;
+    border: 2px solid #16A394;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.company-name-link:hover .company-name-badge {
+    background: #16A394;
+    color: #FFFFFF;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(22, 163, 148, 0.3);
+}
