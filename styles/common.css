@@ -705,3 +705,18 @@ a:hover {
     background: var(--navy);
     opacity: 0.4;
 }
+
+/* ==================== コラムヒーローのサブタイトル ==================== */
+.column-hero h1 .hero-subtitle {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+    opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+    .column-hero h1 .hero-subtitle {
+        font-size: 16px;
+    }
+}
