@@ -27,7 +27,7 @@
         /* ==================== ヒーローセクション ==================== */
         .column-list-hero {
             background: linear-gradient(135deg, var(--navy) 0%, #004080 60%, var(--mid-blue) 100%);
-            padding: 130px 0 50px;
+            padding: 105px 0 25px;
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -132,12 +132,17 @@
             color: var(--white);
         }
         
+        /* コラム一覧のセクション余白を圧縮 */
+        section.section {
+            padding: 40px 0 60px;
+        }
+
         /* ==================== コラムカード ==================== */
         .column-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 80px;
+            gap: 20px;
+            margin-bottom: 40px;
         }
         
         .column-card {
@@ -160,7 +165,7 @@
         }
         
         .column-thumbnail {
-            height: 200px;
+            height: 140px;
             background: linear-gradient(135deg, var(--mid-blue) 0%, #0088CC 100%);
             display: flex;
             align-items: center;
@@ -229,16 +234,16 @@
         }
         
         .column-content {
-            padding: 25px;
+            padding: 16px 18px;
         }
-        
+
         .column-tag {
             display: inline-block;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 4px;
             font-size: 11px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .tag-intro {
@@ -267,15 +272,15 @@
         }
         
         .column-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             color: var(--navy);
-            line-height: 1.6;
-            margin-bottom: 15px;
+            line-height: 1.5;
+            margin-bottom: 10px;
         }
-        
+
         .column-date {
-            font-size: 12px;
+            font-size: 11px;
             color: #999;
         }
         
