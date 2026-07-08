@@ -658,7 +658,7 @@ a:hover {
 
 .company-name-badge {
     font-size: 22px;
-    color: #16A394 !important;
+    color: var(--navy) !important;
     font-weight: 900;
     padding: 3px 8px;
     border-radius: 4px;
@@ -666,15 +666,15 @@ a:hover {
     transition: all 0.2s ease;
     background: transparent;
     text-decoration: underline;
-    text-decoration-color: #16A394;
+    text-decoration-color: var(--navy);
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
 }
 
 .company-name-link:hover .company-name-badge {
     background: rgba(22, 163, 148, 0.05);
-    color: #0E7A6E !important;
-    text-decoration-color: #0E7A6E;
+    color: #16A394 !important;
+    text-decoration-color: #16A394;
     text-decoration-thickness: 3px;
     transform: translateY(-2px);
     text-shadow: 0 0 0.5px currentColor;
