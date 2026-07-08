@@ -652,7 +652,7 @@ a:hover {
 
 /* ==================== 会社名バッジ（コラム締め文用） ==================== */
 .company-name-badge {
-    font-size: 22px;
+    font-size: 19px;
     color: var(--navy) !important;
     font-weight: 900;
     display: inline-block;
