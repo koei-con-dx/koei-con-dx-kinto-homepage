@@ -500,7 +500,7 @@ a:hover {
 }
 
 .news-category.column {
-    background: var(--cat-red);
+    background: var(--accent-orange);
     color: var(--white);
 }
 
