@@ -10,8 +10,9 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-K52VMKP7');</script>
     <!-- End Google Tag Manager -->
-    <title>【kintone×社会福祉協議会】ユーザー交流会 | イベント | 株式会社興栄コンサルタント</title>
-    <meta name="description" content="2025年10月31日にサイボウズ名古屋オフィスで開催された社会福祉協議会職員限定のkintoneユーザー交流会のレポート。5つの社協による業務改善事例を紹介。">
+    <script src="/scripts/ga4.js"></script>
+    <title>先進社協に学ぶ、通常業務をラクにするkintone超活用術（2026年8月25日開催） | イベント | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="2026年8月25日（火）に犬山市民交流センター「フロイデ」で開催。属人化しない仕組みづくりで導入2年でユーザー数3倍の犬山市社協様と、300以上のアプリで事業全般にkintoneを活用する美濃加茂市社協様の具体的な活用方法を学びます。">
 
     <!-- Favicon -->
     <link rel="icon" href="../../images/favicon.ico" sizes="any">
@@ -31,13 +32,6 @@
 
     <style>
         /* ==================== 記事ヘッダー ==================== */
-        .article-hero {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-
         .article-header {
             margin-bottom: 40px;
         }
@@ -48,8 +42,8 @@
             border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
-            background: var(--light-gray);
-            color: var(--text-gray);
+            background: var(--kintone-yellow);
+            color: var(--navy);
             margin-bottom: 12px;
         }
 
@@ -76,7 +70,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 15px;
+            font-size: 17px;
             color: var(--text-gray);
         }
 
@@ -99,14 +93,14 @@
         }
 
         .article-body p {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 2;
             color: var(--text-gray);
             margin-bottom: 28px;
         }
 
         .article-body h2 {
-            font-size: 22px;
+            font-size: 26px;
             font-weight: 900;
             color: var(--navy);
             margin-top: 48px;
@@ -115,75 +109,69 @@
             border-left: 4px solid var(--kintone-yellow);
         }
 
-        /* 発表リスト */
-        .presentation-list {
+        /* 開催詳細グリッド */
+        .event-details {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 20px 24px;
+            font-size: 18px;
+            line-height: 1.8;
+            padding: 28px 32px;
+            background: var(--light-gray);
+            border-radius: 10px;
+            margin-bottom: 36px;
+        }
+
+        .event-details .label {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .event-details .label i {
+            color: var(--accent-orange);
+            margin-right: 8px;
+        }
+
+        /* プログラムリスト */
+        .program-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 16px;
             margin-bottom: 36px;
+            padding: 0;
         }
 
-        .presentation-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
+        .program-item {
             padding: 20px 24px;
             background: var(--light-gray);
             border-radius: 10px;
             border-left: 4px solid var(--mid-blue);
         }
 
-        .presentation-item .org-name {
+        .program-item .program-title {
             font-weight: 700;
             color: var(--navy);
-            font-size: 15px;
-            min-width: 180px;
-            flex-shrink: 0;
+            font-size: 18px;
+            line-height: 1.7;
+            display: block;
+            margin-bottom: 6px;
         }
 
-        .presentation-item .org-detail {
-            font-size: 15px;
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        /* まとめ */
-        .article-closing {
+        .program-item .program-speaker {
             font-size: 16px;
-            line-height: 2;
             color: var(--text-gray);
-            margin: 36px 0;
-            padding: 24px 28px;
-            background: var(--pale-yellow);
-            border-radius: 10px;
-            border-left: 4px solid var(--kintone-yellow);
         }
 
-        /* 元記事リンク */
-        .original-link {
+        /* 申込ボタン */
+        .apply-btn-wrap {
             text-align: center;
             margin: 40px 0;
         }
 
-        .original-link a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--mid-blue);
-            font-weight: 700;
-            font-size: 15px;
-            text-decoration: none;
-            padding: 14px 28px;
-            border: 2px solid var(--mid-blue);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .original-link a:hover {
-            background: var(--mid-blue);
-            color: var(--white);
-            transform: translateY(-2px);
+        .btn-apply-big:hover {
+            transform: translateY(-6px) !important;
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5) !important;
         }
 
         /* パンくず */
@@ -226,10 +214,55 @@
             background: var(--light-gray);
         }
 
+        /* ヒーローセクション（画像なし版） */
+        .article-hero-plain {
+            background: linear-gradient(135deg, #3D6A9A 0%, #5B85B8 100%);
+            color: var(--white);
+            padding: 48px 40px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .article-hero-plain .hero-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--kintone-yellow);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 900;
+            border-radius: 30px;
+            margin-bottom: 16px;
+        }
+
+        .article-hero-plain h1 {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* 視覚的に非表示（SEO・スクリーンリーダー用） */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* ==================== レスポンシブ ==================== */
         @media (max-width: 768px) {
-            .article-hero {
-                max-height: 220px;
+            .article-hero-plain {
+                padding: 32px 24px;
+            }
+
+            .article-hero-plain h1 {
+                font-size: 20px;
             }
 
             .article-header h1 {
@@ -253,24 +286,22 @@
                 font-size: 18px;
             }
 
-            .presentation-item {
-                flex-direction: column;
+            .event-details {
+                grid-template-columns: 1fr;
                 gap: 8px;
+                padding: 20px;
+            }
+
+            .event-details .label {
+                margin-top: 8px;
+            }
+
+            .event-details .label:first-child {
+                margin-top: 0;
+            }
+
+            .program-item {
                 padding: 16px 18px;
-            }
-
-            .presentation-item .org-name {
-                min-width: auto;
-                font-size: 14px;
-            }
-
-            .presentation-item .org-detail {
-                font-size: 13px;
-            }
-
-            .article-closing {
-                font-size: 14px;
-                padding: 18px 20px;
             }
         }
     </style>
@@ -329,87 +360,45 @@
                 <span>&gt;</span>
                 <a href="../index.html">イベント</a>
                 <span>&gt;</span>
-                ユーザー交流会レポート
+                先進社協に学ぶkintone超活用術
             </nav>
 
+            <!-- SEO・アクセシビリティ用 H1（画面には非表示） -->
+            <h1 class="visually-hidden">2年でユーザー数3倍！アプリ数300以上！先進社協に学ぶ、通常業務をラクにするkintone超活用術（2026年8月25日開催）</h1>
+
             <!-- ヒーロー画像 -->
-            <img
-                src="event-photo.jpg"
-                alt="社会福祉協議会職員限定のユーザー交流会の集合写真"
-                class="article-hero"
-                style="border-radius: 12px; margin-bottom: 32px; width: 100%; height: auto; object-fit: cover;"
-            >
+            <figure style="max-width: 840px; margin: 0 auto 32px;">
+                <img
+                    src="event-flyer.png"
+                    alt="2年でユーザー数3倍！アプリ数300以上！先進社協に学ぶ、通常業務をラクにするkintone超活用術"
+                    style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block;"
+                >
+            </figure>
 
             <div class="article-body">
-                <!-- 記事ヘッダー -->
-                <div class="article-header">
-                    <span class="status-badge">開催終了</span>
-                    <h1>【kintone×社会福祉協議会】社会福祉協議会職員限定のユーザー交流会を開催しました</h1>
-
-                    <div class="article-meta">
-                        <div class="article-meta-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span><strong>開催日：</strong>2025年10月31日</span>
-                        </div>
-                        <div class="article-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span><strong>会場：</strong>サイボウズ名古屋オフィス</span>
-                        </div>
+                <!-- メタ情報 -->
+                <div class="article-meta">
+                    <div class="article-meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>開催日：</strong>2026年8月25日（火）14:00〜16:00（13:30 開場）</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><strong>会場：</strong>犬山市民交流センター「フロイデ」201・202会議室<br>
+                        <a href="https://maps.app.goo.gl/s3BkbBVwkQTPFZN18" target="_blank" rel="noopener" style="color: var(--mid-blue); font-size: 14px;">Googleマップで見る <i class="fas fa-external-link-alt" style="font-size: 10px;"></i></a></span>
                     </div>
                 </div>
 
                 <!-- 本文 -->
                 <p>
-                    2025年10月31日に、社会福祉協議会職員を対象としたkintoneのユーザー交流会を開催しました。
-                </p>
-                <p>
-                    社会福祉協議会にとってkintoneは「災害ボランティアセンター」というイメージが強いものの、「日常業務での活用可能性を認識してもらいたい」という想いから、サイボウズ名古屋オフィスにて「業務改善ツール」としてのkintoneの活用方法を紹介することを目的に実施しました。
-                </p>
-                <p>
-                    当日は、実際にkintoneを運用している5つの社会福祉協議会による事例発表が行われました。
+                    導入から2年で利用ユーザーを3倍に拡大した犬山市社協様と、300以上アプリで事業全般にkintoneを活用する美濃加茂市社協様。両社協が実践する<strong>「属人化させない仕組みづくり」と「使いこなすための工夫」</strong>を学びます。
                 </p>
 
-                <!-- 発表内容 -->
-                <h2><i class="fas fa-microphone-alt" style="color: var(--kintone-yellow); margin-right: 8px;"></i>発表内容</h2>
-
-                <ul class="presentation-list">
-                    <li class="presentation-item">
-                        <span class="org-name">山県市社会福祉協議会</span>
-                        <span class="org-detail">相談業務管理をエクセルから専用システム、さらにkintoneへと移行した経緯を報告。段階的なシステム移行の過程を共有しました。</span>
-                    </li>
-                    <li class="presentation-item">
-                        <span class="org-name">春日井市社会福祉協議会</span>
-                        <span class="org-detail">ボランティア（団体・個人）管理をエクセルからkintoneに変更。訪問開発の活用ポイントを共有しました。</span>
-                    </li>
-                    <li class="presentation-item">
-                        <span class="org-name">犬山市社会福祉協議会</span>
-                        <span class="org-detail">kintoneと連携サービス「プリントクリエーター」を組み合わせ、地域助成事業をシステム化した事例を紹介しました。</span>
-                    </li>
-                    <li class="presentation-item">
-                        <span class="org-name">可児市社会福祉協議会</span>
-                        <span class="org-detail">相談管理業務において、kintoneとプラグイン「レポトン」を組み合わせて運用している事例を紹介しました。</span>
-                    </li>
-                    <li class="presentation-item">
-                        <span class="org-name">美濃加茂市社会福祉協議会</span>
-                        <span class="org-detail">ほぼ全業務でkintoneを活用し、300を超えるアプリを構築。「観察→アプリ作成→メリット提示→選択」という導入アプローチを展開。「エクセルでやっているものはだいたいkintoneで代替可能」であり、複数ファイル統合や入力削減が業務改善のポイントと指摘しました。</span>
-                    </li>
-                </ul>
-
-                <!-- まとめ -->
-                <div class="article-closing">
-                    満員御礼の大盛況となった本交流会。社会福祉協議会の業務改善が「日常生活の幸せ実感」につながることへの期待が示されました。kintoneを通じて、各社協の日常業務がより効率的に、より良いものになっていくことを目指します。
-                </div>
-
-                <!-- YouTube動画 -->
-                <h2><i class="fab fa-youtube" style="color: #FF0000; margin-right: 8px;"></i>イベント動画</h2>
-                <div style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 36px;">
-                    <iframe
-                        src="https://www.youtube.com/embed/UR6zrBQUxTc"
-                        title="社会福祉協議会職員限定のユーザー交流会"
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
+                <!-- 申込ボタン -->
+                <div class="apply-btn-wrap">
+                    <a href="https://3f21c819.form.kintoneapp.com/public/20260825seminar" target="_blank" rel="noopener" class="btn btn-primary btn-apply-big" style="background: var(--accent-orange); color: var(--white); padding: 16px 48px; font-size: 16px;">
+                        <i class="fas fa-edit" style="margin-right: 8px;"></i>申込フォームへ
+                    </a>
                 </div>
 
                 <!-- 戻るリンク -->
@@ -463,16 +452,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- ==================== JavaScript ==================== -->
-    <script>
-        // ハンバーガーメニュー
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('.nav');
-
-        hamburger?.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
