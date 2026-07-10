@@ -10,7 +10,6 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-K52VMKP7');</script>
     <!-- End Google Tag Manager -->
-    <script src="/scripts/ga4.js"></script>
     <title>kintone導入・伴走支援｜愛知(名古屋)・岐阜は対面/全国オンライン</title>
     <meta name="description" content="kintone導入から内製化・定着まで伴走支援。愛知（名古屋）・岐阜など東海圏は現場に直接お伺いして対面サポート、その他の地域は全国どこでもオンライン対応。建設業・中小企業のDXを、地元の興栄コンサルタントが支えます。">
     <meta name="keywords" content="kintone 岐阜, kintone 東海, kintone コンサル 岐阜, kintone 建設, kintone 建設業 岐阜, 自治体DX 岐阜, kintone 内製化, kintone オンライン, サイボウズ オフィシャルパートナー">
@@ -1436,17 +1435,9 @@
             const data = Object.fromEntries(new FormData(downloadForm).entries());
             data.catalog = 'kintone導入支援サービス カタログ';
 
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', 'form_submit_download', {
-                    event_category: 'form',
-                    event_label: 'download_form',
-                    catalog: data.catalog
-                });
-                // Google広告 コンバージョン（資料ダウンロード）
-                window.gtag('event', 'conversion', {
-                    'send_to': 'AW-18213351414/DQmuCOO358ocEPbf5uxD'
-                });
-            }
+            // GTMへコンバージョンイベントを通知（資料ダウンロード）
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ 'event': 'download_form_submit', 'catalog': data.catalog });
 
             // 送信完了を待たずにDL開始（kintone送信が遅延・失敗してもDL体験を阻害しない）
             fetch('/.netlify/functions/download', {

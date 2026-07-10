@@ -10,7 +10,6 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-K52VMKP7');</script>
     <!-- End Google Tag Manager -->
-    <script src="/scripts/ga4.js"></script>
     <title>お問い合わせ | 株式会社興栄コンサルタント</title>
     <meta name="description" content="kintone導入・活用支援に関するお問い合わせはこちらから。無料相談も承っております。お気軽にご連絡ください。">
     
@@ -548,17 +547,9 @@
 
                     if (res.ok && result.ok) {
                         contactForm.reset();
-                        if (typeof window.gtag === 'function') {
-                            window.gtag('event', 'form_submit_contact', {
-                                event_category: 'form',
-                                event_label: 'contact_form',
-                                service: data.service || ''
-                            });
-                            // Google広告 コンバージョン（お問い合わせ）
-                            window.gtag('event', 'conversion', {
-                                'send_to': 'AW-18213351414/nEkuCIyCgsscEPbf5uxD'
-                            });
-                        }
+                        // GTMへコンバージョンイベントを通知（お問い合わせ）
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({ 'event': 'contact_form_submit', 'service': data.service || '' });
                         renderResult(
                             'success',
                             'fas fa-check-circle',
