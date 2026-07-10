@@ -683,6 +683,17 @@ a:hover {
     opacity: 0.4;
 }
 
+@media (max-width: 768px) {
+    .related-heading {
+        font-size: 18px;
+        gap: 12px;
+    }
+    .related-heading::before,
+    .related-heading::after {
+        flex: 0 0 30px;
+    }
+}
+
 /* ==================== コラムヒーローのサブタイトル ==================== */
 .column-hero h1 .hero-subtitle {
     display: block;
