@@ -242,6 +242,19 @@
             margin: 0;
         }
 
+        /* 視覚的に非表示（SEO・スクリーンリーダー用） */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* ==================== レスポンシブ ==================== */
         @media (max-width: 768px) {
             .article-hero-plain {
@@ -350,6 +363,9 @@
                 先進社協に学ぶkintone超活用術
             </nav>
 
+            <!-- SEO・アクセシビリティ用 H1（画面には非表示） -->
+            <h1 class="visually-hidden">2年でユーザー数3倍！アプリ数300以上！先進社協に学ぶ、通常業務をラクにするkintone超活用術（2026年8月25日開催）</h1>
+
             <!-- ヒーロー画像 -->
             <figure style="max-width: 840px; margin: 0 auto 32px;">
                 <img
@@ -375,6 +391,9 @@
                 <!-- 本文 -->
                 <p>
                     導入から2年で利用ユーザーを3倍に拡大した犬山市社協様と、300以上アプリで事業全般にkintoneを活用する美濃加茂市社協様。両社協が実践する<strong>「属人化させない仕組みづくり」と「使いこなすための工夫」</strong>を学びます。
+                </p>
+                <p>
+                    サイボウズ社による「kintoneとは」の導入解説から、両社協による具体的な活用事例の講演、パネルディスカッションまで、社会福祉協議会・行政職員の皆さまが日常業務にkintoneを活かすヒントが満載です。定員100名、参加費無料。犬山市民交流センター「フロイデ」にて開催します。
                 </p>
 
                 <!-- 申込ボタン -->
