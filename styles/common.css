@@ -500,7 +500,7 @@ a:hover {
 }
 
 .news-category.column {
-    background: var(--cat-red);
+    background: var(--accent-orange);
     color: var(--white);
 }
 
@@ -681,6 +681,17 @@ a:hover {
     height: 1px;
     background: var(--navy);
     opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+    .related-heading {
+        font-size: 18px;
+        gap: 12px;
+    }
+    .related-heading::before,
+    .related-heading::after {
+        flex: 0 0 30px;
+    }
 }
 
 /* ==================== コラムヒーローのサブタイトル ==================== */
