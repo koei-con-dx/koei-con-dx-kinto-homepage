@@ -11,13 +11,13 @@
     })(window,document,'script','dataLayer','GTM-K52VMKP7');</script>
     <!-- End Google Tag Manager -->
     <title>kintone 建設業向け 工事台帳・日報・原価管理のDX | 岐阜・東海／オンライン全国対応 | サイボウズ オフィシャルパートナー 興栄コンサルタント</title>
-    <meta name="description" content="工事台帳・現場日報・原価管理・請求をkintoneでつなぐ、地域の建設会社・専門工事会社向けのkintone導入支援。実行予算と実績原価の管理、現場日報のスマホ入力、見積から請求までの引き継ぎを、現在の帳票を生かしながら改善します。岐阜・東海拠点／オンラインで全国対応。">
+    <meta name="description" content="工事ごとの原価・粗利、請求、進捗、現場日報をkintoneでひとつに。地域の建設会社・専門工事会社向けの導入・活用支援。60分無料相談で、いまの工事台帳・日報から改善の優先順位を整理します。岐阜・東海は訪問、全国オンライン対応。">
     <meta name="keywords" content="kintone 建設業, 工事台帳 kintone, 現場日報 アプリ, 原価管理 建設業, 実行予算 管理, kintone 建設 岐阜, サイボウズ オフィシャルパートナー">
     <link rel="canonical" href="https://koei-con-dx.jp/construction/">
 
     <!-- OGP -->
     <meta property="og:title" content="kintone 建設業向け 工事台帳・日報・原価管理のDX | 岐阜・東海／オンライン全国対応 | 興栄コンサルタント">
-    <meta property="og:description" content="工事台帳・現場日報・原価管理・請求をkintoneでつなぐ、地域の建設会社・専門工事会社向けのkintone導入支援。実行予算と実績原価の管理、現場日報のスマホ入力を、現在の帳票を生かしながら改善します。">
+    <meta property="og:description" content="工事ごとの原価・粗利、請求、進捗、現場日報をkintoneでひとつに。60分無料相談で、いまの工事台帳・日報から改善の優先順位を整理します。岐阜・東海は訪問、全国オンライン対応。">
     <meta property="og:url" content="https://koei-con-dx.jp/construction/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="株式会社興栄コンサルタント kintone導入・活用支援">
@@ -179,12 +179,62 @@
             margin-bottom: 28px;
         }
 
+        .hero-inner p.hero-sub {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--mid-blue);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
         .hero-inner p.hero-lead {
             font-size: 16px;
             color: var(--text-gray);
             line-height: 1.9;
             margin-bottom: 10px;
             text-align: left;
+        }
+
+        /* ヒーロー内 悩みチェックリスト */
+        .hero-checklist {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px 32px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .hero-checklist-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+
+        .hero-checklist ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .hero-checklist li i {
+            flex: 0 0 auto;
+            color: var(--mid-blue);
+            font-size: 17px;
+            margin-top: 3px;
         }
 
         /* ==================== CTAブロック（共通・4箇所） ==================== */
@@ -280,6 +330,11 @@
             margin: 0;
         }
 
+        .dispersion-highlight strong {
+            color: var(--accent-orange);
+            font-size: 20px;
+        }
+
         /* ==================== ソリューションセクション ==================== */
         .solutions-section {
             background: var(--white);
@@ -298,6 +353,15 @@
             border-radius: 16px;
             padding: 50px 45px;
             margin-bottom: 40px;
+        }
+
+        .solution-category {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--mid-blue);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
 
         .solution-block h3 {
@@ -541,6 +605,14 @@
             background: var(--light-gray);
         }
 
+        .reasons-lead {
+            text-align: center;
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-top: -40px;
+            margin-bottom: 50px;
+        }
+
         .reason-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -700,9 +772,38 @@
                 margin-bottom: 18px;
             }
 
+            .hero-inner p.hero-sub {
+                font-size: 15px;
+                margin-bottom: 16px;
+            }
+
             .hero-inner p.hero-lead {
                 font-size: 13px;
                 line-height: 1.8;
+            }
+
+            .hero-checklist {
+                padding: 18px 16px;
+                margin-top: 20px;
+            }
+
+            .hero-checklist-title {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            .hero-checklist ul {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .hero-checklist li {
+                font-size: 13px;
+            }
+
+            .hero-checklist li i {
+                font-size: 15px;
+                margin-top: 2px;
             }
 
             .cta-block {
@@ -747,6 +848,10 @@
                 font-size: 14px;
             }
 
+            .dispersion-highlight strong {
+                font-size: 16px;
+            }
+
             .solutions-note {
                 margin-top: -15px;
                 font-size: 12px;
@@ -755,6 +860,10 @@
             .solution-block {
                 padding: 30px 18px;
                 margin-bottom: 25px;
+            }
+
+            .solution-category {
+                font-size: 11px;
             }
 
             .solution-block h3 {
@@ -819,6 +928,12 @@
 
             .plan-price {
                 font-size: 19px;
+            }
+
+            .reasons-lead {
+                font-size: 13px;
+                margin-top: -15px;
+                margin-bottom: 25px;
             }
 
             .reason-card {
@@ -901,16 +1016,27 @@
         <div class="container">
             <div class="hero-inner">
                 <span class="hero-badge">地域の建設会社・専門工事会社向け</span>
-                <h1>工事情報をつなぎ、現場・事務所・経営が同じ状況を確認できるように。</h1>
+                <h1>工事ごとの採算と現場の動きが、すぐわかる会社へ。</h1>
+                <p class="hero-sub">バラバラの工事情報を、kintoneでひとつにつなぐ。</p>
                 <p class="hero-lead">
-                    日報、写真、進捗、実行予算、原価、請求など、別々に管理されている情報を工事案件を中心に整理します。必要な状況を同じ情報から確認できる仕組みをつくり、現場と事務所の確認や判断を進めやすくします。
+                    原価や粗利、請求、工事の進捗、現場からの日報。別々に管理されている情報を工事ごとにまとめ、現場・事務所・経営が同じ情報を見て動ける仕組みをつくります。
                 </p>
 
+                <div class="hero-checklist">
+                    <p class="hero-checklist-title">こんな状態になっていませんか？</p>
+                    <ul>
+                        <li><i class="fas fa-square-check" aria-hidden="true"></i>工事ごとの粗利が、月末の集計まで見えない</li>
+                        <li><i class="fas fa-square-check" aria-hidden="true"></i>日報や現場の記録が紙のままで、事務所で転記している</li>
+                        <li><i class="fas fa-square-check" aria-hidden="true"></i>現場との確認・伝達が、電話とLINE頼みになっている</li>
+                        <li><i class="fas fa-square-check" aria-hidden="true"></i>請求漏れや赤字工事に、あとから気づく</li>
+                    </ul>
+                </div>
+
                 <div class="cta-block">
-                    <a href="../contact/index.html" id="cta-construction-hero" class="btn btn-primary btn-large cta-construction">現在の工事台帳・日報を見せて相談する</a>
+                    <a href="../contact/index.html" id="cta-construction-hero" class="btn btn-primary btn-large cta-construction">60分無料相談を申し込む</a>
                     <p class="cta-note">
-                        Excelや紙帳票を確認し、どの業務から改善できるか整理します。<br>
-                        60分・オンライン｜東海圏は訪問相談にも対応
+                        いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
+                        オンライン対応｜東海圏は訪問も可能
                     </p>
                 </div>
             </div>
@@ -920,34 +1046,36 @@
     <!-- ==================== 建設業で業務改善が進みにくい理由 ==================== -->
     <section class="section dispersion-section visible" id="dispersion">
         <div class="container">
-            <h2 class="section-title">業務改善を難しくしているのは、工程・場所・時間の分断です。</h2>
+            <h2 class="section-title">なぜ、転記と確認ばかり増えるのか。</h2>
             <p class="dispersion-lead">
-                紙やExcelを使っていることだけが問題なのではありません。一つの工事に関する情報が、工程、管理場所、情報が集まるタイミングによって分かれていることが、転記・確認・集計を増やしています。
+                原因は、紙やExcelそのものではありません。一つの工事の情報が「工程」「場所」「時間」で分かれていること。これが転記・確認・集計を生み続けています。
             </p>
 
             <div class="dispersion-cards">
                 <article class="dispersion-card">
                     <i class="fas fa-diagram-project" aria-hidden="true"></i>
-                    <h3>工程の分断</h3>
-                    <p>見積、受注、施工、実行予算、発注、原価、請求が別々に管理されている。</p>
+                    <h3>工程で分かれる</h3>
+                    <p>見積、受注、施工、実行予算、原価、請求が、別々のファイルと担当者で管理されている。</p>
                 </article>
 
                 <article class="dispersion-card">
                     <i class="fas fa-map-location-dot" aria-hidden="true"></i>
-                    <h3>場所の分断</h3>
-                    <p>現場と事務所が、紙、電話、LINE、Excel、共有フォルダなど異なる方法で情報を管理している。</p>
+                    <h3>場所で分かれる</h3>
+                    <p>現場と事務所のやり取りが、紙・電話・LINE・Excel・共有フォルダに散らばっている。</p>
                 </article>
 
                 <article class="dispersion-card">
                     <i class="fas fa-clock" aria-hidden="true"></i>
-                    <h3>時間の分断</h3>
-                    <p>情報がすぐに集まらず、月末集計や担当者への確認を待たなければ最新状況が分からない。</p>
+                    <h3>時間で分かれる</h3>
+                    <p>数字が集まるのは月末の集計後。工事の途中で最新の状況をつかめない。</p>
                 </article>
             </div>
 
             <div class="dispersion-highlight">
                 <p>
-                    工程・場所・時間の分断が、転記・確認・集計を増やし、進捗や原価の把握を遅らせます。その結果、請求漏れ、赤字工事の発見遅れ、担当者への属人化が起こり、経営判断と次の業務改善も遅れます。
+                    その結果、起きるのが――<br>
+                    <strong>請求漏れ</strong>、<strong>赤字工事の発見遅れ</strong>、<strong>特定の担当者への属人化</strong>。<br>
+                    気づいたときには、経営判断も次の一手も遅れています。
                 </p>
             </div>
         </div>
@@ -956,25 +1084,26 @@
     <!-- ==================== 工事情報を中心につなぐ3つのソリューション ==================== -->
     <section class="section solutions-section visible" id="solutions">
         <div class="container">
-            <h2 class="section-title">工事案件を軸に、採算・現場共有・引き継ぎを改善します。</h2>
+            <h2 class="section-title">バラバラの情報を「工事」でつなぐ、3つの改善パターン。</h2>
             <p class="solutions-note">以下は固定の商品やパッケージではなく、現在の課題に合わせて設計する活用イメージです。</p>
 
             <!-- ソリューション1 -->
             <article class="solution-block">
-                <h3>工事案件・原価・粗利をつなぐ</h3>
+                <p class="solution-category">工事別の原価・粗利管理</p>
+                <h3>赤字工事に、途中で気づける。</h3>
                 <div class="solution-flow">
                     <div class="flow-item flow-before">
-                        <span class="flow-label">導入前</span>
+                        <span class="flow-label">よくある状態</span>
                         <p>実行予算、発注、材料費、外注費、実績原価が別々に管理され、工事途中の採算を確認しにくい。</p>
                     </div>
                     <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
                     <div class="flow-item flow-mechanism">
-                        <span class="flow-label">仕組み</span>
+                        <span class="flow-label">kintoneでこうする</span>
                         <p>工事案件に予算と実績を関連付け、工事ごとに必要な原価情報を確認できるようにする。</p>
                     </div>
                     <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
                     <div class="flow-item flow-after">
-                        <span class="flow-label">得られる変化</span>
+                        <span class="flow-label">こう変わる</span>
                         <p>予算と実績の差を把握しやすくし、原価の増加や粗利の変化に早く気づける状態を目指す。</p>
                     </div>
                 </div>
@@ -995,20 +1124,21 @@
 
             <!-- ソリューション2 -->
             <article class="solution-block">
-                <h3>現場日報・写真・進捗をつなぐ</h3>
+                <p class="solution-category">現場日報・進捗のスマホ報告</p>
+                <h3>現場の報告が、その日のうちに事務所へ届く。</h3>
                 <div class="solution-flow">
                     <div class="flow-item flow-before">
-                        <span class="flow-label">導入前</span>
+                        <span class="flow-label">よくある状態</span>
                         <p>日報、写真、連絡事項が紙や個人端末などに分かれ、事務所で転記や確認が発生している。</p>
                     </div>
                     <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
                     <div class="flow-item flow-mechanism">
-                        <span class="flow-label">仕組み</span>
+                        <span class="flow-label">kintoneでこうする</span>
                         <p>現場からスマートフォンで日報、写真、進捗、確認事項を登録し、工事案件ごとに整理する。</p>
                     </div>
                     <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
                     <div class="flow-item flow-after">
-                        <span class="flow-label">得られる変化</span>
+                        <span class="flow-label">こう変わる</span>
                         <p>事務所が工事別に状況を確認でき、転記、写真探し、電話確認の削減を目指せる。</p>
                     </div>
                 </div>
@@ -1029,20 +1159,21 @@
 
             <!-- ソリューション3 -->
             <article class="solution-block">
-                <h3>見積・受注・施工・請求を切れ目なく引き継ぐ</h3>
+                <p class="solution-category">見積から請求までの一気通貫</p>
+                <h3>見積から請求まで、入力は一度だけ。</h3>
                 <div class="solution-flow">
                     <div class="flow-item flow-before">
-                        <span class="flow-label">導入前</span>
+                        <span class="flow-label">よくある状態</span>
                         <p>見積、受注、施工、完了、請求で情報を入力し直し、営業から工事担当者への伝達や請求処理が遅れやすい。</p>
                     </div>
                     <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
                     <div class="flow-item flow-mechanism">
-                        <span class="flow-label">仕組み</span>
+                        <span class="flow-label">kintoneでこうする</span>
                         <p>顧客・見積情報を工事案件へ引き継ぎ、工事の状態と次に必要な業務を確認できるようにする。</p>
                     </div>
                     <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
                     <div class="flow-item flow-after">
-                        <span class="flow-label">得られる変化</span>
+                        <span class="flow-label">こう変わる</span>
                         <p>二重入力や伝達漏れを減らし、工事完了後の請求漏れも防ぎやすくする。</p>
                     </div>
                 </div>
@@ -1062,10 +1193,10 @@
             </article>
 
             <div class="cta-block">
-                <a href="../contact/index.html" id="cta-construction-solutions" class="btn btn-primary btn-large cta-construction">現在の工事台帳・日報を見せて相談する</a>
+                <a href="../contact/index.html" id="cta-construction-solutions" class="btn btn-primary btn-large cta-construction">60分無料相談を申し込む</a>
                 <p class="cta-note">
-                    Excelや紙帳票を確認し、どの業務から改善できるか整理します。<br>
-                    60分・オンライン｜東海圏は訪問相談にも対応
+                    いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
+                    オンライン対応｜東海圏は訪問も可能
                 </p>
             </div>
         </div>
@@ -1074,9 +1205,9 @@
     <!-- ==================== 現在の帳票を生かした支援の進め方 ==================== -->
     <section class="section process-section visible" id="process">
         <div class="container">
-            <h2 class="section-title">現在の帳票を生かし、使える範囲から試します。</h2>
+            <h2 class="section-title">いまの工事台帳・日報を捨てずに、小さく始める。</h2>
             <p class="dispersion-lead">
-                既存の工事台帳や日報をすべて捨て、一度に新しい仕組みへ置き換える必要はありません。現在の業務と帳票を確認し、負担が大きく、効果を確かめやすい業務から試します。
+                すべてを一度に新しい仕組みへ置き換える必要はありません。現在の業務と帳票を確認し、負担が大きく、効果を確かめやすい業務から試します。
             </p>
 
             <div class="process-list">
@@ -1178,10 +1309,10 @@
             <p class="pricing-link"><a href="../private/index.html">正式なサービス内容と料金を見る → 民間企業向けサービスページ</a></p>
 
             <div class="cta-block">
-                <a href="../contact/index.html" id="cta-construction-pricing" class="btn btn-primary btn-large cta-construction">現在の工事台帳・日報を見せて相談する</a>
+                <a href="../contact/index.html" id="cta-construction-pricing" class="btn btn-primary btn-large cta-construction">60分無料相談を申し込む</a>
                 <p class="cta-note">
-                    Excelや紙帳票を確認し、どの業務から改善できるか整理します。<br>
-                    60分・オンライン｜東海圏は訪問相談にも対応
+                    いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
+                    オンライン対応｜東海圏は訪問も可能
                 </p>
             </div>
         </div>
@@ -1190,26 +1321,27 @@
     <!-- ==================== 興栄コンサルタントに相談する理由 ==================== -->
     <section class="section reasons-section visible" id="reasons">
         <div class="container">
-            <h2 class="section-title">建設業務と運用の両方を踏まえて相談できます。</h2>
+            <h2 class="section-title">興栄コンサルタントに相談する理由</h2>
+            <p class="reasons-lead">建設業務とkintone運用の、両方を知っている会社です。</p>
 
             <div class="reason-cards">
                 <article class="reason-card">
                     <i class="fas fa-hard-hat" aria-hidden="true"></i>
-                    <h3>建設・社会インフラの業務を踏まえて相談できる</h3>
-                    <p>帳票や工事情報が現場、事務所、管理部門でどのように使われるかを踏まえ、機能の説明からではなく、実際の業務の流れから整理します。</p>
+                    <h3>私たち自身が、建設の会社です。</h3>
+                    <p>1959年創業の建設コンサルタントとして、現場・事務所・管理部門で帳票や工事情報がどう使われるかを知っています。機能の説明からではなく、実際の業務の流れから整理します。</p>
                     <span class="reason-badge">1959年創業</span>
                 </article>
 
                 <article class="reason-card">
                     <i class="fas fa-people-arrows" aria-hidden="true"></i>
-                    <h3>開発後の利用・定着まで相談できる</h3>
-                    <p>完成したアプリを納品する開発委託に加え、担当者と一緒につくる伴走支援や、運用開始後の改善相談にも対応します。</p>
+                    <h3>つくって終わりにしません。</h3>
+                    <p>完成したアプリを納品する開発委託に加え、担当者と一緒につくる伴走支援、運用開始後の改善相談まで対応します。</p>
                     <span class="reason-badge">サイボウズ オフィシャルパートナー</span>
                 </article>
 
                 <article class="reason-card">
                     <i class="fas fa-map-location-dot" aria-hidden="true"></i>
-                    <h3>東海圏は訪問、遠方はオンラインで相談できる</h3>
+                    <h3>東海圏は訪問、遠方はオンライン。</h3>
                     <p>愛知・岐阜をはじめとする東海圏では訪問相談にも対応し、遠方の企業とはオンラインで相談できます。訪問対応地域や条件は、お問い合わせ時にご案内します。</p>
                 </article>
             </div>
@@ -1245,16 +1377,16 @@
     <!-- ==================== 最終CTA ==================== -->
     <section class="section final-cta visible" id="final-cta">
         <div class="container">
-            <h2 class="section-title">現在の帳票から、改善の入口を整理します。</h2>
+            <h2 class="section-title">まずは、いまの工事台帳と日報をお見せください。</h2>
             <p class="final-lead">
-                60分の相談で、現在の工事台帳、日報、Excelや紙帳票を確認し、改善の優先順位を整理します。オンラインのほか、東海圏では訪問相談にも対応しています。
+                60分の無料相談で、お使いの工事台帳・日報・Excelを拝見し、どこから改善できるかを一緒に整理します。オンラインのほか、東海圏では訪問にも対応しています。
             </p>
 
             <div class="cta-block">
-                <a href="../contact/index.html" id="cta-construction-final" class="btn btn-primary btn-large cta-construction">現在の工事台帳・日報を見せて相談する</a>
+                <a href="../contact/index.html" id="cta-construction-final" class="btn btn-primary btn-large cta-construction">60分無料相談を申し込む</a>
                 <p class="cta-note">
-                    Excelや紙帳票を確認し、どの業務から改善できるか整理します。<br>
-                    60分・オンライン｜東海圏は訪問相談にも対応
+                    いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
+                    オンライン対応｜東海圏は訪問も可能
                 </p>
             </div>
         </div>
