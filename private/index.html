@@ -116,6 +116,58 @@
             font-weight: 700;
         }
 
+        /* ==================== 建設業向け誘導バナー ==================== */
+        .construction-banner-wrap {
+            padding: 30px 0 0;
+        }
+
+        .construction-banner {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: var(--pale-yellow);
+            border-radius: 16px;
+            padding: 28px 32px;
+        }
+
+        .construction-banner i {
+            font-size: 36px;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+        }
+
+        .construction-banner h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .construction-banner p {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+        }
+
+        .construction-banner a {
+            display: inline-block;
+            color: var(--accent-orange);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .construction-banner a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 767px) {
+            .construction-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px;
+            }
+        }
+
         /* ==================== ファーストビュー ==================== */
         .hero {
             padding-top: 140px;
@@ -857,6 +909,7 @@
                         <a href="#" class="nav-link active">サービス内容 <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="index.html" class="active">民間企業様向け</a></li>
+                            <li><a href="../construction/index.html" class="dropdown-sub"><span aria-hidden="true">└ </span>建設業向け</a></li>
                             <li><a href="../public/index.html">自治体様向け</a></li>
                         </ul>
                     </li>
@@ -927,7 +980,21 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- ==================== 建設業向け誘導バナー ==================== -->
+    <div class="construction-banner-wrap">
+        <div class="container">
+            <div class="construction-banner">
+                <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                <div>
+                    <h3>建設業の方へ</h3>
+                    <p>工事台帳・日報・原価管理など、建設業に特化したご案内ページをご用意しています。</p>
+                    <a href="../construction/index.html" id="link-private-to-construction">建設業向けページを見る →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ==================== 共感ゾーン ==================== -->
     <section class="section pain-section visible" id="pain">
         <div class="container">
