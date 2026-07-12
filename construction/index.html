@@ -237,6 +237,48 @@
             margin-top: 3px;
         }
 
+        /* ==================== 信頼の帯（ファーストビュー直下） ==================== */
+        .trust-bar {
+            background: var(--navy);
+            padding: 22px 0;
+        }
+
+        .trust-bar-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 16px 40px;
+        }
+
+        .trust-bar-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .trust-bar-list li:not(:last-child) {
+            border-right: 1px solid rgba(255, 255, 255, 0.25);
+            padding-right: 40px;
+        }
+
+        .trust-bar-list li i {
+            flex: 0 0 auto;
+            color: var(--kintone-yellow);
+            font-size: 22px;
+        }
+
+        .trust-bar-list li strong {
+            color: var(--kintone-yellow);
+            font-weight: 700;
+        }
+
         /* ==================== CTAブロック（共通・4箇所） ==================== */
         .cta-block {
             text-align: center;
@@ -806,6 +848,33 @@
                 margin-top: 2px;
             }
 
+            .trust-bar {
+                padding: 18px 0;
+            }
+
+            .trust-bar-list {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .trust-bar-list li {
+                font-size: 13.5px;
+            }
+
+            .trust-bar-list li:not(:last-child) {
+                border-right: none;
+                padding-right: 0;
+            }
+
+            .trust-bar-list li i {
+                font-size: 18px;
+                width: 22px;
+                text-align: center;
+            }
+
             .cta-block {
                 margin-top: 25px;
             }
@@ -1017,7 +1086,7 @@
         <div class="container">
             <div class="hero-inner">
                 <span class="hero-badge">地域の建設会社・専門工事会社向け</span>
-                <h1>工事ごとの採算と現場の動きが、すぐわかる会社へ</h1>
+                <h1>工事ごとの進捗と収支が、すぐにわかる会社へ</h1>
                 <p class="hero-sub">バラバラの工事情報を、kintoneでひとつにつなぐ</p>
                 <p class="hero-lead">
                     原価や粗利、請求、工事の進捗、現場からの日報。別々に管理されている情報を工事ごとにまとめ、現場・事務所・経営が同じ情報を見て動ける仕組みをつくります。
@@ -1041,6 +1110,26 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ==================== 信頼の帯（ファーストビュー直下） ==================== -->
+    <section class="trust-bar" aria-label="興栄コンサルタントの強み">
+        <div class="container">
+            <ul class="trust-bar-list">
+                <li>
+                    <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                    <span>1959年創業の<strong>建設コンサルタント</strong></span>
+                </li>
+                <li>
+                    <i class="fas fa-certificate" aria-hidden="true"></i>
+                    <span><strong>サイボウズ オフィシャルパートナー</strong></span>
+                </li>
+                <li>
+                    <i class="fas fa-user-gear" aria-hidden="true"></i>
+                    <span>建設業務とkintoneの<strong>両方を理解した担当者</strong>が支援</span>
+                </li>
+            </ul>
         </div>
     </section>
 
