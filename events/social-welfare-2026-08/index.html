@@ -255,6 +255,17 @@
             border: 0;
         }
 
+        /* PCのみ改行・PCのみインデント */
+        .br-pc { display: inline; }
+        .indent-pc { display: inline; }
+        .nowrap-pc { white-space: nowrap; }
+
+        @media (max-width: 768px) {
+            .br-pc { display: none; }
+            .indent-pc { display: none; }
+            .nowrap-pc { white-space: normal; }
+        }
+
         /* ==================== レスポンシブ ==================== */
         @media (max-width: 768px) {
             .article-hero-plain {
@@ -379,12 +390,12 @@
             <div class="article-body">
                 <!-- タイトル -->
                 <p style="font-size: 22px; font-weight: 900; color: var(--navy); line-height: 1.5; margin-bottom: 24px;">
-                    「2年でユーザー数3倍！アプリ数300以上！<br>　　　　　　　　先進社協に学ぶ、通常業務をラクにするkintone超活用術」
+                    「2年でユーザー数3倍！アプリ数300以上！<br class="br-pc"><span class="indent-pc">　　　　　　　　</span>先進社協に学ぶ、通常業務をラクにするkintone超活用術」
                 </p>
 
                 <!-- 概要 -->
                 <p>
-                    <span style="white-space: nowrap;">属人化しない仕組みづくりで、導入から2年で利用ユーザーを3倍に拡大した犬山市社協様のスキームと、</span><br>300以上アプリで事業全般にkintoneを利用する美濃加茂市社協様の具体的な活用方法を学びます。
+                    <span class="nowrap-pc">属人化しない仕組みづくりで、導入から2年で利用ユーザーを3倍に拡大した犬山市社協様のスキームと、</span><br class="br-pc">300以上アプリで事業全般にkintoneを利用する美濃加茂市社協様の具体的な活用方法を学びます。
                 </p>
 
                 <!-- 開催概要 -->
@@ -434,7 +445,7 @@
                         <span class="program-speaker">美濃加茂市社協様</span>
                     </li>
                     <li class="program-item">
-                        <span class="program-title">パネルディスカッション「担当者任せにしない！<br>社協職員自らが『使いこなす』ための仕組みづくりと導入支援企業との連携」</span>
+                        <span class="program-title">パネルディスカッション「担当者任せにしない！<br class="br-pc">社協職員自らが『使いこなす』ための仕組みづくりと導入支援企業との連携」</span>
                         <span class="program-speaker">犬山市社協、美濃加茂市社協、サイボウズ社、興栄コンサルタント</span>
                     </li>
                 </ul>
