@@ -360,8 +360,12 @@ a:hover {
 }
 
 .page-header p {
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN', 'Noto Serif JP', 'Georgia', serif;
     font-size: 18px;
-    color: var(--text-gray);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--navy);
+    margin-top: 16px;
 }
 
 /* ==================== CTAセクション ==================== */
