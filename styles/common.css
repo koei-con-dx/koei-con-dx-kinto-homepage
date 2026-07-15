@@ -354,14 +354,18 @@ a:hover {
 
 .page-header h1 {
     font-size: 42px;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--navy);
     margin-bottom: 20px;
+    letter-spacing: 0.05em;
 }
 
 .page-header p {
     font-size: 18px;
-    color: var(--text-gray);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--navy);
+    margin-top: 16px;
 }
 
 /* ==================== CTAセクション ==================== */
