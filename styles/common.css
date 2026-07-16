@@ -521,8 +521,8 @@ a:hover {
 }
 
 .news-category.event {
-    background: #009688;
-    color: var(--white);
+    background: var(--kintone-yellow);
+    color: var(--navy);
 }
 
 /* ==================== レスポンシブ共通 ==================== */
