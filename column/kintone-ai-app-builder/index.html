@@ -91,6 +91,11 @@
             color: var(--kintone-yellow);
         }
 
+        /* PCでは1行目を途中改行させない（モバイルは自然折り返し） */
+        @media (min-width: 769px) {
+            .column-hero h1 .title-line1 { white-space: nowrap; }
+        }
+
         .hero-meta {
             display: flex;
             align-items: center;
@@ -778,7 +783,7 @@
                 アプリ作成AIで備品管理アプリを作ってみた
             </nav>
 
-            <h1><span class="highlight">kintone（キントーン）</span>のアプリ作成AIを使って、備品管理アプリを作ってみました</h1>
+            <h1><span class="title-line1"><span class="highlight">kintone（キントーン）</span>のアプリ作成AIを使って、</span><br>備品管理アプリを作ってみました</h1>
             <div class="hero-meta">
                 <span><i class="fas fa-calendar-alt"></i>2026.07.16</span>
                 <span><i class="fas fa-clock"></i>読了目安 7分</span>
