@@ -47,6 +47,7 @@ html {
     --cat-green: #51CF66;
     --cat-red: #FF6B6B;
     --cat-purple: #9C27B0;
+    --cat-beige: #D8C7A1; /* 導入事例バッジ用（派手な緑から変更） */
 
     /* ボーダー */
     --border-light: #E0E0E0;
@@ -505,8 +506,8 @@ a:hover {
 }
 
 .news-category.case {
-    background: var(--cat-green);
-    color: var(--white);
+    background: var(--cat-beige);
+    color: var(--navy);
 }
 
 .news-category.column {
