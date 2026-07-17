@@ -496,7 +496,7 @@ a:hover {
 }
 
 .news-category.info {
-    background: var(--mid-blue);
+    background: var(--accent-orange);
     color: var(--white);
 }
 
@@ -506,17 +506,17 @@ a:hover {
 }
 
 .news-category.case {
-    background: var(--cat-beige);
-    color: var(--navy);
-}
-
-.news-category.column {
     background: var(--accent-orange);
     color: var(--white);
 }
 
+.news-category.column {
+    background: #4E80B4;
+    color: var(--white);
+}
+
 .news-category.media {
-    background: var(--cat-purple);
+    background: #C8102E;
     color: var(--white);
 }
 
