@@ -30,16 +30,6 @@
     <link rel="stylesheet" href="../styles/common.css">
 
     <style>
-        /* コラム一覧のヘッダー下余白確保 */
-        section.section {
-            padding-top: 110px;
-        }
-
-        /* コラム一覧：タイトルとサブタイトルの間隔を詰める */
-        .section .section-title {
-            margin-bottom: 4px;
-        }
-
         /* ==================== カテゴリフィルター ==================== */
         .filter-tabs {
             display: flex;
@@ -299,12 +289,17 @@
         </div>
     </header>
     
+    <!-- ==================== ページヘッダー ==================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>コラム・お役立ち情報</h1>
+            <p>― kintone活用・業務改善のヒントをお届けします ―</p>
+        </div>
+    </section>
+
     <!-- ==================== コラム一覧 ==================== -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title" style="font-weight: 700; letter-spacing: 0.05em;">コラム・お役立ち情報</h2>
-            <p class="section-subtitle" style="font-size: 18px; font-weight: 500; letter-spacing: 0.12em; color: var(--navy);">― kintone活用・業務改善のヒントをお届けします ―</p>
-
             <div class="column-grid">
                 <!-- 生成AI活用：アプリ作成AIで備品管理アプリ -->
                 <a href="kintone-ai-app-builder/index.html" style="text-decoration: none;">
