@@ -90,32 +90,6 @@
             background: var(--light-gray);
         }
 
-        /* サムネイル */
-        .event-thumb,
-        .event-thumb-ph {
-            width: 132px;
-            height: 84px;
-            border-radius: 8px;
-            flex-shrink: 0;
-            object-fit: cover;
-            display: block;
-        }
-
-        .event-thumb-ph {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 30px;
-            background: linear-gradient(135deg, #6C97C4 0%, #8FB4DA 50%, #AECCE9 100%);
-        }
-
-        /* 開催終了は少しトーンダウン */
-        .event-list-item:has(.event-status.ended) .event-thumb {
-            filter: grayscale(15%);
-            opacity: 0.9;
-        }
-
         .event-date {
             font-size: 20px;
             color: var(--accent-orange);
@@ -195,12 +169,6 @@
                 font-size: 15px;
                 width: 100%;
             }
-
-            .event-thumb,
-            .event-thumb-ph {
-                width: 100%;
-                height: 170px;
-            }
         }
 
         /* ==================== 申込ボタンのホバー強化 ==================== */
@@ -274,14 +242,12 @@
 
                 <div class="event-list">
                     <a href="social-welfare-2026-08/index.html" class="event-list-item">
-                        <img src="social-welfare-2026-08/event-flyer.png" alt="" class="event-thumb">
                         <span class="event-date">2026.08.25</span>
                         <span class="event-status upcoming">開催予定</span>
                         <span class="event-title">【kintone×社会福祉協議会】2年でユーザー数3倍！アプリ数300以上！<br>　先進社協に学ぶ、通常業務をラクにするkintone超活用術</span>
                         <i class="fas fa-chevron-right event-arrow"></i>
                     </a>
                     <a href="social-welfare-2026-10-speaker/index.html" class="event-list-item">
-                        <span class="event-thumb-ph"><i class="fas fa-users"></i></span>
                         <span class="event-date">2026.10.20</span>
                         <span class="event-status upcoming">開催予定</span>
                         <span class="event-title"><span style="color: #C8102E;">【登壇者募集】</span>第2回 社協限定 kintoneユーザー交流会<br>　～貴会のkintone活用ノウハウを披露しませんか？～</span>
@@ -296,7 +262,6 @@
 
                 <div class="event-list">
                     <a href="social-welfare-2025/index.html" class="event-list-item">
-                        <img src="social-welfare-2025/event-photo.jpg" alt="" class="event-thumb">
                         <span class="event-date">2025.10.31</span>
                         <span class="event-status ended">開催終了</span>
                         <span class="event-title">【kintone×社会福祉協議会】社会福祉協議会職員限定のユーザー交流会</span>
