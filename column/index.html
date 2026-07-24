@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../styles/common.css">
 
+    <!-- 先頭コラムの表紙画像を先読み（即表示用） -->
+    <link rel="preload" as="image" href="../images/column/column-ai-app-builder.jpg" fetchpriority="high">
+
     <style>
         /* ==================== カテゴリフィルター ==================== */
         .filter-tabs {
@@ -304,7 +307,7 @@
                 <!-- 生成AI活用：アプリ作成AIで備品管理アプリ -->
                 <a href="kintone-ai-app-builder/index.html" style="text-decoration: none;">
                     <article class="column-card show" data-category="ai">
-                        <div class="column-thumbnail ai">
+                        <div class="column-thumbnail ai" style="background: #FEE0A2;">
                             <img src="../images/column/column-ai-app-builder.jpg" alt="kintone×AIでつくる備品管理アプリ" width="720" height="405" loading="eager" fetchpriority="high" decoding="async">
                         </div>
                         <div class="column-content">
