@@ -71,6 +71,27 @@
         }
         .article-body p strong { color: var(--navy); }
 
+        /* プレスリリースリンク（枠線ボタン） */
+        .prtimes-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 30px;
+            border: 2px solid var(--mid-blue);
+            border-radius: 8px;
+            color: var(--mid-blue);
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .prtimes-link:hover {
+            background: var(--mid-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 90, 156, 0.25);
+        }
+
         /* 戻るリンク */
         .back-link {
             display: inline-flex;
@@ -163,8 +184,8 @@
                     ぜひご覧ください。
                 </p>
 
-                <p style="margin-top: 4px;">
-                    <a href="https://prtimes.jp/main/html/rd/p/000000005.000177475.html" target="_blank" rel="noopener" style="color: var(--mid-blue); font-weight: 700; text-decoration: none; font-size: 18px;">▶ プレスリリースはこちら</a>
+                <p style="margin-top: 12px;">
+                    <a href="https://prtimes.jp/main/html/rd/p/000000005.000177475.html" target="_blank" rel="noopener" class="prtimes-link">▶ プレスリリースはこちら</a>
                 </p>
 
                 <a href="../index.html" class="back-link">
