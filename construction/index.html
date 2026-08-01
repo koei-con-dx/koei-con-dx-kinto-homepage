@@ -1037,6 +1037,161 @@
                 font-size: 13px;
             }
         }
+
+        /* ==================== 新ヒーロー（2カラム）＆ kintone画面イメージ ==================== */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .hero-copy { text-align: left; }
+        .hero-copy .hero-badge { margin-bottom: 22px; }
+        .hero-h1 {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.45;
+            margin-bottom: 22px;
+            letter-spacing: .005em;
+        }
+        .hero-h1 .hl { background: linear-gradient(transparent 62%, rgba(255, 203, 5, .55) 62%); padding: 0 2px; }
+        .hero-h1 .blue { color: var(--mid-blue); }
+        .hero-copy .hero-lead {
+            font-size: 16px; color: var(--text-gray); line-height: 1.9; margin-bottom: 30px; max-width: 33em;
+        }
+        .hero-copy .hero-lead strong { color: var(--navy); font-weight: 700; }
+        .hero-cta { text-align: left; margin-top: 8px; }
+        .hero-cta .btn { min-width: 300px; }
+        .hero-cta .cta-note { text-align: left; }
+        .hero-visual { position: relative; }
+        .kt-caption { margin-top: 40px; font-size: 12px; color: var(--text-gray); opacity: .8; text-align: right; }
+
+        /* --- kintone 共通クローム --- */
+        .kt-window { background: #fff; border-radius: 10px; border: 1px solid #d5dbe1; box-shadow: 0 20px 46px rgba(9, 32, 58, .18); overflow: hidden; }
+        .kt-global { background: #3d4650; display: flex; align-items: center; gap: 9px; padding: 0 12px; height: 34px; }
+        .kt-global .ic { color: #aeb8c2; display: inline-flex; } .kt-global .ic svg { width: 15px; height: 15px; }
+        .kt-crumb { color: #e6ebf0; font-size: 11.5px; font-weight: 600; } .kt-crumb span { color: #93a1af; }
+        .kt-global .kt-right { margin-left: auto; display: flex; gap: 13px; align-items: center; }
+        .kt-avatar { width: 19px; height: 19px; border-radius: 50%; background: #6b7784; }
+        .kt-appicon { width: 26px; height: 26px; border-radius: 6px; background: #2f8fd4; display: grid; place-items: center; color: #fff; flex: 0 0 auto; } .kt-appicon svg { width: 16px; height: 16px; }
+        .kt-appname { font-weight: 700; color: #2b3640; font-size: 14px; }
+        .kt-appbar { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid #e9edf1; }
+        .kt-star { margin-left: 4px; color: #cdd4db; display: inline-flex; } .kt-star svg { width: 15px; height: 15px; }
+        .kt-toolbar { display: flex; align-items: center; gap: 9px; padding: 9px 14px; background: #f6f8fa; border-bottom: 1px solid #e0e5ea; }
+        .kt-view { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #d3d9df; border-radius: 5px; padding: 5px 10px; font-size: 12px; color: #3b4650; font-weight: 600; } .kt-view svg { width: 11px; height: 11px; color: #9aa4ad; }
+        .kt-count { font-size: 11.5px; color: #7c8791; }
+        .kt-tools-right { margin-left: auto; display: flex; align-items: center; gap: 7px; }
+        .kt-icn { width: 28px; height: 28px; border: 1px solid #d3d9df; border-radius: 5px; background: #fff; display: grid; place-items: center; color: #6b7681; } .kt-icn svg { width: 14px; height: 14px; }
+        .kt-icn.on { background: #e7f1fa; border-color: #bcd8ee; color: #2f8fd4; }
+        .kt-add { background: #2f8fd4; color: #fff; border: none; border-radius: 5px; padding: 0 12px; height: 28px; font-size: 12px; font-weight: 700; display: inline-flex; gap: 5px; align-items: center; font-family: inherit; cursor: default; } .kt-add svg { width: 13px; height: 13px; }
+        .kt-tablewrap { overflow-x: auto; }
+        table.kt { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; min-width: 452px; }
+        table.kt th { background: #f6f8fa; text-align: left; color: #7c8791; font-weight: 700; font-size: 11px; padding: 8px 10px; border-bottom: 1px solid #e0e5ea; white-space: nowrap; }
+        table.kt th .caret { color: #c2cad2; font-size: 9px; margin-left: 3px; }
+        table.kt th.num, table.kt td.num { text-align: right; }
+        table.kt td { padding: 9px 10px; border-bottom: 1px solid #eef1f4; white-space: nowrap; color: #2b3640; }
+        table.kt td.recno a { color: #2f8fd4; font-weight: 600; }
+        table.kt td.name { font-weight: 700; } table.kt td.num { font-weight: 600; }
+        .kt-g-good { color: #1F9D6B; font-weight: 800; } .kt-g-warn { color: #D8402F; font-weight: 800; }
+        .kt-st { font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; }
+        .kt-st.blue { color: #2f6fb0; background: #e7f1fa; } .kt-st.gray { color: #6b7681; background: #eef1f4; } .kt-st.red { color: #c23a2b; background: #fbe9e6; }
+        .kt-footer { display: flex; align-items: center; gap: 10px; padding: 8px 14px; color: #7c8791; font-size: 11px; border-top: 1px solid #eef1f4; background: #fbfcfd; }
+        .kt-unit { font-size: 10.5px; }
+        .kt-pager { margin-left: auto; display: flex; gap: 5px; align-items: center; } .kt-pager b { color: #2b3640; }
+        .kt-pg { width: 20px; height: 20px; border: 1px solid #d3d9df; border-radius: 4px; display: grid; place-items: center; color: #8b95a0; background: #fff; } .kt-pg svg { width: 10px; height: 10px; }
+
+        /* --- hero 上のモバイル日報 --- */
+        .kt-stage { position: relative; }
+        .kt-phone { position: absolute; right: -18px; bottom: -26px; width: 172px; background: #fff; border-radius: 16px; border: 1px solid #d5dbe1; box-shadow: 0 22px 44px rgba(9, 32, 58, .26); overflow: hidden; z-index: 3; }
+        .kt-phone-bar { background: #2f8fd4; color: #fff; padding: 9px 12px; display: flex; align-items: center; gap: 7px; } .kt-phone-bar svg { width: 13px; height: 13px; }
+        .kt-phone-bar span { font-size: 12px; font-weight: 700; }
+        .kt-phone-bar .sp { margin-left: auto; font-size: 9px; font-weight: 700; background: rgba(255, 255, 255, .22); padding: 2px 6px; border-radius: 999px; }
+        .kt-phone-body { padding: 10px 12px 12px; }
+        .kt-fld { margin-bottom: 7px; } .kt-fld .lb { font-size: 9.5px; color: #7c8791; font-weight: 600; } .kt-fld .vl { font-size: 11.5px; color: #2b3640; font-weight: 700; }
+        .kt-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-top: 9px; }
+        .kt-photos span { aspect-ratio: 1; border-radius: 5px; background: linear-gradient(135deg, #cfe0f0, #e7eef6); display: grid; place-items: center; } .kt-photos span svg { width: 13px; height: 13px; color: #2f8fd4; opacity: .75; }
+
+        /* ==================== 3つのこと（交互レイアウト） ==================== */
+        .things { display: flex; flex-direction: column; gap: 44px; margin-top: 10px; margin-bottom: 20px; }
+        .thing { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .thing.rev .thing-media { order: 2; }
+        .thing-text .thing-kw { display: inline-block; font-size: 12.5px; font-weight: 800; color: var(--mid-blue); background: #E5F0FA; padding: 4px 12px; border-radius: 6px; margin-bottom: 16px; letter-spacing: .02em; }
+        .thing-text h3 { font-size: 23px; color: var(--navy); margin: 0 0 14px; font-weight: 900; line-height: 1.5; }
+        .thing-text p { font-size: 15px; color: var(--text-gray); margin: 0 0 16px; line-height: 1.9; }
+        .thing-text ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+        .thing-text li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-dark); }
+        .thing-text li i { color: #1F9D6B; font-size: 16px; margin-top: 3px; flex: 0 0 auto; }
+
+        /* record detail */
+        .kt-recbar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid #e9edf1; }
+        .kt-recno { font-size: 11.5px; color: #7c8791; } .kt-recno b { color: #2b3640; }
+        .kt-recnav { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 11px; color: #7c8791; }
+        .kt-recnav .kt-pg { width: 22px; height: 22px; }
+        .kt-edit { background: #fff; border: 1px solid #2f8fd4; color: #2f8fd4; border-radius: 5px; height: 28px; padding: 0 14px; font-weight: 700; font-size: 12px; font-family: inherit; cursor: default; }
+        .kt-process { display: flex; align-items: center; gap: 12px; padding: 11px 14px; background: #fbfcfd; border-bottom: 1px solid #e0e5ea; }
+        .kt-steps { display: flex; align-items: center; flex-wrap: wrap; }
+        .kt-step { font-size: 11px; font-weight: 700; color: #9aa4ad; padding: 5px 14px; background: #eef1f4; }
+        .kt-step:first-child { border-radius: 4px 0 0 4px; }
+        .kt-step:not(:first-child) { margin-left: 6px; }
+        .kt-step.done { color: #5b8bbd; background: #e7f1fa; }
+        .kt-step.cur { color: #fff; background: #2f8fd4; }
+        .kt-proc-btn { margin-left: auto; background: #2f8fd4; color: #fff; border: none; border-radius: 5px; height: 28px; padding: 0 14px; font-weight: 700; font-size: 12px; font-family: inherit; cursor: default; }
+        .kt-form { padding: 14px 16px 4px; }
+        .kt-frow2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; margin-bottom: 12px; }
+        .kt-ff .fl { font-size: 10.5px; color: #7c8791; font-weight: 600; margin-bottom: 3px; }
+        .kt-ff .fv { font-size: 13px; color: #2b3640; font-weight: 700; border-bottom: 1px solid #eef1f4; padding-bottom: 6px; }
+        .kt-fsub-t { font-size: 11px; color: #7c8791; font-weight: 700; margin: 6px 0; }
+        table.kt-subt { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+        table.kt-subt th { background: #f6f8fa; color: #7c8791; font-size: 10.5px; font-weight: 700; text-align: left; padding: 6px 9px; border: 1px solid #e0e5ea; }
+        table.kt-subt th.num { text-align: right; }
+        table.kt-subt td { padding: 6px 9px; border: 1px solid #eef1f4; color: #2b3640; }
+        table.kt-subt td.num { text-align: right; font-weight: 600; }
+        .kt-totals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 14px 0 4px; }
+        .kt-totals > div { background: #f6f8fa; border: 1px solid #e0e5ea; border-radius: 6px; padding: 8px 10px; }
+        .kt-totals span { display: block; font-size: 10px; color: #7c8791; font-weight: 600; }
+        .kt-totals b { font-size: 15px; color: #2b3640; font-variant-numeric: tabular-nums; }
+        .kt-totals .hi { background: #eef7f2; border-color: #cfe8db; }
+
+        /* mobile 日報（3つのこと内） */
+        .kt-mobwrap { display: flex; justify-content: center; }
+        .kt-mob { width: 270px; background: #fff; border-radius: 20px; border: 1px solid #d5dbe1; box-shadow: 0 20px 44px rgba(9, 32, 58, .20); overflow: hidden; }
+        .kt-mob .mbar { background: #2f8fd4; color: #fff; display: flex; align-items: center; gap: 8px; padding: 12px 14px; } .kt-mob .mbar svg { width: 16px; height: 16px; }
+        .kt-mob .mbar .mt { font-size: 14px; font-weight: 700; } .kt-mob .mbar .mr { margin-left: auto; font-size: 11px; opacity: .85; }
+        .kt-mob .mstatus { padding: 9px 14px; border-bottom: 1px solid #e0e5ea; }
+        .kt-mob .mstatus span { font-size: 11px; font-weight: 700; color: #2f8f5f; background: #e4f5ec; padding: 3px 10px; border-radius: 999px; }
+        .kt-mob .mbody { padding: 4px 14px 14px; }
+        .kt-mob .mf { padding: 11px 0; border-bottom: 1px solid #eef1f4; }
+        .kt-mob .mf.last { border-bottom: none; }
+        .kt-mob .mf .ml { font-size: 10.5px; color: #7c8791; font-weight: 600; margin-bottom: 4px; }
+        .kt-mob .mf .mv { font-size: 14px; color: #2b3640; font-weight: 700; }
+        .kt-mob .mphotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
+        .kt-mob .mphotos span { aspect-ratio: 4/3; border-radius: 6px; background: linear-gradient(135deg, #cfe0f0, #e7eef6); display: grid; place-items: center; } .kt-mob .mphotos span svg { width: 17px; height: 17px; color: #2f8fd4; opacity: .7; }
+
+        /* graph（3つのこと内） */
+        .kt-chart { padding: 16px 18px 18px; }
+        .kt-chart .ct { font-size: 12.5px; font-weight: 700; color: #2b3640; margin-bottom: 4px; }
+        .kt-legend { display: flex; gap: 16px; margin-bottom: 14px; }
+        .kt-legend b { font-size: 11px; font-weight: 600; color: #7c8791; display: inline-flex; align-items: center; gap: 5px; }
+        .kt-legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+        .kt-plot { position: relative; height: 170px; border-left: 1px solid #e0e5ea; border-bottom: 1px solid #e0e5ea; display: flex; align-items: flex-end; justify-content: space-around; padding: 0 6px; }
+        .kt-grid { position: absolute; left: 0; right: 0; border-top: 1px dashed #eef1f4; }
+        .kt-grp { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; height: 100%; justify-content: flex-end; z-index: 1; }
+        .kt-bars { display: flex; gap: 6px; align-items: flex-end; height: 100%; }
+        .kt-bars i { width: 26px; border-radius: 3px 3px 0 0; display: block; position: relative; }
+        .kt-bars i .bv { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 9.5px; color: #7c8791; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .kt-xlab { font-size: 11px; color: #2b3640; font-weight: 600; }
+
+        /* --- 新ヒーロー＆3つのこと レスポンシブ --- */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+            .hero-h1 { font-size: 27px; line-height: 1.5; }
+            .kt-caption { text-align: left; }
+            .kt-phone { right: 0; bottom: -20px; width: 150px; }
+            .thing { grid-template-columns: 1fr; gap: 24px; }
+            .thing.rev .thing-media { order: 0; }
+        }
+
     </style>
 </head>
 <body>
@@ -1088,31 +1243,89 @@
     <!-- ==================== ヒーロー ==================== -->
     <section class="hero">
         <div class="container">
-            <div class="hero-inner">
-                <span class="hero-badge">建設会社・専門工事会社向け kintone導入支援</span>
-                <h1>工事ごとの利益と進み具合が<br>ひと目でわかる</h1>
-                <p class="hero-lead">
-                    工事台帳・日報・原価情報をkintoneでまとめ、工事中の利益や進捗を確認しやすくします。
-                </p>
-                <p class="hero-lead">
-                    今お使いのExcelや紙の帳票を確認し、必要な業務から始めます。
-                </p>
-
-                <div class="hero-checklist">
-                    <p class="hero-checklist-title">こんな状態になっていませんか？</p>
-                    <ul>
-                        <li><i class="fas fa-square-check" aria-hidden="true"></i>工事ごとの粗利が、月末の集計まで見えない</li>
-                        <li><i class="fas fa-square-check" aria-hidden="true"></i>現場との確認・伝達が、電話とLINE頼みになっている</li>
-                        <li><i class="fas fa-square-check" aria-hidden="true"></i>請求漏れや赤字工事に、あとから気づく</li>
-                    </ul>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="hero-badge">建設会社・専門工事会社向け kintone導入支援</span>
+                    <h1 class="hero-h1"><span class="hl">工事台帳・原価・日報</span>を、<br>ひとつの画面に。<br><span class="blue">御社仕様</span>の現場管理を、kintoneで。</h1>
+                    <p class="hero-lead">
+                        Excelと紙でバラバラだった工事情報を、工事ごとにまとめて<strong>「いまの利益と進捗」がひと目で分かる</strong>形に。既製ソフトではなく、御社の工事の流れに合わせて作るから、現場が本当に使えます。専門知識は不要。使えるようになるまで伴走します。
+                    </p>
+                    <div class="hero-cta">
+                        <a href="../contact/index.html" id="cta-construction-hero" class="btn btn-primary btn-large cta-construction">無料相談</a>
+                        <p class="cta-note">
+                            いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
+                            所要60分／オンライン対応、東海圏は訪問も可能
+                        </p>
+                    </div>
                 </div>
 
-                <div class="cta-block">
-                    <a href="../contact/index.html" id="cta-construction-hero" class="btn btn-primary btn-large cta-construction">無料相談</a>
-                    <p class="cta-note">
-                        いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
-                        所要60分／オンライン対応、東海圏は訪問も可能
-                    </p>
+                <div class="hero-visual">
+                    <div class="kt-stage">
+                        <div class="kt-window" role="img" aria-label="kintoneの工事台帳アプリのレコード一覧画面イメージ。工事ごとに実行予算・実績原価・粗利率・状況が表示され、粗利率が低い工事が赤で強調されている。">
+                            <div class="kt-global">
+                                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.4"/><rect x="14" y="3" width="7" height="7" rx="1.4"/><rect x="3" y="14" width="7" height="7" rx="1.4"/><rect x="14" y="14" width="7" height="7" rx="1.4"/></svg></span>
+                                <span class="kt-crumb">◯◯建設 <span>／</span> 工事台帳</span>
+                                <span class="kt-right">
+                                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg></span>
+                                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>
+                                    <span class="kt-avatar"></span>
+                                </span>
+                            </div>
+                            <div class="kt-appbar">
+                                <span class="kt-appicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a10 10 0 0 1 20 0z"/><path d="M12 4v3"/><path d="M9 7h6"/></svg></span>
+                                <span class="kt-appname">工事台帳</span>
+                                <span class="kt-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.6 5.3 5.9.9-4.2 4.1 1 5.9L12 16.9 6.7 19.2l1-5.9L3.5 9.2l5.9-.9z"/></svg></span>
+                            </div>
+                            <div class="kt-toolbar">
+                                <span class="kt-view">（すべて）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></span>
+                                <span class="kt-count">4 件</span>
+                                <span class="kt-tools-right">
+                                    <span class="kt-icn" title="絞り込み"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18l-7 8v5l-4 2v-7z"/></svg></span>
+                                    <span class="kt-icn" title="グラフ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+                                    <button type="button" class="kt-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>レコードを追加</button>
+                                </span>
+                            </div>
+                            <div class="kt-tablewrap">
+                                <table class="kt">
+                                    <thead>
+                                        <tr><th>No.</th><th>工事名 <span class="caret">▾</span></th><th class="num">実行予算</th><th class="num">実績原価</th><th class="num">粗利率 <span class="caret">▾</span></th><th>状況</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="recno"><a href="#">1</a></td><td class="name">◯◯邸 新築工事</td><td class="num">12,800</td><td class="num">9,600</td><td class="num kt-g-good">25.0%</td><td><span class="kt-st blue">施工中</span></td></tr>
+                                        <tr><td class="recno"><a href="#">2</a></td><td class="name">△△ビル 改修</td><td class="num">8,400</td><td class="num">7,980</td><td class="num kt-g-warn">5.0%</td><td><span class="kt-st red">要確認</span></td></tr>
+                                        <tr><td class="recno"><a href="#">3</a></td><td class="name">□□倉庫 外構</td><td class="num">3,600</td><td class="num">2,700</td><td class="num kt-g-good">25.0%</td><td><span class="kt-st gray">完了</span></td></tr>
+                                        <tr><td class="recno"><a href="#">4</a></td><td class="name">◇◇道路 補修</td><td class="num">5,200</td><td class="num">4,940</td><td class="num kt-g-warn">5.0%</td><td><span class="kt-st red">要確認</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="kt-footer">
+                                <span class="kt-unit">金額単位：千円</span>
+                                <span class="kt-pager">
+                                    <span class="kt-pg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 6-6 6 6 6"/></svg></span>
+                                    <b>1–4</b> / 4
+                                    <span class="kt-pg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="kt-phone" role="img" aria-label="kintoneモバイルの現場日報入力画面イメージ。">
+                            <div class="kt-phone-bar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+                                <span>現場日報</span><span class="sp">スマホ入力</span>
+                            </div>
+                            <div class="kt-phone-body">
+                                <div class="kt-fld"><div class="lb">工事名</div><div class="vl">◯◯邸 新築工事</div></div>
+                                <div class="kt-fld"><div class="lb">作業内容</div><div class="vl">基礎配筋・型枠</div></div>
+                                <div class="kt-fld"><div class="lb">天候／人員</div><div class="vl">晴れ ／ 3名</div></div>
+                                <div class="kt-photos">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="kt-caption">※ 画面はイメージです（サンプルデータ）。御社の工事の流れに合わせて設計します。</p>
                 </div>
             </div>
         </div>
@@ -1171,113 +1384,176 @@
     <!-- ==================== 工事情報を中心につなぐ3つのソリューション ==================== -->
     <section class="section solutions-section visible" id="solutions">
         <div class="container">
-            <h2 class="section-title">kintoneで改善できる3つの業務</h2>
-            <p class="solutions-note">工事台帳、原価管理、現場日報など、現在の課題に合わせて必要な業務から構築します。</p>
+            <h2 class="section-title">kintoneでできる、工事管理の3つのこと</h2>
+            <p class="solutions-note">工事台帳・原価管理・現場日報。現在の課題に合わせて、必要な業務から作ります。</p>
 
-            <!-- ソリューション1 -->
-            <article class="solution-block">
-                <p class="solution-category">工事別の原価・粗利管理</p>
-                <h3>工事中に、原価と粗利の変化を確認</h3>
-                <div class="solution-flow">
-                    <div class="flow-item flow-before">
-                        <span class="flow-label">現在の課題</span>
-                        <p>実行予算、発注額、材料費、外注費、実績原価が別々に管理され、工事中の粗利を確認しにくい。</p>
+            <div class="things">
+
+                <!-- 1: 工事台帳（レコード詳細） -->
+                <div class="thing">
+                    <div class="thing-media">
+                        <div class="kt-window" role="img" aria-label="kintoneの工事台帳レコード詳細画面イメージ。プロセス管理・工事情報・原価内訳テーブル・粗利率が表示されている。">
+                            <div class="kt-recbar">
+                                <span class="kt-appicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a10 10 0 0 1 20 0z"/><path d="M12 4v3"/><path d="M9 7h6"/></svg></span>
+                                <span class="kt-appname">工事台帳</span>
+                                <span class="kt-recno">レコード番号 <b>1</b></span>
+                                <span class="kt-recnav">
+                                    <span class="kt-pg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 6-6 6 6 6"/></svg></span>1 / 4<span class="kt-pg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg></span>
+                                    <button type="button" class="kt-edit">編集</button>
+                                </span>
+                            </div>
+                            <div class="kt-process">
+                                <div class="kt-steps">
+                                    <span class="kt-step done">見積</span>
+                                    <span class="kt-step done">受注</span>
+                                    <span class="kt-step cur">施工中</span>
+                                    <span class="kt-step">完了</span>
+                                </div>
+                                <button type="button" class="kt-proc-btn">完了する</button>
+                            </div>
+                            <div class="kt-form">
+                                <div class="kt-frow2">
+                                    <div class="kt-ff"><div class="fl">工事名</div><div class="fv">◯◯邸 新築工事</div></div>
+                                    <div class="kt-ff"><div class="fl">発注者</div><div class="fv">◯◯ 様</div></div>
+                                </div>
+                                <div class="kt-frow2">
+                                    <div class="kt-ff"><div class="fl">工期</div><div class="fv">2026/06/01 – 09/30</div></div>
+                                    <div class="kt-ff"><div class="fl">現場担当</div><div class="fv">田中 一郎</div></div>
+                                </div>
+                                <div class="kt-fsub-t">原価内訳（テーブル）</div>
+                                <table class="kt-subt">
+                                    <thead><tr><th>費目</th><th class="num">実行予算</th><th class="num">実績</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>材料費</td><td class="num">4,200</td><td class="num">3,180</td></tr>
+                                        <tr><td>外注費</td><td class="num">5,600</td><td class="num">4,320</td></tr>
+                                        <tr><td>労務費</td><td class="num">2,000</td><td class="num">1,600</td></tr>
+                                        <tr><td>経費</td><td class="num">1,000</td><td class="num">500</td></tr>
+                                    </tbody>
+                                </table>
+                                <div class="kt-totals">
+                                    <div><span>実行予算</span><b>12,800</b></div>
+                                    <div><span>実績原価</span><b>9,600</b></div>
+                                    <div class="hi"><span>粗利</span><b>3,200</b></div>
+                                    <div class="hi"><span>粗利率</span><b class="kt-g-good">25.0%</b></div>
+                                </div>
+                            </div>
+                            <div class="kt-footer"><span class="kt-unit">金額単位：千円 ／ 実績原価・粗利率は自動計算</span></div>
+                        </div>
                     </div>
-                    <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                    <div class="flow-item flow-mechanism">
-                        <span class="flow-label">kintoneでの改善</span>
-                        <p>工事ごとに実行予算と実績原価をまとめ、予算との差を確認できるようにします。</p>
-                    </div>
-                    <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                    <div class="flow-item flow-after">
-                        <span class="flow-label">期待できる変化</span>
-                        <p>原価の増加や粗利の悪化を工事中に把握し、早めに対応を検討できるようになります。</p>
+                    <div class="thing-text">
+                        <span class="thing-kw">工事台帳</span>
+                        <h3>工事ごとの原価と粗利が、レコード1枚で分かる</h3>
+                        <p>見積・実行予算・実績原価をひとつのレコードにまとめ、粗利と粗利率を自動計算。工事一覧では、粗利率が下がった工事を色で確認できます。</p>
+                        <ul>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>実績原価・粗利率はkintoneが自動計算</li>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>赤字の兆候（粗利率の低下）に工事中に気づける</li>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>見積→受注→施工→完了をプロセスで管理</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="demo-grid">
-                    <!-- TODO: images/construction/solution1-detail.png に差し替え -->
-                    <figure class="demo-placeholder">
-                        <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
-                        <figcaption>デモ画面：工事詳細画面</figcaption>
-                    </figure>
-                    <!-- TODO: images/construction/solution1-budget.png に差し替え -->
-                    <figure class="demo-placeholder">
-                        <i class="fas fa-chart-line" aria-hidden="true"></i>
-                        <figcaption>デモ画面：工事別の実行予算・実績原価・粗利画面</figcaption>
-                    </figure>
-                </div>
-            </article>
-
-            <!-- ソリューション2 -->
-            <article class="solution-block">
-                <p class="solution-category">現場日報・進捗のスマホ報告</p>
-                <h3>日報と写真を、現場からそのまま共有</h3>
-                <div class="solution-flow">
-                    <div class="flow-item flow-before">
-                        <span class="flow-label">現在の課題</span>
-                        <p>日報や写真が紙や個人のスマートフォンに分かれ、事務所での転記や確認に時間がかかっている。</p>
+                <!-- 2: 現場日報（モバイル） -->
+                <div class="thing rev">
+                    <div class="thing-media">
+                        <div class="kt-mobwrap">
+                            <div class="kt-mob" role="img" aria-label="kintoneモバイルの現場日報レコード画面イメージ。作業内容・天候・人員・写真が登録されている。">
+                                <div class="mbar">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 6-6 6 6 6"/></svg>
+                                    <span class="mt">現場日報</span><span class="mr">No.128</span>
+                                </div>
+                                <div class="mstatus"><span>提出済み</span></div>
+                                <div class="mbody">
+                                    <div class="mf"><div class="ml">工事名</div><div class="mv">◯◯邸 新築工事</div></div>
+                                    <div class="mf"><div class="ml">作業日 ／ 天候</div><div class="mv">2026-07-31 ・ 晴れ</div></div>
+                                    <div class="mf"><div class="ml">作業内容</div><div class="mv">基礎配筋・型枠建込</div></div>
+                                    <div class="mf"><div class="ml">作業人員</div><div class="mv">3 名</div></div>
+                                    <div class="mf last">
+                                        <div class="ml">現場写真</div>
+                                        <div class="mphotos">
+                                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+                                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+                                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                    <div class="flow-item flow-mechanism">
-                        <span class="flow-label">kintoneでの改善</span>
-                        <p>現場からスマートフォンで日報や写真を登録し、工事ごとにまとめて確認できるようにします。</p>
-                    </div>
-                    <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                    <div class="flow-item flow-after">
-                        <span class="flow-label">期待できる変化</span>
-                        <p>事務所での転記、写真探し、現場への電話確認を減らしやすくなります。</p>
-                    </div>
-                </div>
-
-                <div class="demo-grid">
-                    <!-- TODO: images/construction/solution2-report.png に差し替え -->
-                    <figure class="demo-placeholder">
-                        <i class="fas fa-mobile-screen-button" aria-hidden="true"></i>
-                        <figcaption>デモ画面：スマートフォンの現場日報入力画面</figcaption>
-                    </figure>
-                    <!-- TODO: images/construction/solution2-photos.png に差し替え -->
-                    <figure class="demo-placeholder">
-                        <i class="fas fa-camera" aria-hidden="true"></i>
-                        <figcaption>デモ画面：工事写真一覧画面</figcaption>
-                    </figure>
-                </div>
-            </article>
-
-            <!-- ソリューション3 -->
-            <article class="solution-block">
-                <p class="solution-category">見積から請求までの一気通貫</p>
-                <h3>見積情報を、受注・施工・請求まで引き継ぐ</h3>
-                <div class="solution-flow">
-                    <div class="flow-item flow-before">
-                        <span class="flow-label">現在の課題</span>
-                        <p>見積、受注、施工、請求のたびに同じ情報を入力し直し、伝達漏れや請求処理の遅れが起きている。</p>
-                    </div>
-                    <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                    <div class="flow-item flow-mechanism">
-                        <span class="flow-label">kintoneでの改善</span>
-                        <p>顧客名、工事名、見積情報を引き継ぎ、工事の進捗と次に必要な対応を確認できるようにします。</p>
-                    </div>
-                    <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                    <div class="flow-item flow-after">
-                        <span class="flow-label">期待できる変化</span>
-                        <p>二重入力や伝達漏れを減らし、工事完了後の請求忘れにも気づきやすくなります。</p>
+                    <div class="thing-text">
+                        <span class="thing-kw">現場日報</span>
+                        <h3>日報も写真も、現場のスマホからそのまま</h3>
+                        <p>現場の担当者がスマホで日報と写真を登録。事務所での転記や、写真探し・電話での確認をなくし、工事台帳に自動でひもづきます。</p>
+                        <ul>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>入力項目を現場が使える範囲に絞って設計</li>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>写真は撮ってそのまま添付、後から工事別に検索</li>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>提出状況もひと目で分かる</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="demo-grid">
-                    <!-- TODO: images/construction/solution3-list.png に差し替え -->
-                    <figure class="demo-placeholder">
-                        <i class="fas fa-list-check" aria-hidden="true"></i>
-                        <figcaption>デモ画面：工事一覧画面</figcaption>
-                    </figure>
-                    <!-- TODO: images/construction/solution3-progress.png に差し替え -->
-                    <figure class="demo-placeholder">
-                        <i class="fas fa-route" aria-hidden="true"></i>
-                        <figcaption>デモ画面：見積・受注・施工・請求の進捗画面</figcaption>
-                    </figure>
+                <!-- 3: 原価・実行予算（グラフ） -->
+                <div class="thing">
+                    <div class="thing-media">
+                        <div class="kt-window" role="img" aria-label="kintoneのグラフ画面イメージ。工事別に実行予算と実績原価を並べた棒グラフが表示されている。">
+                            <div class="kt-appbar">
+                                <span class="kt-appicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a10 10 0 0 1 20 0z"/><path d="M12 4v3"/><path d="M9 7h6"/></svg></span>
+                                <span class="kt-appname">工事台帳</span>
+                            </div>
+                            <div class="kt-toolbar">
+                                <span class="kt-view">工事別 原価グラフ<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></span>
+                                <span class="kt-tools-right">
+                                    <span class="kt-icn" title="一覧"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>
+                                    <span class="kt-icn on" title="グラフ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+                                </span>
+                            </div>
+                            <div class="kt-chart">
+                                <div class="ct">実行予算 と 実績原価（工事別・千円）</div>
+                                <div class="kt-legend">
+                                    <b><i style="background:#9db8d4"></i>実行予算</b>
+                                    <b><i style="background:#2f8fd4"></i>実績原価</b>
+                                </div>
+                                <div class="kt-plot">
+                                    <div class="kt-grid" style="bottom:33%"></div>
+                                    <div class="kt-grid" style="bottom:66%"></div>
+                                    <div class="kt-grid" style="bottom:99%"></div>
+                                    <div class="kt-grp">
+                                        <div class="kt-bars">
+                                            <i style="height:91%;background:#9db8d4"><span class="bv">12,800</span></i>
+                                            <i style="height:69%;background:#2f8fd4"><span class="bv">9,600</span></i>
+                                        </div>
+                                        <span class="kt-xlab">◯◯邸</span>
+                                    </div>
+                                    <div class="kt-grp">
+                                        <div class="kt-bars">
+                                            <i style="height:60%;background:#9db8d4"><span class="bv">8,400</span></i>
+                                            <i style="height:57%;background:#2f8fd4"><span class="bv">7,980</span></i>
+                                        </div>
+                                        <span class="kt-xlab">△△ビル</span>
+                                    </div>
+                                    <div class="kt-grp">
+                                        <div class="kt-bars">
+                                            <i style="height:26%;background:#9db8d4"><span class="bv">3,600</span></i>
+                                            <i style="height:19%;background:#2f8fd4"><span class="bv">2,700</span></i>
+                                        </div>
+                                        <span class="kt-xlab">□□倉庫</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thing-text">
+                        <span class="thing-kw">原価・実行予算</span>
+                        <h3>予算と実績の差を、kintoneのグラフで可視化</h3>
+                        <p>入力した工事データを、kintone標準のグラフ機能でそのまま見える化。実行予算に実績原価がどこまで迫っているかを、月末を待たずに確認できます。</p>
+                        <ul>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>集計・グラフ作成の手作業（Excel転記）が不要</li>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>予算に迫った工事を早期に発見</li>
+                            <li><i class="fas fa-circle-check" aria-hidden="true"></i>会議資料もこの画面でそのまま共有</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+
+            </div>
 
             <div class="cta-block">
                 <a href="../contact/index.html" id="cta-construction-solutions" class="btn btn-primary btn-large cta-construction">無料相談</a>
