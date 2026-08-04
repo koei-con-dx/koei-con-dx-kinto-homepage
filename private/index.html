@@ -905,8 +905,9 @@
         .cta { display: inline-flex; align-items: center; gap: 10px; background: var(--navy); color: #fff; font-weight: 700; font-size: 17px; padding: 16px 30px; border-radius: 8px; text-decoration: none; border-top: 3px solid var(--yellow); box-shadow: 0 10px 24px rgba(0,51,102,.28); transition: transform .15s ease, box-shadow .15s ease; }
         .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,51,102,.34); color: #fff; }
         .cta svg { width: 18px; height: 18px; }
-        .cta-sub { font-size: 14px; color: var(--mid-blue); font-weight: 700; text-decoration: none; }
-        .cta-sub:hover { text-decoration: underline; color: var(--navy); }
+        .cta-sub { display: inline-flex; align-items: center; gap: 9px; background: #fff; color: var(--navy); font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 8px; border: 2px solid var(--navy); text-decoration: none; transition: background .15s ease, color .15s ease, transform .15s ease; }
+        .cta-sub:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+        .cta-sub svg { width: 17px; height: 17px; }
         .cta-note { font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-top: 16px; }
         .cta-note b { color: var(--text-gray); }
         .stage-caption { margin-top: 40px; font-size: 11.5px; color: var(--ink-soft); text-align: right; }
@@ -1107,7 +1108,10 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                             無料相談
                         </a>
-                        <a href="../index.html#download" id="cta-private-hero-dl" class="cta-sub">サービス資料をダウンロード →</a>
+                        <a href="../index.html#download" id="cta-private-hero-dl" class="cta-sub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                            サービス資料をダウンロード
+                        </a>
                     </div>
                     <p class="cta-note">
                         <b>いまお使いのExcelや業務の流れを拝見しながら、「何から変えると効くか」を整理します。</b><br>
