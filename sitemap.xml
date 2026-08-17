@@ -51,6 +51,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://koei-con-dx.jp/column/kintone-ai-thread-summary/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://koei-con-dx.jp/company/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
