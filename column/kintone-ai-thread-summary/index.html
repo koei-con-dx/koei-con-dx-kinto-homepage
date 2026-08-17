@@ -746,6 +746,22 @@
         .check-list li:last-child { border-bottom: none; }
         .check-list li i { color: var(--kintone-yellow); margin-top: 6px; flex-shrink: 0; }
 
+        /* 操作画面スクショ（本文幅より一回り大きく） */
+        .article-body figure.shot-fig {
+            max-width: 1120px;
+            width: 116%;
+            margin-left: -8%;
+            margin-right: -8%;
+        }
+        @media (max-width: 1024px) {
+            .article-body figure.shot-fig {
+                width: 100%;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
         /* 活用場面リスト */
         .scene-list { list-style: none; padding: 0; margin: 0 0 32px; }
         .scene-list li {
@@ -887,7 +903,7 @@
                 <p>
                     使い方はとてもシンプルです。要約したいスレッドを開き、画面右上にある「スレッドを要約」をクリックします。
                 </p>
-                <figure style="max-width: 900px; margin: 28px auto 40px; text-align: center;">
+                <figure class="shot-fig" style="margin: 28px auto 40px; text-align: center;">
                     <img src="../../images/column/ai-thread-summary-step1.jpg" alt="要約したいスレッドを開き、右上の「スレッドを要約」をクリック" style="width: 100%; height: auto; border-radius: 8px; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
                 </figure>
                 <p>
@@ -898,7 +914,7 @@
                 <p>
                     今回のスレッドでは、複数のメンバーがホームページのトップページについて意見交換をしています。<br class="br-pc">話し合っている内容はデザイン案だけではありません。A案とB案の比較から始まり、お問い合わせボタンの色や配置、スマートフォンでの見え方、写真素材の準備、CTA文言の検討、修正版デザインの確認、コーディングの進行、公開までのスケジュールなど、プロジェクトが進むにつれて話題も増えていきます。
                 </p>
-                <figure style="max-width: 900px; margin: 28px auto 40px; text-align: center;">
+                <figure class="shot-fig" style="margin: 28px auto 40px; text-align: center;">
                     <img src="../../images/column/ai-thread-summary-step2.jpg" alt="投稿が増えて長くなったkintoneのスレッド" style="width: 100%; height: auto; border-radius: 8px; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
                 </figure>
                 <p>
@@ -912,7 +928,7 @@
                 <p>
                     「スレッドを要約」を実行すると、画面の右側に要約結果が表示されます。
                 </p>
-                <figure style="max-width: 900px; margin: 28px auto 40px; text-align: center;">
+                <figure class="shot-fig" style="margin: 28px auto 40px; text-align: center;">
                     <img src="../../images/column/ai-thread-summary-step3.jpg" alt="AIによるスレッドの要約結果が画面右側に表示される" style="width: 100%; height: auto; border-radius: 8px; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
                 </figure>
                 <p>
