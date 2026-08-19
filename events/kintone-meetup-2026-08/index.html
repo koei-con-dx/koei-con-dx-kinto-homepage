@@ -130,13 +130,23 @@
             margin: 28px 0 40px;
         }
 
-        .photo-gallery img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
+        .photo-frame {
+            overflow: hidden;
             border-radius: 10px;
-            display: block;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 4 / 3;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.06);
         }
 
         /* 文末のロゴ写真 */
@@ -371,9 +381,9 @@
 
                 <!-- イベントの様子（3枚横並び） -->
                 <div class="photo-gallery">
-                    <img src="photo-room.jpg" alt="交流会の会場全体の様子">
-                    <img src="photo-presentation.jpg" alt="事例発表を聞く参加者の様子">
-                    <img src="photo-presenters.jpg" alt="登壇して発表する当社スタッフ">
+                    <div class="photo-frame"><img src="photo-room.jpg" alt="交流会の会場全体の様子"></div>
+                    <div class="photo-frame"><img src="photo-presentation.jpg" alt="事例発表を聞く参加者の様子"></div>
+                    <div class="photo-frame"><img src="photo-presenters.jpg" alt="登壇して発表する当社スタッフ"></div>
                 </div>
 
                 <!-- 本文 -->
