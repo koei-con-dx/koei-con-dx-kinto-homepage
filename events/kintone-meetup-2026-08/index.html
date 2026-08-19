@@ -116,11 +116,11 @@
             border-left: 6px solid var(--kintone-yellow);
         }
 
-        /* 写真ギャラリー（本文幅内・2×2） */
+        /* 写真ギャラリー（本文幅内・イベントの様子3枚を横並び） */
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
             margin: 16px 0 44px;
         }
 
@@ -130,6 +130,18 @@
             object-fit: cover;
             border-radius: 10px;
             display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 文末のロゴ写真 */
+        .logo-photo {
+            display: block;
+            width: 100%;
+            max-width: 520px;
+            margin: 8px auto 0;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -241,11 +253,8 @@
             }
 
             .photo-gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                width: auto;
-                margin-left: 0;
-                transform: none;
+                grid-template-columns: 1fr;
+                gap: 12px;
             }
 
             .case-list {
@@ -330,9 +339,8 @@
             </nav>
 
             <div class="article-body">
-                <!-- 写真 -->
+                <!-- イベントの様子（3枚横並び） -->
                 <div class="photo-gallery">
-                    <img src="hero-cybozu.jpg" alt="会場となったサイボウズ名古屋オフィスのロゴ">
                     <img src="photo-presenters.jpg" alt="登壇して発表する当社スタッフ">
                     <img src="photo-presentation.jpg" alt="事例発表を聞く参加者の様子">
                     <img src="photo-room.jpg" alt="交流会の会場全体の様子">
@@ -378,6 +386,9 @@
                     <li><i class="fas fa-check-circle"></i>犬猫回収連絡</li>
                     <li><i class="fas fa-check-circle"></i>会計年度職員勤怠管理</li>
                 </ul>
+
+                <!-- 会場ロゴ -->
+                <img src="hero-cybozu.jpg" alt="会場となったサイボウズ名古屋オフィスのロゴ" class="logo-photo">
 
                 <!-- 戻るリンク -->
                 <a href="../index.html" class="back-link">
