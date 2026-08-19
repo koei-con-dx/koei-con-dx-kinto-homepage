@@ -116,15 +116,12 @@
             border-left: 6px solid var(--kintone-yellow);
         }
 
-        /* 写真ギャラリー（本文幅より広げて大きく表示） */
+        /* 写真ギャラリー（本文幅内・2×2） */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            gap: 16px;
             margin: 16px 0 44px;
-            width: min(1000px, calc(100vw - 48px));
-            margin-left: 50%;
-            transform: translateX(-50%);
         }
 
         .photo-gallery img {
