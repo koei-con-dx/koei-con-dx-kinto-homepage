@@ -119,8 +119,8 @@
         /* 写真ギャラリー */
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
             margin: 8px 0 40px;
         }
 
@@ -241,11 +241,8 @@
             }
 
             .photo-gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-gallery img {
-                aspect-ratio: 16 / 10;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
 
             .case-list {
@@ -329,14 +326,6 @@
                 自治体職員限定のkintone交流会
             </nav>
 
-            <!-- ヒーロー画像 -->
-            <img
-                src="hero-cybozu.jpg"
-                alt="会場となったサイボウズ名古屋オフィスのロゴ"
-                class="article-hero"
-                style="border-radius: 12px; margin-bottom: 32px; width: 100%; height: auto; object-fit: cover;"
-            >
-
             <div class="article-body">
                 <!-- 記事ヘッダー -->
                 <div class="article-header">
@@ -368,6 +357,7 @@
 
                 <!-- 写真 -->
                 <div class="photo-gallery">
+                    <img src="hero-cybozu.jpg" alt="会場となったサイボウズ名古屋オフィスのロゴ">
                     <img src="photo-presenters.jpg" alt="登壇して発表する当社スタッフ">
                     <img src="photo-presentation.jpg" alt="事例発表を聞く参加者の様子">
                     <img src="photo-room.jpg" alt="交流会の会場全体の様子">
