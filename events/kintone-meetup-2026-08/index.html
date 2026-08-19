@@ -116,15 +116,12 @@
             border-left: 6px solid var(--kintone-yellow);
         }
 
-        /* 写真ギャラリー（本文幅より少し広げてイベントの様子3枚を横並び） */
+        /* 写真ギャラリー（本文幅内・イベントの様子3枚を横並び） */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 14px;
             margin: 28px 0 40px;
-            width: min(1040px, calc(100vw - 48px));
-            margin-left: 50%;
-            transform: translateX(-50%);
         }
 
         .photo-gallery img {
