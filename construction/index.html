@@ -1182,6 +1182,22 @@
         .kt-bars i .bv { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 9.5px; color: #7c8791; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
         .kt-xlab { font-size: 11px; color: #2b3640; font-weight: 600; }
 
+        /* ==================== 資料DL併記CTA & モバイル固定CTAバー ==================== */
+        .cta-btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .cta-block .cta-btns { justify-content: center; }
+        .hero-cta .cta-btns .btn { min-width: 230px; }
+        .cta-btns .btn i { margin-right: 5px; }
+        .mcta { display: none; }
+        @media (max-width: 768px) {
+            .hero-cta .cta-btns .btn { min-width: 0; flex: 1 1 100%; }
+            .mcta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; box-shadow: 0 -3px 14px rgba(0, 0, 0, .16); }
+            .mcta a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 14px 6px; font-weight: 700; font-size: 15px; text-decoration: none; line-height: 1.3; }
+            .mcta .mcta-primary { background: var(--accent-orange); color: #fff; }
+            .mcta .mcta-secondary { background: #fff; color: var(--navy); border-left: 1px solid #e5e5e5; }
+            .mcta a i { font-size: 15px; }
+            body { padding-bottom: 58px; }
+        }
+
         /* --- 新ヒーロー＆3つのこと レスポンシブ --- */
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -1251,7 +1267,10 @@
                         Excelと紙でバラバラだった工事情報を、工事ごとにまとめて<strong>「いまの利益と進捗」がひと目で分かる</strong>形に。既製ソフトではなく、御社の工事の流れに合わせて作るから、現場が本当に使えます。専門知識は不要。使えるようになるまで伴走します。
                     </p>
                     <div class="hero-cta">
-                        <a href="../contact/index.html" id="cta-construction-hero" class="btn btn-primary btn-large cta-construction">無料相談</a>
+                        <div class="cta-btns">
+                            <a href="../contact/index.html" id="cta-construction-hero" class="btn btn-primary btn-large cta-construction">無料相談</a>
+                            <a href="../index.html#download" id="cta-construction-hero-dl" class="btn btn-secondary btn-large"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> 資料ダウンロード</a>
+                        </div>
                         <p class="cta-note">
                             いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
                             所要60分／全国オンライン対応・岐阜・愛知は直接訪問も可能
@@ -1830,5 +1849,10 @@
             });
         });
     </script>
+    <!-- ==================== モバイル固定CTAバー ==================== -->
+    <div class="mcta" aria-label="無料相談・資料ダウンロード">
+        <a href="../contact/index.html" id="cta-construction-sticky" class="mcta-primary"><i class="fas fa-comment-dots" aria-hidden="true"></i>無料相談</a>
+        <a href="../index.html#download" id="cta-construction-sticky-dl" class="mcta-secondary"><i class="fas fa-file-arrow-down" aria-hidden="true"></i>資料ダウンロード</a>
+    </div>
 </body>
 </html>
