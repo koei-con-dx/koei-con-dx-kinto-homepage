@@ -159,7 +159,7 @@
         .case-list {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px;
             margin-bottom: 36px;
         }
@@ -184,7 +184,7 @@
         }
 
         .case-list li.full {
-            grid-column: 1 / -1;
+            grid-column: 2 / 3;
         }
 
         /* 参加者の感想リスト */
@@ -284,6 +284,10 @@
             .case-list {
                 grid-template-columns: 1fr;
                 gap: 10px;
+            }
+
+            .case-list li.full {
+                grid-column: auto;
             }
 
             .case-list li {
