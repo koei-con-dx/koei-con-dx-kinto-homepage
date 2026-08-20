@@ -159,32 +159,28 @@
         .case-list {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
             margin-bottom: 36px;
         }
 
         .case-list li {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 18px 22px;
+            gap: 10px;
+            padding: 16px 16px;
             background: var(--light-gray);
             border-radius: 10px;
             border-left: 4px solid #7B9DC4;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--navy);
         }
 
         .case-list li i {
             color: #7B9DC4;
-            font-size: 18px;
+            font-size: 17px;
             flex-shrink: 0;
-        }
-
-        .case-list li.full {
-            grid-column: 2 / 3;
         }
 
         /* 参加者の感想リスト */
@@ -282,17 +278,13 @@
             }
 
             .case-list {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
-            }
-
-            .case-list li.full {
-                grid-column: auto;
             }
 
             .case-list li {
                 font-size: 14px;
-                padding: 14px 18px;
+                padding: 14px 16px;
             }
         }
 
@@ -413,7 +405,7 @@
                     <li><i class="fas fa-check-circle"></i>公用車日報</li>
                     <li><i class="fas fa-check-circle"></i>ごみ集積場管理</li>
                     <li><i class="fas fa-check-circle"></i>犬猫回収連絡</li>
-                    <li class="full"><i class="fas fa-check-circle"></i>会計年度職員勤怠管理</li>
+                    <li><i class="fas fa-check-circle"></i>会計年度職員勤怠管理</li>
                 </ul>
 
                 <!-- 参加者の皆さまからいただいたご感想 -->
