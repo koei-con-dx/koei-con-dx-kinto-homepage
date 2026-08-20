@@ -77,13 +77,13 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 15px;
+            font-size: 18px;
             color: var(--text-gray);
         }
 
         .article-meta-item i {
             color: #7B9DC4;
-            font-size: 16px;
+            font-size: 18px;
             width: 20px;
             text-align: center;
         }
@@ -159,32 +159,46 @@
         .case-list {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
             margin-bottom: 36px;
         }
 
         .case-list li {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 18px 22px;
+            gap: 10px;
+            padding: 16px 16px;
             background: var(--light-gray);
             border-radius: 10px;
             border-left: 4px solid #7B9DC4;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--navy);
         }
 
         .case-list li i {
             color: #7B9DC4;
-            font-size: 18px;
+            font-size: 17px;
             flex-shrink: 0;
         }
 
-        .case-list li.full {
-            grid-column: 1 / -1;
+        /* 参加者の感想リスト */
+        .voice-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .voice-list li {
+            padding: 20px 24px;
+            background: var(--pale-yellow);
+            border-radius: 10px;
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--text-gray);
         }
 
         /* パンくず */
@@ -243,7 +257,7 @@
             }
 
             .article-meta-item {
-                font-size: 13px;
+                font-size: 14px;
             }
 
             .article-body p {
@@ -263,13 +277,13 @@
             }
 
             .case-list {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
 
             .case-list li {
                 font-size: 14px;
-                padding: 14px 18px;
+                padding: 14px 16px;
             }
         }
 
@@ -365,13 +379,16 @@
 
                 <!-- 本文 -->
                 <p>
-                    2026年8月18日、<strong>kintoneユーザー交流会</strong>を開催しました。
+                    「kintoneを活用した業務改善のコツについて、自治体の皆さまに意見交換していただきたい」<br class="br-pc">という思いから、<strong>kintoneユーザー交流会</strong>を開催しました。<br class="br-pc">愛知県内の6市町から18名の方にご参加いただきました。
                 </p>
                 <p>
-                    「kintoneを活用した業務改善のコツについて、自治体の皆さまに意見交換していただきたい」<br class="br-pc">という思いから、サイボウズ名古屋オフィスにてkintoneユーザー交流会を開催しました。
+                    当日は、完成したアプリの事例紹介だけでなく、「これから作ろうとしているアプリについて、<br class="br-pc">良いアイデアがないか」といった相談や、飛び入りでの事例発表もありました。
                 </p>
                 <p>
-                    交流会には、愛知県内の6市町から18名の方にご参加いただき、活発な意見交換が行われ、<br class="br-pc">大変有意義な時間となりました。
+                    さらに、個人情報の取り扱いに関する各自治体の考え方や、kintoneの活用に伴う予算措置についても<br class="br-pc">意見が交わされました。
+                </p>
+                <p>
+                    自治体同士で幅広い情報や意見を共有できた、大変有意義な時間となりました。
                 </p>
 
                 <!-- 会場ロゴ -->
@@ -387,7 +404,17 @@
                     <li><i class="fas fa-check-circle"></i>公用車日報</li>
                     <li><i class="fas fa-check-circle"></i>ごみ集積場管理</li>
                     <li><i class="fas fa-check-circle"></i>犬猫回収連絡</li>
-                    <li class="full"><i class="fas fa-check-circle"></i>会計年度職員勤怠管理</li>
+                    <li><i class="fas fa-check-circle"></i>会計年度職員勤怠管理</li>
+                </ul>
+
+                <!-- 参加者の皆さまからいただいたご感想 -->
+                <h2>参加者の皆さまからいただいたご感想</h2>
+
+                <ul class="voice-list">
+                    <li>複数の自治体で同じ課題感を持ってサイボウズさんの会場で集まれる機会、楽しかったです！</li>
+                    <li>皆さんから学ばせていただきながら、可能な限りこれからも前に進んでいければと思っております。</li>
+                    <li>事例発表で5時となってしまったので、もうちょっと皆さんと情報交換・悩み共有できるとよかったかなとも思っています。</li>
+                    <li>皆さんのお顔が拝見できたので、今後も相談がしやすくなりました。</li>
                 </ul>
 
                 <!-- 戻るリンク -->
