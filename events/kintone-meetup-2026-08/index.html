@@ -187,6 +187,35 @@
             grid-column: 1 / -1;
         }
 
+        /* 参加者の感想リスト */
+        .voice-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .voice-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--pale-yellow);
+            border-radius: 10px;
+            border-left: 4px solid var(--kintone-yellow);
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--text-gray);
+        }
+
+        .voice-list li i {
+            color: #E0AE00;
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
         /* パンくず */
         .breadcrumb {
             padding: 16px 0;
@@ -368,16 +397,16 @@
                     2026年8月18日、<strong>kintoneユーザー交流会</strong>を開催しました。
                 </p>
                 <p>
-                    「kintoneを活用した業務改善のコツについて、自治体の皆さまに意見交換していただきたい」<br class="br-pc">という思いから、サイボウズ名古屋オフィスにて開催しました。
-                </p>
-                <p>
-                    交流会には、愛知県内の6市町から18名の方にご参加いただき、活発な意見交換が行われ、<br class="br-pc">大変有意義な時間となりました。
+                    「kintoneを活用した業務改善のコツについて、自治体の皆さまに意見交換していただきたい」<br class="br-pc">という思いから、kintoneユーザー交流会を開催し、愛知県内の6市町から18名の方にご参加いただきました。
                 </p>
                 <p>
                     当日は、完成したアプリの事例紹介だけでなく、「これから作ろうとしているアプリについて、良いアイデアがないか」といった相談や、飛び入りでの事例発表もありました。
                 </p>
                 <p>
-                    さらに、個人情報の取り扱いに関する各自治体の考え方や、kintoneの導入・活用に伴う予算措置についても意見が交わされ、幅広い情報を共有する機会となりました。
+                    さらに、個人情報の取り扱いに関する各自治体の考え方や、kintoneの導入・活用に伴う予算措置についても意見が交わされました。
+                </p>
+                <p>
+                    自治体同士で幅広い情報や意見を共有できた、大変有意義な時間となりました。
                 </p>
 
                 <!-- 会場ロゴ -->
@@ -394,6 +423,16 @@
                     <li><i class="fas fa-check-circle"></i>ごみ集積場管理</li>
                     <li><i class="fas fa-check-circle"></i>犬猫回収連絡</li>
                     <li class="full"><i class="fas fa-check-circle"></i>会計年度職員勤怠管理</li>
+                </ul>
+
+                <!-- 参加者の皆さまからいただいたご感想 -->
+                <h2>参加者の皆さまからいただいたご感想</h2>
+
+                <ul class="voice-list">
+                    <li><i class="fas fa-quote-left"></i>複数の自治体で同じ課題感を持ってサイボウズさんの会場で集まれる機会、楽しかったです！</li>
+                    <li><i class="fas fa-quote-left"></i>皆さんから学ばせていただきながら、可能な限りこれからも前に進んでいければと思っております。</li>
+                    <li><i class="fas fa-quote-left"></i>事例発表で17時となってしまったので、もうちょっと皆さんと情報交換・悩み共有できるとよかったかなとも思っています。</li>
+                    <li><i class="fas fa-quote-left"></i>皆さんのお顔が拝見できたので、今後も相談がしやすくなりました。</li>
                 </ul>
 
                 <!-- 戻るリンク -->
