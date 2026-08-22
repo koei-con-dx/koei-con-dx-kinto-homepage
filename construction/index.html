@@ -1208,6 +1208,24 @@
             .thing.rev .thing-media { order: 0; }
         }
 
+        /* ==================== 資料ダウンロード（埋め込みフォーム） ==================== */
+        .download-section { background: linear-gradient(135deg, var(--navy) 0%, #004080 100%); color: var(--white); }
+        .download-section .section-title { color: var(--white); }
+        .download-section .section-subtitle { color: rgba(255, 255, 255, 0.9); text-align: center; }
+        .download-container { max-width: 640px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 44px; }
+        .download-icon { text-align: center; font-size: 72px; color: var(--kintone-yellow); margin-bottom: 24px; }
+        .download-form { display: flex; flex-direction: column; gap: 18px; }
+        .download-form .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .download-form .form-group label { font-weight: 700; font-size: 14px; }
+        .download-form .form-group input { padding: 14px; border-radius: 6px; border: none; font-size: 16px; font-family: 'Noto Sans JP', sans-serif; }
+        .download-form .form-group input:focus { outline: 2px solid var(--kintone-yellow); }
+        .download-form .form-submit { text-align: center; margin-top: 14px; }
+        .btn-yellow { background: var(--kintone-yellow); color: var(--navy); box-shadow: 0 4px 15px rgba(255, 203, 5, 0.3); }
+        .btn-yellow:hover { background: #E6B800; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 203, 5, 0.4); color: var(--navy); }
+        @media (max-width: 768px) {
+            .download-container { padding: 26px 16px; }
+            .download-icon { font-size: 48px; margin-bottom: 15px; }
+        }
     </style>
 </head>
 <body>
@@ -1243,7 +1261,7 @@
                 </ul>
 
                 <div class="nav-buttons">
-                    <a href="../index.html#download" class="btn btn-secondary btn-header">資料DL</a>
+                    <a href="#download" class="btn btn-secondary btn-header">資料DL</a>
                     <a href="../contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
                 </div>
             </nav>
@@ -1269,7 +1287,7 @@
                     <div class="hero-cta">
                         <div class="cta-btns">
                             <a href="../contact/index.html" id="cta-construction-hero" class="btn btn-primary btn-large cta-construction">無料相談</a>
-                            <a href="../index.html#download" id="cta-construction-hero-dl" class="btn btn-secondary btn-large"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> 資料ダウンロード</a>
+                            <a href="#download" id="cta-construction-hero-dl" class="btn btn-secondary btn-large"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> 資料ダウンロード</a>
                         </div>
                         <p class="cta-note">
                             いまお使いの工事台帳・日報・Excelを拝見しながら、どこから改善できるかを整理します。<br>
@@ -1772,6 +1790,51 @@
         </div>
     </section>
 
+    <!-- ==================== 資料ダウンロード（埋め込み） ==================== -->
+    <section class="section download-section visible" id="download">
+        <div class="container">
+            <h2 class="section-title">資料ダウンロード</h2>
+            <p class="section-subtitle">サービス内容・料金・導入の流れがわかる資料を無料でお送りします</p>
+            <div class="download-container">
+                <div class="download-icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></div>
+                <h3 style="font-size: 21px; margin-bottom: 10px; color: var(--white); text-align: center;">kintone導入支援サービス カタログ</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 26px; text-align: center;">サービス内容・料金プラン・導入の流れをまとめた資料です</p>
+                <form class="download-form" id="downloadForm" name="catalog-download" novalidate>
+                    <div class="form-group">
+                        <label for="dl-name">お名前 <span style="color: var(--accent-orange);">*</span></label>
+                        <input type="text" id="dl-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dl-company">企業名 <span style="color: var(--accent-orange);">*</span></label>
+                        <input type="text" id="dl-company" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dl-department">部署名</label>
+                        <input type="text" id="dl-department" name="department">
+                    </div>
+                    <div class="form-group">
+                        <label for="dl-email">メールアドレス <span style="color: var(--accent-orange);">*</span></label>
+                        <input type="email" id="dl-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dl-phone">電話番号</label>
+                        <input type="tel" id="dl-phone" name="phone">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="dl-consent" style="display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.7; cursor: pointer; font-weight: 400;">
+                            <input type="checkbox" id="dl-consent" name="consent" required style="margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;">
+                            <span><a href="../privacy/index.html" target="_blank" rel="noopener" style="color: var(--kintone-yellow); text-decoration: underline;">プライバシーポリシー</a>に同意のうえ、いただいた情報を資料のご提供および当社サービス・セミナー等のご案内に利用することに同意します。<span style="color: var(--accent-orange);">*</span></span>
+                        </label>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-yellow btn-large">📥 資料をダウンロード（無料）</button>
+                    </div>
+                    <p style="font-size: 12px; text-align: center; margin-top: 18px; opacity: 0.8;">PDF形式 ｜ 必須項目を入力後、すぐにダウンロードできます</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== フッター ==================== -->
     <footer class="footer">
         <div class="container">
@@ -1793,7 +1856,7 @@
                     <a href="../events/index.html">イベント</a>
                     <a href="../company/index.html">会社概要</a>
                     <a href="../contact/index.html">お問い合わせ</a>
-                    <a href="../index.html#download">資料ダウンロード</a>
+                    <a href="#download">資料ダウンロード</a>
                     <a href="../privacy/index.html">プライバシーポリシー</a>
                 </nav>
             </div>
@@ -1852,7 +1915,35 @@
     <!-- ==================== モバイル固定CTAバー ==================== -->
     <div class="mcta" aria-label="無料相談・資料ダウンロード">
         <a href="../contact/index.html" id="cta-construction-sticky" class="mcta-primary"><i class="fas fa-comment-dots" aria-hidden="true"></i>無料相談</a>
-        <a href="../index.html#download" id="cta-construction-sticky-dl" class="mcta-secondary"><i class="fas fa-file-arrow-down" aria-hidden="true"></i>資料ダウンロード</a>
+        <a href="#download" id="cta-construction-sticky-dl" class="mcta-secondary"><i class="fas fa-file-arrow-down" aria-hidden="true"></i>資料ダウンロード</a>
     </div>
+
+    <script>
+        // 資料ダウンロード（このページ内フォーム）→ kintone送信 + PDFダウンロード
+        (function () {
+            const f = document.getElementById('downloadForm');
+            if (!f) return;
+            f.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!f.checkValidity()) { f.reportValidity(); return; }
+                const data = Object.fromEntries(new FormData(f).entries());
+                data.catalog = 'kintone導入支援サービス カタログ（建設業ページ）';
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ 'event': 'download_form_submit', 'catalog': data.catalog });
+                fetch('/.netlify/functions/download', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                    keepalive: true
+                }).catch(function (err) { console.error('download log failed:', err); });
+                const link = document.createElement('a');
+                link.href = '../downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
+                link.download = '';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        })();
+    </script>
 </body>
 </html>
