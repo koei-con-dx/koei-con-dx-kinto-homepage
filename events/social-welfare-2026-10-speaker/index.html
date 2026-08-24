@@ -153,6 +153,50 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
         }
 
+        .related-text {
+            position: relative;
+        }
+
+        .related-text::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .related-link:hover .related-text::after {
+            transform: scaleX(1);
+        }
+
+        /* 文中リンクの左から伸びる下線 */
+        .text-underline-anim {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .text-underline-anim::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .text-underline-anim:hover::after {
+            transform: scaleX(1);
+        }
+
         /* パンくず */
         .breadcrumb {
             padding: 16px 0;
@@ -381,7 +425,7 @@
                     <div>株式会社興栄コンサルタント</div>
                 </div>
 
-                <p style="font-size: 17px; color: var(--text-gray); line-height: 1.7; margin-top: -16px;">※交流会への参加者募集のお申込み受付は2026年8月25日（火）17時から開始します。<br class="br-pc"><a href="../social-welfare-2026-10/index.html" style="color: var(--mid-blue); font-weight: 700;">参加者募集の詳細はこちら</a></p>
+                <p style="font-size: 17px; color: var(--text-gray); line-height: 1.7; margin-top: -16px;"><a href="../social-welfare-2026-10/index.html" class="text-underline-anim" style="color: var(--mid-blue); font-weight: 700;">交流会への参加者募集の詳細はこちら</a></p>
 
                 <!-- 登壇概要 -->
                 <h2>kintone交流会 登壇概要</h2>
@@ -422,7 +466,7 @@
                 <p style="margin-bottom: 20px;">昨年開催した交流会のレポートをご覧いただけます。</p>
                 <a href="../social-welfare-2025/index.html" class="related-link">
                     <i class="fas fa-calendar-check"></i>
-                    【kintone×社会福祉協議会】ユーザー交流会レポート
+                    <span class="related-text">【kintone×社会福祉協議会】ユーザー交流会レポート</span>
                     <i class="fas fa-chevron-right" style="font-size: 12px;"></i>
                 </a>
 
