@@ -10,9 +10,8 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-K52VMKP7');</script>
     <!-- End Google Tag Manager -->
-    <script src="/scripts/ga4.js"></script>
-    <title>【登壇者募集】第2回 社協限定 kintoneユーザー交流会（2026年10月20日開催） | イベント | 株式会社興栄コンサルタント</title>
-    <meta name="description" content="2026年10月20日（火）開催、社会福祉協議会限定の第2回kintoneユーザー交流会の登壇者を募集します。貴会のkintone活用ノウハウをユーザー同士で共有し、新たな業務改善のヒントを見つけましょう。登壇時間は1団体15分です。">
+    <title>【参加者募集】第2回 社協限定 kintoneユーザー交流会（2026年10月20日開催） | イベント | 株式会社興栄コンサルタント</title>
+    <meta name="description" content="2026年10月20日（火）開催、社会福祉協議会限定の第2回kintoneユーザー交流会の参加者を募集します。お申込みの受付は8月25日（火）17時から開始。あわせて登壇者も募集中です。">
 
     <!-- Favicon -->
     <link rel="icon" href="../../images/favicon.ico" sizes="any">
@@ -31,9 +30,37 @@
     <link rel="stylesheet" href="../../styles/common.css">
 
     <style>
+        /* ヒーロー画像 */
+        .article-hero {
+            width: 100%;
+            max-width: 840px;
+            height: auto;
+            display: block;
+            margin: 0 auto 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
         /* ==================== 記事ヘッダー ==================== */
-        .article-header {
-            margin-bottom: 40px;
+        .article-header { margin-bottom: 36px; }
+
+        .article-header .status-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            background: #FCD667;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+
+        .article-header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* ==================== 記事本文 ==================== */
@@ -49,10 +76,7 @@
             margin-bottom: 28px;
         }
 
-        /* 導入文：PCで1文を1行に収めるため少しだけ小さく */
-        .article-body p.intro-lead {
-            font-size: 17px;
-        }
+        .article-body p.intro-lead { font-size: 17px; }
 
         .article-body h2 {
             font-size: 26px;
@@ -77,59 +101,62 @@
             margin-bottom: 36px;
         }
 
-        .event-details .label {
-            font-weight: 700;
-            color: var(--navy);
-        }
+        .event-details .label { font-weight: 700; color: var(--navy); }
+        .event-details .label i { color: #7B9DC4; margin-right: 8px; }
 
-        .event-details .label i {
-            color: #7B9DC4;
-            margin-right: 8px;
-        }
-
-        /* 登壇概要リスト */
-        .guide-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 36px;
-            padding: 0;
-        }
-
-        .guide-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 18px 24px;
-            background: var(--light-gray);
-            border-radius: 10px;
-            font-size: 17px;
-            line-height: 1.8;
-            color: var(--text-gray);
-        }
-
-        .guide-item i {
-            color: #7B9DC4;
-            font-size: 18px;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
-
-        .guide-item strong {
-            color: var(--navy);
-            font-weight: 700;
-        }
-
-        /* 申込ボタン */
-        .apply-btn-wrap {
+        /* 募集ボックス */
+        .recruit-box {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
             text-align: center;
-            margin: 40px 0;
+        }
+
+        .recruit-box .recruit-note {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .recruit-box .recruit-open {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--pale-yellow);
+            padding: 8px 18px;
+            border-radius: 8px;
+            margin-bottom: 22px;
+        }
+
+        .btn-apply-big {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 44px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-apply-big:hover {
-            transform: translateY(-6px) !important;
-            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5) !important;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-join {
+            background: #FF8A5B;
+            color: var(--white);
+        }
+
+        /* ホバー時も文字色は白のまま（共通a:hoverの上書き） */
+        .btn-join:hover {
+            color: var(--white);
         }
 
         /* 昨年の様子リンク */
@@ -153,26 +180,32 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
         }
 
+        .related-text {
+            position: relative;
+        }
+
+        .related-text::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .related-link:hover .related-text::after {
+            transform: scaleX(1);
+        }
+
         /* パンくず */
-        .breadcrumb {
-            padding: 16px 0;
-            font-size: 13px;
-            color: var(--text-gray);
-        }
-
-        .breadcrumb a {
-            color: var(--mid-blue);
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb span {
-            margin: 0 8px;
-            color: #ccc;
-        }
+        .breadcrumb { padding: 16px 0; font-size: 13px; color: var(--text-gray); }
+        .breadcrumb a { color: var(--mid-blue); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 8px; color: #ccc; }
 
         /* 戻るリンク */
         .back-link {
@@ -188,52 +221,7 @@
             border-radius: 8px;
             transition: background 0.3s ease;
         }
-
-        .back-link:hover {
-            background: var(--light-gray);
-        }
-
-        /* ヒーローセクション（画像なし版） */
-        .article-hero-plain {
-            background: linear-gradient(135deg, #6C97C4 0%, #8FB4DA 50%, #AECCE9 100%);
-            color: var(--white);
-            padding: 48px 40px;
-            border-radius: 12px;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
-        .article-hero-plain .hero-tag {
-            display: inline-block;
-            padding: 7px 18px;
-            background: var(--kintone-yellow);
-            color: var(--navy);
-            font-size: 15px;
-            font-weight: 900;
-            border-radius: 30px;
-            margin-bottom: 18px;
-        }
-
-        .article-hero-plain h1 {
-            font-size: 38px;
-            font-weight: 900;
-            line-height: 1.5;
-            margin: 0;
-            text-shadow: 0 1px 4px rgba(0, 51, 102, 0.25);
-        }
-
-        /* 視覚的に非表示（SEO・スクリーンリーダー用） */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
+        .back-link:hover { background: var(--light-gray); }
 
         /* PCのみ改行 */
         .br-pc { display: inline; }
@@ -242,52 +230,23 @@
         @media (max-width: 768px) {
             .br-pc { display: none; }
             .nowrap-pc { white-space: normal; }
-        }
 
-        /* ==================== レスポンシブ ==================== */
-        @media (max-width: 768px) {
-            .article-hero-plain {
-                padding: 32px 24px;
-            }
-
-            .article-hero-plain h1 {
-                font-size: 25px;
-            }
-
-            .article-body p {
-                font-size: 14px;
-            }
-
-            .article-body p.intro-lead {
-                font-size: 14px;
-            }
-
-            .article-body h2 {
-                font-size: 18px;
-            }
+            .article-header h1 { font-size: 21px; }
+            .article-body p { font-size: 14px; }
+            .article-body p.intro-lead { font-size: 14px; }
+            .article-body h2 { font-size: 18px; }
 
             .event-details {
                 grid-template-columns: 1fr;
                 gap: 8px;
                 padding: 20px;
             }
+            .event-details .label { margin-top: 8px; }
+            .event-details .label:first-child { margin-top: 0; }
 
-            .event-details .label {
-                margin-top: 8px;
-            }
-
-            .event-details .label:first-child {
-                margin-top: 0;
-            }
-
-            .guide-item {
-                padding: 16px 18px;
-                font-size: 14px;
-            }
-
-            .related-link {
-                font-size: 14px;
-            }
+            .recruit-box { padding: 22px 20px; }
+            .btn-apply-big { padding: 14px 32px; font-size: 15px; }
+            .related-link { font-size: 14px; }
         }
     </style>
 </head>
@@ -346,16 +305,19 @@
                 <span>&gt;</span>
                 <a href="../index.html">イベント</a>
                 <span>&gt;</span>
-                第2回 社協限定 kintoneユーザー交流会 登壇者募集
+                第2回 社協限定 kintoneユーザー交流会 参加者募集
             </nav>
 
-            <!-- ヒーロー（画像なし） -->
-            <div class="article-hero-plain">
-                <span class="hero-tag">登壇者募集</span>
-                <h1>第2回 社協限定<br class="br-pc"> kintoneユーザー交流会</h1>
-            </div>
+            <!-- ヒーロー画像 -->
+            <img src="hero.jpg" alt="第2回 社協限定 kintoneユーザー交流会（2026年10月20日（火）14:00〜17:00・サイボウズ名古屋オフィス）登壇者募集中" class="article-hero">
 
             <div class="article-body">
+                <!-- 記事ヘッダー -->
+                <div class="article-header">
+                    <span class="status-badge">参加者募集</span>
+                    <h1>第2回 社協限定 kintoneユーザー交流会の参加者を募集します</h1>
+                </div>
+
                 <!-- 概要 -->
                 <p class="intro-lead">
                     <span class="nowrap-pc">昨年10月に満員御礼で開催させていただいた社会福祉協議会限定のユーザー交流会を、今年も企画しました。</span><br class="br-pc">この会は、<span style="font-weight: 600;">kintoneの活用アイデアをユーザー同士で共有するイベント</span>です。
@@ -381,48 +343,34 @@
                     <div>株式会社興栄コンサルタント</div>
                 </div>
 
-                <p style="font-size: 17px; color: var(--text-gray); line-height: 1.7; margin-top: -16px;">※交流会への参加者募集のお申込み受付は2026年8月25日（火）17時から開始します。<br class="br-pc"><a href="../social-welfare-2026-10/index.html" style="color: var(--mid-blue); font-weight: 700;">参加者募集の詳細はこちら</a></p>
-
-                <!-- 登壇概要 -->
-                <h2>kintone交流会 登壇概要</h2>
-
-                <ul class="guide-list">
-                    <li class="guide-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>貴会のkintone活用ノウハウを、オープンかつ分かりやすく披露してください。</span>
-                    </li>
-                    <li class="guide-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>登壇時間は1団体あたり15分となります。</span>
-                    </li>
-                    <li class="guide-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>プレゼン資料は登壇者ご自身で作成いただきます。</span>
-                    </li>
-                    <li class="guide-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>kintone交流会はユーザー会となりますので、登壇にかかる交通費・宿泊費はご自身でのご負担となります。</span>
-                    </li>
-                    <li class="guide-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>登壇謝礼等もございませんので、何卒ご了承ください。</span>
-                    </li>
-                </ul>
-
-                <!-- 登壇申込ボタン -->
-                <div class="apply-btn-wrap">
-                    <a href="https://3f21c819.form.kintoneapp.com/public/20261020-speaker" target="_blank" rel="noopener" class="btn btn-primary btn-apply-big" style="background: #FF8A5B; color: var(--white); padding: 16px 48px; font-size: 16px;">
-                        <i class="fas fa-edit" style="margin-right: 8px;"></i>登壇申込フォームへ
-                    </a>
+                <!-- 参加者募集 -->
+                <h2>参加者募集</h2>
+                <div class="recruit-box">
+                    <div class="recruit-open"><i class="fas fa-clock" style="margin-right: 6px;"></i>お申込み受付開始：2026年8月25日（火）17:00〜</div>
+                    <div>
+                        <a href="https://3f21c819.form.kintoneapp.com/public/20261020kintone-csw" target="_blank" rel="noopener" class="btn-apply-big btn-join">
+                            <i class="fas fa-edit"></i>参加申込フォームへ
+                        </a>
+                    </div>
                 </div>
 
+                <!-- 登壇者募集中 -->
+                <h2>登壇者募集中</h2>
+                <div class="recruit-box">
+                    <p class="recruit-note">kintone活用ノウハウを、ぜひ披露してみませんか？</p>
+                    <div>
+                        <a href="../social-welfare-2026-10-speaker/index.html" class="btn-apply-big btn-join">
+                            <i class="fas fa-microphone"></i>登壇者募集の詳細・お申込みはこちら
+                        </a>
+                    </div>
+                </div>
 
                 <!-- 昨年の様子 -->
                 <h2>昨年の様子</h2>
                 <p style="margin-bottom: 20px;">昨年開催した交流会のレポートをご覧いただけます。</p>
                 <a href="../social-welfare-2025/index.html" class="related-link">
                     <i class="fas fa-calendar-check"></i>
-                    【kintone×社会福祉協議会】ユーザー交流会レポート
+                    <span class="related-text">【kintone×社会福祉協議会】ユーザー交流会レポート</span>
                     <i class="fas fa-chevron-right" style="font-size: 12px;"></i>
                 </a>
 
@@ -482,10 +430,8 @@
 
     <!-- ==================== JavaScript ==================== -->
     <script>
-        // ハンバーガーメニュー
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('.nav');
-
         hamburger?.addEventListener('click', () => {
             nav.classList.toggle('active');
         });

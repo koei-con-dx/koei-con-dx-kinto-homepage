@@ -96,6 +96,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://koei-con-dx.jp/events/social-welfare-2026-10/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://koei-con-dx.jp/events/social-welfare-2026-10-speaker/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
