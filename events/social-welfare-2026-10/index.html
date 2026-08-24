@@ -155,16 +155,9 @@
             color: var(--white);
         }
 
-        .btn-speaker {
-            background: var(--white);
-            color: var(--mid-blue);
-            border: 2px solid var(--mid-blue);
-        }
-
-        .btn-speaker:hover {
-            background: var(--mid-blue);
+        /* ホバー時も文字色は白のまま（共通a:hoverの上書き） */
+        .btn-join:hover {
             color: var(--white);
-            box-shadow: 0 12px 30px rgba(0, 90, 156, 0.35);
         }
 
         /* 昨年の様子リンク */
@@ -347,7 +340,7 @@
                 <div class="recruit-box">
                     <p class="recruit-note">当日ご登壇いただける社協も募集しています。</p>
                     <div>
-                        <a href="../social-welfare-2026-10-speaker/index.html" class="btn-apply-big btn-speaker">
+                        <a href="../social-welfare-2026-10-speaker/index.html" class="btn-apply-big btn-join">
                             <i class="fas fa-microphone"></i>登壇者募集の詳細・お申込みはこちら
                         </a>
                     </div>
