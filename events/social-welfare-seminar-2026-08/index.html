@@ -118,6 +118,25 @@
 
         .event-details .label { font-weight: 700; color: var(--navy); }
 
+        /* 会場写真ギャラリー */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 8px 0 8px;
+        }
+        .photo-gallery img {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .photo-gallery { grid-template-columns: 1fr; gap: 10px; }
+        }
+
         /* プログラム（講演）カード */
         .program {
             background: var(--white);
@@ -302,10 +321,6 @@
                 先進社協に学ぶkintone超活用術セミナー レポート
             </nav>
 
-            <figure style="max-width: 840px; margin: 0 auto 32px;">
-                <img src="flyer.jpg" alt="社会福祉協議会向けkintone活用セミナー「先進社協に学ぶ、通常業務をラクにするkintone超活用術」告知フライヤー" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block;">
-            </figure>
-
             <div class="article-body">
                 <!-- 記事ヘッダー -->
                 <div class="article-header">
@@ -325,6 +340,13 @@
                 <p>
                     当日は60名以上の方にご参加いただき、<br class="br-pc">kintoneを用いた業務改善の基本から、導入2年でユーザー数を3倍に伸ばした組織づくりの秘訣、<br class="br-pc">さらに300以上のアプリを平時・有事でフル活用する実践例まで、濃いノウハウが共有されました。
                 </p>
+
+                <!-- 会場写真 -->
+                <div class="photo-gallery">
+                    <img src="photo-room.jpg" alt="セミナー会場の様子（講演を聞く参加者）">
+                    <img src="photo-lecture.jpg" alt="登壇して発表する講演者">
+                    <img src="photo-panel.jpg" alt="パネルディスカッションの様子">
+                </div>
 
                 <!-- プログラム -->
                 <h2>当日のプログラム</h2>
