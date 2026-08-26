@@ -516,7 +516,7 @@ a:hover {
 }
 
 .news-category.info {
-    background: var(--accent-orange);
+    background: var(--accent-orange-soft);
     color: var(--white);
 }
 
@@ -526,7 +526,7 @@ a:hover {
 }
 
 .news-category.case {
-    background: var(--accent-orange);
+    background: var(--accent-orange-soft);
     color: var(--white);
 }
 
