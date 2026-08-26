@@ -69,6 +69,14 @@ body.type-legacy {
     --text-gray: #555555;
 }
 
+/* 見出し・タイトルのみ文字詰め(palt)を効かせる（本文はOFFのまま）。コラム・導入事例は除外 */
+body:not(.type-legacy) h1,
+body:not(.type-legacy) h2,
+body:not(.type-legacy) h3,
+body:not(.type-legacy) h4 {
+    font-feature-settings: "palt";
+}
+
 a {
     color: var(--mid-blue);
     text-decoration: none;
