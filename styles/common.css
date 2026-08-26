@@ -515,35 +515,34 @@ a:hover {
     text-align: center;
 }
 
-/* ソフトタグ：淡い地色＋同系の濃い文字で統一 */
 .news-category.info {
-    background: #E8EDF3;
-    color: var(--navy);
+    background: var(--navy);
+    color: var(--white);
 }
 
 .news-category.seminar {
-    background: #FFF4D6;
-    color: #7A5E00;
+    background: var(--kintone-yellow);
+    color: var(--navy);
 }
 
 .news-category.case {
-    background: #FDE9DE;
-    color: #C0592A;
+    background: var(--accent-orange-soft);
+    color: var(--white);
 }
 
 .news-category.column {
-    background: #E7F0F8;
-    color: #35618C;
+    background: #4E80B4;
+    color: var(--white);
 }
 
 .news-category.media {
-    background: #FBE1E5;
-    color: var(--red);
+    background: var(--red);
+    color: var(--white);
 }
 
 .news-category.event {
-    background: #FFF4D6;
-    color: #7A5E00;
+    background: var(--kintone-yellow);
+    color: var(--navy);
 }
 
 /* ==================== レスポンシブ共通 ==================== */
