@@ -521,7 +521,7 @@ a:hover {
 }
 
 .news-category.seminar {
-    background: var(--kintone-yellow);
+    background: var(--badge-yellow);
     color: var(--navy);
 }
 
@@ -541,7 +541,7 @@ a:hover {
 }
 
 .news-category.event {
-    background: var(--kintone-yellow);
+    background: var(--badge-yellow);
     color: var(--navy);
 }
 
