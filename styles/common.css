@@ -58,7 +58,6 @@ body {
     color: var(--text-gray);
     line-height: 1.8;
     letter-spacing: 0.02em;
-    font-feature-settings: "palt";
     overflow-x: hidden;
     background: var(--light-gray);
 }
