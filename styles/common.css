@@ -29,6 +29,10 @@ html {
     --navy: #003366;
     --mid-blue: #005A9C;
     --accent-orange: #FF6B35;
+    --accent-orange-soft: #FF8A5B; /* 申込ボタン等のやわらかいオレンジ */
+    --red: #C8102E;                /* 強調ラベル等の統一レッド */
+    --badge-yellow: #FCD667;       /* バッジ用のやさしい黄 */
+    --icon-blue: #7B9DC4;          /* アイコン・アクセント罫の淡いブルー */
 
     /* 背景 */
     --light-gray: #F5F7FA;
