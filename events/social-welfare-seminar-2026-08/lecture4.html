@@ -24,7 +24,11 @@
         .article-body { max-width: 840px; margin: 0 auto; letter-spacing: 0.02em; }
         .program-tag { display: inline-block; padding: 4px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; background: var(--badge-yellow); color: var(--navy); margin-bottom: 14px; }
         .article-body h1 { font-size: 24px; font-weight: 900; color: var(--navy); line-height: 1.55; margin-bottom: 10px; }
-        .speaker-line { font-size: 15px; font-weight: 700; color: var(--text-gray); margin-bottom: 32px; }
+        .speaker-line { font-size: 15px; font-weight: 700; color: var(--text-gray); margin-bottom: 24px; }
+        .top-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 8px 0 32px; }
+        .top-photos figure { margin: 0; }
+        .top-photos img { width: 100%; aspect-ratio: 7 / 4; object-fit: cover; border-radius: 10px; display: block; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        @media (max-width: 600px) { .top-photos { gap: 8px; } }
         .prep-box { background: var(--light-gray); border-radius: 12px; padding: 48px 32px; text-align: center; }
         .prep-box i { font-size: 34px; color: var(--icon-blue); margin-bottom: 16px; }
         .prep-box p { font-size: 16px; color: #333333; line-height: 1.9; margin: 0; }
@@ -84,6 +88,11 @@
                 <span class="program-tag">講演4</span>
                 <h1>ええがねプラグインのご紹介</h1>
                 <p class="speaker-line">アントベアクリエイツ合同会社 代表 森田 諭 氏</p>
+                <div class="top-photos">
+                    <figure><img src="morita-venue.jpg" alt="アントベアクリエイツ 森田氏の講演の会場全体の様子"></figure>
+                    <figure><img src="morita-closeup.jpg" alt="発表するアントベアクリエイツ合同会社 代表 森田 諭 氏"></figure>
+                    <figure><img src="morita-side.jpg" alt="「社協さんにとって一番いいのは」を語る森田 諭 氏"></figure>
+                </div>
                 <div class="prep-box">
                     <i class="fas fa-pen-ruler"></i>
                     <p>この講演の詳細レポートは<strong>近日公開予定</strong>です。<br>今しばらくお待ちください。</p>
