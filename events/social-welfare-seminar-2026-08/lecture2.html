@@ -50,17 +50,18 @@
         }
         @media (max-width: 600px) { .top-photos { gap: 8px; } }
 
-        /* 当日の資料リンク */
-        .resource-wrap { margin: 20px 0 4px; }
-        .resource-link {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 12px 22px; border-radius: 10px;
-            background: var(--pale-yellow); color: var(--navy);
-            font-weight: 700; font-size: 15px; text-decoration: none;
-            border: 1px solid var(--kintone-yellow);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+        /* 当日の資料リンク（左から伸びる下線） */
+        .resource-wrap { margin: 18px 0 4px; }
+        .doc-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--mid-blue); font-weight: 700; font-size: 15px; text-decoration: none;
         }
-        .resource-link:hover { background: #FFF1C4; box-shadow: 0 3px 12px rgba(0,0,0,0.06); }
+        .doc-link .ul-text { position: relative; }
+        .doc-link .ul-text::after {
+            content: ""; position: absolute; left: 0; bottom: -2px; width: 100%; height: 2px;
+            background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+        }
+        .doc-link:hover .ul-text::after { transform: scaleX(1); }
 
         .topic-list { list-style: none; padding: 0; margin: 0; }
         .topic-list > li {
@@ -168,8 +169,8 @@
                 </div>
 
                 <div class="resource-wrap">
-                    <a href="https://kouei365.sharepoint.com/:b:/s/kintone690/IQDQrInoM3dwT51a5AwKq6-IAczDDRWpd9T-rSGgRDkJgtg?e=ZL6uMn" target="_blank" rel="noopener" class="resource-link">
-                        <i class="fas fa-file-lines"></i>当日の資料はこちら <i class="fas fa-arrow-up-right-from-square" style="font-size: 11px;"></i>
+                    <a href="https://kouei365.sharepoint.com/:b:/s/kintone690/IQDQrInoM3dwT51a5AwKq6-IAczDDRWpd9T-rSGgRDkJgtg?e=ZL6uMn" target="_blank" rel="noopener" class="doc-link">
+                        <i class="fas fa-file-lines"></i><span class="ul-text">当日の資料はこちら</span> <i class="fas fa-arrow-up-right-from-square" style="font-size: 11px;"></i>
                     </a>
                 </div>
 
