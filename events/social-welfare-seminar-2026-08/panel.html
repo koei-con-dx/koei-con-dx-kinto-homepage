@@ -41,20 +41,17 @@
             padding-left: 16px; border-left: 6px solid var(--kintone-yellow);
         }
 
-        /* 登壇者（左）＋写真2×2（右） */
-        .panelist-section { display: flex; gap: 30px; align-items: flex-start; margin: 8px 0 0; }
-        .panelist-section .panelist-col { flex: 0 0 36%; }
-        .panelist-section .panelist-col h2 { margin-top: 0; }
-        .panelist-photos { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .panelist-photos figure { margin: 0; }
-        .panelist-photos img {
+        /* 上部の写真4枚（本文幅より少し広く） */
+        .top-photos {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 8px 0 8px;
+            width: min(960px, 94vw); margin-left: 50%; transform: translateX(-50%);
+        }
+        .top-photos figure { margin: 0; }
+        .top-photos img {
             width: 100%; aspect-ratio: 7 / 4; object-fit: cover;
             border-radius: 10px; display: block; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
-        @media (max-width: 640px) {
-            .panelist-section { flex-direction: column; gap: 16px; }
-            .panelist-section .panelist-col { flex: none; width: 100%; }
-        }
+        @media (max-width: 600px) { .top-photos { gap: 8px; } }
 
         /* 登壇者 */
         .panelist-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 12px; }
@@ -151,23 +148,20 @@
                     <h1>担当者任せにしない！社協職員自らが「使いこなす」ための仕組みづくりと<br class="br-pc">導入支援企業との連携</h1>
                 </div>
 
-                <div class="panelist-section">
-                    <div class="panelist-col">
-                        <h2>登壇者</h2>
-                        <ul class="panelist-list">
-                            <li>犬山市社会福祉協議会 事務局次長 粥川 遼 氏</li>
-                            <li>美濃加茂市社会福祉協議会 地域福祉課長 長谷川 武司 氏</li>
-                            <li>サイボウズ株式会社 山田 英生 氏</li>
-                            <li>株式会社興栄コンサルタント 豊田</li>
-                        </ul>
-                    </div>
-                    <div class="panelist-photos">
-                        <figure><img src="panel-room.jpg" alt="4名の登壇者によるパネルディスカッションの会場全体の様子"></figure>
-                        <figure><img src="panel-talk.jpg" alt="パネルディスカッションで発言する犬山市社会福祉協議会 粥川 遼 氏"></figure>
-                        <figure><img src="panel-morita.jpg" alt="パネルディスカッションで発言するアントベアクリエイツ合同会社 森田 諭 氏"></figure>
-                        <figure><img src="panel-seated.jpg" alt="着席して意見を交わすパネルディスカッションの登壇者"></figure>
-                    </div>
+                <div class="top-photos">
+                    <figure><img src="panel-room.jpg" alt="4名の登壇者によるパネルディスカッションの会場全体の様子"></figure>
+                    <figure><img src="panel-talk.jpg" alt="パネルディスカッションで発言する犬山市社会福祉協議会 粥川 遼 氏"></figure>
+                    <figure><img src="panel-morita.jpg" alt="パネルディスカッションで発言するアントベアクリエイツ合同会社 森田 諭 氏"></figure>
+                    <figure><img src="panel-seated.jpg" alt="着席して意見を交わすパネルディスカッションの登壇者"></figure>
                 </div>
+
+                <h2>登壇者</h2>
+                <ul class="panelist-list">
+                    <li>犬山市社会福祉協議会 事務局次長 粥川 遼 氏</li>
+                    <li>美濃加茂市社会福祉協議会 地域福祉課長 長谷川 武司 氏</li>
+                    <li>サイボウズ株式会社 山田 英生 氏</li>
+                    <li>株式会社興栄コンサルタント 豊田</li>
+                </ul>
 
                 <h2>討論テーマ①　上司や組織の口説き方（予算・承認）</h2>
                 <div class="disc-speaker">
