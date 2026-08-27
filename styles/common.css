@@ -29,6 +29,10 @@ html {
     --navy: #003366;
     --mid-blue: #005A9C;
     --accent-orange: #FF6B35;
+    --accent-orange-soft: #FF8A5B; /* 申込ボタン等のやわらかいオレンジ */
+    --red: #C8102E;                /* 強調ラベル等の統一レッド */
+    --badge-yellow: #FCD667;       /* バッジ用のやさしい黄 */
+    --icon-blue: #7B9DC4;          /* アイコン・アクセント罫の淡いブルー */
 
     /* 背景 */
     --light-gray: #F5F7FA;
@@ -37,7 +41,7 @@ html {
 
     /* テキスト */
     --text-dark: #333333;
-    --text-gray: #555555;
+    --text-gray: #333333;
 
     /* 状態 */
     --success: #28A745;
@@ -57,8 +61,24 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     color: var(--text-gray);
     line-height: 1.8;
+    letter-spacing: 0.02em;
     overflow-x: hidden;
     background: var(--light-gray);
+}
+
+/* タイポ調整の対象外にするページ（コラム・導入事例など従来のまま） */
+body.type-legacy {
+    letter-spacing: normal;
+    font-feature-settings: normal;
+    --text-gray: #555555;
+}
+
+/* 見出し・タイトルのみ文字詰め(palt)を効かせる（本文はOFFのまま）。コラム・導入事例は除外 */
+body:not(.type-legacy) h1,
+body:not(.type-legacy) h2,
+body:not(.type-legacy) h3,
+body:not(.type-legacy) h4 {
+    font-feature-settings: "palt";
 }
 
 a {
@@ -496,17 +516,17 @@ a:hover {
 }
 
 .news-category.info {
-    background: var(--accent-orange);
+    background: #737B7F;
     color: var(--white);
 }
 
 .news-category.seminar {
-    background: var(--kintone-yellow);
+    background: var(--badge-yellow);
     color: var(--navy);
 }
 
 .news-category.case {
-    background: var(--accent-orange);
+    background: var(--accent-orange-soft);
     color: var(--white);
 }
 
@@ -516,12 +536,12 @@ a:hover {
 }
 
 .news-category.media {
-    background: #C8102E;
+    background: var(--red);
     color: var(--white);
 }
 
 .news-category.event {
-    background: var(--kintone-yellow);
+    background: var(--badge-yellow);
     color: var(--navy);
 }
 

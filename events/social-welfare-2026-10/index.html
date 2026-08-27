@@ -42,7 +42,7 @@
         }
 
         /* ==================== 記事ヘッダー ==================== */
-        .article-header { margin-bottom: 36px; }
+        .article-header { margin-bottom: 40px; }
 
         .article-header .status-badge {
             display: inline-block;
@@ -50,7 +50,7 @@
             border-radius: 20px;
             font-size: 13px;
             font-weight: 700;
-            background: #FCD667;
+            background: var(--badge-yellow);
             color: var(--navy);
             margin-bottom: 14px;
         }
@@ -67,13 +67,15 @@
         .article-body {
             max-width: 840px;
             margin: 0 auto;
+            letter-spacing: 0.02em;
         }
 
         .article-body p {
-            font-size: 18px;
-            line-height: 2;
-            color: var(--text-gray);
-            margin-bottom: 28px;
+            font-size: 17px;
+            line-height: 1.9;
+            color: #333333;
+            letter-spacing: 0.02em;
+            margin-bottom: 24px;
         }
 
         .article-body p.intro-lead { font-size: 17px; }
@@ -82,7 +84,7 @@
             font-size: 26px;
             font-weight: 900;
             color: var(--navy);
-            margin-top: 48px;
+            margin-top: 56px;
             margin-bottom: 24px;
             padding-left: 16px;
             border-left: 6px solid var(--kintone-yellow);
@@ -92,17 +94,19 @@
         .event-details {
             display: grid;
             grid-template-columns: 120px 1fr;
-            gap: 20px 24px;
-            font-size: 18px;
+            gap: 16px 24px;
+            font-size: 17px;
             line-height: 1.8;
-            padding: 28px 32px;
+            letter-spacing: 0.02em;
+            color: #333333;
+            padding: 24px 32px;
             background: var(--light-gray);
             border-radius: 10px;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
         }
 
         .event-details .label { font-weight: 700; color: var(--navy); }
-        .event-details .label i { color: #7B9DC4; margin-right: 8px; }
+        .event-details .label i { color: var(--icon-blue); margin-right: 8px; }
 
         /* 募集ボックス */
         .recruit-box {
@@ -116,7 +120,7 @@
 
         .recruit-box .recruit-note {
             font-size: 16px;
-            color: var(--text-gray);
+            color: #333333;
             margin-bottom: 20px;
             line-height: 1.8;
         }
@@ -150,7 +154,7 @@
         }
 
         .btn-join {
-            background: #FF8A5B;
+            background: var(--accent-orange-soft);
             color: var(--white);
         }
 
@@ -330,23 +334,23 @@
                 <h2>開催概要</h2>
 
                 <div class="event-details">
-                    <div class="label"><i class="fas fa-calendar-alt"></i>開催日時</div>
+                    <div class="label">開催日時</div>
                     <div>2026年10月20日（火）14時〜17時</div>
 
-                    <div class="label"><i class="fas fa-map-marker-alt"></i>会場</div>
+                    <div class="label">会場</div>
                     <div>サイボウズ名古屋オフィス<br><span style="font-size: 15px; color: var(--text-gray);">名古屋市栄・中日ビル12階</span></div>
 
-                    <div class="label"><i class="fas fa-user-tie"></i>対象</div>
+                    <div class="label">対象</div>
                     <div>社会福祉協議会の職員の皆さま</div>
 
-                    <div class="label"><i class="fas fa-building"></i>主催</div>
+                    <div class="label">主催</div>
                     <div>株式会社興栄コンサルタント</div>
                 </div>
 
                 <!-- 参加者募集 -->
                 <h2>参加者募集</h2>
                 <div class="recruit-box">
-                    <div class="recruit-open"><i class="fas fa-clock" style="margin-right: 6px;"></i>お申込み受付開始：2026年8月25日（火）17:00〜</div>
+                    <p class="recruit-note">是非お気軽にご参加ください。</p>
                     <div>
                         <a href="https://3f21c819.form.kintoneapp.com/public/20261020kintone-csw" target="_blank" rel="noopener" class="btn-apply-big btn-join">
                             <i class="fas fa-edit"></i>参加申込フォームへ
