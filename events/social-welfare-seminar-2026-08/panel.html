@@ -54,10 +54,9 @@
         @media (max-width: 600px) { .top-photos { gap: 8px; } }
 
         /* 登壇者 */
-        .panelist-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 22px; }
+        .panelist-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 12px; }
         .panelist-list li { font-size: 16px; line-height: 1.7; color: #333333; padding-left: 18px; position: relative; }
         .panelist-list li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 8px; height: 8px; border-radius: 50%; background: var(--kintone-yellow); }
-        @media (max-width: 600px) { .panelist-list { grid-template-columns: 1fr; } }
 
         /* 討論テーマ内の発言者ブロック */
         .disc-speaker { border-left: 4px solid var(--icon-blue); padding: 2px 0 2px 18px; margin-bottom: 22px; }
