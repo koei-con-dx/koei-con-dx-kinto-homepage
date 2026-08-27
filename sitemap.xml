@@ -96,6 +96,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://koei-con-dx.jp/events/social-welfare-seminar-2026-08/lecture4.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://koei-con-dx.jp/events/kintone-meetup-2026-08/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
