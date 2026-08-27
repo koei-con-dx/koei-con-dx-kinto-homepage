@@ -34,16 +34,20 @@
         .article-header h1 { font-size: 25px; font-weight: 900; color: var(--navy); line-height: 1.55; margin-bottom: 12px; }
         .speaker-line { font-size: 15px; font-weight: 700; color: var(--text-gray); }
 
-        .article-body { max-width: 840px; margin: 0 auto; letter-spacing: 0.02em; }
+        .article-body { max-width: 900px; margin: 0 auto; letter-spacing: 0.02em; }
         .article-body p { font-size: 17px; line-height: 1.9; color: #333333; margin-bottom: 24px; }
         .article-body h2 {
             font-size: 20px; font-weight: 900; color: var(--navy); margin: 44px 0 18px;
             padding-left: 16px; border-left: 6px solid var(--kintone-yellow);
         }
-        .lead-photo { width: 100%; border-radius: 10px; display: block; margin: 8px 0 4px; box-shadow: 0 3px 14px rgba(0,0,0,0.1); }
-        .inline-photo { width: 100%; border-radius: 10px; display: block; margin: 24px 0; box-shadow: 0 3px 14px rgba(0,0,0,0.1); }
-        .center-photo { max-width: 360px; margin: 8px auto 24px; }
-        .center-photo img { width: 100%; border-radius: 10px; display: block; box-shadow: 0 3px 14px rgba(0,0,0,0.1); }
+
+        /* 本文＋右カラム写真 */
+        .detail-layout { display: grid; grid-template-columns: 1fr 230px; gap: 32px; align-items: start; }
+        .detail-main h2:first-child { margin-top: 0; }
+        .detail-photos { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 90px; }
+        .detail-photos figure { margin: 0; }
+        .detail-photos img { width: 100%; border-radius: 8px; display: block; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .detail-photos figcaption { font-size: 12px; color: #888; margin-top: 5px; line-height: 1.5; }
 
         .topic-list { list-style: none; padding: 0; margin: 0; }
         .topic-list > li {
@@ -89,6 +93,8 @@
             .topic-list > li { font-size: 14px; padding: 16px 18px; }
             .sub-list li { font-size: 13px; }
             .qa { font-size: 14px; }
+            .detail-layout { grid-template-columns: 1fr; gap: 20px; }
+            .detail-photos { position: static; flex-direction: column; margin-bottom: 8px; }
         }
     </style>
 </head>
@@ -144,41 +150,43 @@
                     <p class="speaker-line">社会福祉法人犬山市社会福祉協議会 事務局次長 粥川 遼 氏</p>
                 </div>
 
-                <img src="kayukawa-slide1.jpg" class="lead-photo" alt="「導入2年でユーザー数3倍！属人化させない仕組みづくり」について発表する犬山市社会福祉協議会 粥川様">
+                <div class="detail-layout">
+                    <div class="detail-main">
+                        <h2>概要</h2>
+                        <p>2年前の赴任当時、紙での管理やぐちゃぐちゃなExcelデータに直面し、興栄コンサルタントの提案でkintoneを導入。</p>
+                        <p>現在では、介護事業パートを除く職員26名のうち21名（8割以上）がアカウントを持ち、26業務・68アプリを運用するまでに定着。</p>
+                        <p>業務の属人化を防ぐために同社協が実践した「トップダウン」「コアメンバー」「スモールスタート」の3つのキーワードに基づき、具体的な組織・普及ロードマップが語られました。</p>
 
-                <h2>概要</h2>
-                <p>2年前の赴任当時、紙での管理やぐちゃぐちゃなExcelデータに直面し、興栄コンサルタントの提案でkintoneを導入。</p>
-                <p>現在では、介護事業パートを除く職員26名のうち21名（8割以上）がアカウントを持ち、26業務・68アプリを運用するまでに定着。</p>
-                <p>業務の属人化を防ぐために同社協が実践した「トップダウン」「コアメンバー」「スモールスタート」の3つのキーワードに基づき、具体的な組織・普及ロードマップが語られました。</p>
-
-                <div class="center-photo">
-                    <img src="kayukawa-closeup.jpg" alt="発表する犬山市社会福祉協議会 事務局次長 粥川 遼 氏">
-                </div>
-
-                <h2>発表の重要トピック</h2>
-                <ul class="topic-list">
-                    <li><strong>トップダウンによる「3つの壁（孤立・部門・時間）」の突破：</strong>ボトムアップで導入しようとすると、「詳しい職員に任せて孤立する」「隣の部署に展開できない」「覚える時間がない」といった壁にぶつかります。管理職が「kintoneの導入は通常業務の一部である」と位置づけることで、職員が孤立せず、余分な残業をすることなく時間・人員・予算といったリソースを確保しやすくなります。</li>
-                    <li><strong>役割と権限を分散する「3名のコアメンバー体制」：</strong>自分が異動した後も組織が自走できるよう、役割を明確に分散して月1回のミーティングを実施しています。
-                        <ul class="sub-list">
-                            <li>システム管理者：全体のルール決定、マニュアル作成、研修実施。</li>
-                            <li>種まきグループ（コアメンバー2名）：アプリの開発、一般ユーザーのサポートや修正対応。</li>
-                            <li>水やりグループ（一般ユーザー）：日常の操作、使いにくさや改善要望のフィードバック。</li>
+                        <h2>発表の重要トピック</h2>
+                        <ul class="topic-list">
+                            <li><strong>トップダウンによる「3つの壁（孤立・部門・時間）」の突破：</strong>ボトムアップで導入しようとすると、「詳しい職員に任せて孤立する」「隣の部署に展開できない」「覚える時間がない」といった壁にぶつかります。管理職が「kintoneの導入は通常業務の一部である」と位置づけることで、職員が孤立せず、余分な残業をすることなく時間・人員・予算といったリソースを確保しやすくなります。</li>
+                            <li><strong>役割と権限を分散する「3名のコアメンバー体制」：</strong>自分が異動した後も組織が自走できるよう、役割を明確に分散して月1回のミーティングを実施しています。
+                                <ul class="sub-list">
+                                    <li>システム管理者：全体のルール決定、マニュアル作成、研修実施。</li>
+                                    <li>種まきグループ（コアメンバー2名）：アプリの開発、一般ユーザーのサポートや修正対応。</li>
+                                    <li>水やりグループ（一般ユーザー）：日常の操作、使いにくさや改善要望のフィードバック。</li>
+                                </ul>
+                            </li>
+                            <li><strong>地盤を徹底して固める「12ヶ月間のスモールスタート」：</strong>いきなり全部署で始めず、最初の1年間は総務周りの1〜2つの対象業務に絞り込んで運用のサイクルを確立しました。特に、基盤となる「名簿アプリ」の設計や、全アプリに共通するフィールド名・持ち方のルール（苗字と名前を分けるか、文字列にするか数値にするか等）の地盤を徹底して作り込みました。</li>
+                            <li><strong>コスト抑制運用：</strong>有償の連携サービスは2つ（プリントクリエイター、フォームブリッジ）のみに厳選し、その他は無料のプラグイン（検索、一覧集計、一覧画面の不要ヘッダー省略、条件分岐プラグイン等）をフル活用。年間コスト約77万円（職員1人あたり月額約3,000円）というリーズナブルな運用を実現しています。</li>
                         </ul>
-                    </li>
-                    <li><strong>地盤を徹底して固める「12ヶ月間のスモールスタート」：</strong>いきなり全部署で始めず、最初の1年間は総務周りの1〜2つの対象業務に絞り込んで運用のサイクルを確立しました。特に、基盤となる「名簿アプリ」の設計や、全アプリに共通するフィールド名・持ち方のルール（苗字と名前を分けるか、文字列にするか数値にするか等）の地盤を徹底して作り込みました。</li>
-                    <li><strong>コスト抑制運用：</strong>有償の連携サービスは2つ（プリントクリエイター、フォームブリッジ）のみに厳選し、その他は無料のプラグイン（検索、一覧集計、一覧画面の不要ヘッダー省略、条件分岐プラグイン等）をフル活用。年間コスト約77万円（職員1人あたり月額約3,000円）というリーズナブルな運用を実現しています。</li>
-                </ul>
 
-                <img src="kayukawa-slide2.jpg" class="inline-photo" alt="「コアメンバー」職員のグループ分け（土づくり・種まき・水やり）を説明するスライド">
+                        <h2>Q&amp;Aおよび補足</h2>
+                        <div class="qa">
+                            <span class="q">Q. 職員にExcelからkintoneへ移行してもらう際、どのように納得してもらい、入力作業等は誰が行ったか？</span>
+                            A. Excelが便利でkintoneへの移行を拒むというより、壊れかけた複雑なExcelを「よくわからないまま使っていた」のが現状でした。移行の際は「kintoneにするとどんな良い姿（業務がどう楽になるか）になるか」を事前に丁寧に示して理解を得ました。移行作業に関しては、一般職員に負荷をかけないよう、コアメンバーが既存のExcelを共通ルールに合うようフォーマット変換した上で一括取り込み（インポート）を行いました。
+                        </div>
+                        <div class="qa">
+                            <span class="q">Q. アカウント運用の財源はどう確保したか？</span>
+                            A. 年間約77万の費用のうち、約半分は市の補助金を確保して活用し、残りは自己財源で賄っていますが、kintone導入によって確実に時間外勤務（残業手当）が削減できているため、組織全体で経費回収ができています。
+                        </div>
+                    </div>
 
-                <h2>Q&amp;Aおよび補足</h2>
-                <div class="qa">
-                    <span class="q">Q. 職員にExcelからkintoneへ移行してもらう際、どのように納得してもらい、入力作業等は誰が行ったか？</span>
-                    A. Excelが便利でkintoneへの移行を拒むというより、壊れかけた複雑なExcelを「よくわからないまま使っていた」のが現状でした。移行の際は「kintoneにするとどんな良い姿（業務がどう楽になるか）になるか」を事前に丁寧に示して理解を得ました。移行作業に関しては、一般職員に負荷をかけないよう、コアメンバーが既存のExcelを共通ルールに合うようフォーマット変換した上で一括取り込み（インポート）を行いました。
-                </div>
-                <div class="qa">
-                    <span class="q">Q. アカウント運用の財源はどう確保したか？</span>
-                    A. 年間約77万の費用のうち、約半分は市の補助金を確保して活用し、残りは自己財源で賄っていますが、kintone導入によって確実に時間外勤務（残業手当）が削減できているため、組織全体で経費回収ができています。
+                    <aside class="detail-photos">
+                        <figure><img src="kayukawa-closeup.jpg" alt="発表する犬山市社会福祉協議会 事務局次長 粥川 遼 氏"></figure>
+                        <figure><img src="kayukawa-slide1.jpg" alt="「導入2年でユーザー数3倍！」を紹介するスライド"></figure>
+                        <figure><img src="kayukawa-slide2.jpg" alt="「コアメンバー」職員のグループ分け（土づくり・種まき・水やり）のスライド"></figure>
+                    </aside>
                 </div>
 
                 <div class="prev-next">
