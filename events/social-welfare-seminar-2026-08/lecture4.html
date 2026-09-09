@@ -57,9 +57,9 @@
             font-size: 16px; line-height: 1.9; color: #333333;
         }
         .topic-list > li strong { display: block; color: var(--navy); margin-bottom: 4px; }
-        .topic-images-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 14px auto 18px; }
-        .topic-images-two a { display: block; }
-        .topic-images-two img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .topic-images-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 14px -22px 18px; }
+        .topic-images-three a { display: block; }
+        .topic-images-three img { width: 100%; height: 220px; object-fit: cover; display: block; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
         .sub-list { margin: 10px 0 0; padding-left: 0; list-style: none; }
         .sub-list li { margin-bottom: 10px; font-size: 15px; line-height: 1.8; }
         .sub-list li strong { margin-bottom: 2px; }
@@ -94,7 +94,8 @@
             .article-body p { font-size: 14px; }
             .article-body h2 { font-size: 17px; }
             .topic-list > li { font-size: 14px; padding: 16px 18px; }
-            .topic-images-two { gap: 8px; }
+            .topic-images-three { gap: 8px; margin-left: -18px; margin-right: -18px; }
+            .topic-images-three img { height: 150px; }
             .sub-list li { font-size: 13px; }
         }
     </style>
@@ -163,9 +164,6 @@
                 <h2>発表の重要トピック</h2>
                 <ul class="topic-list">
                     <li><strong>「あと一歩」を埋める4つのアプローチ判断基準</strong>
-                        <div class="topic-images-two">
-                            <a href="morita-topic-1.jpeg" target="_blank" rel="noopener"><img src="morita-topic-1.jpeg" alt="あと一歩を埋める4つのアプローチ判断基準"></a>
-                        </div>
                         <ul class="sub-list">
                             <li>① 運用でカバー（年に数回しか起きない業務：0円）</li>
                             <li>② kintone標準機能の工夫（計算、プロセス管理など：0円）</li>
@@ -175,8 +173,9 @@
                         <div class="topic-note">判断の順番は「まず標準機能（②）でできるか」→「届かなければプラグイン（③）を探す」であり、本当にそれが必要か、年に何回発生するかを判断軸にすることを推奨されています。</div>
                     </li>
                     <li><strong>現場の声から生まれた「ええがねプラグインシリーズ」</strong>
-                        <div class="topic-images-two">
+                        <div class="topic-images-three">
                             <a href="morita-plugin-3.jpeg" target="_blank" rel="noopener"><img src="morita-plugin-3.jpeg" alt="ええがねプラグインシリーズ"></a>
+                            <a href="morita-topic-1.jpeg" target="_blank" rel="noopener"><img src="morita-topic-1.jpeg" alt="あと一歩を埋める4つのアプローチ判断基準"></a>
                             <a href="morita-plugin-4.jpeg" target="_blank" rel="noopener"><img src="morita-plugin-4.jpeg" alt="ええがねプラグインの提供サービス"></a>
                         </div>
                         <ul class="sub-list">
