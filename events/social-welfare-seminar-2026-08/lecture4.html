@@ -34,9 +34,13 @@
     <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" as="image" href="morita-closeup.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="morita-venue.jpg" fetchpriority="high">
     <link rel="stylesheet" href="../../styles/common.css">
 
     <style>
@@ -181,8 +185,8 @@
                 </div>
 
                 <div class="top-photos">
-                    <figure><img width="1400" height="800" src="morita-closeup.jpg" alt="発表するアントベアクリエイツ合同会社 代表 森田 諭 氏"></figure>
-                    <figure><img width="1400" height="800" src="morita-venue.jpg" alt="アントベアクリエイツ 森田氏の講演の会場全体の様子"></figure>
+                    <figure><img fetchpriority="high" width="1400" height="800" src="morita-closeup.jpg" alt="発表するアントベアクリエイツ合同会社 代表 森田 諭 氏"></figure>
+                    <figure><img fetchpriority="high" width="1400" height="800" src="morita-venue.jpg" alt="アントベアクリエイツ 森田氏の講演の会場全体の様子"></figure>
                 </div>
 
                 <h2>概要</h2>

@@ -36,11 +36,15 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" as="image" href="top-panel.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="photo-lecture.jpg" fetchpriority="high">
     <link rel="stylesheet" href="../../styles/common.css">
 
     <style>
@@ -358,7 +362,7 @@
 
                 <!-- 上部ギャラリー -->
                 <div class="photo-gallery">
-                    <img width="1748" height="519" src="top-panel.jpg" alt="セミナー当日の講演と会場の様子">
+                    <img fetchpriority="high" width="1748" height="519" src="top-panel.jpg" alt="セミナー当日の講演と会場の様子">
                 </div>
 
                 <!-- 導入 -->
@@ -373,7 +377,7 @@
                 <h2>当日のプログラム</h2>
 
                 <div class="program">
-                    <img width="1184" height="800" src="photo-lecture.jpg" class="program-photo" alt="講演1で発表するサイボウズ 山田様">
+                    <img fetchpriority="high" width="1184" height="800" src="photo-lecture.jpg" class="program-photo" alt="講演1で発表するサイボウズ 山田様">
                     <span class="program-tag">講演1</span>
                     <h3 class="program-title">kintoneで実現できる業務改善</h3>
                     <p class="program-speaker">サイボウズ株式会社 リージョナル第1営業部 山田 英生 氏</p>
