@@ -22,8 +22,8 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="株式会社興栄コンサルタント kintone導入・活用支援">
     <meta property="og:image" content="https://koei-con-dx.jp/events/social-welfare-seminar-2026-08/panel-room.jpg">
-    <meta property="og:image:width" content="1400">
-    <meta property="og:image:height" content="800">
+    <meta property="og:image:width" content="1000">
+    <meta property="og:image:height" content="571">
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -118,7 +118,12 @@
             .disc-speaker .who { font-size: 15px; }
             .disc-speaker p { font-size: 14px; }
         }
+        /* 上部2枚を同時に表示（JS有効時のみ） */
+        .js .top-photos img { opacity: 0; }
+        .js .top-photos.ready img { opacity: 1; transition: opacity 0.12s ease; }
+
     </style>
+    <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K52VMKP7"
@@ -172,8 +177,8 @@
                 </div>
 
                 <div class="top-photos">
-                    <figure><img fetchpriority="high" width="1400" height="800" src="panel-room.jpg" alt="4名の登壇者によるパネルディスカッションの会場全体の様子"></figure>
-                    <figure><img fetchpriority="high" width="1400" height="800" src="panel-morita.jpg" alt="パネルディスカッションで発言するアントベアクリエイツ合同会社 森田 諭 氏"></figure>
+                    <figure><img fetchpriority="high" width="1000" height="571" src="panel-room.jpg" alt="4名の登壇者によるパネルディスカッションの会場全体の様子"></figure>
+                    <figure><img fetchpriority="high" width="1000" height="571" src="panel-morita.jpg" alt="パネルディスカッションで発言するアントベアクリエイツ合同会社 森田 諭 氏"></figure>
                 </div>
 
                 <h2>登壇者</h2>
@@ -270,6 +275,21 @@
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('.nav');
         hamburger?.addEventListener('click', () => { nav.classList.toggle('active'); });
+    </script>
+    <script>
+        (function () {
+            var box = document.querySelector('.top-photos');
+            if (!box) return;
+            var imgs = box.querySelectorAll('img');
+            var pending = imgs.length;
+            var show = function () { box.classList.add('ready'); };
+            var done = function () { if (--pending <= 0) show(); };
+            Array.prototype.forEach.call(imgs, function (img) {
+                if (img.complete && img.naturalWidth) { done(); }
+                else { img.addEventListener('load', done); img.addEventListener('error', done); }
+            });
+            setTimeout(show, 3000); // 読み込みが遅れても必ず表示する保険
+        })();
     </script>
 </body>
 </html>
