@@ -545,6 +545,11 @@ a:hover {
     color: var(--navy);
 }
 
+.news-category.report {
+    background: #ECE6D1;
+    color: #2E2F32;
+}
+
 /* ==================== レスポンシブ共通 ==================== */
 @media (max-width: 768px) {
     .hamburger {
