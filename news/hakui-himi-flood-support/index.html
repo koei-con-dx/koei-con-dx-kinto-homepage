@@ -29,6 +29,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../styles/common.css">
 
+    <!-- 記事写真を先読み（開いた瞬間に同時表示） -->
+    <link rel="preload" as="image" href="photo-hakui-gather.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="photo-hakui-street.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="photo-himi-vc.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="photo-himi-canal.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="photo-hakui-mud.jpg" fetchpriority="high">
+
     <style>
         /* パンくず */
         .breadcrumb {
@@ -155,7 +162,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="../../index.html" class="logo-link" aria-label="株式会社興栄コンサルタント">
-                    <img src="../../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image">
+                    <img src="../../images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image" loading="eager" fetchpriority="high" decoding="async">
                     <span class="logo-text">株式会社興栄コンサルタント</span>
                 </a>
                 <span class="logo-badge">サイボウズオフィシャルパートナー</span>
@@ -211,11 +218,11 @@
                 </div>
 
                 <div class="photo-grid">
-                    <img src="photo-hakui-gather.jpg" alt="羽咋市災害ボランティアセンターでの集合・出発前の様子">
-                    <img src="photo-hakui-street.jpg" alt="羽咋市の現場へ向かう当社社員2名">
-                    <img src="photo-himi-vc.jpg" alt="氷見市災害ボランティアセンターの様子">
-                    <img src="photo-himi-canal.jpg" alt="氷見市で土砂に埋まった水路の復旧作業を行う当社社員">
-                    <img src="photo-hakui-mud.jpg" alt="羽咋市で浸水被害を受けた家財">
+                    <img src="photo-hakui-gather.jpg" alt="羽咋市災害ボランティアセンターでの集合・出発前の様子" loading="eager" fetchpriority="high" decoding="async">
+                    <img src="photo-hakui-street.jpg" alt="羽咋市の現場へ向かう当社社員2名" loading="eager" fetchpriority="high" decoding="async">
+                    <img src="photo-himi-vc.jpg" alt="氷見市災害ボランティアセンターの様子" loading="eager" fetchpriority="high" decoding="async">
+                    <img src="photo-himi-canal.jpg" alt="氷見市で土砂に埋まった水路の復旧作業を行う当社社員" loading="eager" fetchpriority="high" decoding="async">
+                    <img src="photo-hakui-mud.jpg" alt="羽咋市で浸水被害を受けた家財" loading="eager" fetchpriority="high" decoding="async">
                 </div>
 
                 <p>
