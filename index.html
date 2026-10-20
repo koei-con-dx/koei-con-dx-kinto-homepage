@@ -91,13 +91,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap&text=%E7%8F%BE%E5%A0%B4%E3%81%AE%E8%AA%B2%E9%A1%8C%E3%82%92%E3%80%81%E4%BB%95%E7%B5%84%E3%81%BF%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E3%80%82" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/top.css">
-    <link rel="preload" as="image" href="images/top/hero-office.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="images/top/hero-scene.svg" fetchpriority="high">
 </head>
 <body class="page-top">
     <!-- Google Tag Manager (noscript) -->
@@ -148,6 +149,11 @@
     <main>
         <!-- ==================== ファーストビュー ==================== -->
         <section class="t-hero" aria-labelledby="hero-title">
+            <div class="t-hero-bg" aria-hidden="true">
+                <img src="images/top/hero-scene.svg" alt="" width="1600" height="700" loading="eager" fetchpriority="high" decoding="async">
+                <p class="t-hero-hand">現場の課題を、<br>仕組みで解決する。</p>
+            </div>
+
             <div class="t-container t-hero-inner">
                 <div class="t-hero-text">
                     <p class="t-hero-target">建設・不動産・製造業などの中小企業から、自治体まで</p>
@@ -155,8 +161,8 @@
                     <p class="t-hero-lead">業務改善から内製化まで。<br>現場理解を強みに、導入・定着を支援します。</p>
 
                     <div class="t-hero-ctas">
-                        <a href="#download" class="t-btn t-btn--dl"><i class="fas fa-download" aria-hidden="true"></i>資料をダウンロード（無料）</a>
-                        <a href="contact/index.html" class="t-btn t-btn--primary"><i class="fas fa-comments" aria-hidden="true"></i>まずは相談してみる</a>
+                        <a href="#download" class="t-btn t-btn--dl"><i class="fas fa-download" aria-hidden="true"></i>資料をダウンロード（無料）<i class="fas fa-arrow-right t-btn-arrow" aria-hidden="true"></i></a>
+                        <a href="contact/index.html" class="t-btn t-btn--primary">まずは相談してみる<i class="fas fa-arrow-right t-btn-arrow" aria-hidden="true"></i></a>
                     </div>
 
                     <ul class="t-hero-note">
@@ -164,63 +170,39 @@
                         <li><i class="fas fa-video" aria-hidden="true"></i>その他の地域は全国オンライン対応</li>
                     </ul>
                 </div>
-
-                <div class="t-hero-visual">
-                    <div class="t-hero-photo">
-                        <img src="images/top/hero-office.jpg" alt="PCの画面を見ながら業務内容を確認する興栄コンサルタントの社員" width="1200" height="990" loading="eager" fetchpriority="high" decoding="async">
-                    </div>
-
-                    <div class="t-app" role="img" aria-label="kintoneで営業・申請・工事・総務の案件を一覧管理している画面のイメージ">
-                        <div class="t-app-bar" aria-hidden="true">
-                            <span class="t-app-dots"><span></span><span></span><span></span></span>
-                            <span class="t-app-title">案件・申請管理アプリ</span>
-                        </div>
-                        <div class="t-app-tabs" aria-hidden="true">
-                            <span class="is-active">すべての案件</span><span>部署別</span><span>グラフ</span>
-                        </div>
-                        <table class="t-app-table" aria-hidden="true">
-                            <thead>
-                                <tr><th>件名</th><th class="t-hide-sp">部署</th><th>進捗</th><th>ステータス</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>新規顧客 ヒアリング</td><td class="t-hide-sp">営業</td><td><span class="t-app-bar-track"><b style="width:40%"></b></span>40%</td><td><span class="t-chip t-chip--run">対応中</span></td></tr>
-                                <tr><td>備品購入の稟議</td><td class="t-hide-sp">総務</td><td><span class="t-app-bar-track"><b style="width:60%"></b></span>60%</td><td><span class="t-chip t-chip--wait">承認待ち</span></td></tr>
-                                <tr><td>○○線 道路改良工事</td><td class="t-hide-sp">工事</td><td><span class="t-app-bar-track"><b style="width:72%"></b></span>72%</td><td><span class="t-chip t-chip--run">進行中</span></td></tr>
-                                <tr><td>月次売上の集計</td><td class="t-hide-sp">経理</td><td><span class="t-app-bar-track"><b style="width:100%"></b></span>100%</td><td><span class="t-chip t-chip--done">完了</span></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p class="t-hero-caption">※ 画面はイメージです（サンプルデータ）</p>
-                </div>
             </div>
+            <p class="t-hero-caption">※ イラスト内の画面はイメージです</p>
         </section>
 
         <!-- ==================== 信頼性 ==================== -->
         <section class="t-trust" aria-label="興栄コンサルタントについて">
             <div class="t-container">
-                <div class="t-trust-box">
-                    <div class="t-trust-item">
+                <ul class="t-trust-row">
+                    <li class="t-trust-logo">
                         <img src="images/partner_consul_yoko.png" alt="サイボウズ オフィシャル コンサルティングパートナー" width="855" height="310" loading="eager" decoding="async">
+                    </li>
+                    <li class="t-trust-item">
+                        <i class="fas fa-handshake" aria-hidden="true"></i>
                         <div>
-                            <h2>サイボウズ オフィシャル<br>コンサルティングパートナー</h2>
-                            <p>有資格者の在籍や実績などの条件を満たした企業のみが認定されるパートナーです。</p>
+                            <h2>サイボウズ認定パートナー</h2>
+                            <p>有資格者の在籍・実績を満たした認定企業</p>
                         </div>
-                    </div>
-                    <div class="t-trust-item">
-                        <p class="t-trust-num">1959<small>年創業</small></p>
+                    </li>
+                    <li class="t-trust-item">
+                        <i class="fas fa-landmark" aria-hidden="true"></i>
                         <div>
-                            <h3>建設・公共分野の実績</h3>
-                            <p>建設コンサルタントとして、国・県・市町村の公共事業に携わってきました。</p>
+                            <h3>1959年創業の知見</h3>
+                            <p>国・県・市町村の公共事業に携わった実績</p>
                         </div>
-                    </div>
-                    <div class="t-trust-item">
-                        <span class="t-icon" aria-hidden="true"><i class="fas fa-handshake-angle"></i></span>
+                    </li>
+                    <li class="t-trust-item">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
                         <div>
-                            <h3>導入後も続く伴走支援</h3>
-                            <p>作って終わりにせず、運用定着・内製化まで継続して支援します。</p>
+                            <h3>導入後も継続支援</h3>
+                            <p>運用定着・内製化まで伴走します</p>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -228,48 +210,36 @@
         <section class="t-section" aria-labelledby="solve-title">
             <div class="t-container t-solve">
                 <div class="t-solve-intro">
-                    <p class="t-eyebrow">Solutions</p>
-                    <h2 class="t-h2" id="solve-title">こんな業務課題を、<br>仕組みから改善します。</h2>
-                    <p class="t-lead">日々の非効率から組織全体の業務改革まで。<br class="t-br-pc">現場の実態に合わせ、無理なく改善します。</p>
+                    <p class="t-eyebrow">Issues</p>
+                    <h2 class="t-h2" id="solve-title">こんな課題を<br>解決できます</h2>
+                    <p class="t-lead">現場でよくある業務のつまずきを、kintoneの活用と伴走支援で解決します。業種・規模を問わずご相談ください。</p>
                     <a href="private/index.html" class="t-link">kintoneでできる業務改善を見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
 
                 <div>
                     <div class="t-solve-grid">
                         <article class="t-solve-item">
-                            <div class="t-solve-top">
-                                <span class="t-icon" aria-hidden="true"><i class="fas fa-user-clock"></i></span>
-                                <h3>人手不足・生産性の低下</h3>
-                            </div>
-                            <p class="t-solve-before"><span class="t-solve-tag">いま</span>紙の申請やExcelへの転記・集計に追われ、本来注力すべき業務に手が回らない。</p>
-                            <p class="t-solve-after"><span class="t-solve-tag">導入後</span>申請・承認・集計などの定型業務が効率化し、限られた人員でも業務が回る。</p>
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-user-clock"></i></span>
+                            <h3>人手不足・生産性の低下</h3>
+                            <p>紙の申請やExcelへの転記・集計に追われ、本来の業務に手が回らない。</p>
                         </article>
 
                         <article class="t-solve-item">
-                            <div class="t-solve-top">
-                                <span class="t-icon" aria-hidden="true"><i class="fas fa-people-arrows"></i></span>
-                                <h3>業務の属人化・標準化不足</h3>
-                            </div>
-                            <p class="t-solve-before"><span class="t-solve-tag">いま</span>仕事の進め方や対応履歴が担当者ごとに異なり、休みや異動のたびに業務が滞る。</p>
-                            <p class="t-solve-after"><span class="t-solve-tag">導入後</span>業務の手順と対応履歴を共通の仕組みで管理し、担当者が変わっても業務が続く。</p>
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-people-arrows"></i></span>
+                            <h3>業務の属人化・標準化不足</h3>
+                            <p>進め方や対応履歴が担当者ごとに違い、休みや異動のたびに業務が滞る。</p>
                         </article>
 
                         <article class="t-solve-item">
-                            <div class="t-solve-top">
-                                <span class="t-icon" aria-hidden="true"><i class="fas fa-magnifying-glass-chart"></i></span>
-                                <h3>情報の分散・可視化不足</h3>
-                            </div>
-                            <p class="t-solve-before"><span class="t-solve-tag">いま</span>案件や進捗の情報がExcel・紙・メールに散らばり、組織全体の状況がつかめない。</p>
-                            <p class="t-solve-after"><span class="t-solve-tag">導入後</span>情報を一か所に集めて見える化し、進捗や課題を組織全体で把握・判断できる。</p>
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-magnifying-glass-chart"></i></span>
+                            <h3>情報の分散・可視化不足</h3>
+                            <p>案件や進捗がExcel・紙・メールに散らばり、組織全体の状況がつかめない。</p>
                         </article>
 
                         <article class="t-solve-item">
-                            <div class="t-solve-top">
-                                <span class="t-icon" aria-hidden="true"><i class="fas fa-route"></i></span>
-                                <h3>DX推進人材・ノウハウ不足</h3>
-                            </div>
-                            <p class="t-solve-before"><span class="t-solve-tag">いま</span>専門の担当者やノウハウがなく、何から改善すべきか分からないまま進まない。</p>
-                            <p class="t-solve-after"><span class="t-solve-tag">導入後</span>業務整理から導入・定着まで当社が伴走し、社内で改善を続けられる体制ができる。</p>
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-route"></i></span>
+                            <h3>DX推進人材・ノウハウ不足</h3>
+                            <p>改善したくても専門の担当者がおらず、何から始めればよいか分からない。</p>
                         </article>
                     </div>
 
