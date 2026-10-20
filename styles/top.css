@@ -994,7 +994,7 @@ body.page-top {
 
 .t-strength-inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     min-height: 720px;
 }
 
@@ -1008,13 +1008,15 @@ body.page-top {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* 人物（後ろ姿）と測量機器の両方が入る範囲 */
+    object-position: 55% 50%;
 }
 
 .t-strength-photo::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(6, 42, 79, 0) 55%, rgba(6, 42, 79, 1) 100%);
+    background: linear-gradient(90deg, rgba(6, 42, 79, 0) 80%, rgba(6, 42, 79, 1) 100%);
 }
 
 .t-strength-body {
