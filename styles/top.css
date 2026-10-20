@@ -59,6 +59,15 @@ body.page-top {
     background: var(--t-bg);
 }
 
+/* 情報量の少ないセクション（ご支援の流れ）は上下余白を詰める */
+.t-section.t-section--compact {
+    padding: 80px 0;
+}
+
+.t-section--compact .t-head {
+    margin-bottom: 40px;
+}
+
 /* ==================== 見出し ==================== */
 .t-eyebrow {
     display: inline-flex;
@@ -687,7 +696,7 @@ body.page-top {
 }
 
 .t-solve-item {
-    padding: 36px 32px 34px;
+    padding: 32px 28px 30px;
     border-right: 1px solid var(--t-line);
     border-bottom: 1px solid var(--t-line);
     background: #FFFFFF;
@@ -696,47 +705,77 @@ body.page-top {
 .t-solve-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 22px;
-}
-
-.t-solve-no {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--t-muted);
-    letter-spacing: 0.12em;
+    gap: 14px;
+    margin-bottom: 20px;
 }
 
 .t-solve-item h3 {
-    font-size: 21px;
+    font-size: 19px;
     font-weight: 700;
     color: var(--t-navy-900);
-    line-height: 1.5;
-    margin-bottom: 18px;
+    line-height: 1.45;
+}
+
+/* 「いま」→「導入後」を上下に並べ、矢印でつなぐ */
+.t-solve-before,
+.t-solve-after {
+    position: relative;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.75;
 }
 
 .t-solve-before {
-    font-size: 14px;
+    background: #F4F6F8;
     color: var(--t-muted);
-    line-height: 1.8;
-    padding-left: 14px;
-    border-left: 2px solid var(--t-line);
+}
+
+.t-solve-before::after {
+    content: '\f063';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 50%;
+    bottom: -17px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    margin-left: -13px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid var(--t-line);
+    color: var(--t-blue);
+    font-size: 11px;
 }
 
 .t-solve-after {
-    margin-top: 16px;
-    font-size: 15px;
-    color: var(--t-ink);
-    line-height: 1.8;
+    margin-top: 10px;
+    background: var(--t-blue-50);
+    border: 1px solid #D3E1F1;
+    color: var(--t-navy-900);
+    font-weight: 500;
 }
 
-.t-solve-after strong {
-    display: block;
-    font-size: 12px;
+.t-solve-tag {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-size: 11px;
     font-weight: 700;
-    color: var(--t-blue);
-    letter-spacing: 0.08em;
-    margin-bottom: 2px;
+    line-height: 20px;
+    letter-spacing: 0.06em;
+    vertical-align: 1px;
+    background: #E2E6EC;
+    color: var(--t-muted);
+}
+
+.t-solve-after .t-solve-tag {
+    background: var(--t-navy);
+    color: #FFFFFF;
 }
 
 .t-solve-more {
@@ -770,7 +809,7 @@ body.page-top {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 56px 52px 48px;
+    padding: 48px 48px 44px;
     background: #FFFFFF;
     color: var(--t-text);
     text-decoration: none;
@@ -811,7 +850,7 @@ body.page-top {
 
 .t-service-list {
     list-style: none;
-    margin: 28px 0 32px;
+    margin: 24px 0 28px;
     border-top: 1px solid var(--t-line);
 }
 
@@ -844,28 +883,67 @@ body.page-top {
     color: var(--t-yellow);
 }
 
-.t-service-foot {
+.t-service-note {
+    /* 民間・自治体とも「リスト→補足→リンク」の同じ並びにし、補足を下端に寄せて左右の高さをそろえる */
     margin-top: auto;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 14px 28px;
-}
-
-.t-service-note {
-    display: block;
-    margin-top: 22px;
+    gap: 12px;
     padding: 14px 16px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--t-bg);
+    border: 1px solid var(--t-line);
     font-size: 13px;
     line-height: 1.7;
-    color: #FFFFFF;
+    color: var(--t-ink);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .t-service-note b {
+    flex-shrink: 0;
+    padding: 1px 8px;
+    border-radius: 4px;
+    background: var(--t-navy);
+    color: #FFFFFF;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+}
+
+.t-service-note i {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: var(--t-blue);
+}
+
+.t-service-note:hover {
+    border-color: var(--t-blue);
+    color: var(--t-navy);
+}
+
+.t-service--gov .t-service-note {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+}
+
+.t-service--gov .t-service-note b {
+    background: var(--t-yellow);
+    color: var(--t-navy-900);
+}
+
+.t-service--gov .t-service-note i {
     color: var(--t-yellow);
+}
+
+.t-service--gov .t-service-note:hover {
+    border-color: var(--t-yellow);
+    color: #FFFFFF;
+}
+
+.t-service-foot {
+    margin-top: 24px;
 }
 
 /* ==================== ⑤ 強み（ネイビー） ==================== */
@@ -1448,7 +1526,7 @@ body.page-top {
 .t-field input[type="email"],
 .t-field input[type="tel"] {
     width: 100%;
-    height: 46px;
+    height: 48px;
     padding: 0 14px;
     border: 1px solid #C9D2DD;
     border-radius: 6px;
@@ -1459,6 +1537,10 @@ body.page-top {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.t-field input::placeholder {
+    color: #9AA5B4;
+}
+
 .t-field input:focus {
     outline: none;
     border-color: var(--t-blue);
@@ -1466,21 +1548,76 @@ body.page-top {
     background: #FFFFFF;
 }
 
-.t-consent {
+.t-opt {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--t-muted);
+    background: #E9EDF2;
+    border-radius: 3px;
+    padding: 0 5px;
+    vertical-align: 1px;
+}
+
+/* エラー表示（項目の直下に出す） */
+.t-error {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #C8102E;
+}
+
+.t-error:empty {
+    display: none;
+}
+
+.t-field.is-error input {
+    border-color: #C8102E;
+    background: #FFF8F8;
+}
+
+.t-field.is-error input:focus {
+    box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.15);
+}
+
+/* 同意：利用目的を先に示し、チェックは1つ（プライバシーポリシー＋利用目的） */
+.t-consent-box {
     grid-column: 1 / -1;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    margin-top: 4px;
+    padding: 14px 16px;
+    border: 1px solid var(--t-line);
+    border-radius: 8px;
+    background: var(--t-bg);
+}
+
+.t-consent-box.is-error {
+    border-color: #C8102E;
+    background: #FFF8F8;
+}
+
+.t-consent-purpose {
     font-size: 12px;
     line-height: 1.7;
-    color: var(--t-text);
+    color: var(--t-muted);
+    margin-bottom: 10px;
+}
+
+.t-consent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 32px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--t-ink);
     cursor: pointer;
 }
 
 .t-consent input {
-    width: 18px;
-    height: 18px;
-    margin-top: 2px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
     accent-color: var(--t-navy);
     cursor: pointer;
@@ -1489,6 +1626,29 @@ body.page-top {
 .t-consent a {
     color: var(--t-blue);
     text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.t-consent a i {
+    margin: 0 2px 0 4px;
+    font-size: 10px;
+}
+
+.t-req--lead {
+    margin: 0 8px 0 0;
+}
+
+.t-consent-box .t-error {
+    margin: 6px 0 0 30px;
+}
+
+.t-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
 .t-form-submit {
@@ -1499,11 +1659,36 @@ body.page-top {
     width: 100%;
 }
 
-.t-form-note {
+.t-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.t-form-done {
     grid-column: 1 / -1;
-    font-size: 12px;
-    color: var(--t-muted);
-    text-align: center;
+    display: flex;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #E7F3EC;
+    color: #1F5E3B;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.t-form-done[hidden] {
+    display: none;
+}
+
+.t-form-done i {
+    margin-top: 4px;
+    color: #1F7A4A;
+}
+
+.t-form-done a {
+    color: #1F5E3B;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 /* ==================== フッター（common.css を上書き） ==================== */
@@ -1647,6 +1832,10 @@ body.page-top {
         padding: 88px 0;
     }
 
+    .t-section.t-section--compact {
+        padding: 64px 0;
+    }
+
     .t-hero h1 {
         font-size: 44px;
     }
@@ -1778,6 +1967,14 @@ body.page-top {
     .t-section,
     .t-cta {
         padding: 64px 0;
+    }
+
+    .t-section.t-section--compact {
+        padding: 48px 0;
+    }
+
+    .t-section--compact .t-head {
+        margin-bottom: 24px;
     }
 
     .t-head {
@@ -1958,6 +2155,22 @@ body.page-top {
         font-size: 23px;
     }
 
+    /* 補足ボックスは見出しバッジを上に置き、本文の幅を確保 */
+    .t-service-note {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .t-service-note i {
+        display: none;
+    }
+
+    /* 対応エリア図はリストと内容が重複し、スマホでは文字が小さくなるため省略 */
+    .t-area-figure {
+        display: none;
+    }
+
     .t-strength-body {
         padding: 40px 20px 64px;
     }
@@ -2009,7 +2222,7 @@ body.page-top {
         display: grid;
         grid-template-columns: 52px minmax(0, 1fr);
         gap: 0 18px;
-        padding: 0 0 32px;
+        padding: 0 0 24px;
     }
 
     .t-flow li:last-child {
@@ -2034,7 +2247,7 @@ body.page-top {
         flex: 1;
         width: 2px;
         height: auto;
-        margin-bottom: -32px;
+        margin-bottom: -24px;
         background: repeating-linear-gradient(180deg, var(--t-line) 0 6px, transparent 6px 11px);
     }
 
