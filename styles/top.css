@@ -787,6 +787,25 @@ body.page-top {
     color: var(--t-text);
 }
 
+/* できること → 効果 */
+.t-solve-item .t-solve-effect {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--t-line);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--t-navy-900);
+}
+
+.t-solve-item .t-solve-effect i {
+    margin-top: 4px;
+    color: var(--t-blue);
+    font-size: 13px;
+}
+
 .t-solve-more {
     display: flex;
     align-items: center;
