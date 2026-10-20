@@ -364,8 +364,7 @@ body.page-top {
     position: relative;
     display: flex;
     align-items: center;
-    /* 画面幅が広いほどイラストが拡大されるため、高さも幅に応じて伸ばし空の部分を残す */
-    min-height: clamp(660px, 38vw, 820px);
+    min-height: 660px;
     padding: calc(var(--t-header-h) + 64px) 0 88px;
     background: #F3F7FB;
     overflow: hidden;
@@ -383,14 +382,7 @@ body.page-top {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 72% 25%;
-}
-
-/* 1440px未満は高さ基準で拡大されて左右がはみ出すため、左端を基準にしてPCの絵をボタンから離す */
-@media (max-width: 1439px) {
-    .t-hero-bg img {
-        object-position: 0% 25%;
-    }
+    object-position: 72% 60%;
 }
 
 .t-hero-bg::after {
@@ -404,7 +396,7 @@ body.page-top {
 .t-hero-hand {
     position: absolute;
     z-index: 2;
-    top: 3%;
+    top: 8%;
     right: 5%;
     font-family: 'Yomogi', 'Noto Sans JP', sans-serif;
     font-size: 30px;
