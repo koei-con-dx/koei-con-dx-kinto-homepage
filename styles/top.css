@@ -527,7 +527,7 @@ body.page-top {
 }
 
 .t-trust-row > li {
-    padding: 26px 28px;
+    padding: 24px 28px;
 }
 
 .t-trust-row > li + li {
@@ -538,8 +538,13 @@ body.page-top {
     padding-left: 0 !important;
 }
 
+/* サイボウズ パートナーロゴ
+   コーポレートロゴ使用マニュアル（2022.2.17）p.9：Web表示の最小使用サイズは縦組みロゴで幅70px。
+   本バッジ内のcybozuロゴは画像幅の約27.8%（855px中238px）のため、表示幅は252px以上が必要。
+   縦横比は画像のまま（height:auto）とし、変形・トリミングはしない。 */
 .t-trust-logo img {
-    width: 150px;
+    width: 256px;
+    max-width: none;
 }
 
 .t-trust-item {
@@ -723,9 +728,7 @@ body.page-top {
         padding-left: 0 !important;
     }
 
-    .t-trust-logo img {
-        width: 160px;
-    }
+
 }
 
 /* ==================== ③ 課題 ==================== */
@@ -1754,6 +1757,11 @@ body.page-top {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.55);
     letter-spacing: 0.1em;
+}
+
+.page-top .footer-trademark {
+    font-size: 11px;
+    opacity: 0.6;
 }
 
 .page-top .footer-nav-label ~ .footer-nav-label {
