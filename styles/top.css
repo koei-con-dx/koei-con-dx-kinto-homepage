@@ -674,14 +674,24 @@ body.page-top {
 /* ==================== ③ 課題 ==================== */
 .t-solve {
     display: grid;
-    grid-template-columns: 340px minmax(0, 1fr);
-    gap: 72px;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 64px;
     align-items: start;
 }
 
 .t-solve-intro {
     position: sticky;
     top: calc(var(--t-header-h) + 32px);
+}
+
+@media (max-width: 1199px) {
+    .t-br-pc {
+        display: none;
+    }
+}
+
+.t-solve-intro .t-h2 {
+    font-size: 32px;
 }
 
 .t-solve-intro .t-link {
