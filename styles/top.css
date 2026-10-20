@@ -385,6 +385,13 @@ body.page-top {
     object-position: 72% 60%;
 }
 
+/* 幅広の画面はイラストが拡大され上側（空）が切れるため、上寄りに表示して手書きコピーの余白を確保 */
+@media (min-width: 1500px) {
+    .t-hero-bg img {
+        object-position: 72% 28%;
+    }
+}
+
 .t-hero-bg::after {
     /* 左側の文字を読みやすくするための白いグラデーション */
     content: '';
@@ -396,14 +403,14 @@ body.page-top {
 .t-hero-hand {
     position: absolute;
     z-index: 2;
-    top: 8%;
+    top: 14px;
     right: 5%;
     font-family: 'Yomogi', 'Noto Sans JP', sans-serif;
     font-size: 30px;
-    line-height: 1.5;
+    line-height: 1.4;
     letter-spacing: 0.06em;
     color: var(--t-navy-900);
-    transform: rotate(-6deg);
+    transform: rotate(-3deg);
 }
 
 .t-hero-hand::after {
