@@ -735,7 +735,6 @@ body.page-top {
         padding-left: 0 !important;
     }
 
-
 }
 
 /* ==================== ③ 課題 ==================== */
@@ -1148,40 +1147,11 @@ body.page-top {
 }
 
 .t-case h3 {
-    margin: 6px 0 22px;
+    margin: 6px 0 20px;
     font-size: 20px;
     font-weight: 700;
     color: var(--t-navy-900);
     line-height: 1.55;
-}
-
-.t-case-dl {
-    display: grid;
-    grid-template-columns: 76px minmax(0, 1fr);
-    border-top: 1px solid var(--t-line);
-    margin-bottom: 24px;
-}
-
-.t-case-dl dt,
-.t-case-dl dd {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--t-line);
-    font-size: 14px;
-    line-height: 1.75;
-}
-
-.t-case-dl dt {
-    font-weight: 700;
-    color: var(--t-navy);
-}
-
-.t-case-dl dd {
-    color: var(--t-text);
-}
-
-.t-case-dl dd b {
-    color: var(--t-navy-900);
-    background: linear-gradient(transparent 62%, rgba(255, 203, 5, 0.55) 62%);
 }
 
 .t-case .t-link {
@@ -2094,19 +2064,6 @@ body.page-top {
 
     .t-case h3 {
         font-size: 18px;
-    }
-
-    .t-case-dl {
-        grid-template-columns: 1fr;
-    }
-
-    .t-case-dl dt {
-        padding-bottom: 0;
-        border-bottom: 0;
-    }
-
-    .t-case-dl dd {
-        padding-top: 2px;
     }
 
     /* ご支援の流れ：縦並び */
