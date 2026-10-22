@@ -521,17 +521,18 @@ body.page-top {
 }
 
 /* ==================== ② 信頼性エリア ==================== */
+/* 1行目：パートナーバナー＋説明　2行目：3つのキーワード（カード） */
 .t-trust {
     background: #FFFFFF;
-    border-bottom: 1px solid var(--t-line);
+    padding: 48px 0 56px;
 }
 
-/* 1行目：パートナーバナー（単独・中央） */
 .t-trust-badge {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 32px 0 28px;
-    border-bottom: 1px solid var(--t-line);
+    gap: 44px;
+    margin-bottom: 40px;
 }
 
 /* サイボウズ パートナーロゴ
@@ -541,50 +542,138 @@ body.page-top {
 .t-trust-badge img {
     width: 320px;
     max-width: 100%;
+    flex-shrink: 0;
 }
 
-/* 2行目：3つのキーワード */
+.t-trust-badge-text h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--t-navy-900);
+}
+
+.t-trust-badge-text p {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--t-text);
+}
+
 .t-trust-row {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: center;
-}
-
-.t-trust-row > li {
-    padding: 24px 28px;
-}
-
-.t-trust-row > li + li {
-    border-left: 1px solid var(--t-line);
+    gap: 20px;
 }
 
 .t-trust-item {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
+    padding: 26px 28px;
+    border-radius: var(--t-radius);
+    background: var(--t-bg);
 }
 
-.t-trust-item > i {
-    font-size: 26px;
+.t-trust-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: #FFFFFF;
     color: var(--t-blue);
-    width: 32px;
-    text-align: center;
+    font-size: 24px;
     flex-shrink: 0;
 }
 
-.t-trust-item h2,
 .t-trust-item h3 {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
-    color: var(--t-navy-900);
     line-height: 1.5;
+    color: var(--t-navy-900);
 }
 
 .t-trust-item p {
-    font-size: 12px;
-    color: var(--t-muted);
+    margin-top: 2px;
+    font-size: 14px;
     line-height: 1.6;
+    color: var(--t-muted);
+}
+
+@media (max-width: 1199px) {
+    .t-trust-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 22px 20px;
+    }
+
+    .t-trust-item h3 {
+        font-size: 16px;
+    }
+
+    .t-trust-item p {
+        font-size: 13px;
+    }
+
+    .t-trust-badge-text h2 {
+        font-size: 20px;
+    }
+}
+
+/* タブレット縦：カードを縦に並べ、アイコン左・文字右に */
+@media (max-width: 960px) {
+    .t-trust-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .t-trust-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 22px;
+    }
+}
+
+@media (max-width: 767px) {
+    .t-trust {
+        padding: 32px 0 40px;
+    }
+
+    .t-trust-badge {
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .t-trust-badge-text h2 {
+        font-size: 18px;
+    }
+
+    .t-trust-badge-text p {
+        font-size: 14px;
+    }
+
+    .t-trust-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .t-trust-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 18px;
+    }
+
+    .t-trust-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 1199px) {
@@ -604,20 +693,7 @@ body.page-top {
         font-size: 24px;
     }
 
-    .t-trust-row {
-        align-items: start;
-    }
-
-    .t-trust-row > li {
-        padding: 20px 12px;
-    }
-
     /* 3列のまま収めるため、アイコンを文字の上に置く */
-    .t-trust-item {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-    }
 }
 
 /* 文字と絵を重ねると読みにくい幅では、文字→イラストの縦並びにする */
@@ -716,29 +792,6 @@ body.page-top {
 
     .t-hero-caption {
         padding: 6px 16px 8px;
-    }
-
-    .t-trust-row {
-        grid-template-columns: 1fr;
-    }
-
-    .t-trust-row > li {
-        padding: 14px 0;
-        border-left: 0 !important;
-    }
-
-    .t-trust-row > li + li {
-        border-top: 1px solid var(--t-line);
-    }
-
-    .t-trust-badge {
-        padding: 24px 0 20px;
-    }
-
-    .t-trust-item {
-        flex-direction: row;
-        gap: 14px;
-        text-align: left;
     }
 
 }
