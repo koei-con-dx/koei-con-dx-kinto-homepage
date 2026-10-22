@@ -547,11 +547,11 @@ body.page-top {
 
 /* 説明文が見出しより長く伸びると右に重く見えるため、見出しの幅に合わせて折り返す */
 .t-trust-badge-text {
-    max-width: 22em;
+    max-width: 20em;
 }
 
 .t-trust-badge-text h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.5;
     color: var(--t-navy-900);
@@ -623,7 +623,7 @@ body.page-top {
     }
 
     .t-trust-badge-text h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -655,7 +655,7 @@ body.page-top {
     }
 
     .t-trust-badge-text h2 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .t-trust-badge-text p {
