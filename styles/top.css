@@ -526,10 +526,28 @@ body.page-top {
     border-bottom: 1px solid var(--t-line);
 }
 
+/* 1行目：パートナーバナー（単独・中央） */
+.t-trust-badge {
+    display: flex;
+    justify-content: center;
+    padding: 32px 0 28px;
+    border-bottom: 1px solid var(--t-line);
+}
+
+/* サイボウズ パートナーロゴ
+   表示幅は現行サイトと同じ320px（狭い画面では100%）。
+   コーポレートロゴ使用マニュアル（2022.2.17）p.9 のWeb最小使用サイズ（縦組みロゴ幅70px）は、
+   バッジ内cybozuロゴが画像幅の約27.8%のため約89pxとなり満たす。縦横比は画像のまま。 */
+.t-trust-badge img {
+    width: 320px;
+    max-width: 100%;
+}
+
+/* 2行目：3つのキーワード */
 .t-trust-row {
     list-style: none;
     display: grid;
-    grid-template-columns: auto repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
 }
 
@@ -539,19 +557,6 @@ body.page-top {
 
 .t-trust-row > li + li {
     border-left: 1px solid var(--t-line);
-}
-
-.t-trust-logo {
-    padding-left: 0 !important;
-}
-
-/* サイボウズ パートナーロゴ
-   コーポレートロゴ使用マニュアル（2022.2.17）p.9：Web表示の最小使用サイズは縦組みロゴで幅70px。
-   本バッジ内のcybozuロゴは画像幅の約27.8%（855px中238px）のため、表示幅は252px以上が必要。
-   縦横比は画像のまま（height:auto）とし、変形・トリミングはしない。 */
-.t-trust-logo img {
-    width: 256px;
-    max-width: none;
 }
 
 .t-trust-item {
@@ -600,23 +605,18 @@ body.page-top {
     }
 
     .t-trust-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
     }
 
     .t-trust-row > li {
-        padding: 20px 24px;
+        padding: 20px 12px;
     }
 
-    .t-trust-row > li:nth-child(odd) {
-        border-left: 0;
-    }
-
-    .t-trust-row > li:nth-child(n+3) {
-        border-top: 1px solid var(--t-line);
-    }
-
-    .t-trust-logo {
-        padding-left: 24px !important;
+    /* 3列のまま収めるため、アイコンを文字の上に置く */
+    .t-trust-item {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
     }
 }
 
@@ -731,8 +731,14 @@ body.page-top {
         border-top: 1px solid var(--t-line);
     }
 
-    .t-trust-logo {
-        padding-left: 0 !important;
+    .t-trust-badge {
+        padding: 24px 0 20px;
+    }
+
+    .t-trust-item {
+        flex-direction: row;
+        gap: 14px;
+        text-align: left;
     }
 
 }
