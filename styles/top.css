@@ -545,6 +545,11 @@ body.page-top {
     flex-shrink: 0;
 }
 
+/* 説明文が見出しより長く伸びると右に重く見えるため、見出しの幅に合わせて折り返す */
+.t-trust-badge-text {
+    max-width: 22em;
+}
+
 .t-trust-badge-text h2 {
     font-size: 24px;
     font-weight: 700;
