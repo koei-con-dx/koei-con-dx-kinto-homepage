@@ -1405,6 +1405,10 @@ body.page-top {
     margin-top: 72px;
 }
 
+.t-columns--solo {
+    margin-top: 0;
+}
+
 .t-columns-head {
     display: flex;
     align-items: center;
@@ -2207,6 +2211,10 @@ body.page-top {
 
     .t-columns {
         margin-top: 56px;
+    }
+
+    .t-columns--solo {
+        margin-top: 0;
     }
 
     .t-columns-head {
