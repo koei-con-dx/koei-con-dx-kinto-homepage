@@ -91,834 +91,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap&text=%E7%8F%BE%E5%A0%B4%E3%81%AE%E8%AA%B2%E9%A1%8C%E3%82%92%E3%80%81%E4%BB%95%E7%B5%84%E3%81%BF%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E3%80%82" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="styles/common.css">
-
-    <style>
-        /* ==================== トップページ固有のスタイル ==================== */
-
-        .section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--mid-blue);
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 60px;
-        }
-
-        .btn-yellow {
-            background: var(--kintone-yellow);
-            color: var(--navy);
-            box-shadow: 0 4px 15px rgba(255, 203, 5, 0.3);
-        }
-
-        .btn-yellow:hover {
-            background: #E6B800;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 203, 5, 0.4);
-        }
-
-        .btn-orange {
-            background: var(--accent-orange);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-orange:hover {
-            background: #E65A2A;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-        }
-
-        .btn-blue {
-            background: var(--mid-blue);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(0, 90, 156, 0.3);
-        }
-
-        .btn-blue:hover {
-            background: var(--navy);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 90, 156, 0.4);
-        }
-
-        /* サービスページへの導線ボタン（オレンジ） */
-        .btn-service {
-            background: var(--accent-orange);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-service:hover {
-            background: #E65A2A;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-        }
-
-        /* 資料ダウンロードボタン（イエロー） */
-        .btn-download {
-            background: var(--kintone-yellow);
-            color: var(--navy);
-            box-shadow: 0 4px 15px rgba(255, 203, 5, 0.3);
-        }
-
-        .btn-download:hover {
-            background: #E6B800;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 203, 5, 0.4);
-        }
-
-        /* ==================== ファーストビュー ==================== */
-        .hero {
-            padding-top: 140px;
-            padding-bottom: 100px;
-            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--navy);
-            line-height: 1.4;
-            margin-bottom: 30px;
-        }
-
-        .hero-lead {
-            font-size: 20px;
-            color: var(--text-gray);
-            margin-bottom: 50px;
-            line-height: 1.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .hero-buttons .btn {
-            min-width: 280px;
-        }
-
-        .hero-buttons-second {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 60px;
-        }
-        
-        .hero-buttons-second .btn {
-            min-width: 320px;
-        }
-        
-        /* ==================== 課題セクション ==================== */
-        .problems-section {
-            background: var(--white);
-        }
-        
-        .problem-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .problem-card {
-            background: var(--light-gray);
-            border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .problem-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .problem-card i {
-            font-size: 48px;
-            color: var(--mid-blue);
-            margin-bottom: 20px;
-        }
-        
-        .problem-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 15px;
-        }
-        
-        .problem-card p {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-        
-        .problem-closing {
-            text-align: center;
-            padding: 50px;
-            background: var(--pale-yellow);
-            border-radius: 12px;
-        }
-        
-        .problem-closing p {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 30px;
-        }
-        
-        /* ==================== Newsセクション ==================== */
-        .news-section {
-            background: var(--light-gray);
-        }
-        
-        .news-list {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
-        }
-        
-        .news-item {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            padding: 25px 40px;
-            border-bottom: 1px solid var(--light-gray);
-            transition: background 0.3s ease;
-        }
-        
-        .news-item:last-child {
-            border-bottom: none;
-        }
-        
-        .news-item:hover {
-            background: var(--light-gray);
-        }
-        
-        .news-date {
-            font-size: 14px;
-            color: var(--text-gray);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        
-        .news-category {
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-        
-        /* カテゴリの色は共通CSS（styles/common.css）に一本化 */
-
-        .news-title {
-            flex: 1;
-            font-size: 16px;
-            color: var(--navy);
-            font-weight: 500;
-        }
-        
-        .news-more {
-            text-align: center;
-        }
-        
-        /* ==================== お客様別サービス ==================== */
-        .services-section {
-            background: var(--white);
-        }
-        
-        .service-targets {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .service-target-card {
-            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
-            border-radius: 16px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .service-target-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-        }
-        
-        .service-target-card .icon {
-            font-size: 80px;
-            margin-bottom: 30px;
-        }
-        
-        .service-target-card h3 {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--navy);
-            margin-bottom: 30px;
-        }
-        
-        .service-target-card ul {
-            list-style: none;
-            margin-bottom: 40px;
-        }
-        
-        .service-target-card li {
-            font-size: 16px;
-            color: var(--text-gray);
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .service-target-card li::before {
-            content: '✓';
-            color: var(--mid-blue);
-            font-weight: 700;
-            font-size: 18px;
-        }
-        
-        /* ==================== 強みセクション ==================== */
-        .strengths-section {
-            background: var(--light-gray);
-        }
-        
-        .strength-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-        
-        .strength-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 35px;
-            display: flex;
-            gap: 25px;
-        }
-        
-        .strength-icon {
-            font-size: 48px;
-            color: var(--kintone-yellow);
-            flex-shrink: 0;
-        }
-        
-        .strength-content h4 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-        
-        .strength-content p {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
-        
-        /* ==================== 事例セクション ==================== */
-        .cases-section {
-            background: var(--white);
-        }
-        
-        .case-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .case-card {
-            background: var(--light-gray);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .case-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .case-industry {
-            display: inline-block;
-            background: var(--mid-blue);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .case-card h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .case-card p {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-        
-        /* ==================== コラムセクション ==================== */
-        .column-section {
-            background: var(--light-gray);
-        }
-        
-        .column-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .column-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .column-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .column-thumbnail {
-            height: 180px;
-            background: linear-gradient(135deg, var(--mid-blue) 0%, #0088CC 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 48px;
-        }
-        
-        .column-card:nth-child(2) .column-thumbnail {
-            background: linear-gradient(135deg, var(--cat-red) 0%, #FF8E8E 100%);
-        }
-        
-        .column-card:nth-child(3) .column-thumbnail {
-            background: linear-gradient(135deg, var(--cat-green) 0%, #8CE99A 100%);
-        }
-        
-        .column-content {
-            padding: 25px;
-        }
-        
-        .column-tag {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .tag-intro {
-            background: var(--kintone-yellow);
-            color: var(--navy);
-        }
-        
-        .tag-strategy {
-            background: var(--mid-blue);
-            color: var(--white);
-        }
-        
-        .tag-preparation {
-            background: var(--cat-green);
-            color: var(--white);
-        }
-        
-        .column-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--navy);
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .column-date {
-            font-size: 12px;
-            color: #999;
-        }
-        
-        /* ==================== 資料DLセクション ==================== */
-        .download-section {
-            background: linear-gradient(135deg, var(--navy) 0%, #004080 100%);
-            color: var(--white);
-        }
-        
-        .download-section .section-title {
-            color: var(--white);
-        }
-        
-        .download-section .section-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .download-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 50px;
-        }
-        
-        .download-icon {
-            text-align: center;
-            font-size: 80px;
-            color: var(--kintone-yellow);
-            margin-bottom: 30px;
-        }
-        
-        .download-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .form-group label {
-            font-weight: 700;
-            font-size: 14px;
-        }
-        
-        .form-group input,
-        .form-group select {
-            padding: 14px;
-            border-radius: 6px;
-            border: none;
-            font-size: 16px;
-            font-family: 'Noto Sans JP', sans-serif;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: 2px solid var(--kintone-yellow);
-        }
-        
-        .form-submit {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        /* ==================== クロージング ==================== */
-        .closing-section {
-            background: var(--light-gray);
-            text-align: center;
-        }
-        
-        .closing-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        /* ==================== レスポンシブ ==================== */
-        @media (max-width: 1024px) {
-            .problem-cards,
-            .case-cards,
-            .column-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .service-targets {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-subtitle {
-                font-size: 13px;
-                margin-top: -5px !important;
-                margin-bottom: 25px !important;
-            }
-
-            /* ヒーロー */
-            .hero {
-                padding-top: 100px;
-                padding-bottom: 50px;
-            }
-
-            .hero h1 {
-                font-size: 22px;
-                line-height: 1.5;
-                margin-bottom: 15px;
-            }
-
-            .hero-lead {
-                font-size: 13px;
-                margin-bottom: 25px;
-                line-height: 1.7;
-            }
-
-            .hero-buttons {
-                gap: 10px;
-            }
-
-            .hero-buttons .btn {
-                min-width: auto;
-                width: 100%;
-                padding: 14px 20px;
-                font-size: 14px;
-            }
-
-            /* 資料DLボタンはモバイルで非表示 */
-            .hero-buttons-second {
-                display: none;
-            }
-
-            /* News: 縦並びでコンパクトに */
-            .news-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
-                padding: 12px 16px;
-            }
-
-            .news-date {
-                font-size: 12px;
-            }
-
-            .news-category {
-                font-size: 10px;
-                padding: 2px 8px;
-            }
-
-            .news-title {
-                font-size: 13px;
-                line-height: 1.5;
-            }
-
-            /* お客様別サービス: 2ボタン横並び */
-            .service-targets {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 12px;
-            }
-
-            .service-target-card {
-                padding: 20px 12px;
-                text-align: center;
-            }
-
-            .service-target-card .icon {
-                font-size: 30px;
-            }
-
-            .service-target-card h3 {
-                font-size: 16px;
-            }
-
-            .service-target-card ul {
-                display: none;
-            }
-
-            .service-target-card .btn {
-                font-size: 13px;
-                padding: 10px 16px;
-            }
-
-            /* 強み */
-            .strength-cards {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .strength-card {
-                padding: 15px;
-            }
-
-            .strength-icon i {
-                font-size: 24px;
-            }
-
-            .strength-content h4 {
-                font-size: 15px;
-            }
-
-            .strength-content p {
-                font-size: 12px;
-            }
-
-            /* 課題カード */
-            .problem-card {
-                padding: 20px;
-            }
-
-            .problem-card i {
-                font-size: 28px;
-                margin-bottom: 10px;
-            }
-
-            .problem-card h3 {
-                font-size: 14px;
-            }
-
-            .problem-card p {
-                font-size: 12px;
-            }
-
-            /* 事例・コラム */
-            .column-thumbnail {
-                height: 100px;
-            }
-
-            .column-thumbnail i {
-                font-size: 28px;
-            }
-
-            .column-content {
-                padding: 15px;
-            }
-
-            .column-title {
-                font-size: 13px;
-            }
-
-            /* 資料DL */
-            .download-icon {
-                font-size: 48px;
-                margin-bottom: 15px;
-            }
-
-            .download-container {
-                padding: 25px 16px;
-            }
-        }
-
-        /* ==================== 対応エリア・サポート体制 ==================== */
-        .area-support-section {
-            background: var(--white);
-        }
-
-        .area-support-lead {
-            max-width: 820px;
-            margin: 0 auto 50px;
-        }
-
-        .area-support-lead p {
-            font-size: 16px;
-            color: var(--text-gray);
-            line-height: 1.9;
-            margin-bottom: 16px;
-        }
-
-        .area-support-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .area-support-card {
-            background: var(--light-gray);
-            border-radius: 12px;
-            padding: 35px 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-            border-top: 4px solid var(--kintone-yellow);
-        }
-
-        .area-support-icon {
-            font-size: 36px;
-            color: var(--mid-blue);
-            margin-bottom: 18px;
-        }
-
-        .area-support-card h3 {
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--navy);
-            line-height: 1.6;
-            margin-bottom: 14px;
-        }
-
-        .area-support-card p {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.85;
-        }
-
-        @media (max-width: 1024px) {
-            .area-support-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ヒーロー：ターゲット明示ラベル */
-        .hero-eyebrow {
-            display: inline-block;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--accent-orange);
-            margin-bottom: 16px;
-            letter-spacing: 0.02em;
-        }
-
-        @media (max-width: 768px) {
-            .hero-eyebrow {
-                font-size: 13px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/top.css?v=20261023b">
+    <link rel="preload" as="image" href="images/top/hero-scene.svg" fetchpriority="high">
 </head>
-<body>
+<body class="page-top">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K52VMKP7"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <!-- ==================== ヘッダー ==================== -->
     <header class="header">
         <div class="header-container">
             <div class="logo">
-                <a href="/" class="logo-link" aria-label="株式会社興栄コンサルタント">
-                    <img src="images/ロゴ_color_文字下.png" alt="興栄コンサルタント" class="logo-image" loading="eager" fetchpriority="high" decoding="async">
-                    <span class="logo-text">株式会社興栄コンサルタント</span>
+                <a href="/" class="logo-link" aria-label="株式会社興栄コンサルタント トップページ">
+                    <img src="images/ロゴ_color_文字横.png" alt="興栄コンサルタント" class="logo-image" width="792" height="227" loading="eager" decoding="async">
+                    <span class="logo-text">株式会社興栄コンサルタント<small>サイボウズ オフィシャルパートナー</small></span>
                 </a>
-                <span class="logo-badge">サイボウズオフィシャルパートナー</span>
             </div>
-            
-            <nav class="nav" aria-label="メインナビゲーション">
+
+            <nav class="nav" id="global-nav" aria-label="メインナビゲーション">
                 <ul class="nav-menu">
                     <li class="has-dropdown">
-                        <a href="#" class="nav-link">サービス内容 <i class="fas fa-chevron-down"></i></a>
+                        <a href="#services" class="nav-link">サービス内容 <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="private/index.html">民間企業様向け</a></li>
                             <li><a href="construction/index.html" class="dropdown-sub"><span aria-hidden="true">└ </span>建設業向け</a></li>
@@ -930,417 +131,490 @@
                     <li><a href="events/index.html" class="nav-link">イベント</a></li>
                     <li><a href="company/index.html" class="nav-link">会社概要</a></li>
                 </ul>
-                
+
                 <div class="nav-buttons">
-                    <a href="#download" class="btn btn-secondary btn-header">資料DL</a>
-                    <a href="contact/index.html" class="btn btn-contact btn-header">お問い合わせ</a>
+                    <a href="#download" class="t-btn t-btn--dl t-btn--sm"><i class="fas fa-download" aria-hidden="true"></i>資料DL</a>
+                    <a href="contact/index.html" class="t-btn t-btn--primary t-btn--sm"><i class="fas fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
                 </div>
             </nav>
-            
-            <div class="hamburger" aria-label="メニューを開く">
+
+            <button type="button" class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="global-nav">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
-    
-    <!-- ==================== ファーストビュー ==================== -->
-    <section class="hero">
-        <div class="container">
-            <p class="hero-eyebrow">建設業・不動産業などの中小企業から、地方自治体まで</p>
-            <h1>現場で本当に使える<br>kintone伴走支援</h1>
-            <p class="hero-lead">
-                <strong>―現場に寄り添う、無理のないDX―</strong><br>
-                愛知（名古屋）・岐阜は現場に伺い、遠方は全国オンラインで。kintone導入から内製化まで伴走。<br>
-                <strong>サイボウズ オフィシャルパートナー</strong>として、業務改善から内製化までワンストップで伴走します。
-            </p>
-            
-            <div class="hero-buttons">
-                <a href="private/index.html" class="btn btn-service btn-large">🏢 民間企業様向けサービス</a>
-                <a href="public/index.html" class="btn btn-service btn-large">🏛️ 自治体様向けサービス</a>
+
+    <main>
+        <!-- ==================== ファーストビュー ==================== -->
+        <section class="t-hero" aria-labelledby="hero-title">
+            <div class="t-hero-bg" aria-hidden="true">
+                <img src="images/top/hero-scene.svg" alt="" width="1600" height="700" loading="eager" fetchpriority="high" decoding="async">
+                <p class="t-hero-hand">現場の課題を、<br>仕組みで解決する。</p>
             </div>
-            <div class="hero-buttons-second">
-                <a href="#download" class="btn btn-download btn-large">📄 資料ダウンロード（無料）</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==================== パートナー認定 ==================== -->
-    <section class="section partner-section visible" style="background: var(--white); padding: 60px 0;">
-        <div class="container" style="text-align: center; max-width: 800px;">
-            <img src="images/partner_consul_yoko.png" alt="サイボウズオフィシャルコンサルティングパートナー" style="max-width: 320px; width: 100%; margin-bottom: 24px;" loading="eager" fetchpriority="high" decoding="async">
-            <h2 style="font-size: 22px; font-weight: 900; color: var(--navy); margin-bottom: 16px;">当社は "サイボウズオフィシャルコンサルティングパートナー" です</h2>
-            <p style="font-size: 15px; color: var(--text-gray); line-height: 1.8; margin: 0; text-align: left;">興栄コンサルタントは、有資格者の在籍や実績などの条件を満たした企業のみが認定される「サイボウズオフィシャルコンサルティングパートナー」です。確かな技術とノウハウで、kintoneの導入から活用まで、責任を持って支援します。</p>
-        </div>
-    </section>
+            <div class="t-container t-hero-inner">
+                <div class="t-hero-text">
+                    <p class="t-hero-target">建設・不動産・製造業などの中小企業から、自治体まで</p>
+                    <h1 id="hero-title">現場で本当に使える<br><span class="t-hero-mark">kintone</span>伴走支援</h1>
+                    <p class="t-hero-lead">業務改善から内製化まで。<br>現場理解を強みに、導入・定着を支援します。</p>
 
-    <!-- ==================== こんな課題を解決できます ==================== -->
-    <section class="section problems-section visible">
-        <div class="container">
-            <h2 class="section-title">こんな課題を解決できます</h2>
-            
-            <div class="problem-cards">
-                <article class="problem-card">
-                    <i class="fas fa-handshake" aria-hidden="true"></i>
-                    <h3>顧客・営業管理</h3>
-                    <p>顧客情報や商談の進捗が個人管理で、担当者が不在になると途端に動けなくなる。</p>
-                </article>
+                    <div class="t-hero-ctas">
+                        <a href="#download" class="t-btn t-btn--dl"><i class="fas fa-download" aria-hidden="true"></i>資料をダウンロード（無料）<i class="fas fa-arrow-right t-btn-arrow" aria-hidden="true"></i></a>
+                        <a href="contact/index.html" class="t-btn t-btn--primary">まずは相談してみる<i class="fas fa-arrow-right t-btn-arrow" aria-hidden="true"></i></a>
+                    </div>
 
-                <article class="problem-card">
-                    <i class="fas fa-file-excel" aria-hidden="true"></i>
-                    <h3>業務データの一元化</h3>
-                    <p>ファイルが部署ごとに乱立し、転記ミスや二重入力が日常的に発生している。</p>
-                </article>
-
-                <article class="problem-card">
-                    <i class="fas fa-clipboard-check" aria-hidden="true"></i>
-                    <h3>申請・承認のデジタル化</h3>
-                    <p>稟議や報告書をメールで回覧し、誰が承認済みか確認するだけで時間がかかる。</p>
-                </article>
-
-                <article class="problem-card">
-                    <i class="fas fa-users" aria-hidden="true"></i>
-                    <h3>人材・採用管理</h3>
-                    <p>応募者の状況や社員のスキルが一覧で見えず、適切な配置や育成の判断が難しい。</p>
-                </article>
-
-                <article class="problem-card">
-                    <i class="fas fa-tasks" aria-hidden="true"></i>
-                    <h3>案件・進捗管理</h3>
-                    <p>誰が何をいつまでにやるかが共有されておらず、遅延の発見が常に後手に回る。</p>
-                </article>
-
-                <article class="problem-card">
-                    <i class="fas fa-robot" aria-hidden="true"></i>
-                    <h3>データ活用・AI連携</h3>
-                    <p>AIに頼みたい業務はあるのに、情報がバラバラでAIが使える状態になっていない。</p>
-                </article>
-
-                <article class="problem-card">
-                    <i class="fas fa-user-slash" aria-hidden="true"></i>
-                    <h3>専任のIT担当者がいない</h3>
-                    <p>社内にシステムに詳しい人がおらず、「導入しても誰が管理・運用するのか」が不安で一歩を踏み出せない。</p>
-                </article>
-
-                <article class="problem-card">
-                    <i class="fas fa-piggy-bank" aria-hidden="true"></i>
-                    <h3>スモールスタートで始めたい</h3>
-                    <p>限られた予算でいきなり大きく投資するのは不安。まずは小さく始めて、予算を抑えながら段階的にDXを進めたい。</p>
-                </article>
-            </div>
-            
-        </div>
-    </section>
-    
-    <!-- ==================== News（新着情報） ==================== -->
-    <section class="section news-section visible">
-        <div class="container">
-            <h2 class="section-title">News（新着情報）</h2>
-            
-            <div class="news-list">
-                <div class="news-item" onclick="location.href='column/excel-inventory-template/index.html'" style="cursor: pointer;">
-                    <span class="news-date">2026.10.02</span>
-                    <span class="news-category column">コラム</span>
-                    <span class="news-title">「在庫管理表のエクセルテンプレート【無料配布】見やすい作り方と限界の見極め方」を新たに公開しました</span>
-                </div>
-
-                <div class="news-item" onclick="location.href='news/nagoya-heavy-rain-support/index.html'" style="cursor: pointer;">
-                    <span class="news-date">2026.09.08</span>
-                    <span class="news-category info">お知らせ</span>
-                    <span class="news-title">愛知県社会福祉協議会の要請により名古屋豪雨被害の災害ボランティアセンター運営支援システムを構築しました</span>
-                </div>
-
-                <div class="news-item" onclick="location.href='news/hakui-himi-flood-support/index.html'" style="cursor: pointer;">
-                    <span class="news-date">2026.09.06</span>
-                    <span class="news-category info">お知らせ</span>
-                    <span class="news-title">羽咋市と氷見市で水害の支援活動を行いました</span>
-                </div>
-
-                <div class="news-item" onclick="location.href='events/social-welfare-seminar-2026-08/index.html'" style="cursor: pointer;">
-                    <span class="news-date">2026.08.26</span>
-                    <span class="news-category report">レポート</span>
-                    <span class="news-title">先進社協に学ぶ、通常業務をラクにするkintone超活用術セミナーを開催しました</span>
-                </div>
-
-                <div class="news-item" onclick="location.href='events/social-welfare-2026-10/index.html'" style="cursor: pointer;">
-                    <span class="news-date">2026.08.24</span>
-                    <span class="news-category event">イベント</span>
-                    <span class="news-title">第2回 社協限定 kintoneユーザー交流会の参加者を募集します</span>
-                </div>
-            </div>
-            
-            <div class="news-more">
-                <a href="news/index.html" class="btn btn-secondary">News一覧を見る</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ==================== お客様別サービス ==================== -->
-    <section class="section services-section visible" id="services">
-        <div class="container">
-            <h2 class="section-title">お客様別サービス</h2>
-            <p class="section-subtitle">お客様の業種・規模に応じた最適なサービスをご提供します</p>
-            
-            <div class="service-targets">
-                <article class="service-target-card">
-                    <div class="icon">🏢</div>
-                    <h3>民間企業様向け</h3>
-                    <ul>
-                        <li>業務効率化</li>
-                        <li>DX推進</li>
-                        <li>情報共有の改善</li>
-                        <li>利益向上</li>
+                    <ul class="t-hero-note">
+                        <li><i class="fas fa-location-dot" aria-hidden="true"></i>愛知（名古屋）・岐阜は現場へ訪問</li>
+                        <li><i class="fas fa-video" aria-hidden="true"></i>その他の地域は全国オンライン対応</li>
                     </ul>
-                    <a href="private/index.html" class="btn btn-service btn-large">詳しく見る</a>
-                </article>
-                
-                <article class="service-target-card">
-                    <div class="icon">🏛️</div>
-                    <h3>自治体様向け</h3>
-                    <ul>
-                        <li>住民サービス向上</li>
-                        <li>職員の働き方改革</li>
-                        <li>ペーパーレス化</li>
-                        <li>LGWAN対応</li>
+                </div>
+            </div>
+            <p class="t-hero-caption">※ イラスト内の画面はイメージです</p>
+        </section>
+
+        <!-- ==================== 信頼性 ==================== -->
+        <section class="t-trust" aria-labelledby="trust-title">
+            <div class="t-container">
+                <div class="t-trust-badge">
+                    <img src="images/partner_consul_yoko.png" alt="サイボウズ オフィシャル コンサルティングパートナー" width="855" height="310" loading="eager" decoding="async">
+                    <div class="t-trust-badge-text">
+                        <h2 id="trust-title">当社はサイボウズ オフィシャル<br>コンサルティングパートナーです</h2>
+                        <p>確かな技術とノウハウで、kintoneの導入から活用まで責任を持って支援します。</p>
+                    </div>
+                </div>
+                <ul class="t-trust-row">
+                    <li class="t-trust-item">
+                        <span class="t-trust-icon" aria-hidden="true"><i class="fas fa-handshake"></i></span>
+                        <div>
+                            <h3>サイボウズ認定パートナー</h3>
+                            <p>有資格者の在籍・実績で認定</p>
+                        </div>
+                    </li>
+                    <li class="t-trust-item">
+                        <span class="t-trust-icon" aria-hidden="true"><i class="fas fa-landmark"></i></span>
+                        <div>
+                            <h3>1959年創業の知見</h3>
+                            <p>公共事業に携わってきた実績</p>
+                        </div>
+                    </li>
+                    <li class="t-trust-item">
+                        <span class="t-trust-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+                        <div>
+                            <h3>導入後も継続支援</h3>
+                            <p>運用定着・内製化まで伴走</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== News（新着情報） ==================== -->
+        <section class="t-section t-section--tint t-section--compact" aria-labelledby="news-title">
+            <div class="t-container">
+                <div class="t-news">
+                    <div class="t-news-side">
+                        <p class="t-eyebrow">News</p>
+                        <h2 class="t-h2" id="news-title">新着情報</h2>
+                        <a href="news/index.html" class="t-link">News一覧を見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+
+                    <ul class="t-news-list">
+                        <li>
+                            <a href="column/excel-inventory-template/index.html">
+                                <time datetime="2026-10-02">2026.10.02</time>
+                                <span class="t-news-cat t-news-cat--column">コラム</span>
+                                <span class="t-news-title">「在庫管理表のエクセルテンプレート【無料配布】見やすい作り方と限界の見極め方」を新たに公開しました</span>
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="news/nagoya-heavy-rain-support/index.html">
+                                <time datetime="2026-09-08">2026.09.08</time>
+                                <span class="t-news-cat t-news-cat--info">お知らせ</span>
+                                <span class="t-news-title">愛知県社会福祉協議会の要請により名古屋豪雨被害の災害ボランティアセンター運営支援システムを構築しました</span>
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="news/hakui-himi-flood-support/index.html">
+                                <time datetime="2026-09-06">2026.09.06</time>
+                                <span class="t-news-cat t-news-cat--info">お知らせ</span>
+                                <span class="t-news-title">羽咋市と氷見市で水害の支援活動を行いました</span>
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="events/social-welfare-seminar-2026-08/index.html">
+                                <time datetime="2026-08-26">2026.08.26</time>
+                                <span class="t-news-cat t-news-cat--report">レポート</span>
+                                <span class="t-news-title">先進社協に学ぶ、通常業務をラクにするkintone超活用術セミナーを開催しました</span>
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="events/social-welfare-2026-10/index.html">
+                                <time datetime="2026-08-24">2026.08.24</time>
+                                <span class="t-news-cat t-news-cat--event">イベント</span>
+                                <span class="t-news-title">第2回 社協限定 kintoneユーザー交流会の参加者を募集します</span>
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
                     </ul>
-                    <a href="public/index.html" class="btn btn-service btn-large">詳しく見る</a>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ==================== 私たちの強み ==================== -->
-    <section class="section strengths-section visible">
-        <div class="container">
-            <h2 class="section-title">私たちの強み</h2>
-            
-            <div class="strength-cards">
-                <article class="strength-card">
-                    <div class="strength-icon"><i class="fas fa-certificate"></i></div>
-                    <div class="strength-content">
-                        <h4>kintone公式パートナー</h4>
-                        <p>cybozu公式のkintoneエバンジェリスト・パートナー認定を取得。最新情報とノウハウに基づいた支援を提供します。</p>
-                    </div>
-                </article>
-                
-                <article class="strength-card">
-                    <div class="strength-icon"><i class="fas fa-landmark"></i></div>
-                    <div class="strength-content">
-                        <h4>公共事業50年 × kintone専門性</h4>
-                        <p>1959年創業の建設コンサルタントとして、国・自治体との長年の協業実績。行政業務の理解とkintone専門性を併せ持ちます。</p>
-                    </div>
-                </article>
-                
-                <article class="strength-card">
-                    <div class="strength-icon"><i class="fas fa-handshake"></i></div>
-                    <div class="strength-content">
-                        <h4>現場視点のコンサルティング</h4>
-                        <p>机上の理論ではなく、現場の実態を踏まえた要件定義と設計を重視。実際に運用できるシステム構築を支援します。</p>
-                    </div>
-                </article>
-                
-                <article class="strength-card">
-                    <div class="strength-icon"><i class="fas fa-route"></i></div>
-                    <div class="strength-content">
-                        <h4>導入後の継続支援</h4>
-                        <p>システム導入後の運用定着まで継続的に支援。改善要望への対応や追加開発にも柔軟に対応します。</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== 対応エリア・サポート体制 ==================== -->
-    <section class="section area-support-section visible">
-        <div class="container">
-            <h2 class="section-title">対応エリア・サポート体制</h2>
-            <p class="section-subtitle">東海圏は&ldquo;直接訪問&rdquo;、遠方は&ldquo;全国オンライン&rdquo;。どちらも、伴走します。</p>
-
-            <div class="area-support-lead">
-                <p>私たちの強みは、導入して終わりにしない<strong>&ldquo;伴走支援&rdquo;</strong>です。</p>
-                <p>そのうえで、<strong>愛知（名古屋市を含む）・岐阜をはじめとする東海圏</strong>のお客様には、できる限り現場へ直接お伺いします。実際の帳票や業務の流れ、現場の空気は、画面越しだけでは見えないからです。</p>
-                <p>もちろん、<strong>遠方のお客様にはオンラインで全国どこでも</strong>、同じ品質の伴走をご提供します。距離に関わらず、御社に本当にフィットするkintoneを一緒に育てます。</p>
-            </div>
-
-            <div class="area-support-cards">
-                <div class="area-support-card">
-                    <div class="area-support-icon"><i class="fas fa-car"></i></div>
-                    <h3>【愛知（名古屋）・岐阜・東海圏】現場に、直接伺います。</h3>
-                    <p>帳票や作業の流れを実際に拝見し、対面で&ldquo;現場で使える&rdquo;kintoneに落とし込みます。ITが苦手な現場でも、その場で質問できるから安心です。</p>
-                </div>
-                <div class="area-support-card">
-                    <div class="area-support-icon"><i class="fas fa-video"></i></div>
-                    <h3>【その他の地域】オンラインで、全国どこでも。</h3>
-                    <p>Web会議と画面共有で、東海圏と変わらない品質の導入・活用支援を提供します。距離があっても、伴走の手は緩めません。</p>
-                </div>
-                <div class="area-support-card">
-                    <div class="area-support-icon"><i class="fas fa-seedling"></i></div>
-                    <h3>【全エリア共通】作って終わりにしない。</h3>
-                    <p>内製化・定着まで長く並走し、「自分たちで回せる」状態を一緒に目指します。</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== 導入事例（抜粋） ==================== -->
-    <section class="section cases-section visible">
-        <div class="container">
-            <h2 class="section-title">導入事例</h2>
-
-            <div class="case-cards" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto 50px;">
-                <a href="cases/kasugai/index.html" class="case-card" style="text-decoration: none; display: block;">
-                    <div style="margin-bottom: 16px;">
-                        <img src="cases/kasugai/photo4.jpg" alt="春日井市社会福祉協議会" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px;" loading="eager" fetchpriority="high" decoding="async">
-                    </div>
-                    <p style="font-size: 13px; color: var(--text-gray); margin-bottom: 4px;">愛知県春日井市</p>
-                    <p style="font-size: 16px; font-weight: 900; color: var(--navy); margin-bottom: 8px; line-height: 1.5;">春日井市社会福祉協議会</p>
-                    <p style="font-size: 14px; color: var(--text-gray); line-height: 1.7;">Excel管理の限界を突破。kintone導入で事務作業時間を半減</p>
-                </a>
-                <a href="cases/inuyama/index.html" class="case-card" style="text-decoration: none; display: block;">
-                    <div style="margin-bottom: 16px;">
-                        <img src="cases/inuyama/photo4.jpg" alt="犬山市社会福祉協議会" style="width: 100%; height: 160px; object-fit: cover; object-position: center 20%; border-radius: 8px;" loading="eager" fetchpriority="high" decoding="async">
-                    </div>
-                    <p style="font-size: 13px; color: var(--text-gray); margin-bottom: 4px;">愛知県犬山市</p>
-                    <p style="font-size: 16px; font-weight: 900; color: var(--navy); margin-bottom: 8px; line-height: 1.5;">犬山市社会福祉協議会</p>
-                    <p style="font-size: 14px; color: var(--text-gray); line-height: 1.7;">脱Excelとペーパーレスで実現する「情報の見える化」と「地域福祉の深化」</p>
-                </a>
-            </div>
-            <div style="text-align: center;">
-                <a href="cases/index.html" class="btn btn-secondary">導入事例一覧を見る</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ==================== コラム（最新3件） ==================== -->
-    <section class="section column-section visible">
-        <div class="container">
-            <h2 class="section-title">コラム</h2>
-            <p class="section-subtitle">kintone活用・業務改善のヒントをお届けします</p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto 50px;">
-
-                <!-- 業務改善 -->
-                <a href="column/kintone-business-improvement/index.html" style="text-decoration: none; display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
-                    <div style="height: 160px; overflow: hidden;">
-                        <img src="images/column/column-business-improvement.png" alt="kintoneを使った業務改善を解説" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="eager" fetchpriority="high" decoding="async">
-                    </div>
-                    <div style="padding: 24px;">
-                        <span style="display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--kintone-yellow); color: var(--navy); margin-bottom: 12px;">kintone入門</span>
-                        <p style="font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 8px;">kintone（キントーン）を使った業務改善を解説</p>
-                        <p style="font-size: 12px; color: #999;">2026.06.17</p>
-                    </div>
-                </a>
-
-                <!-- 承認フロー -->
-                <a href="column/kintone-approval-flow/index.html" style="text-decoration: none; display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
-                    <div style="height: 160px; overflow: hidden;">
-                        <img src="images/column/column-approval-flow.png" alt="kintoneの承認フローとは？" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="eager" fetchpriority="high" decoding="async">
-                    </div>
-                    <div style="padding: 24px;">
-                        <span style="display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--kintone-yellow); color: var(--navy); margin-bottom: 12px;">kintone入門</span>
-                        <p style="font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 8px;">kintone（キントーン）の承認フローとは？申請を順番に確認できる機能を解説</p>
-                        <p style="font-size: 12px; color: #999;">2026.05.14</p>
-                    </div>
-                </a>
-
-                <!-- スペース機能 -->
-                <a href="column/kintone-space/index.html" style="text-decoration: none; display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
-                    <div style="height: 160px; overflow: hidden;">
-                        <img src="images/column/column-space.png" alt="kintoneのスペース機能" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="eager" fetchpriority="high" decoding="async">
-                    </div>
-                    <div style="padding: 24px;">
-                        <span style="display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--kintone-yellow); color: var(--navy); margin-bottom: 12px;">kintone入門</span>
-                        <p style="font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 8px;">kintone（キントーン）のスペース機能とは？部署ごとにコミュニティを作れる便利機能を解説</p>
-                        <p style="font-size: 12px; color: #999;">2026.05.14</p>
-                    </div>
-                </a>
-
-            </div>
-            <div style="text-align: center;">
-                <a href="column/index.html" class="btn btn-secondary">コラム一覧を見る</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ==================== 資料ダウンロード ==================== -->
-    <section class="section download-section visible" id="download">
-        <div class="container">
-            <h2 class="section-title">資料ダウンロード</h2>
-            <p class="section-subtitle">サービスについての資料を無料でダウンロードいただけます</p>
-            
-            <div class="download-container">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
+        <!-- ==================== こんな課題を解決できます ==================== -->
+        <section class="t-section" aria-labelledby="solve-title">
+            <div class="t-container t-solve">
+                <div class="t-solve-intro">
+                    <p class="t-eyebrow">Solutions</p>
+                    <h2 class="t-h2" id="solve-title">kintoneでできる<br>業務改善</h2>
+                    <p class="t-lead">顧客管理から申請・承認、データ活用まで。御社の業務に合わせてアプリを設計・構築し、現場で使える仕組みにします。</p>
+                    <a href="private/index.html" class="t-link">サービス内容を詳しく見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
 
-                <h3 style="font-size: 22px; margin-bottom: 12px; color: var(--white); text-align: center;">kintone導入支援サービス カタログ</h3>
-                <p style="font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; text-align: center;">サービス内容・料金プラン・導入の流れをまとめた資料です</p>
+                <div>
+                    <div class="t-solve-grid">
+                        <article class="t-solve-item">
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-address-book"></i></span>
+                            <h3>顧客・案件管理</h3>
+                            <p>顧客情報や案件の進捗、対応履歴をひとつのアプリで管理。</p>
+                            <p class="t-solve-effect"><i class="fas fa-circle-check" aria-hidden="true"></i>担当者が不在でも状況がわかる</p>
+                        </article>
 
-                <form class="download-form" id="downloadForm" name="catalog-download" novalidate>
-                    <div class="form-group">
-                        <label for="dl-name">お名前 <span style="color: var(--accent-orange);">*</span></label>
-                        <input type="text" id="dl-name" name="name" required>
+                        <article class="t-solve-item">
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-file-signature"></i></span>
+                            <h3>申請・承認のデジタル化</h3>
+                            <p>稟議・経費などの申請から承認まで、スマホでも完結。</p>
+                            <p class="t-solve-effect"><i class="fas fa-circle-check" aria-hidden="true"></i>紙の回覧が不要、状況も一目でわかる</p>
+                        </article>
+
+                        <article class="t-solve-item">
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-database"></i></span>
+                            <h3>業務データの一元化</h3>
+                            <p>部署ごとのExcelや紙の台帳を集約し、全員で共有。</p>
+                            <p class="t-solve-effect"><i class="fas fa-circle-check" aria-hidden="true"></i>転記・二重入力が減り、情報が常に最新</p>
+                        </article>
+
+                        <article class="t-solve-item">
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+                            <h3>データ活用・AI連携</h3>
+                            <p>蓄積したデータをグラフ化し、AIでの要約・分析にも活用。</p>
+                            <p class="t-solve-effect"><i class="fas fa-circle-check" aria-hidden="true"></i>集計の手間が減り、判断が早くなる</p>
+                        </article>
                     </div>
 
-                    <div class="form-group">
-                        <label for="dl-company">企業名 <span style="color: var(--accent-orange);">*</span></label>
-                        <input type="text" id="dl-company" name="company" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dl-department">部署名</label>
-                        <input type="text" id="dl-department" name="department">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dl-email">メールアドレス <span style="color: var(--accent-orange);">*</span></label>
-                        <input type="email" id="dl-email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dl-phone">電話番号</label>
-                        <input type="tel" id="dl-phone" name="phone">
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 24px;">
-                        <label for="dl-consent" style="display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.7; cursor: pointer; font-weight: 400;">
-                            <input type="checkbox" id="dl-consent" name="consent" required style="margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;">
-                            <span><a href="privacy/index.html" target="_blank" rel="noopener" style="color: var(--kintone-yellow); text-decoration: underline;">プライバシーポリシー</a>に同意のうえ、いただいた情報を資料のご提供および当社サービス・セミナー等のご案内に利用することに同意します。<span style="color: var(--accent-orange);">*</span></span>
-                        </label>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-yellow btn-large">📥 資料をダウンロード（無料）</button>
-                    </div>
-
-                    <p style="font-size: 12px; text-align: center; margin-top: 20px; opacity: 0.8;">
-                        PDF形式 ｜ 必須項目を入力後、すぐにダウンロードできます
+                    <p class="t-solve-more">
+                        <i class="fas fa-handshake-angle" aria-hidden="true"></i>
+                        <span><strong>「IT担当者がいない」「何から改善すべきか分からない」</strong>場合もご安心ください。業務の整理から導入・定着・内製化まで、当社が伴走します。</span>
                     </p>
-                </form>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- ==================== クロージング ==================== -->
-    <section class="section closing-section visible">
-        <div class="container">
-            <h2 class="section-title">まずはお気軽にご相談ください</h2>
-            <p class="section-subtitle" style="color: var(--text-gray);">
-                業務課題のヒアリングから、最適なプランのご提案まで、無料でご相談を承ります。
-            </p>
+        </section>
 
-            <p style="font-size: 15px; color: var(--navy); font-weight: 700; line-height: 1.7; margin-bottom: 24px;">
-                まずは「話を聞くだけ」でもOK。愛知（名古屋）・岐阜エリアなら、直接お伺いしてご相談に乗ります。
-            </p>
+        <!-- ==================== お客様別サービス ==================== -->
+        <section class="t-section t-section--tint" id="services" aria-labelledby="services-title">
+            <div class="t-container">
+                <div class="t-head t-head--center">
+                    <p class="t-eyebrow">Services</p>
+                    <h2 class="t-h2" id="services-title">お客様別サービス</h2>
+                    <p class="t-lead">業種・組織の特性に合わせて、支援内容をご用意しています。</p>
+                </div>
 
-            <div class="closing-buttons">
-                <a href="contact/index.html" class="btn btn-contact btn-large">お問い合わせ</a>
-                <a href="#download" class="btn btn-download btn-large">資料ダウンロード</a>
+                <div class="t-services">
+                    <div class="t-service">
+                        <span class="t-service-label">For Business</span>
+                        <h3>民間企業様向け</h3>
+                        <p class="t-service-target">建設・不動産・製造業などの中小企業さまへ。Excelと紙でバラバラな業務を、kintoneでひとつにまとめます。</p>
+                        <ul class="t-service-list">
+                            <li><i class="fas fa-check" aria-hidden="true"></i>顧客・案件管理、申請・承認、集計の自動化</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i>いまのExcel・業務を拝見し、改善の優先順位を整理</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i>IT担当者がいなくても、内製化まで伴走</li>
+                        </ul>
+                        <a href="construction/index.html" class="t-service-note"><b>建設業の方へ</b>工事台帳・原価・現場日報に特化した専用ページをご用意しています<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <div class="t-service-foot">
+                            <a href="private/index.html" class="t-link">民間企業様向けサービスを見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="t-service t-service--gov">
+                        <span class="t-service-label">For Government</span>
+                        <h3>自治体様向け</h3>
+                        <p class="t-service-target">自治体・公共団体さまへ。紙中心の業務を減らし、住民のための仕事に時間を使える環境をつくります。</p>
+                        <ul class="t-service-list">
+                            <li><i class="fas fa-check" aria-hidden="true"></i>住民対応・申請受付・庁内決裁のデジタル化</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i>防災・災害時の情報集約や進捗共有</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i>ペーパーレス化・LGWAN対応</li>
+                        </ul>
+                        <a href="public/index.html" class="t-service-note"><b>期間限定</b>kintone環境と伴走支援を無償提供する「自治体まるごとDXボックス」を実施中（2027年4月末まで）<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <div class="t-service-foot">
+                            <a href="public/index.html" class="t-link t-link--light">自治体様向けサービスを見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+
+        <!-- ==================== 私たちの強み ==================== -->
+        <section class="t-strength" aria-labelledby="strength-title">
+            <div class="t-strength-inner">
+                <div class="t-strength-photo">
+                    <img src="images/top/strength-field.jpg" alt="現場で測量機器を操作する興栄コンサルタントの技術者（後ろ姿）" width="1600" height="720" loading="lazy" decoding="async">
+                </div>
+                <div class="t-strength-body">
+                    <p class="t-eyebrow">Our Strengths</p>
+                    <h2 class="t-h2" id="strength-title">建設コンサルタントだから、<br>現場の業務がわかる。</h2>
+                    <ol class="t-strength-list">
+                        <li>
+                            <h3>建設・公共分野への理解 × kintoneの専門性</h3>
+                            <p>1959年創業の建設コンサルタントとして、測量・補償・建設コンサルタント業で国・県・市町村の公共事業に携わってきました。行政や現場の業務理解と、オフィシャルパートナーとしてのkintone専門性を併せ持ちます。</p>
+                        </li>
+                        <li>
+                            <h3>現場視点のコンサルティング</h3>
+                            <p>机上の理論ではなく、現場訪問によるヒアリングで実態を把握。本当に必要な機能を見極め、実際に運用できる仕組みを設計します。</p>
+                        </li>
+                        <li>
+                            <h3>導入後の継続支援</h3>
+                            <p>運用定着まで継続的に支援し、改善要望や追加開発にも柔軟に対応。月額プランやスポット支援など、状況に応じた体制をご用意しています。</p>
+                        </li>
+                    </ol>
+                    <a href="company/index.html" class="t-link t-link--light">会社概要を見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 導入事例 ==================== -->
+        <section class="t-section" aria-labelledby="cases-title">
+            <div class="t-container">
+                <div class="t-head t-head--row">
+                    <div>
+                        <p class="t-eyebrow">Case Studies</p>
+                        <h2 class="t-h2" id="cases-title">導入事例</h2>
+                    </div>
+                    <a href="cases/index.html" class="t-link">導入事例一覧を見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="t-cases">
+                    <a href="cases/kasugai/index.html" class="t-case">
+                        <div class="t-case-photo">
+                            <img src="images/top/case-kasugai.jpg" alt="春日井市社会福祉協議会の担当者" width="960" height="640" loading="lazy" decoding="async">
+                        </div>
+                        <div class="t-case-body">
+                            <div class="t-case-meta"><span>社会福祉</span><span>愛知県春日井市</span></div>
+                            <p class="t-case-org">社会福祉法人 春日井市社会福祉協議会</p>
+                            <h3>Excel管理の限界を突破。kintone導入で事務作業時間を半減</h3>
+                            <span class="t-link">事例を詳しく見る<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="cases/inuyama/index.html" class="t-case">
+                        <div class="t-case-photo">
+                            <img src="images/top/case-inuyama.jpg" alt="犬山市社会福祉協議会の担当者" width="960" height="640" loading="lazy" decoding="async">
+                        </div>
+                        <div class="t-case-body">
+                            <div class="t-case-meta"><span>社会福祉</span><span>愛知県犬山市</span></div>
+                            <p class="t-case-org">社会福祉法人 犬山市社会福祉協議会</p>
+                            <h3>脱Excelとペーパーレスで実現する「情報の見える化」と「地域福祉の深化」</h3>
+                            <span class="t-link">事例を詳しく見る<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ご支援の流れ ==================== -->
+        <section class="t-section t-section--tint t-section--compact" aria-labelledby="flow-title">
+            <div class="t-container">
+                <div class="t-head">
+                    <p class="t-eyebrow">Process</p>
+                    <h2 class="t-h2" id="flow-title">ご支援の流れ</h2>
+                </div>
+
+                <ol class="t-flow">
+                    <li>
+                        <div class="t-flow-head"><span class="t-flow-no">01</span><span class="t-flow-line" aria-hidden="true"></span></div>
+                        <h3>現状整理・課題分析</h3>
+                        <p>いまの業務の流れや帳票、Excelを拝見し、課題と改善の優先順位を整理します。</p>
+                    </li>
+                    <li>
+                        <div class="t-flow-head"><span class="t-flow-no">02</span><span class="t-flow-line" aria-hidden="true"></span></div>
+                        <h3>kintone導入・構築</h3>
+                        <p>優先度の高い業務からアプリを設計・構築。小さく始めて、段階的に広げていきます。</p>
+                    </li>
+                    <li>
+                        <div class="t-flow-head"><span class="t-flow-no">03</span><span class="t-flow-line" aria-hidden="true"></span></div>
+                        <h3>運用定着・内製化支援</h3>
+                        <p>運用しながらの改善や追加開発を伴走し、「自分たちで回せる」状態を一緒に目指します。</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ==================== 対応エリア・サポート体制 ==================== -->
+        <section class="t-section" aria-labelledby="area-title">
+            <div class="t-container t-area">
+                <div>
+                    <p class="t-eyebrow">Support Area</p>
+                    <h2 class="t-h2" id="area-title">対応エリア・<br>サポート体制</h2>
+                    <p class="t-lead">東海圏は&ldquo;直接訪問&rdquo;、遠方は&ldquo;全国オンライン&rdquo;。実際の帳票や業務の流れ、現場の空気は画面越しだけでは見えないため、東海圏のお客様にはできる限り現場へ伺います。</p>
+
+                    <ul class="t-area-list">
+                        <li>
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-car-side"></i></span>
+                            <div>
+                                <h3>愛知（名古屋）・岐阜・東海圏｜現場に直接伺います</h3>
+                                <p>帳票や作業の流れを実際に拝見し、対面で&ldquo;現場で使える&rdquo;kintoneに落とし込みます。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-video"></i></span>
+                            <div>
+                                <h3>その他の地域｜オンラインで全国どこでも</h3>
+                                <p>Web会議と画面共有で、東海圏と変わらない品質の導入・活用支援を提供します。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="t-icon" aria-hidden="true"><i class="fas fa-seedling"></i></span>
+                            <div>
+                                <h3>全エリア共通｜作って終わりにしない</h3>
+                                <p>内製化・定着まで長く並走し、「自分たちで回せる」状態を一緒に目指します。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="t-area-figure">
+                    <svg viewBox="0 0 520 448" role="img" aria-labelledby="area-fig-title">
+                        <title id="area-fig-title">対応エリアの図：岐阜本社を中心に、東海圏は訪問対応、全国はオンライン対応</title>
+                        <circle cx="260" cy="224" r="214" fill="#F3F6FA" stroke="#DCE3EC" stroke-width="1.5" stroke-dasharray="6 6"/>
+                        <circle cx="260" cy="224" r="138" fill="#E3ECF6"/>
+                        <circle cx="260" cy="224" r="62" fill="#0A3A6B"/>
+                        <text x="260" y="216" text-anchor="middle" fill="#FFCB05" font-size="13" font-weight="700" letter-spacing="2">HEAD OFFICE</text>
+                        <text x="260" y="240" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">岐阜本社</text>
+                        <text x="260" y="122" text-anchor="middle" fill="#0A3A6B" font-size="16" font-weight="700">東海圏｜訪問対応</text>
+                        <text x="260" y="330" text-anchor="middle" fill="#3A4656" font-size="13">愛知（名古屋）・岐阜 ほか</text>
+                        <text x="260" y="52" text-anchor="middle" fill="#1D5FA8" font-size="16" font-weight="700">全国｜オンライン対応</text>
+                        <text x="260" y="408" text-anchor="middle" fill="#667386" font-size="13">Web会議・画面共有で伴走</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== コラム ==================== -->
+        <section class="t-section t-section--tint" aria-labelledby="columns-title">
+            <div class="t-container">
+                <div class="t-columns t-columns--solo">
+                    <div class="t-columns-head">
+                        <h2 id="columns-title">コラム｜kintone活用・業務改善のヒント</h2>
+                        <a href="column/index.html" class="t-link">コラム一覧を見る<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="t-column-grid">
+                        <a href="column/kintone-business-improvement/index.html" class="t-column">
+                            <div class="t-column-thumb"><img src="images/column/column-business-improvement.png" alt="" loading="lazy" decoding="async"></div>
+                            <div>
+                                <span class="t-column-tag">kintone入門</span>
+                                <p class="t-column-title">kintone（キントーン）を使った業務改善を解説</p>
+                                <time datetime="2026-06-17">2026.06.17</time>
+                            </div>
+                        </a>
+                        <a href="column/kintone-approval-flow/index.html" class="t-column">
+                            <div class="t-column-thumb"><img src="images/column/column-approval-flow.png" alt="" loading="lazy" decoding="async"></div>
+                            <div>
+                                <span class="t-column-tag">kintone入門</span>
+                                <p class="t-column-title">kintone（キントーン）の承認フローとは？申請を順番に確認できる機能を解説</p>
+                                <time datetime="2026-05-14">2026.05.14</time>
+                            </div>
+                        </a>
+                        <a href="column/kintone-space/index.html" class="t-column">
+                            <div class="t-column-thumb"><img src="images/column/column-space.png" alt="" loading="lazy" decoding="async"></div>
+                            <div>
+                                <span class="t-column-tag">kintone入門</span>
+                                <p class="t-column-title">kintone（キントーン）のスペース機能とは？部署ごとにコミュニティを作れる便利機能を解説</p>
+                                <time datetime="2026-05-14">2026.05.14</time>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 最下部CTA・資料ダウンロード ==================== -->
+        <section class="t-cta" id="download" aria-labelledby="cta-title">
+            <div class="t-container t-cta-inner">
+                <div>
+                    <p class="t-eyebrow">Contact</p>
+                    <h2 class="t-h2" id="cta-title">まずは資料で<br>詳しくご紹介します</h2>
+                    <p class="t-cta-lead">サービス内容・料金プラン・導入の流れをまとめた資料を、無料でダウンロードいただけます。</p>
+                    <ul class="t-cta-points">
+                        <li><i class="fas fa-check" aria-hidden="true"></i>kintone導入支援サービスの全体像</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>料金プランと支援メニュー</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>導入から定着までの進め方</li>
+                    </ul>
+                    <div class="t-cta-consult">
+                        <p>業務課題のヒアリングから最適なプランのご提案まで、無料でご相談を承ります。まずは「話を聞くだけ」でもOK。愛知（名古屋）・岐阜エリアなら、直接お伺いします。</p>
+                        <a href="contact/index.html" class="t-btn t-btn--light"><i class="fas fa-comments" aria-hidden="true"></i>お問い合わせ・ご相談</a>
+                    </div>
+                </div>
+
+                <div class="t-form-card">
+                    <h3>kintone導入支援サービス カタログ</h3>
+                    <p>PDF形式｜必須項目は3つ。送信後すぐにダウンロードできます</p>
+
+                    <form class="t-form" id="downloadForm" name="catalog-download" novalidate>
+                        <div class="t-field">
+                            <label for="dl-name">お名前<span class="t-req">必須</span></label>
+                            <input type="text" id="dl-name" name="name" autocomplete="name" placeholder="例）山田 太郎" required aria-describedby="dl-name-error">
+                            <p class="t-error" id="dl-name-error" aria-live="polite"></p>
+                        </div>
+
+                        <div class="t-field">
+                            <label for="dl-company">企業名・団体名<span class="t-req">必須</span></label>
+                            <input type="text" id="dl-company" name="company" autocomplete="organization" placeholder="例）株式会社〇〇" required aria-describedby="dl-company-error">
+                            <p class="t-error" id="dl-company-error" aria-live="polite"></p>
+                        </div>
+
+                        <div class="t-field t-field--full">
+                            <label for="dl-email">メールアドレス<span class="t-req">必須</span></label>
+                            <input type="email" id="dl-email" name="email" autocomplete="email" inputmode="email" placeholder="例）name@example.co.jp" required aria-describedby="dl-email-error">
+                            <p class="t-error" id="dl-email-error" aria-live="polite"></p>
+                        </div>
+
+                        <div class="t-field">
+                            <label for="dl-department">部署名<span class="t-opt">任意</span></label>
+                            <input type="text" id="dl-department" name="department" placeholder="例）総務部">
+                        </div>
+
+                        <div class="t-field">
+                            <label for="dl-phone">電話番号<span class="t-opt">任意</span></label>
+                            <input type="tel" id="dl-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="例）058-000-0000">
+                        </div>
+
+                        <div class="t-consent-box">
+                            <p class="t-consent-purpose">ご入力いただいた情報は、資料のご提供および当社サービス・セミナー等のご案内に利用します。</p>
+                            <label for="dl-consent" class="t-consent">
+                                <input type="checkbox" id="dl-consent" name="consent" required aria-describedby="dl-consent-error">
+                                <span><span class="t-req t-req--lead">必須</span><a href="privacy/index.html" target="_blank" rel="noopener">プライバシーポリシー<i class="fas fa-up-right-from-square" aria-hidden="true"></i><span class="t-sr">（新しいタブで開きます）</span></a>と上記の利用目的に同意する</span>
+                            </label>
+                            <p class="t-error" id="dl-consent-error" aria-live="polite"></p>
+                        </div>
+
+                        <div class="t-form-submit">
+                            <button type="submit" class="t-btn t-btn--dl"><i class="fas fa-download" aria-hidden="true"></i>資料をダウンロード（無料）</button>
+                        </div>
+
+                        <div class="t-form-done" id="dl-done" role="status" hidden>
+                            <i class="fas fa-circle-check" aria-hidden="true"></i>
+                            <p>ダウンロードを開始しました。始まらない場合は<a href="downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf" download>こちら</a>から保存してください。</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <!-- ==================== フッター ==================== -->
     <footer class="footer">
         <div class="container">
@@ -1353,80 +627,97 @@
                     </p>
                 </div>
                 <nav class="footer-nav" aria-label="フッターナビゲーション">
-                    <a href="news/index.html">News</a>
-                    <div style="display: inline; margin: 0 10px; color: #999;">サービス内容：</div>
+                    <span class="footer-nav-label">サービス内容</span>
                     <a href="private/index.html">民間企業様向け</a>
+                    <a href="construction/index.html">建設業向け</a>
                     <a href="public/index.html">自治体様向け</a>
+                    <span class="footer-nav-label">メニュー</span>
                     <a href="cases/index.html">導入事例</a>
                     <a href="column/index.html">コラム</a>
                     <a href="events/index.html">イベント</a>
+                    <a href="news/index.html">News</a>
                     <a href="company/index.html">会社概要</a>
                     <a href="contact/index.html">お問い合わせ</a>
                     <a href="#download">資料ダウンロード</a>
-                <a href="privacy/index.html">プライバシーポリシー</a>
+                    <a href="privacy/index.html">プライバシーポリシー</a>
                 </nav>
             </div>
-            
+
             <div class="footer-bottom">
+                <p class="footer-trademark">「サイボウズ」「kintone」はサイボウズ株式会社の登録商標です。</p>
                 <p class="copyright">© 2026 株式会社興栄コンサルタント All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- ==================== JavaScript ==================== -->
     <script>
-        // スクロール時のフェードインアニメーション
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-        
         // ハンバーガーメニュー
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('.nav');
-        
+
         hamburger?.addEventListener('click', () => {
-            nav.classList.toggle('active');
+            const open = nav.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', String(open));
+            hamburger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
         });
-        
-        // スムーススクロール
+
+        // スムーススクロール（モバイルメニューは遷移時に閉じる）
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href !== '#' && href !== '') {
-                    e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
+                }
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    hamburger.setAttribute('aria-label', 'メニューを開く');
                 }
             });
         });
-        
+
         // 資料ダウンロード：kintone（Netlify Functions経由）にfire-and-forget送信 → 即PDF DL
         const downloadForm = document.getElementById('downloadForm');
+        const PDF_PATH = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
+
+        // 項目ごとにエラーメッセージを表示（ブラウザ標準の吹き出しより位置がわかりやすい）
+        function validateField(input) {
+            let message = '';
+            if (input.type === 'checkbox') {
+                if (!input.checked) message = '資料のお申し込みには同意が必要です';
+            } else if (input.validity.valueMissing) {
+                message = '入力してください';
+            } else if (input.validity.typeMismatch) {
+                message = 'メールアドレスの形式をご確認ください（例：name@example.co.jp）';
+            }
+            const box = input.closest('.t-field, .t-consent-box');
+            box.classList.toggle('is-error', message !== '');
+            input.setAttribute('aria-invalid', message ? 'true' : 'false');
+            box.querySelector('.t-error').textContent = message;
+            return message === '';
+        }
+
+        downloadForm?.querySelectorAll('[required]').forEach(input => {
+            // 入力途中では責めず、離れたとき／修正したときに判定する
+            input.addEventListener('blur', () => { if (input.type !== 'checkbox' && input.value) validateField(input); });
+            input.addEventListener('input', () => { if (input.getAttribute('aria-invalid') === 'true') validateField(input); });
+            input.addEventListener('change', () => { if (input.type === 'checkbox') validateField(input); });
+        });
+
         downloadForm?.addEventListener('submit', function(e) {
             e.preventDefault();
             // 必須項目（お名前・企業名・メール）と同意チェックを検証
-            if (!downloadForm.checkValidity()) {
-                downloadForm.reportValidity();
+            const invalid = [...downloadForm.querySelectorAll('[required]')].filter(input => !validateField(input));
+            if (invalid.length) {
+                invalid[0].focus();
                 return;
             }
+            const submitButton = downloadForm.querySelector('button[type="submit"]');
             const data = Object.fromEntries(new FormData(downloadForm).entries());
             data.catalog = 'kintone導入支援サービス カタログ';
 
@@ -1443,11 +734,16 @@
             }).catch(err => console.error('download log failed:', err));
 
             const link = document.createElement('a');
-            link.href = 'downloads/kintone導入支援サービス_株式会社興栄コンサルタント_v1.0.pdf';
+            link.href = PDF_PATH;
             link.download = '';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            // 完了表示。連打によるkintoneの重複登録を防ぐため、しばらくボタンを無効化
+            document.getElementById('dl-done').hidden = false;
+            submitButton.disabled = true;
+            setTimeout(() => { submitButton.disabled = false; }, 5000);
         });
     </script>
 </body>
