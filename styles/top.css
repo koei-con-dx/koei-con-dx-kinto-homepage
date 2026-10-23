@@ -386,9 +386,31 @@ body.page-top {
 }
 
 /* 幅広の画面はイラストが拡大され上側（空）が切れるため、上寄りに表示して手書きコピーの余白を確保 */
-@media (min-width: 1500px) {
+/* 1200px以上の画面：イラストを1440px幅のまま中央に固定し、
+   左右は空・机の色のグラデーションでつなぐ（拡大しすぎて右に偏るのを防ぐ） */
+@media (min-width: 1200px) {
+    .t-hero-bg {
+        background: linear-gradient(180deg, #DCE9F6 0%, #EEF4FA 52%, #F3F7FB 60%, #E8EDF3 64%, #DFE5EC 100%);
+    }
+
     .t-hero-bg img {
-        object-position: 72% 28%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1440px;
+        max-width: none;
+        /* モニターの絵をボタンから離すため、中央より60px右に置く */
+        transform: translateX(calc(-50% + 60px));
+        object-position: 72% 40%;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+        mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+    }
+}
+
+/* 手書き風コピーの右端を、中央のコンテンツ幅（＝モニターの絵の右端）に揃える */
+@media (min-width: 1200px) {
+    .t-hero .t-hero-hand {
+        right: calc(50% - 568px);
     }
 }
 
@@ -701,8 +723,8 @@ body.page-top {
     /* 3列のまま収めるため、アイコンを文字の上に置く */
 }
 
-/* 文字と絵を重ねると読みにくい幅では、文字→イラストの縦並びにする */
-@media (max-width: 960px) {
+/* 文字と絵を重ねると読みにくい幅（1199px以下）では、文字→イラストの縦並びにする */
+@media (max-width: 1199px) {
     .t-hero {
         flex-direction: column;
         align-items: stretch;
