@@ -1380,16 +1380,16 @@ body.page-top {
 .t-news-list .t-news-cat {
     font-size: 12px;
     font-weight: 700;
-    color: var(--t-blue);
-    border: 1px solid currentColor;
     border-radius: 4px;
-    padding: 1px 0;
+    padding: 2px 0;
     text-align: center;
 }
 
-.t-news-list .t-news-cat--event { color: #8A6400; }
-.t-news-list .t-news-cat--report { color: var(--t-muted); }
-.t-news-list .t-news-cat--column { color: var(--t-navy); }
+/* カテゴリ色は News 一覧ページ（styles/common.css の .news-category）と同じ */
+.t-news-list .t-news-cat--info { background: #54AD9B; color: #FFFFFF; }
+.t-news-list .t-news-cat--column { background: #4E80B4; color: #FFFFFF; }
+.t-news-list .t-news-cat--event { background: var(--badge-yellow); color: var(--t-navy-900); }
+.t-news-list .t-news-cat--report { background: #ECE6D1; color: #2E2F32; }
 
 .t-news-title {
     font-size: 15px;
