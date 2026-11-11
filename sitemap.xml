@@ -72,6 +72,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://koei-con-dx.jp/news/inuyama-disaster-drill-chronology/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://koei-con-dx.jp/news/prtimes-press-release/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
