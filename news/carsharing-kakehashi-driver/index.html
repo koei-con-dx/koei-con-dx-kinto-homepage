@@ -101,6 +101,7 @@
         }
         .photo-grid img {
             width: 100%;
+            height: auto;
             aspect-ratio: 4 / 3;
             object-fit: cover;
             border-radius: 10px;
@@ -108,8 +109,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         @media (max-width: 600px) {
-            .photo-grid { gap: 6px; }
-            .photo-grid img { border-radius: 6px; }
+            .photo-grid { grid-template-columns: 1fr; }
+            .photo-grid img { aspect-ratio: 16 / 10; }
         }
 
         /* 用語解説ボックス */
